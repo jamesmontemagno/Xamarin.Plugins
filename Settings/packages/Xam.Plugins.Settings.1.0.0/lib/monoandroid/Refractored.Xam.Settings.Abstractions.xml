@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Refractored.Xam.Settings.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="M:Refractored.Xam.Settings.Abstractions.ISettings.GetValueOrDefault``1(System.String,``0)">
+            <summary>
+            Gets the current value or the default that you specify.
+            </summary>
+            <typeparam name="T">Vaue of t (bool, int, float, long, string)</typeparam>
+            <param name="key">Key for settings</param>
+            <param name="defaultValue">default value if not set</param>
+            <returns>Value or default</returns>
+        </member>
+        <member name="M:Refractored.Xam.Settings.Abstractions.ISettings.AddOrUpdateValue(System.String,System.Object)">
+            <summary>
+            Adds or updates the value 
+            </summary>
+            <param name="key">Key for settting</param>
+            <param name="value">Value to set</param>
+            <returns>True of was added or updated and you need to save it.</returns>
+        </member>
+        <member name="M:Refractored.Xam.Settings.Abstractions.ISettings.Save">
+            <summary>
+            Saves any changes out.
+            </summary>
+        </member>
+    </members>
+</doc>

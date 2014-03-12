@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Refractored.Xam.Settings</name>
+    </assembly>
+    <members>
+        <member name="P:Refractored.Xam.Settings.CrossSettings.Current">
+            <summary>
+            The implementation of <see cref="!:IFileSystem"/> for the current platform
+            </summary>
+        </member>
+    </members>
+</doc>
