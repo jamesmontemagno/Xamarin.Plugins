@@ -1,5 +1,4 @@
-Xam.PCL Plugins for Xamarin PCL Projects
-===================
+## Xam.PCL Plugins for Xamarin PCL Projects
 
 ## What is this?
 This is my main repo for all Xam.PCL Plugins. These PCL plugins will allow you to add rich cross platform functionality to Xamarin + Windows Projects that use a PCL.
@@ -20,13 +19,13 @@ This is my main repo for all Xam.PCL Plugins. These PCL plugins will allow you t
 * Install into your PCL project and Client projects.
 * Open up Helpers/Settings.cs in your PCL for directions on how to use.
 
-## Upcoming PCL Plugins
+#### Upcoming PCL Plugins
 * ?
 
-## Contributors
+#### Contributors
 * [jamesmontemagno](https://github.com/jamesmontemagno)
 
 Thanks!
 
-## License
+#### License
 Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
