@@ -17,6 +17,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
+ * Original concept for Internal IoC came from: http://pclstorage.codeplex.com under Microsoft Public License (Ms-PL)
+ * 
  */
 
 using System;
