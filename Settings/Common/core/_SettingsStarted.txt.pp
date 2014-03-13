@@ -1,0 +1,1 @@
+Ensure that you install NuGet into PCL and see Helpers/Settings.cs

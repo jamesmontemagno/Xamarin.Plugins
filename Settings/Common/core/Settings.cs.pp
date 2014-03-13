@@ -1,4 +1,5 @@
 // Helpers/Settings.cs
+using Refractored.Xam.Settings;
 using Refractored.Xam.Settings.Abstractions;
 
 namespace $rootnamespace$.Helpers
