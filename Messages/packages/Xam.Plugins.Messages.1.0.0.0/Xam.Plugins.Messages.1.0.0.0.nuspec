@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+  <metadata minClientVersion="2.7.2">
+    <id>Xam.Plugins.Messages</id>
+    <version>1.0.0.0</version>
+    <title>Xam.PCL - Messages Plugin</title>
+    <authors>James Montemagno</authors>
+    <owners>James Montemagno</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+    <projectUrl>https://github.com/jamesmontemagno/Xam.PCLs</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Xam.PCL Message provides a consistent, cross platform message dialog plugin for Windows Phone, Windows Store, Xamarin.iOS, and Xamarin.Android when using a PCL.  This makes it easier to create cross-platform .NET apps and have cross platform messages that pop up to users.</description>
+    <summary>Cross platform messages (dialogs) for WP8, Win Store, Xamarin.Android and Xamarin.iOS with a PCL.</summary>
+    <tags>xamarin, pcl, xam.pcl, dialog, windows phone, winphone, wp8, winrt, android, ios, monoandroid, monodroid, monotouch</tags>
+  </metadata>
+</package>
