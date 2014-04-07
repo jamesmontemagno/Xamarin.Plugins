@@ -1,10 +1,11 @@
 ﻿
-using MonoTouch.UIKit;
+using Windows.UI.Popups;
 
 namespace Refractored.Xam.Messages
 {
   public class Messages
   {
+
     public Messages()
     {
 
@@ -12,8 +13,8 @@ namespace Refractored.Xam.Messages
 
     public void ShowMessage(string text)
     {
-      var uiAlert = new UIAlertView(string.Empty, text, null, "OK");
-      uiAlert.Show();
+      var dialog = new MessageDialog(text);
+      dialog.ShowAsync();
     }
   }
 }

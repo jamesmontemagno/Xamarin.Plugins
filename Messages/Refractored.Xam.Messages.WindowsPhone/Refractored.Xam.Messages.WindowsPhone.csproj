@@ -85,6 +85,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\Refractored.Xam.Messages\MessagesEx.cs">
+      <Link>MessagesEx.cs</Link>
+    </Compile>
     <Compile Include="Messages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

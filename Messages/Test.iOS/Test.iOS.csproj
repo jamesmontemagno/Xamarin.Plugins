@@ -106,7 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Refractored.Xam.Messages">
-      <HintPath>..\packages\Xam.Plugins.Messages.1.0.0.0\lib\monotouch\Refractored.Xam.Messages.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugins.Messages.1.0.0.0\lib\MonoTouch10\Refractored.Xam.Messages.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
