@@ -56,6 +56,8 @@ namespace Refractored.Xam.Settings
         {
           typeOf = Nullable.GetUnderlyingType(typeOf);
         }
+
+
         object value = null;
         var typeCode = Type.GetTypeCode(typeOf);
         switch (typeCode)
@@ -68,6 +70,9 @@ namespace Refractored.Xam.Settings
             break;
           case TypeCode.String:
             value = SharedPreferences.GetString(key, Convert.ToString(defaultValue));
+            break;
+          case TypeCode.Double:
+            value = SharedPreferences.GetDouble(key, Convert.ToDouble(defaultValue));
             break;
           case TypeCode.Int32:
             value = SharedPreferences.GetInt(key, Convert.ToInt32(defaultValue));
@@ -83,6 +88,8 @@ namespace Refractored.Xam.Settings
               value = new DateTime(ticks);
             break;
         }
+
+
 
         return null != value ? (T)value : defaultValue;
       }
