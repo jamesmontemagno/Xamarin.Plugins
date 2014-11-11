@@ -72,7 +72,7 @@ namespace Refractored.Xam.Settings
             value = SharedPreferences.GetString(key, Convert.ToString(defaultValue));
             break;
           case TypeCode.Double:
-            value = SharedPreferences.GetDouble(key, Convert.ToDouble(defaultValue));
+            value = SharedPreferences.GetLong(key, (long)Convert.ToDouble(defaultValue));
             break;
           case TypeCode.Int32:
             value = SharedPreferences.GetInt(key, Convert.ToInt32(defaultValue));
@@ -121,6 +121,9 @@ namespace Refractored.Xam.Settings
             break;
           case TypeCode.String:
             SharedPreferencesEditor.PutString(key, Convert.ToString(value));
+            break;
+          case TypeCode.Double:
+            SharedPreferencesEditor.PutLong(key, (long)Convert.ToDouble(value));
             break;
           case TypeCode.Int32:
             SharedPreferencesEditor.PutInt(key, Convert.ToInt32(value));
