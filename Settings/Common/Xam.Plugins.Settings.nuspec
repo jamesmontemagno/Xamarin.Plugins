@@ -7,11 +7,16 @@
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
        <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
-       <projectUrl>https://github.com/jamesmontemagno/Xam.PCLs</projectUrl>
+       <projectUrl>https://github.com/jamesmontemagno/Xam.PCL.Plugins</projectUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
          Xam.PCL Settings provides a consistent, cross platform settings plugin for Windows Phone  Silverlight 8/8.1, Windows Phone 8.1, Windows Store, Xamarin.iOS, and Xamarin.Android when using a PCL or any project and is Xamarin.Forms compatible.  This makes it easier to create cross-platform .NET apps and have cross platform settings. Manage and use all settings from one PCL and save natively on each platform. *This plugin stores settings natively on each platform and does NOT save them to Json. This allows you to use native functionality such as PreferenceActivity on Android.
 
+         Support for: Int, Int 64, Double, String, DateTime, Bool, Float
+         
+         You can always serialize and deserialize a string out if needed.
+         
+         1.4.0.0- Add iOS Unified (64 bit), Fix Doubles on Android.
          1.3.0.0- Add Windows Phone 8.1 Support with new PCL profile
        </description>
        <summary>Cross platform settings for Windows Phone Silverlight 8/8.1, Windows Phone 8.1, Windows Store, Xamarin.Android and Xamarin.iOS with a PCL or in a base project. This is also Xamarin.Forms compatible as well!</summary>
@@ -21,11 +26,11 @@
    </metadata>
    <files>
 <!--Core-->
-     <file src="..\Refractored.Xam.Settings\bin\Release\Refractored.Xam.Settings.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.dll" />
-     <file src="..\Refractored.Xam.Settings\bin\Release\Refractored.Xam.Settings.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.xml" />
-     <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.Abstractions.dll" />
-     <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.Abstractions.xml" />
-     <file src="core\Settings.cs.pp" target="content\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Helpers\Settings.cs.pp" />
+     <file src="..\Refractored.Xam.Settings\bin\Release\Refractored.Xam.Settings.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.Settings.dll" />
+     <file src="..\Refractored.Xam.Settings\bin\Release\Refractored.Xam.Settings.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.Settings.xml" />
+     <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.Settings.Abstractions.dll" />
+     <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.Settings.Abstractions.xml" />
+     <file src="core\Settings.cs.pp" target="content\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Helpers\Settings.cs.pp" />
 
 <!--Win Phone Silverlight-->
      <file src="..\Refractored.Xam.Settings.WindowsPhone\bin\Release\Refractored.Xam.Settings.dll" target="lib\wp8\Refractored.Xam.Settings.dll" />
@@ -62,6 +67,13 @@
      <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.dll" target="lib\MonoTouch10\Refractored.Xam.Settings.Abstractions.dll" />
      <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.xml" target="lib\MonoTouch10\Refractored.Xam.Settings.Abstractions.xml" />
      <file src="core\_SettingsStarted.txt.pp" target="content\MonoTouch10\Properties\_SettingsStarted.txt.pp" />
+
+     <!--Xamarin.iOS Unified-->
+     <file src="..\Refractored.Xam.Settings.iOSUnified\bin\Release\Refractored.Xam.Settings.dll" target="lib\Xamarin.iOS10\Refractored.Xam.Settings.dll" />
+     <file src="..\Refractored.Xam.Settings.iOSUnified\bin\Release\Refractored.Xam.Settings.xml" target="lib\Xamarin.iOS10\Refractored.Xam.Settings.xml" />
+     <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.dll" target="lib\Xamarin.iOS10\Refractored.Xam.Settings.Abstractions.dll" />
+     <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.xml" target="lib\Xamarin.iOS10\Refractored.Xam.Settings.Abstractions.xml" />
+     <file src="core\_SettingsStarted.txt.pp" target="content\Xamarin.iOS10\Properties\_SettingsStarted.txt.pp" />
 
 
    </files>
