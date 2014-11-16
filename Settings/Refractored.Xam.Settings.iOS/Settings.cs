@@ -79,10 +79,19 @@ namespace Refractored.Xam.Settings
             value = defaults.StringForKey(key);
             break;
           case TypeCode.Int32:
+#if __UNIFIED__
+            value = (Int32)defaults.IntForKey(key);
+#else
             value = defaults.IntForKey(key);
+#endif
             break;
           case TypeCode.Single:
-            value = defaults.FloatForKey(key);
+#if __UNIFIED__
+            value = (float)defaults.FloatForKey(key);
+#else
+             value = defaults.FloatForKey(key);
+#endif
+           
             break;
 
           case TypeCode.DateTime:
