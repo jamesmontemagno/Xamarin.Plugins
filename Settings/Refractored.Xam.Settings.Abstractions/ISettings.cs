@@ -23,6 +23,9 @@ using System;
 
 namespace Refractored.Xam.Settings.Abstractions
 {
+  /// <summary>
+  /// Main interface for settings
+  /// </summary>
   public interface ISettings
   {
     /// <summary>
@@ -45,6 +48,7 @@ namespace Refractored.Xam.Settings.Abstractions
     /// <summary>
     /// Saves any changes out.
     /// </summary>
+    [Obsolete("Save is deprecated and settings are automatically saved when AddOrUpdateValue is called.")]
     void Save();
   }
 }

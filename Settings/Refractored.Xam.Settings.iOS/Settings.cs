@@ -29,6 +29,9 @@ using Refractored.Xam.Settings.Abstractions;
 
 namespace Refractored.Xam.Settings
 {
+  /// <summary>
+  /// Main implementation for ISettings
+  /// </summary>
   public class Settings : ISettings
   {
 
@@ -58,12 +61,16 @@ namespace Refractored.Xam.Settings
         var defaults = NSUserDefaults.StandardUserDefaults;
         switch (typeCode)
         {
+          case TypeCode.Decimal:
+            var savedDecimal = defaults.StringForKey(key);
+            value = Convert.ToDecimal(savedDecimal);
+            break;
           case TypeCode.Boolean:
             value = defaults.BoolForKey(key);
             break;
           case TypeCode.Int64:
-            var savedval = defaults.StringForKey(key);
-            value = Convert.ToInt64(savedval);
+            var savedInt64 = defaults.StringForKey(key);
+            value = Convert.ToInt64(savedInt64);
             break;
           case TypeCode.Double:
             value = defaults.DoubleForKey(key);
@@ -85,6 +92,24 @@ namespace Refractored.Xam.Settings
               value = defaultValue;
             else
               value = new DateTime(ticks);
+            break;
+          default:
+
+            if (defaultValue is Guid)
+            {
+              var outGuid = Guid.Empty;
+              var savedGuid = defaults.StringForKey(key);
+              if(string.IsNullOrWhiteSpace(savedGuid))
+              {
+                value = outGuid;
+              }
+              else
+              {
+                Guid.TryParse(savedGuid, out outGuid);
+                value = outGuid;
+              }
+            }
+
             break;
         }
 
@@ -112,6 +137,9 @@ namespace Refractored.Xam.Settings
         var defaults = NSUserDefaults.StandardUserDefaults;
         switch (typeCode)
         {
+          case TypeCode.Decimal:
+            defaults.SetString(Convert.ToString(value), key);
+            break;
           case TypeCode.Boolean:
             defaults.SetBool(Convert.ToBoolean(value), key);
             break;
@@ -133,29 +161,35 @@ namespace Refractored.Xam.Settings
           case TypeCode.DateTime:
             defaults.SetString(Convert.ToString(((DateTime)(object)value).Ticks), key);
             break;
+          default:
+            if (value is Guid)
+            {
+              defaults.SetString(((Guid)value).ToString(), key);
+            }
+            break;
+        }
+        try
+        {
+            defaults.Synchronize();
+          
+        }
+        catch (Exception ex)
+        {
+          Console.WriteLine("Unable to save: " + key, " Message: " + ex.Message);
         }
       }
 
+     
       return true;
     }
 
     /// <summary>
     /// Saves all currents settings outs.
     /// </summary>
+    [Obsolete("Save is deprecated and settings are automatically saved when AddOrUpdateValue is called.")]
     public void Save()
     {
-      try
-      {
-        lock (locker)
-        {
-          var defaults = NSUserDefaults.StandardUserDefaults;
-          defaults.Synchronize();
-        }
-      }
-      catch (Exception)
-      {
-        //TODO: log stuff here
-      }
+     
     }
 
   }

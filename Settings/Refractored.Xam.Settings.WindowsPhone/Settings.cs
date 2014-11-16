@@ -1,8 +1,12 @@
 ﻿using System.IO.IsolatedStorage;
 using Refractored.Xam.Settings.Abstractions;
+using System;
 
 namespace Refractored.Xam.Settings
 {
+  /// <summary>
+  /// Main settings implementation
+  /// </summary>
   public class Settings : ISettings
   {
     static IsolatedStorageSettings IsoSettings { get { return IsolatedStorageSettings.ApplicationSettings; } }
@@ -67,18 +71,23 @@ namespace Refractored.Xam.Settings
         }
       }
 
+      if(valueChanged)
+      {
+        lock (locker)
+        {
+          IsoSettings.Save();
+        }
+      }
+
       return valueChanged;
     }
 
     /// <summary>
     /// Saves any changes out.
     /// </summary>
+    [Obsolete("Save is deprecated and settings are automatically saved when AddOrUpdateValue is called.")]
     public void Save()
     {
-      lock (locker)
-      {
-        IsoSettings.Save();
-      }
     }
 
   }

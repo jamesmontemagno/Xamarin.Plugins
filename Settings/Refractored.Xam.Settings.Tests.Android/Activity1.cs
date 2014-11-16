@@ -30,8 +30,8 @@ namespace Refractored.Xam.Settings.Tests.Android
         button.Text = string.Format("{0} clicks!", count++);
       };
 
-      Portable.Helpers.Settings.GeneralSettings = "Settings stuff";
-      button.Text = Portable.Helpers.Settings.GeneralSettings;
+      Portable.Helpers.TestSettings.StringSetting = "Settings stuff";
+      button.Text = Portable.Helpers.TestSettings.StringSetting;
 
     }
   }

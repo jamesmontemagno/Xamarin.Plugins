@@ -33,20 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Helpers\TestSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Reference Include="Refractored.Xam.Settings">
-      <HintPath>..\packages\Xam.Plugins.Settings.1.0.0\lib\portable-net45+wp8+win8+monoandroid+monotouch\Refractored.Xam.Settings.dll</HintPath>
-    </Reference>
-    <Reference Include="Refractored.Xam.Settings.Abstractions">
-      <HintPath>..\packages\Xam.Plugins.Settings.1.0.0\lib\portable-net45+wp8+win8+monoandroid+monotouch\Refractored.Xam.Settings.Abstractions.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\Refractored.Xam.Settings.Abstractions\Refractored.Xam.Settings.Abstractions.csproj">
+      <Project>{d12d6afa-0696-4177-9c85-ec576277ef8e}</Project>
+      <Name>Refractored.Xam.Settings.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Refractored.Xam.Settings\Refractored.Xam.Settings.csproj">
+      <Project>{747706f4-ecbf-4d50-8d72-b0ddcc18395c}</Project>
+      <Name>Refractored.Xam.Settings</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

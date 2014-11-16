@@ -42,12 +42,6 @@
   <ItemGroup>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
-    <Reference Include="Refractored.Xam.Settings">
-      <HintPath>..\packages\Xam.Plugins.Settings.1.0.0\lib\monoandroid\Refractored.Xam.Settings.dll</HintPath>
-    </Reference>
-    <Reference Include="Refractored.Xam.Settings.Abstractions">
-      <HintPath>..\packages\Xam.Plugins.Settings.1.0.0\lib\monoandroid\Refractored.Xam.Settings.Abstractions.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,12 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity1.cs" />
-    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
@@ -77,6 +69,14 @@
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Refractored.Xam.Settings.Abstractions\Refractored.Xam.Settings.Abstractions.csproj">
+      <Project>{d12d6afa-0696-4177-9c85-ec576277ef8e}</Project>
+      <Name>Refractored.Xam.Settings.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Refractored.Xam.Settings.Android\Refractored.Xam.Settings.Android.csproj">
+      <Project>{91b25a78-62c8-41aa-8d22-da326a5ea64d}</Project>
+      <Name>Refractored.Xam.Settings.Android</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Refractored.Xam.Settings.Tests.Portable\Refractored.Xam.Settings.Tests.Portable.csproj">
       <Project>{2961bec8-6e97-4943-af17-491e25309619}</Project>
       <Name>Refractored.Xam.Settings.Tests.Portable</Name>

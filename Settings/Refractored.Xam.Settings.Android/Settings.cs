@@ -27,12 +27,18 @@ using Refractored.Xam.Settings.Abstractions;
 
 namespace Refractored.Xam.Settings
 {
+  /// <summary>
+  /// Main Implementation for ISettings
+  /// </summary>
   public class Settings : ISettings
   {
     private static ISharedPreferences SharedPreferences { get; set; }
     private static ISharedPreferencesEditor SharedPreferencesEditor { get; set; }
     private readonly object locker = new object();
 
+    /// <summary>
+    /// Main Constructor
+    /// </summary>
     public Settings()
     {
       SharedPreferences = PreferenceManager.GetDefaultSharedPreferences(Application.Context);
@@ -62,6 +68,9 @@ namespace Refractored.Xam.Settings
         var typeCode = Type.GetTypeCode(typeOf);
         switch (typeCode)
         {
+          case TypeCode.Decimal:
+            value = SharedPreferences.GetLong(key, Convert.ToInt64(defaultValue));
+            break;
           case TypeCode.Boolean:
             value = SharedPreferences.GetBoolean(key, Convert.ToBoolean(defaultValue));
             break;
@@ -72,7 +81,7 @@ namespace Refractored.Xam.Settings
             value = SharedPreferences.GetString(key, Convert.ToString(defaultValue));
             break;
           case TypeCode.Double:
-            value = SharedPreferences.GetLong(key, (long)Convert.ToDouble(defaultValue));
+            value = SharedPreferences.GetLong(key, Convert.ToInt64(defaultValue));
             break;
           case TypeCode.Int32:
             value = SharedPreferences.GetInt(key, Convert.ToInt32(defaultValue));
@@ -86,6 +95,16 @@ namespace Refractored.Xam.Settings
               value = defaultValue;
             else
               value = new DateTime(ticks);
+            break;
+          default:
+
+            if(defaultValue is Guid)
+            {
+              var outGuid = Guid.Empty;
+              Guid.TryParse(SharedPreferences.GetString(key, Guid.Empty.ToString()), out outGuid);
+              value = outGuid;
+            }
+
             break;
         }
 
@@ -113,6 +132,9 @@ namespace Refractored.Xam.Settings
         var typeCode = Type.GetTypeCode(typeOf);
         switch (typeCode)
         {
+          case TypeCode.Decimal:
+            SharedPreferencesEditor.PutLong(key, Convert.ToInt64(value));
+            break;
           case TypeCode.Boolean:
             SharedPreferencesEditor.PutBoolean(key, Convert.ToBoolean(value));
             break;
@@ -134,21 +156,29 @@ namespace Refractored.Xam.Settings
           case TypeCode.DateTime:
             SharedPreferencesEditor.PutLong(key, ((DateTime)(object)value).Ticks);
             break;
+          default:
+            if(value is Guid)
+            {
+              SharedPreferencesEditor.PutString(key, ((Guid)value).ToString());
+            }
+            break;
         }
       }
 
+      lock (locker)
+      {
+        SharedPreferencesEditor.Commit();
+      }
       return true;
     }
 
     /// <summary>
     /// Saves out all current settings
     /// </summary>
+    [Obsolete("Save is deprecated and settings are automatically saved when AddOrUpdateValue is called.")]
     public void Save()
     {
-      lock (locker)
-      {
-        SharedPreferencesEditor.Commit();
-      }
+      
     }
 
   }

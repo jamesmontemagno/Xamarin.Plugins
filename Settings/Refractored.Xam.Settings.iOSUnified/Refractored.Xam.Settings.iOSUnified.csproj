@@ -43,6 +43,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Refractored.Xam.Settings.Abstractions\Refractored.Xam.Settings.Abstractions.csproj">
+      <Project>{d12d6afa-0696-4177-9c85-ec576277ef8e}</Project>
+      <Name>Refractored.Xam.Settings.Abstractions</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

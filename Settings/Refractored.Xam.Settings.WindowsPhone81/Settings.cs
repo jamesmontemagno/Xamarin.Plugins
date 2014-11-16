@@ -21,9 +21,13 @@
 
 using Windows.Storage;
 using Refractored.Xam.Settings.Abstractions;
+using System;
 
 namespace Refractored.Xam.Settings
 {
+  /// <summary>
+  /// Main ISettings Implementation
+  /// </summary>
   public class Settings : ISettings
   {
     private static ApplicationDataContainer AppSettings
@@ -98,6 +102,7 @@ namespace Refractored.Xam.Settings
     /// <summary>
     /// Saves any changes out.
     /// </summary>
+    [Obsolete("Save is deprecated and settings are automatically saved when AddOrUpdateValue is called.")]
     public void Save()
     {
       //nothing to do it is automatic

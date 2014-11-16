@@ -26,11 +26,16 @@ using Refractored.Xam.Settings.Abstractions;
 
 namespace Refractored.Xam.Settings
 {
+  /// <summary>
+  /// Cross Platform settings
+  /// </summary>
     public static class CrossSettings
     {
       static Lazy<ISettings> settings = new Lazy<ISettings>(() => CreateSettings(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
 
-      
+      /// <summary>
+      /// Current settings to use
+      /// </summary>
       public static ISettings Current
       {
         get
