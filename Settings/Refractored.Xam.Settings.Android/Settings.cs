@@ -69,19 +69,19 @@ namespace Refractored.Xam.Settings
         switch (typeCode)
         {
           case TypeCode.Decimal:
-            value = SharedPreferences.GetLong(key, Convert.ToInt64(defaultValue));
+            value = (decimal)SharedPreferences.GetLong(key, (long)Convert.ToDecimal(defaultValue));
             break;
           case TypeCode.Boolean:
             value = SharedPreferences.GetBoolean(key, Convert.ToBoolean(defaultValue));
             break;
           case TypeCode.Int64:
-            value = SharedPreferences.GetLong(key, Convert.ToInt64(defaultValue));
+            value = (Int64)SharedPreferences.GetLong(key, (long)Convert.ToInt64(defaultValue));
             break;
           case TypeCode.String:
             value = SharedPreferences.GetString(key, Convert.ToString(defaultValue));
             break;
           case TypeCode.Double:
-            value = SharedPreferences.GetLong(key, Convert.ToInt64(defaultValue));
+            value = (double)SharedPreferences.GetLong(key, (long)Convert.ToDouble(defaultValue));
             break;
           case TypeCode.Int32:
             value = SharedPreferences.GetInt(key, Convert.ToInt32(defaultValue));
@@ -133,13 +133,13 @@ namespace Refractored.Xam.Settings
         switch (typeCode)
         {
           case TypeCode.Decimal:
-            SharedPreferencesEditor.PutLong(key, Convert.ToInt64(value));
+            SharedPreferencesEditor.PutLong(key, (long)Convert.ToDecimal(value));
             break;
           case TypeCode.Boolean:
             SharedPreferencesEditor.PutBoolean(key, Convert.ToBoolean(value));
             break;
           case TypeCode.Int64:
-            SharedPreferencesEditor.PutLong(key, Convert.ToInt64(value));
+            SharedPreferencesEditor.PutLong(key, (long)Convert.ToInt64(value));
             break;
           case TypeCode.String:
             SharedPreferencesEditor.PutString(key, Convert.ToString(value));

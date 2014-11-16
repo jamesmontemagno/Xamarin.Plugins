@@ -43,7 +43,7 @@ namespace Refractored.Xam.Settings.Tests.Portable.Helpers
     {
       get
       {
-        return AppSettings.GetValueOrDefault("decimal_setting", 0);
+        return AppSettings.GetValueOrDefault("decimal_setting", (decimal)0);
       }
       set
       {
@@ -56,7 +56,7 @@ namespace Refractored.Xam.Settings.Tests.Portable.Helpers
     {
       get
       {
-        return AppSettings.GetValueOrDefault("int_setting", 0);
+        return AppSettings.GetValueOrDefault("int_setting", (int)0);
       }
       set
       {
@@ -69,7 +69,7 @@ namespace Refractored.Xam.Settings.Tests.Portable.Helpers
     {
       get
       {
-        return AppSettings.GetValueOrDefault("float_setting", 0);
+        return AppSettings.GetValueOrDefault("float_setting", (float)0);
       }
       set
       {
@@ -82,7 +82,7 @@ namespace Refractored.Xam.Settings.Tests.Portable.Helpers
     {
       get
       {
-        return AppSettings.GetValueOrDefault("int64_setting", 0);
+        return AppSettings.GetValueOrDefault("int64_setting", (Int64)0);
       }
       set
       {
@@ -95,7 +95,7 @@ namespace Refractored.Xam.Settings.Tests.Portable.Helpers
     {
       get
       {
-        return AppSettings.GetValueOrDefault("int32_setting", 0);
+        return AppSettings.GetValueOrDefault("int32_setting", (Int32)0);
       }
       set
       {
@@ -121,7 +121,7 @@ namespace Refractored.Xam.Settings.Tests.Portable.Helpers
     {
       get
       {
-        return AppSettings.GetValueOrDefault("double_setting", 0);
+        return AppSettings.GetValueOrDefault("double_setting", (double)0);
       }
       set
       {
