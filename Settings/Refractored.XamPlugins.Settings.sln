@@ -42,6 +42,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Common\core\_SettingsStarted.txt.pp = Common\core\_SettingsStarted.txt.pp
 		Common\core\Settings.cs.pp = Common\core\Settings.cs.pp
+		Common\Xam.Plugins.Settings.nuspec = Common\Xam.Plugins.Settings.nuspec
 	EndProjectSection
 EndProject
 Global
