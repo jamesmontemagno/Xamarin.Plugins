@@ -12,7 +12,7 @@
 This NuGet takes a different approach from Settings. I simply created 2 classes:
 
 * Messages.cs
-* MessagesEX.cs
+* MessagesEx.cs
 
 Inside of Messages.cs I have stubbed out a method to pop up a message box. I then created the same Message.cs file in each platform specific implementation.
 
