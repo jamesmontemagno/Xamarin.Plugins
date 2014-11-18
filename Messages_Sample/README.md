@@ -9,7 +9,7 @@
 
 ### NuGet Creation & Packaging
 
-This NuGet takes a different approach then Settings. I simply created 2 classes:
+This NuGet takes a different approach from Settings. I simply created 2 classes:
 
 * Messages.cs
 * MessagesEX.cs
