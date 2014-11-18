@@ -118,6 +118,10 @@ namespace Refractored.Xam.Settings
                 value = outGuid;
               }
             }
+            else
+            {
+              throw new ArgumentException(string.Format("Value of type {0} is not supported.", value.GetType().Name));
+            }
 
             break;
         }
@@ -174,6 +178,10 @@ namespace Refractored.Xam.Settings
             if (value is Guid)
             {
               defaults.SetString(((Guid)value).ToString(), key);
+            }
+            else
+            {
+              throw new ArgumentException(string.Format("Value of type {0} is not supported.", value.GetType().Name));
             }
             break;
         }

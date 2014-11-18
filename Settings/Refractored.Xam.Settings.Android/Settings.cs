@@ -104,6 +104,10 @@ namespace Refractored.Xam.Settings
               Guid.TryParse(SharedPreferences.GetString(key, Guid.Empty.ToString()), out outGuid);
               value = outGuid;
             }
+            else
+            {
+              throw new ArgumentException(string.Format("Value of type {0} is not supported.", value.GetType().Name));
+            }
 
             break;
         }
@@ -160,6 +164,10 @@ namespace Refractored.Xam.Settings
             if(value is Guid)
             {
               SharedPreferencesEditor.PutString(key, ((Guid)value).ToString());
+            }
+            else
+            {
+              throw new ArgumentException(string.Format("Value of type {0} is not supported.", value.GetType().Name));
             }
             break;
         }
