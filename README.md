@@ -50,7 +50,7 @@ PCL:
 #### Important
 
 * Ensure namespaces are the same
-* Ensure that Assembly Names are the same. You will see all of mine are called Refractored.Xam.Messages.dll in all projects!S
+* Ensure that Assembly Names are the same. You will see all of mine are called Refractored.Xam.Messages.dll in all projects!
 
 
 #### Upcoming PCL Plugins
