@@ -46,9 +46,45 @@ namespace Refractored.Xam.Settings
     /// <returns>Value or default</returns>
     public T GetValueOrDefault<T>(string key, T defaultValue = default(T))
     {
-      T value;
+      object value;
       lock (m_Locker)
       {
+        if(typeof(T) == typeof(decimal))
+        {
+          string savedDecimal;
+          // If the key exists, retrieve the value.
+          if (AppSettings.Values.ContainsKey(key))
+          {
+            savedDecimal = (string)AppSettings.Values[key];
+          }
+          // Otherwise, use the default value.
+          else
+          {
+            savedDecimal = defaultValue.ToString();
+          }
+
+          value = Convert.ToDecimal(savedDecimal);
+
+          return null != value ? (T)value : defaultValue;
+        }
+        else if (typeof(T) == typeof(DateTime))
+        {
+          string savedTime = null;
+          // If the key exists, retrieve the value.
+          if (AppSettings.Values.ContainsKey(key))
+          {
+            savedTime = (string)AppSettings.Values[key];
+          }
+
+          var ticks = string.IsNullOrWhiteSpace(savedTime) ? -1 : Convert.ToInt64(savedTime);
+          if (ticks == -1)
+            value = defaultValue;
+          else
+            value = new DateTime(ticks);
+
+          return null != value ? (T)value : defaultValue;
+        }
+       
         // If the key exists, retrieve the value.
         if (AppSettings.Values.ContainsKey(key))
         {
@@ -61,7 +97,7 @@ namespace Refractored.Xam.Settings
         }
       }
 
-      return value;
+      return null != value ? (T)value : defaultValue;
     }
 
     /// <summary>
@@ -75,6 +111,17 @@ namespace Refractored.Xam.Settings
       bool valueChanged = false;
       lock (m_Locker)
       {
+
+        if (value is decimal)
+        {
+          return AddOrUpdateValue(key, Convert.ToString(value));
+        }
+        else if (value is DateTime)
+        {
+          return AddOrUpdateValue(key, Convert.ToString(((DateTime)value).Ticks));
+        }
+
+
         // If the key exists
         if (AppSettings.Values.ContainsKey(key))
         {
