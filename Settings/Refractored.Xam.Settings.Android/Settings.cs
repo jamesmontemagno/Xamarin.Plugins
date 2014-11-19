@@ -69,25 +69,25 @@ namespace Refractored.Xam.Settings
         switch (typeCode)
         {
           case TypeCode.Decimal:
-            value = (decimal)SharedPreferences.GetLong(key, (long)Convert.ToDecimal(defaultValue));
+            value = (decimal)SharedPreferences.GetLong(key, (long)Convert.ToDecimal(defaultValue, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.Boolean:
             value = SharedPreferences.GetBoolean(key, Convert.ToBoolean(defaultValue));
             break;
           case TypeCode.Int64:
-            value = (Int64)SharedPreferences.GetLong(key, (long)Convert.ToInt64(defaultValue));
+            value = (Int64)SharedPreferences.GetLong(key, (long)Convert.ToInt64(defaultValue, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.String:
             value = SharedPreferences.GetString(key, Convert.ToString(defaultValue));
             break;
           case TypeCode.Double:
-            value = (double)SharedPreferences.GetLong(key, (long)Convert.ToDouble(defaultValue));
+            value = (double)SharedPreferences.GetLong(key, (long)Convert.ToDouble(defaultValue, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.Int32:
-            value = SharedPreferences.GetInt(key, Convert.ToInt32(defaultValue));
+            value = SharedPreferences.GetInt(key, Convert.ToInt32(defaultValue, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.Single:
-            value = SharedPreferences.GetFloat(key, Convert.ToSingle(defaultValue));
+            value = SharedPreferences.GetFloat(key, Convert.ToSingle(defaultValue, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.DateTime:
             var ticks = SharedPreferences.GetLong(key, -1);
@@ -137,25 +137,25 @@ namespace Refractored.Xam.Settings
         switch (typeCode)
         {
           case TypeCode.Decimal:
-            SharedPreferencesEditor.PutLong(key, (long)Convert.ToDecimal(value));
+            SharedPreferencesEditor.PutLong(key, (long)Convert.ToDecimal(value, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.Boolean:
             SharedPreferencesEditor.PutBoolean(key, Convert.ToBoolean(value));
             break;
           case TypeCode.Int64:
-            SharedPreferencesEditor.PutLong(key, (long)Convert.ToInt64(value));
+            SharedPreferencesEditor.PutLong(key, (long)Convert.ToInt64(value, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.String:
             SharedPreferencesEditor.PutString(key, Convert.ToString(value));
             break;
           case TypeCode.Double:
-            SharedPreferencesEditor.PutLong(key, (long)Convert.ToDouble(value));
+            SharedPreferencesEditor.PutLong(key, (long)Convert.ToDouble(value, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.Int32:
-            SharedPreferencesEditor.PutInt(key, Convert.ToInt32(value));
+            SharedPreferencesEditor.PutInt(key, Convert.ToInt32(value, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.Single:
-            SharedPreferencesEditor.PutFloat(key, Convert.ToSingle(value));
+            SharedPreferencesEditor.PutFloat(key, Convert.ToSingle(value, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.DateTime:
             SharedPreferencesEditor.PutLong(key, ((DateTime)(object)value).Ticks);

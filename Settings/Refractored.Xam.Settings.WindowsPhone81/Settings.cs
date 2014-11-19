@@ -63,7 +63,7 @@ namespace Refractored.Xam.Settings
             savedDecimal = defaultValue.ToString();
           }
 
-          value = Convert.ToDecimal(savedDecimal);
+          value = Convert.ToDecimal(savedDecimal, System.Globalization.CultureInfo.InvariantCulture);
 
           return null != value ? (T)value : defaultValue;
         }
@@ -76,7 +76,7 @@ namespace Refractored.Xam.Settings
             savedTime = (string)AppSettings.Values[key];
           }
 
-          var ticks = string.IsNullOrWhiteSpace(savedTime) ? -1 : Convert.ToInt64(savedTime);
+          var ticks = string.IsNullOrWhiteSpace(savedTime) ? -1 : Convert.ToInt64(savedTime, System.Globalization.CultureInfo.InvariantCulture);
           if (ticks == -1)
             value = defaultValue;
           else
@@ -114,11 +114,11 @@ namespace Refractored.Xam.Settings
 
         if (value is decimal)
         {
-          return AddOrUpdateValue(key, Convert.ToString(value));
+          return AddOrUpdateValue(key, Convert.ToString((decimal)value, System.Globalization.CultureInfo.InvariantCulture));
         }
         else if (value is DateTime)
         {
-          return AddOrUpdateValue(key, Convert.ToString(((DateTime)value).Ticks));
+          return AddOrUpdateValue(key, Convert.ToString(((DateTime)value).Ticks, System.Globalization.CultureInfo.InvariantCulture));
         }
 
 

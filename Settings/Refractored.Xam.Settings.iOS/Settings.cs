@@ -63,14 +63,14 @@ namespace Refractored.Xam.Settings
         {
           case TypeCode.Decimal:
             var savedDecimal = defaults.StringForKey(key);
-            value = Convert.ToDecimal(savedDecimal);
+            value = Convert.ToDecimal(savedDecimal, System.Globalization.CultureInfo.InvariantCulture);
             break;
           case TypeCode.Boolean:
             value = defaults.BoolForKey(key);
             break;
           case TypeCode.Int64:
             var savedInt64 = defaults.StringForKey(key);
-            value = Convert.ToInt64(savedInt64);
+            value = Convert.ToInt64(savedInt64, System.Globalization.CultureInfo.InvariantCulture);
             break;
           case TypeCode.Double:
             value = defaults.DoubleForKey(key);
@@ -96,7 +96,7 @@ namespace Refractored.Xam.Settings
 
           case TypeCode.DateTime:
             var savedTime = defaults.StringForKey(key);
-            var ticks = string.IsNullOrWhiteSpace(savedTime) ? -1 : Convert.ToInt64(savedTime);
+            var ticks = string.IsNullOrWhiteSpace(savedTime) ? -1 : Convert.ToInt64(savedTime, System.Globalization.CultureInfo.InvariantCulture);
             if (ticks == -1)
               value = defaultValue;
             else
