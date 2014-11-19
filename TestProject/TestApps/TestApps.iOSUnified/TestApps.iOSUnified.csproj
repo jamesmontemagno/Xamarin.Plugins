@@ -104,13 +104,13 @@
     <BundleResource Include="Resources\Default-568h%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Refractored.Xam.Settings, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Refractored.Xam.Settings, Version=1.4.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xam.Plugins.Settings.1.4.0.0\lib\Xamarin.iOS10\Refractored.Xam.Settings.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugins.Settings.1.4.0.1\lib\Xamarin.iOS10\Refractored.Xam.Settings.dll</HintPath>
     </Reference>
-    <Reference Include="Refractored.Xam.Settings.Abstractions, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Refractored.Xam.Settings.Abstractions, Version=1.4.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xam.Plugins.Settings.1.4.0.0\lib\Xamarin.iOS10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugins.Settings.1.4.0.1\lib\Xamarin.iOS10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />

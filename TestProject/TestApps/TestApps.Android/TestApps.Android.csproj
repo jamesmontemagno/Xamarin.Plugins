@@ -44,10 +44,10 @@
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="Refractored.Xam.Settings">
-      <HintPath>..\packages\Xam.Plugins.Settings.1.4.0.0\lib\MonoAndroid10\Refractored.Xam.Settings.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugins.Settings.1.4.0.1\lib\MonoAndroid10\Refractored.Xam.Settings.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.Settings.Abstractions">
-      <HintPath>..\packages\Xam.Plugins.Settings.1.4.0.0\lib\MonoAndroid10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugins.Settings.1.4.0.1\lib\MonoAndroid10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
