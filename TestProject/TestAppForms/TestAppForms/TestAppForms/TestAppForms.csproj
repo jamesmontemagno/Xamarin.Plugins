@@ -44,6 +44,9 @@
     <Reference Include="Refractored.Xam.TTS.Abstractions">
       <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.TTS.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Refractored.Xam.Vibrate.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugins.Forms.Vibrate.1.0.0.0\lib\portable-net45+wp8+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Vibrate.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core">
       <HintPath>..\..\packages\Xamarin.Forms.1.2.3.6257\lib\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>

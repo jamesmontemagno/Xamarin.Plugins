@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+   <metadata minClientVersion="2.8.3">
+       <id>Xam.Plugins.Forms.Vibrate</id>
+       <version>1.0.0.0</version>
+       <title>Xamarin.Plugins.Forms: Vibrate</title>
+       <authors>James Montemagno</authors>
+       <owners>James Montemagno</owners>
+       <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
+       <projectUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/Vibrate</projectUrl>
+       <requireLicenseAcceptance>false</requireLicenseAcceptance>
+       <description>
+          Xamarin.Forms plugin to vibrate your device.
+       </description>
+       <summary>Xamarin.Forms plugin to vibrate your devices. Ensure you call Vibrate.Init(); in each project. Read the full documenation on the projects page.</summary>
+       <tags>xamarin, xamarin.forms, android, ios, windows phone, vibrate</tags>
+       <dependencies>
+         <dependency id="Xamarin.Forms" version="1.2.3.6257" />
+       </dependencies>
+   </metadata>
+   <files>
+     <!--Core-->
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.dll" target="lib\portable-net45+wp8+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Vibrate.Abstractions.dll" />
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.xml" target="lib\portable-net45+wp8+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Vibrate.Abstractions.xml" />
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.pdb" target="lib\portable-net45+wp8+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Vibrate.Abstractions.pdb" />
+
+     <!--Win Phone-->
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.dll" target="lib\wp8\Refractored.Xam.Vibrate.Abstractions.dll" />
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.xml" target="lib\wp8\Refractored.Xam.Vibrate.Abstractions.xml" />
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.xml" target="lib\wp8\Refractored.Xam.Vibrate.Abstractions.pdb" />
+     <file src="..\Refractored.Xam.Forms.Vibrate.WinPhone\bin\Release\Refractored.Xam.Forms.Vibrate.WinPhone.dll" target="lib\wp8\Refractored.Xam.Forms.Vibrate.WinPhone.dll" />
+     <file src="..\Refractored.Xam.Forms.Vibrate.WinPhone\bin\Release\Refractored.Xam.Forms.Vibrate.WinPhone.xml" target="lib\wp8\Refractored.Xam.Forms.Vibrate.WinPhone.xml" />
+     <file src="..\Refractored.Xam.Forms.Vibrate.WinPhone\bin\Release\Refractored.Xam.Forms.Vibrate.WinPhone.xml" target="lib\wp8\Refractored.Xam.Forms.Vibrate.WinPhone.pdb" />
+
+     <!--Xamarin.Android-->
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.dll" target="lib\MonoAndroid10\Refractored.Xam.Vibrate.Abstractions.dll" />
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.xml" target="lib\MonoAndroid10\Refractored.Xam.Vibrate.Abstractions.xml" />
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.pdb" target="lib\MonoAndroid10\Refractored.Xam.Vibrate.Abstractions.pdb" />
+     <file src="..\Refractored.Xam.Forms.Vibrate.Android\bin\Release\Refractored.Xam.Forms.Vibrate.Droid.dll" target="lib\MonoAndroid10\Refractored.Xam.Forms.Vibrate.Droid.dll" />
+     <file src="..\Refractored.Xam.Forms.Vibrate.Android\bin\Release\Refractored.Xam.Forms.Vibrate.Droid.xml" target="lib\MonoAndroid10\Refractored.Xam.Forms.Vibrate.Droid.xml" />
+     <file src="..\Refractored.Xam.Forms.Vibrate.Android\bin\Release\Refractored.Xam.Forms.Vibrate.Droid.xml" target="lib\MonoAndroid10\Refractored.Xam.Forms.Vibrate.Droid.pdb" />
+
+     <!--Xamarin.iOS-->
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.dll" target="lib\MonoTouch10\Refractored.Xam.Vibrate.Abstractions.dll" />
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.xml" target="lib\MonoTouch10\Refractored.Xam.Vibrate.Abstractions.xml" />
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.pdb" target="lib\MonoTouch10\Refractored.Xam.Vibrate.Abstractions.pdb" />
+     <file src="..\Refractored.Xam.Forms.Vibrate.iOS\bin\iPhone\Release\Refractored.Xam.Forms.Vibrate.iOS.dll" target="lib\MonoTouch10\Refractored.Xam.Forms.Vibrate.iOS.dll" />
+     <file src="..\Refractored.Xam.Forms.Vibrate.iOS\bin\iPhone\Release\Refractored.Xam.Forms.Vibrate.iOS.xml" target="lib\MonoTouch10\Refractored.Xam.Forms.Vibrate.iOS.xml" />
+     
+   </files>
+</package>

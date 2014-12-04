@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Vibrate.Abstractions", "Refractored.Xam.Vibrate.Abstractions\Refractored.Xam.Vibrate.Abstractions.csproj", "{E0A73AEB-607F-443E-9529-4173FE690A16}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Forms", "Forms", "{14491004-EEA0-4AC8-AB07-B561F5ECA1B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Forms.Vibrate.WinPhone", "Refractored.Xam.Forms.Vibrate.WinPhone\Refractored.Xam.Forms.Vibrate.WinPhone.csproj", "{9577DA7B-5D02-4954-95E1-10D8971B211F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Forms.Vibrate.Android", "Refractored.Xam.Forms.Vibrate.Android\Refractored.Xam.Forms.Vibrate.Android.csproj", "{42037341-40B3-4CE0-8837-A52FFA8FC017}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Forms.Vibrate.iOS", "Refractored.Xam.Forms.Vibrate.iOS\Refractored.Xam.Forms.Vibrate.iOS.csproj", "{B93028F3-6167-41AD-BDD1-75047FF2D6AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{A3A9DD8D-9E91-47BD-8ADD-E950BC0EE506}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Xam.Plugins.Forms.Vibrate.nuspec = Common\Xam.Plugins.Forms.Vibrate.nuspec
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0A73AEB-607F-443E-9529-4173FE690A16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0A73AEB-607F-443E-9529-4173FE690A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0A73AEB-607F-443E-9529-4173FE690A16}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{E0A73AEB-607F-443E-9529-4173FE690A16}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E0A73AEB-607F-443E-9529-4173FE690A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0A73AEB-607F-443E-9529-4173FE690A16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0A73AEB-607F-443E-9529-4173FE690A16}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E0A73AEB-607F-443E-9529-4173FE690A16}.Release|x86.ActiveCfg = Release|Any CPU
+		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Debug|ARM.ActiveCfg = Debug|ARM
+		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Debug|ARM.Build.0 = Debug|ARM
+		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Debug|x86.ActiveCfg = Debug|x86
+		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Debug|x86.Build.0 = Debug|x86
+		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Release|ARM.ActiveCfg = Release|ARM
+		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Release|ARM.Build.0 = Release|ARM
+		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Release|x86.ActiveCfg = Release|x86
+		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Release|x86.Build.0 = Release|x86
+		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Release|ARM.ActiveCfg = Release|Any CPU
+		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Release|x86.ActiveCfg = Release|Any CPU
+		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Release|ARM.ActiveCfg = Release|Any CPU
+		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9577DA7B-5D02-4954-95E1-10D8971B211F} = {14491004-EEA0-4AC8-AB07-B561F5ECA1B3}
+		{42037341-40B3-4CE0-8837-A52FFA8FC017} = {14491004-EEA0-4AC8-AB07-B561F5ECA1B3}
+		{B93028F3-6167-41AD-BDD1-75047FF2D6AD} = {14491004-EEA0-4AC8-AB07-B561F5ECA1B3}
+	EndGlobalSection
+EndGlobal

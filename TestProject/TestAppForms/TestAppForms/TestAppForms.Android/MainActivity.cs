@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 
 using Xamarin.Forms.Platform.Android;
+using Refractored.Xam.Forms.Vibrate.Droid;
 
 namespace TestAppForms.Droid
 {
@@ -19,7 +20,7 @@ namespace TestAppForms.Droid
       base.OnCreate(bundle);
 
       Xamarin.Forms.Forms.Init(this, bundle);
-
+      Vibrate.Init();
       SetPage(App.GetMainPage());
     }
   }

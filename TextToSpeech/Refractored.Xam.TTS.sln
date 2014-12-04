@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.TTS", "Refr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{55819672-21BC-4081-98B6-683372A5B34C}"
 	ProjectSection(SolutionItems) = preProject
-		Common\Xam.Plugins.Forms.TextToSpeech.nuspec = Common\Xam.Plugins.Forms.TextToSpeech.nuspec
+		Common\Xam.Plugins.TextToSpeech.nuspec = Common\Xam.Plugins.TextToSpeech.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.TTS.iOSUnified", "Refractored.Xam.TTS.iOSUnified\Refractored.Xam.TTS.iOSUnified.csproj", "{CC4CA81F-6B30-4A3A-AE87-005350A885FB}"

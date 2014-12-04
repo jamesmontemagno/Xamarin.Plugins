@@ -53,11 +53,18 @@
     </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
+    <Reference Include="Refractored.Xam.Forms.Vibrate.Droid">
+      <HintPath>..\..\packages\Xam.Plugins.Forms.Vibrate.1.0.0.0\lib\MonoAndroid10\Refractored.Xam.Forms.Vibrate.Droid.dll</HintPath>
+    </Reference>
     <Reference Include="Refractored.Xam.TTS">
       <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.0\lib\MonoAndroid10\Refractored.Xam.TTS.dll</HintPath>
     </Reference>
-    <Reference Include="Refractored.Xam.TTS.Abstractions">
+    <Reference Include="Refractored.Xam.TTS.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.0\lib\MonoAndroid10\Refractored.Xam.TTS.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Xam.Vibrate.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugins.Forms.Vibrate.1.0.0.0\lib\MonoAndroid10\Refractored.Xam.Vibrate.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
