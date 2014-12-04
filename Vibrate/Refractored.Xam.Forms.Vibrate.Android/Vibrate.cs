@@ -22,8 +22,8 @@ namespace Refractored.Xam.Forms.Vibrate.Droid
     /// <summary>
     /// Vibrate device for specified amount of time
     /// </summary>
-    /// <param name="milliseconds">Time in MS (min 500) 0 is default.</param>
-    public void Vibration(int milliseconds = 0)
+    /// <param name="milliseconds">Time in MS (500ms is default).</param>
+    public void Vibration(int milliseconds = 500)
     {
       var v = (Vibrator)Xamarin.Forms.Forms.Context.GetSystemService(Context.VibratorService);
 
@@ -32,8 +32,8 @@ namespace Refractored.Xam.Forms.Vibrate.Droid
         return;
       }
 
-      if (milliseconds <= 0)
-        milliseconds = 500; // default and minimum
+      if (milliseconds < 0)
+        milliseconds = 0;
 
       try {
         v.Vibrate(milliseconds);

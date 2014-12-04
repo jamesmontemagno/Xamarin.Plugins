@@ -20,13 +20,13 @@ namespace Refractored.Xam.Forms.Vibrate.WinPhone
     /// <summary>
     /// Vibrate device for set amount of time
     /// </summary>
-    /// <param name="milliseconds">Time in MS (min 500) 0 == default.</param>
-    public void Vibration(int milliseconds = 0)
+    /// <param name="milliseconds">Time in MS (500ms is default).</param>
+    public void Vibration(int milliseconds = 500)
     {
       var v = VibrateController.Default;
 
-      if (milliseconds <= 0)
-        milliseconds = 500;
+      if (milliseconds < 0)
+        milliseconds = 0;
 
       v.Start(TimeSpan.FromMilliseconds(milliseconds));
     }

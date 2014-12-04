@@ -13,7 +13,7 @@ namespace Refractored.Xam.Vibrate.Abstractions
       /// <summary>
       /// Vibrate the phone for specified amount of time
       /// </summary>
-      /// <param name="milliseconds">Time in Milliseconds to vibrate (0 == default)</param>
-      void Vibration(int milliseconds = 0);
+      /// <param name="milliseconds">Time in Milliseconds to vibrate. 500ms is default</param>
+      void Vibration(int milliseconds = 500);
     }
 }

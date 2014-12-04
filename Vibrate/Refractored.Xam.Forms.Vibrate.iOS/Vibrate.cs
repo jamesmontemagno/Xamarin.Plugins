@@ -22,7 +22,7 @@ namespace Refractored.Xam.Forms.Vibrate.iOS
     /// Vibrate device with default length
     /// </summary>
     /// <param name="milliseconds">Ignored (iOS doesn't expose)</param>
-    public void Vibration(int milliseconds = 0)
+    public void Vibration(int milliseconds = 500)
     {
       SystemSound.Vibrate.PlaySystemSound();
     }
