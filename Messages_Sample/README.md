@@ -27,4 +27,4 @@ You can find my nuspec here: https://github.com/jamesmontemagno/Xam.PCL.Plugins/
 Thanks!
 
 #### License
-Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+Main license of repo

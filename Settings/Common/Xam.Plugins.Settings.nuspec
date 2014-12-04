@@ -6,7 +6,7 @@
        <title>Xam.PCL - Settings Plugin</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
-       <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+       <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
        <projectUrl>https://github.com/jamesmontemagno/Xam.PCL.Plugins</projectUrl>
        <iconUrl>http://refractored.com/images/pcl_settings_icon.png</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
