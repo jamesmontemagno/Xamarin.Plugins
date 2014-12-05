@@ -3,7 +3,7 @@
    <metadata minClientVersion="2.8.3">
        <id>Xam.Plugins.TextToSpeech</id>
        <version>1.0.0.0</version>
-       <title>Xamarin.Plugins: Text to Speech</title>
+       <title>Text to Speech Plugin for Xamarin</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
        <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
