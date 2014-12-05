@@ -40,12 +40,19 @@ Platform specific:
 * MonoTouch10
 * MonoAndroid10
 * win8
+* wpa81
 * wp8
 * net45
+* MonoMac10
+
+New Unified APIs 
+
+* Xamarin.iOS10 
+* Xamarin.Mac10
 
 PCL:
 
-* portable-net45+win8+wp8+MonoTouch10+MonoAndroid10 
+* portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10 
 
 #### Important
 
