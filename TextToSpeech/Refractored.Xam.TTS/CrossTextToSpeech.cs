@@ -6,7 +6,10 @@ using System.Text;
 
 namespace Refractored.Xam.TTS
 {
-    public class CrossTextToSpeech
+  /// <summary>
+  /// Cross platform TTS implemenations
+  /// </summary>
+    public class CrossTextToSpeech : IDisposable
     {
       static Lazy<ITextToSpeech> TTS = new Lazy<ITextToSpeech>(() => CreateTextToSpeech(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
 
@@ -38,6 +41,18 @@ namespace Refractored.Xam.TTS
       internal static Exception NotImplementedInReferenceAssembly()
       {
         return new NotImplementedException("This functionality is not implemented in the portable version of this assembly.  You should reference the Xam.Plugins.TextToSpeech NuGet package from your main application project in order to reference the platform-specific implementation.");
+      }
+
+      /// <summary>
+      /// Dispose of TTS, reset lazy load
+      /// </summary>
+      public void Dispose()
+      {
+        if(TTS.Value != null && TTS.IsValueCreated)
+        {
+          TTS.Value.Dispose();
+          TTS = new Lazy<ITextToSpeech>(() => CreateTextToSpeech(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
+        }
       }
     }
 }

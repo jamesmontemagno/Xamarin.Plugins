@@ -10,77 +10,89 @@ using Windows.Phone.Speech.Synthesis;
 
 namespace Refractored.Xam.TTS
 {
-  public class TextToSpeech : ITextToSpeech
+  /// <summary>
+  /// Text To Speech Impelemenatation Windows Phone
+  /// </summary>
+  public class TextToSpeech : ITextToSpeech, IDisposable
   {
-    readonly SpeechSynthesizer synth;
+    SpeechSynthesizer speechSynthesizer;
+    /// <summary>
+    /// SpeechSynthesizer
+    /// </summary>
     public TextToSpeech()
     {
-      synth = new SpeechSynthesizer();
-    }
-
-    public void Init()
-    {
-
     }
 
     /// <summary>
-    /// Speack back text
+    /// Initialization
+    /// </summary>
+    public void Init()
+    {
+      if(speechSynthesizer == null)
+        speechSynthesizer = new SpeechSynthesizer();
+    }
+
+    /// <summary>
+    /// Speak back text
     /// </summary>
     /// <param name="text">Text to speak</param>
     /// <param name="queue">If you want to chain together speak command or cancel current</param>
-    /// <param name="locale">Locale of voice</param>
+    /// <param name="crossLocale">Locale of voice</param>
     /// <param name="pitch">Pitch of voice</param>
     /// <param name="speakRate">Speak Rate of voice (All) (0.0 - 2.0f)</param>
     /// <param name="volume">Volume of voice (iOS/WP) (0.0-1.0)</param>
-    public async void Speak(string text, bool queue = false, CrossLocale? locale = null, float? pitch = null, float? speakRate = null, float? volume = null)
+    public void Speak(string text, bool queue = false, CrossLocale? crossLocale = null, float? pitch = null, float? speakRate = null, float? volume = null)
     {
       if (string.IsNullOrWhiteSpace(text))
         return;
 
+      if (speechSynthesizer == null)
+        Init();
+
 #if !NETFX_CORE
       if (!queue)
-        synth.CancelAll();
+        speechSynthesizer.CancelAll();
 #endif
       var localCode = string.Empty;
 
       //nothing fancy needed here
       if(pitch == null && speakRate == null && volume == null)
       {
-        if(locale.HasValue)
+        if(crossLocale.HasValue)
         {
-          localCode = locale.Value.Language;
+          localCode = crossLocale.Value.Language;
 #if NETFX_CORE
           var voices = from voice in SpeechSynthesizer.AllVoices
                         where (voice.Language == localCode 
                         && voice.Gender.Equals(VoiceGender.Female))
                         select voice;
-          synth.Voice =(voices.Any() ? voices.ElementAt(0) : SpeechSynthesizer.DefaultVoice);
+          speechSynthesizer.Voice =(voices.Any() ? voices.ElementAt(0) : SpeechSynthesizer.DefaultVoice);
        
 #else
           var voices = from voice in InstalledVoices.All
                        where (voice.Language == localCode 
                          && voice.Gender.Equals(VoiceGender.Female))
                          select voice;
-          synth.SetVoice(voices.Any() ? voices.ElementAt(0) : InstalledVoices.Default);
+          speechSynthesizer.SetVoice(voices.Any() ? voices.ElementAt(0) : InstalledVoices.Default);
 #endif
         }
         else
         {
 #if NETFX_CORE
-          synth.Voice = SpeechSynthesizer.DefaultVoice;
+          speechSynthesizer.Voice = SpeechSynthesizer.DefaultVoice;
 #else
-          synth.SetVoice(InstalledVoices.Default);
+          speechSynthesizer.SetVoice(InstalledVoices.Default);
 #endif
         }
 
 #if NETFX_CORE
-        synth.SynthesizeTextToStreamAsync(text);
+        speechSynthesizer.SynthesizeTextToStreamAsync(text);
 #else
-        synth.SpeakTextAsync(text);
+        speechSynthesizer.SpeakTextAsync(text);
 #endif
         return;
       }
-      if(!locale.HasValue)
+      if(!crossLocale.HasValue)
       {
 #if NETFX_CORE
         localCode = SpeechSynthesizer.DefaultVoice.Language;
@@ -90,7 +102,7 @@ namespace Refractored.Xam.TTS
       }
       else
       {
-        localCode = locale.Value.Language;
+        localCode = crossLocale.Value.Language;
 #if NETFX_CORE
         var voices = from voice in SpeechSynthesizer.AllVoices
                      where (voice.Language == localCode
@@ -143,20 +155,42 @@ namespace Refractored.Xam.TTS
       ssmlText += "</speak>";
 
 #if NETFX_CORE
-      synth.SynthesizeSsmlToStreamAsync(ssmlText);
+      speechSynthesizer.SynthesizeSsmlToStreamAsync(ssmlText);
 #else
-      synth.SpeakSsmlAsync(ssmlText);
+      speechSynthesizer.SpeakSsmlAsync(ssmlText);
 #endif
       
     }
 
+    /// <summary>
+    /// Get all installed and valid languages
+    /// </summary>
+    /// <returns></returns>
     public System.Collections.Generic.IEnumerable<CrossLocale> GetInstalledLanguages()
     {
 #if NETFX_CORE
-      return SpeechSynthesizer.AllVoices.Select(a => new CrossLocale { Language = a.Language, DisplayName = a.DisplayName });
+      return SpeechSynthesizer.AllVoices
+        .Select(a => new CrossLocale { Language = a.Language, DisplayName = a.DisplayName })
+        .GroupBy(c => c.ToString())
+        .Select(g => g.First());
 #else
-      return InstalledVoices.All.Select(a => new CrossLocale { Language = a.Language, DisplayName = a.DisplayName });
+      return InstalledVoices.All
+      .Select(a => new CrossLocale { Language = a.Language, DisplayName = a.DisplayName })
+      .GroupBy(c => c.ToString())
+        .Select(g => g.First());;
 #endif
+    }
+
+    /// <summary>
+    /// Dispose of TTS
+    /// </summary>
+    public void Dispose()
+    {
+      if (speechSynthesizer != null)
+      {
+        speechSynthesizer.Dispose();
+        speechSynthesizer = null;
+      }
     }
   }
 }

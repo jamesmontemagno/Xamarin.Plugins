@@ -47,7 +47,7 @@ namespace TestAppForms
             pitch: (float)sliderPitch.Value,
             speakRate: (float)sliderRate.Value,
             volume: (float)sliderVolume.Value,
-            locale: locale);
+            crossLocale: locale);
         };
 
       var vibrateButton = new Button

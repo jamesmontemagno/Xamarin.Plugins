@@ -10,27 +10,41 @@ using Android.OS;
 
 namespace Refractored.Xam.TTS
 {
-  public class TextToSpeech : Java.Lang.Object, ITextToSpeech, Android.Speech.Tts.TextToSpeech.IOnInitListener
+  /// <summary>
+  /// Text to speech implementation Android
+  /// </summary>
+  public class TextToSpeech : Java.Lang.Object, ITextToSpeech, Android.Speech.Tts.TextToSpeech.IOnInitListener, IDisposable
   {
     Android.Speech.Tts.TextToSpeech textToSpeech;
     string text;
     CrossLocale? language;
-    Locale defaultLanguage;
     float pitch, speakRate;
     bool queue;
     bool initialized;
 
+    /// <summary>
+    /// Default constructor
+    /// </summary>
     public TextToSpeech() 
     {
     }
 
+    /// <summary>
+    /// Initialize TTS
+    /// </summary>
     public void Init()
     {
+      Console.WriteLine("Current version: " + (int)global::Android.OS.Build.VERSION.SdkInt);
+      Android.Util.Log.Info("CrossTTS", "Current version: " + (int)global::Android.OS.Build.VERSION.SdkInt);
+        
       textToSpeech = new Android.Speech.Tts.TextToSpeech(Application.Context, this);
-      defaultLanguage = textToSpeech.Language;
     }
 
     #region IOnInitListener implementation
+    /// <summary>
+    /// OnInit of TTS
+    /// </summary>
+    /// <param name="status"></param>
     public void OnInit(OperationResult status)
     {
       if (status.Equals(OperationResult.Success))
@@ -41,24 +55,58 @@ namespace Refractored.Xam.TTS
     }
     #endregion
 
-
-    public void Speak(string text, bool queue = false, CrossLocale? language = null, float? pitch = null, float? speakRate = null, float? volume = null)
+    /// <summary>
+    /// Speak back text
+    /// </summary>
+    /// <param name="text">Text to speak</param>
+    /// <param name="queue">If you want to chain together speak command or cancel current</param>
+    /// <param name="crossLocale">Locale of voice</param>
+    /// <param name="pitch">Pitch of voice</param>
+    /// <param name="speakRate">Speak Rate of voice (All) (0.0 - 2.0f)</param>
+    /// <param name="volume">Volume of voice (iOS/WP) (0.0-1.0)</param>
+    public void Speak(string text, bool queue = false, CrossLocale? crossLocale = null, float? pitch = null, float? speakRate = null, float? volume = null)
     {
       this.text = text;
-      this.language = language;
+      this.language = crossLocale;
       this.pitch = pitch == null ? 1.0f : pitch.Value;
       this.speakRate = speakRate == null ? 1.0f : speakRate.Value;
       this.queue = queue;
 
       if (textToSpeech == null || !initialized)
       {
-        textToSpeech = new Android.Speech.Tts.TextToSpeech(Application.Context, this);
-        defaultLanguage = textToSpeech.Language;
+        Init();
       }
       else
       {
         Speak();
       }
+    }
+
+
+    private void SetDefaultLanguage()
+    {
+      int version = (int)global::Android.OS.Build.VERSION.SdkInt;
+      bool isLollipop = version >= 21;
+      if (isLollipop)
+      {
+        //in a different method as it can crash on older target/compile for some reason
+        SetDefaultLanguageLollipop();
+      }
+      else
+      {
+        //disable warning because we are checking ahead of time.
+#pragma warning disable 0618
+        textToSpeech.SetLanguage(textToSpeech.DefaultLanguage);
+#pragma warning restore 0618
+      }
+    }
+
+    /// <summary>
+    /// In a different method as it can crash on older target/compile for some reason   
+    /// </summary>
+    private void SetDefaultLanguageLollipop()
+    {
+      textToSpeech.SetLanguage(textToSpeech.DefaultVoice.Locale);
     }
 
     private void Speak()
@@ -82,10 +130,15 @@ namespace Refractored.Xam.TTS
         {
           textToSpeech.SetLanguage(locale);
         }
+        else
+        {
+          Console.WriteLine("Locale: " + locale + " was not valid, setting to default.");
+          SetDefaultLanguage();
+        }
       }
       else
       {
-        textToSpeech.SetLanguage(defaultLanguage);
+        SetDefaultLanguage();
       }
       
       textToSpeech.SetPitch(pitch);
@@ -94,16 +147,22 @@ namespace Refractored.Xam.TTS
       textToSpeech.Speak(text, queue ? QueueMode.Add : QueueMode.Flush, null);
     }
 
+    /// <summary>
+    /// Get all installed and valide lanaguages
+    /// </summary>
+    /// <returns>List of CrossLocales</returns>
     public IEnumerable<CrossLocale> GetInstalledLanguages()
     {
       if (textToSpeech != null && initialized)
       {
-       
-        if((int)Build.VERSION.SdkInt >= 21)
+        int version = (int)global::Android.OS.Build.VERSION.SdkInt;
+        bool isLollipop = version >= 21;
+        if (isLollipop)
         {
           try
           {
-            //return textToSpeech.AvailableLanguages.Select(a => anew CrossLocale { Country = a.Country, Language = a.Language, DisplayName = a.DisplayName});
+            //in a different method as it can crash on older target/compile for some reason
+            return GetInstalledLanguagesLollipop();
           }
           catch(Exception ex)
           {
@@ -131,14 +190,37 @@ namespace Refractored.Xam.TTS
           }
         }
 
-        return languages;
+        return languages.GroupBy(c => c.ToString())
+              .Select(g => g.First());
       }
       else
       {
         return Locale.GetAvailableLocales()
           .Where(a => !string.IsNullOrWhiteSpace(a.Language) && !string.IsNullOrWhiteSpace(a.Country))
-          .Select(a => new CrossLocale { Country = a.Country, Language = a.Language, DisplayName = a.DisplayName });
+          .Select(a => new CrossLocale { Country = a.Country, Language = a.Language, DisplayName = a.DisplayName })
+          .GroupBy(c => c.ToString())
+          .Select(g => g.First());
       }
+    }
+
+    /// <summary>
+    /// In a different method as it can crash on older target/compile for some reason
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerable<CrossLocale> GetInstalledLanguagesLollipop()
+    {
+      return textToSpeech.AvailableLanguages
+        .Select(a => new CrossLocale { Country = a.Country, Language = a.Language, DisplayName = a.DisplayName });
+
+    }
+
+    void IDisposable.Dispose()
+    {
+     if(textToSpeech != null)
+     {
+       textToSpeech.Stop();
+       textToSpeech.Dispose();
+     }
     }
   }
 }
