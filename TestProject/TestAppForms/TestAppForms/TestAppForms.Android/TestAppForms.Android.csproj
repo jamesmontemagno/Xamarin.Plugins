@@ -57,7 +57,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Xam.Plugins.Forms.Vibrate.1.0.0.2\lib\MonoAndroid10\Refractored.Xam.Forms.Vibrate.Droid.dll</HintPath>
     </Reference>
-    <Reference Include="Refractored.Xam.TTS">
+    <Reference Include="Refractored.Xam.TTS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.0\lib\MonoAndroid10\Refractored.Xam.TTS.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.TTS.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -86,6 +87,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialogs.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

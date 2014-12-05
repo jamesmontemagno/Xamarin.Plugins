@@ -19,11 +19,17 @@ namespace Refractored.Xam.TTS
       speechSynthesizer = new AVSpeechSynthesizer();
     }
 
-    public void Speak(string text, bool queue = false, string locale = null, float? pitch = null, float? speakRate = null, float? volume = null)
+    public void Init()
+    {
+    }
+
+    public void Speak(string text, bool queue = false, CrossLocale? locale = null, float? pitch = null, float? speakRate = null, float? volume = null)
     {
       
+      if (string.IsNullOrWhiteSpace(text))
+        return;
 
-      locale = locale == null ? AVSpeechSynthesisVoice.CurrentLanguageCode : locale;
+      var localCode = !locale.HasValue ? AVSpeechSynthesisVoice.CurrentLanguageCode : locale.Value.Language;
       pitch = pitch == null ? 1.0f : pitch;
 
       if (!volume.HasValue)
@@ -34,16 +40,22 @@ namespace Refractored.Xam.TTS
         volume = 0.0f;
 
       if (!speakRate.HasValue)
-        speakRate = AVSpeechUtterance.DefaultSpeechRate;
+        speakRate = AVSpeechUtterance.MaximumSpeechRate / 4; //normal speech, default is fast
       else if (speakRate.Value > AVSpeechUtterance.MaximumSpeechRate)
         speakRate = AVSpeechUtterance.MaximumSpeechRate;
       else if (speakRate.Value < AVSpeechUtterance.MinimumSpeechRate)
         speakRate = AVSpeechUtterance.MinimumSpeechRate;
 
+      var voice = AVSpeechSynthesisVoice.FromLanguage(localCode);
+      if(voice == null)
+      {
+        Console.WriteLine("Locale not found for voice: " + localCode + " is not valid using default.");
+        voice = AVSpeechSynthesisVoice.FromLanguage(AVSpeechSynthesisVoice.CurrentLanguageCode);
+      }
       var speechUtterance = new AVSpeechUtterance(text)
       {
         Rate = speakRate.Value,
-        Voice = AVSpeechSynthesisVoice.FromLanguage(locale),
+        Voice = voice,
         Volume = volume.Value,
         PitchMultiplier = pitch.Value
       };
@@ -54,9 +66,9 @@ namespace Refractored.Xam.TTS
       speechSynthesizer.SpeakUtterance(speechUtterance);
     }
 
-    public IEnumerable<string> GetInstalledLanguages()
+    public IEnumerable<CrossLocale> GetInstalledLanguages()
     {
-      return AVSpeechSynthesisVoice.GetSpeechVoices().Select(a => a.Language).Distinct();
+      return AVSpeechSynthesisVoice.GetSpeechVoices().Select(a => new CrossLocale { Language = a.Language, DisplayName = a.Language});
     }
   }
 }

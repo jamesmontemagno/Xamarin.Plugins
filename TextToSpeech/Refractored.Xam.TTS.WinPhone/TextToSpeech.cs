@@ -18,6 +18,11 @@ namespace Refractored.Xam.TTS
       synth = new SpeechSynthesizer();
     }
 
+    public void Init()
+    {
+
+    }
+
     /// <summary>
     /// Speack back text
     /// </summary>
@@ -27,29 +32,33 @@ namespace Refractored.Xam.TTS
     /// <param name="pitch">Pitch of voice</param>
     /// <param name="speakRate">Speak Rate of voice (All) (0.0 - 2.0f)</param>
     /// <param name="volume">Volume of voice (iOS/WP) (0.0-1.0)</param>
-    public async void Speak(string text, bool queue = false, string locale = null, float? pitch = null, float? speakRate = null, float? volume = null)
+    public async void Speak(string text, bool queue = false, CrossLocale? locale = null, float? pitch = null, float? speakRate = null, float? volume = null)
     {
+      if (string.IsNullOrWhiteSpace(text))
+        return;
+
 #if !NETFX_CORE
       if (!queue)
         synth.CancelAll();
 #endif
-
+      var localCode = string.Empty;
 
       //nothing fancy needed here
       if(pitch == null && speakRate == null && volume == null)
       {
-        if(locale != null)
+        if(locale.HasValue)
         {
+          localCode = locale.Value.Language;
 #if NETFX_CORE
           var voices = from voice in SpeechSynthesizer.AllVoices
-                        where (voice.Language == locale 
+                        where (voice.Language == localCode 
                         && voice.Gender.Equals(VoiceGender.Female))
                         select voice;
           synth.Voice =(voices.Any() ? voices.ElementAt(0) : SpeechSynthesizer.DefaultVoice);
        
 #else
           var voices = from voice in InstalledVoices.All
-                         where (voice.Language == locale 
+                       where (voice.Language == localCode 
                          && voice.Gender.Equals(VoiceGender.Female))
                          select voice;
           synth.SetVoice(voices.Any() ? voices.ElementAt(0) : InstalledVoices.Default);
@@ -71,33 +80,34 @@ namespace Refractored.Xam.TTS
 #endif
         return;
       }
-      if(locale == null)
+      if(!locale.HasValue)
       {
 #if NETFX_CORE
-        locale = SpeechSynthesizer.DefaultVoice.Language;
+        localCode = SpeechSynthesizer.DefaultVoice.Language;
 #else
-        locale = InstalledVoices.Default.Language;
+        localCode = InstalledVoices.Default.Language;
 #endif
       }
       else
       {
+        localCode = locale.Value.Language;
 #if NETFX_CORE
         var voices = from voice in SpeechSynthesizer.AllVoices
-                     where (voice.Language == locale
+                     where (voice.Language == localCode
                      && voice.Gender.Equals(VoiceGender.Female))
                      select voice;
 #else
-          var voices = from voice in InstalledVoices.All
-                         where (voice.Language == locale 
+        var voices = from voice in InstalledVoices.All
+                     where (voice.Language == localCode 
                          && voice.Gender.Equals(VoiceGender.Female))
                          select voice;
 #endif
         if (!voices.Any())
         {
 #if NETFX_CORE
-          locale = SpeechSynthesizer.DefaultVoice.Language;
+          localCode = SpeechSynthesizer.DefaultVoice.Language;
 #else
-          locale = InstalledVoices.Default.Language;
+          localCode = InstalledVoices.Default.Language;
 #endif
         }
       }
@@ -128,7 +138,7 @@ namespace Refractored.Xam.TTS
 
      
       string ssmlText = "<speak version=\"1.0\" ";
-      ssmlText += "xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\""+locale+"\">";
+      ssmlText += "xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + localCode + "\">";
       ssmlText += "<prosody pitch=\""+pitchProsody+"\" volume=\""+volume.Value +"\" rate=\""+ speakRate.Value+"\" >" + text + "</prosody>";
       ssmlText += "</speak>";
 
@@ -140,12 +150,12 @@ namespace Refractored.Xam.TTS
       
     }
 
-    public System.Collections.Generic.IEnumerable<string> GetInstalledLanguages()
+    public System.Collections.Generic.IEnumerable<CrossLocale> GetInstalledLanguages()
     {
 #if NETFX_CORE
-      return SpeechSynthesizer.AllVoices.Select(a => a.Language).Distinct();
+      return SpeechSynthesizer.AllVoices.Select(a => new CrossLocale { Language = a.Language, DisplayName = a.DisplayName });
 #else
-      return InstalledVoices.All.Select(a => a.Language).Distinct();
+      return InstalledVoices.All.Select(a => new CrossLocale { Language = a.Language, DisplayName = a.DisplayName });
 #endif
     }
   }

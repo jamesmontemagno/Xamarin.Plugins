@@ -7,8 +7,8 @@ namespace Refractored.Xam.TTS.Abstractions
 {
     public interface ITextToSpeech
     {
-     
-      void Speak(string text, bool queue = false, string locale = null, float? pitch = null, float? speakRate = null, float? volume = null);
-      IEnumerable<string> GetInstalledLanguages();
+      void Init();
+      void Speak(string text, bool queue = false, CrossLocale? locale = null, float? pitch = null, float? speakRate = null, float? volume = null);
+      IEnumerable<CrossLocale> GetInstalledLanguages();
     }
 }
