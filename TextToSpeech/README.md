@@ -15,8 +15,15 @@ Preview: http://screencast.com/t/voW1P48Ka
 
 ### Setup
 * Available on NuGet:
-* Xamarin.Forms or Traditional: Soon
 * Install into your PCL project and Client projects.
+
+**Supports**
+* Xamarin.iOS
+* Xamarin.iOS (x64 Unified)
+* Xamarin.Android
+* Windows Phone 8 (Silverlight)
+* Windows PHone 8.1 RT
+
 
 ### Usage
 
@@ -32,12 +39,27 @@ CrossTextToSpeech.Current.Speak("Text to speak");
 /// </summary>
 /// <param name="text">Text to speak</param>
 /// <param name="queue">If you want to chain together speak command or cancel current</param>
-/// <param name="locale">Locale of voice</param>
+/// <param name="crossLocale">Locale of voice</param>
 /// <param name="pitch">Pitch of voice (All 0.0 - 2.0f)</param>
 /// <param name="speakRate">Speak Rate of voice (All) (0.0 - 2.0f)</param>
 /// <param name="volume">Volume of voice (iOS/WP) (0.0-1.0)</param>
-public async void Speak(string text, bool queue = false, string locale = null, float? pitch = null, float? speakRate = null, float? volume = null)
+public async void Speak(string text, bool queue = false, CrossLocale crossLocale = null, float? pitch = null, float? speakRate = null, float? volume = null)
 ```  
+
+**CrossLocale**
+I developed the CrossLocale struct mostly to support Android, but is nice because I added a Display Name.
+
+You can query a list of current support CrossLocales on the device:
+
+```
+/// <summary>
+/// Get all installed and valide lanaguages
+/// </summary>
+/// <returns>List of CrossLocales</returns>
+public IEnumerable<CrossLocale> GetInstalledLanguages()
+```
+
+Each local has the Language and Display Name. The Country code is only used in Android. If you pass in null to Speak it will use the default.
 
 #### Implementation
 
