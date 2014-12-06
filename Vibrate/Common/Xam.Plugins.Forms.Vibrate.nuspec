@@ -2,17 +2,21 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.3">
        <id>Xam.Plugins.Forms.Vibrate</id>
-       <version>1.0.0.2</version>
+       <version>1.0.0.3</version>
        <title>Vibrate Plugin for Xamarin.Forms</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
        <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
        <projectUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/Vibrate</projectUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-       <description>
+       <summary>
           Xamarin.Forms plugin to vibrate your device.
+       </summary>
+       <description>
+         Xamarin.Forms plugin to vibrate your devices. 
+         Ensure you call Vibrate.Init(); in each project. 
+         Read the full documenation on the projects page.
        </description>
-       <summary>Xamarin.Forms plugin to vibrate your devices. Ensure you call Vibrate.Init(); in each project. Read the full documenation on the projects page.</summary>
        <tags>xamarin, xamarin.forms, android, ios, windows phone, vibrate</tags>
        <dependencies>
          <dependency id="Xamarin.Forms" version="1.2.3.6257" />
