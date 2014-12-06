@@ -1,7 +1,7 @@
 ## Xamarin.Plugins for Xamarin and Windows Projects
 
 ## What is this?
-This is my main repo for all Xam.PCL Plugins. These PCL plugins will allow you to add rich cross platform functionality to Xamarin + Windows Projects that use a PCL.
+This is my main repo for all all Xamarin Plugins that I have or will be publishing. It is also example and documentation on how to create your very own PCL Plugin. These PCL plugins will allow you to add rich cross platform functionality to Xamarin, Xamarin.Forms and Windows Projects that use a PCLs or Shared Project.
 
 # Current Plugins
 
