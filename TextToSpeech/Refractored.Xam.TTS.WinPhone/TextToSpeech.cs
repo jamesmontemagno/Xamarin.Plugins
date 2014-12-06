@@ -58,7 +58,7 @@ namespace Refractored.Xam.TTS
       //nothing fancy needed here
       if(pitch == null && speakRate == null && volume == null)
       {
-        if(crossLocale.HasValue)
+        if(crossLocale.HasValue && !string.IsNullOrWhiteSpace(crossLocale.Value.Language))
         {
           localCode = crossLocale.Value.Language;
 #if NETFX_CORE
@@ -92,17 +92,10 @@ namespace Refractored.Xam.TTS
 #endif
         return;
       }
-      if(!crossLocale.HasValue)
+
+      if(crossLocale.HasValue && !string.IsNullOrWhiteSpace(crossLocale.Value.Language))
       {
-#if NETFX_CORE
-        localCode = SpeechSynthesizer.DefaultVoice.Language;
-#else
-        localCode = InstalledVoices.Default.Language;
-#endif
-      }
-      else
-      {
-        localCode = crossLocale.Value.Language;
+         localCode = crossLocale.Value.Language;
 #if NETFX_CORE
         var voices = from voice in SpeechSynthesizer.AllVoices
                      where (voice.Language == localCode
@@ -123,6 +116,15 @@ namespace Refractored.Xam.TTS
 #endif
         }
       }
+      else
+      {
+#if NETFX_CORE
+        localCode = SpeechSynthesizer.DefaultVoice.Language;
+#else
+        localCode = InstalledVoices.Default.Language;
+#endif
+      }
+
 
        if (!volume.HasValue)
         volume = 100.0f;
@@ -170,14 +172,12 @@ namespace Refractored.Xam.TTS
     {
 #if NETFX_CORE
       return SpeechSynthesizer.AllVoices
-        .Select(a => new CrossLocale { Language = a.Language, DisplayName = a.DisplayName })
-        .GroupBy(c => c.ToString())
-        .Select(g => g.First());
+        .OrderBy(a => a.Language)
+        .Select(a => new CrossLocale { Language = a.Language, DisplayName = a.DisplayName });
 #else
       return InstalledVoices.All
-      .Select(a => new CrossLocale { Language = a.Language, DisplayName = a.DisplayName })
-      .GroupBy(c => c.ToString())
-        .Select(g => g.First());;
+        .OrderBy(a => a.Language)
+        .Select(a => new CrossLocale { Language = a.Language, DisplayName = a.DisplayName });
 #endif
     }
 

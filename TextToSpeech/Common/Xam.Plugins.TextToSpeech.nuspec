@@ -9,11 +9,13 @@
        <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
        <projectUrl>https://github.com/jamesmontemagno/Xamarin.Plugins</projectUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+       <summary>
+          Cross platform Text to Speech for Xamarin and Windows.
+       </summary>
        <description>
-          Xamarin plugin to perform text to speech functionality.
-          Adjustable pitch, speak rate, locale, and more.
+           Xamarin and Windows plugin to perform text to speech functionality.
+           Adjustable pitch, speak rate, locale, and more.
        </description>
-       <summary></summary>
        <tags>xamarin, xamarin.forms, android, ios, windows phone, text to speech, tts</tags>
        <dependencies>
        </dependencies>

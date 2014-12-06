@@ -8,7 +8,7 @@ using Android.Widget;
 using Android.OS;
 
 using Xamarin.Forms.Platform.Android;
-using Refractored.Xam.Forms.Vibrate.Droid;
+//using Refractored.Xam.Forms.Vibrate.Droid;
 using Refractored.Xam.TTS;
 
 namespace TestAppForms.Droid
@@ -21,7 +21,7 @@ namespace TestAppForms.Droid
       base.OnCreate(bundle);
 
       Xamarin.Forms.Forms.Init(this, bundle);
-      Vibrate.Init();
+      //Vibrate.Init();
       CrossTextToSpeech.Current.Init();
       SetPage(App.GetMainPage());
     }

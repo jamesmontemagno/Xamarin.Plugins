@@ -6,7 +6,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
 using Xamarin.Forms;
-using Refractored.Xam.Forms.Vibrate.iOS;
+//using Refractored.Xam.Forms.Vibrate.iOS;
 
 namespace TestAppForms.iOS
 {
@@ -29,7 +29,7 @@ namespace TestAppForms.iOS
     public override bool FinishedLaunching(UIApplication app, NSDictionary options)
     {
       Forms.Init();
-      Vibrate.Init();
+      //Vibrate.Init();
 
       window = new UIWindow(UIScreen.MainScreen.Bounds);
 

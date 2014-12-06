@@ -50,8 +50,12 @@ namespace Refractored.Xam.TTS
       if (speechSynthesizer == null)
         Init();
 
-      var localCode = !crossLocale.HasValue ? AVSpeechSynthesisVoice.CurrentLanguageCode : crossLocale.Value.Language;
-      pitch = pitch == null ? 1.0f : pitch;
+      var localCode = crossLocale.HasValue &&
+                      !string.IsNullOrWhiteSpace(crossLocale.Value.Language) ?
+                      crossLocale.Value.Language :
+                      AVSpeechSynthesisVoice.CurrentLanguageCode;
+
+      pitch = !pitch.HasValue ? 1.0f : pitch;
 
       if (!volume.HasValue)
         volume = 1.0f;
@@ -61,7 +65,7 @@ namespace Refractored.Xam.TTS
         volume = 0.0f;
 
       if (!speakRate.HasValue)
-        speakRate = AVSpeechUtterance.MaximumSpeechRate / 4; //normal speech, default is fast
+        speakRate = AVSpeechUtterance.MaximumSpeechRate / 4.0f; //normal speech, default is fast
       else if (speakRate.Value > AVSpeechUtterance.MaximumSpeechRate)
         speakRate = AVSpeechUtterance.MaximumSpeechRate;
       else if (speakRate.Value < AVSpeechUtterance.MinimumSpeechRate)
@@ -94,9 +98,8 @@ namespace Refractored.Xam.TTS
     public IEnumerable<CrossLocale> GetInstalledLanguages()
     {
       return AVSpeechSynthesisVoice.GetSpeechVoices()
-        .Select(a => new CrossLocale { Language = a.Language, DisplayName = a.Language})
-        .GroupBy(c => c.ToString())
-        .Select(g => g.First());
+        .OrderBy(a => a.Language)
+        .Select(a => new CrossLocale { Language = a.Language, DisplayName = a.Language });
     }
 
     /// <summary>

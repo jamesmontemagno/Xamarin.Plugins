@@ -89,10 +89,6 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Refractored.Xam.Forms.Vibrate.iOS, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugins.Forms.Vibrate.1.0.0.2\lib\MonoTouch10\Refractored.Xam.Forms.Vibrate.iOS.dll</HintPath>
-    </Reference>
     <Reference Include="Refractored.Xam.TTS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.0\lib\MonoTouch10\Refractored.Xam.TTS.dll</HintPath>
@@ -101,9 +97,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.0\lib\MonoTouch10\Refractored.Xam.TTS.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Refractored.Xam.Vibrate.Abstractions, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Refractored.Xam.Vibrate">
+      <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.3\lib\MonoTouch10\Refractored.Xam.Vibrate.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Xam.Vibrate.Abstractions, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugins.Forms.Vibrate.1.0.0.2\lib\MonoTouch10\Refractored.Xam.Vibrate.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.3\lib\MonoTouch10\Refractored.Xam.Vibrate.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />

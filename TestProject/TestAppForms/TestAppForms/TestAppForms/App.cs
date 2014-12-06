@@ -12,7 +12,7 @@ namespace TestAppForms
   public class App
   {
     static ContentPage page;
-    static CrossLocale locale;
+    static CrossLocale? locale = null;
     public static Page GetMainPage()
     {
       var speakButton = new Button
@@ -59,8 +59,9 @@ namespace TestAppForms
 
       vibrateButton.Clicked += (sender, args) =>
         {
-          var v = DependencyService.Get<IVibrate>();
-          v.Vibration((int)sliderVibrate.Value);
+          //var v = DependencyService.Get<IVibrate>();
+          //v.Vibration((int)sliderVibrate.Value);
+          Refractored.Xam.Vibrate.CrossVibrate.Current.Vibration((int)sliderVibrate.Value);
         };
 
       

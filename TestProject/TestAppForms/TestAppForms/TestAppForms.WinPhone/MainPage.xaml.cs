@@ -9,7 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
 using Xamarin.Forms;
-using Refractored.Xam.Forms.Vibrate.WinPhone;
+//using Refractored.Xam.Forms.Vibrate.WinPhone;
 
 
 namespace TestAppForms.WinPhone
@@ -21,7 +21,7 @@ namespace TestAppForms.WinPhone
       InitializeComponent();
 
       Forms.Init();
-      Vibrate.Init();
+      //Vibrate.Init();
       Content = TestAppForms.App.GetMainPage().ConvertPageToUIElement(this);
     }
   }

@@ -96,6 +96,8 @@ namespace Refractored.Xam.TTS
       {
         //disable warning because we are checking ahead of time.
 #pragma warning disable 0618
+        if (textToSpeech.DefaultLanguage == null)
+          textToSpeech.SetLanguage(textToSpeech.Language);
         textToSpeech.SetLanguage(textToSpeech.DefaultLanguage);
 #pragma warning restore 0618
       }
@@ -117,7 +119,7 @@ namespace Refractored.Xam.TTS
       if (!queue && textToSpeech.IsSpeaking)
         textToSpeech.Stop();
 
-      if (language.HasValue)
+      if (language.HasValue && !string.IsNullOrWhiteSpace(language.Value.Language))
       {
         Locale locale = null;
         if (!string.IsNullOrWhiteSpace(language.Value.Country))
