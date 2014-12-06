@@ -9,9 +9,10 @@ Each plugin has a README with more information on what they contain.
 
 * **Settings**: Cross platform settings for iOS, Android, Windows Phone, and Windows Store
 * **Text To Speech**: Cross platform text to speech funcationlaity on iOS, Android, and Windows Phone
-* **Vibrate for Xamarin.Forms**: Cross platform device vibration on iOS, Android, and Windows Phone
+* **Vibrate**: Cross platform device vibration on iOS, Android, and Windows Phone
 * **Messages_Sample**: This is a simple test PCL NuGet to show anyone how easy it is to get a NuGet up and running. It uses an example of a stubbed out class and also a linked file class with #if's throughout it.
 * **Messages_Production**: In the works
+
 
 ## How PCL's Work!
 
@@ -65,6 +66,9 @@ PCL:
 
 #### Upcoming PCL Plugins
 * A real Messages PCL
+* Device
+* Connectivity
+* SMS
 
 #### Contributors
 * [jamesmontemagno](https://github.com/jamesmontemagno)
