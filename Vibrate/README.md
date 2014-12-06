@@ -60,7 +60,7 @@ This NuGet can be used for all tradition Xamarin and Windows development with ou
 * Xamarin.iOS (x64 Unified)
 * Xamarin.Android
 * Windows Phone 8 (Silverlight)
-* Windows PHone 8.1 RT
+* Windows Phone 8.1 RT
 * 
 **ANDROID Specific**
 Please ensure you have the VIBRATE persmission enabled:
