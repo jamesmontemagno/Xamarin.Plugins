@@ -2,7 +2,7 @@
 
 Simple but elegant way of performing Vibrate in your Xamarin, Windows, and Xamarin.Forms projects
 
-### Xamarin.Forms
+## Xamarin.Forms
 There are 2 current implementations, a strict Xamarin.Forms Plugin using the Dependency service and a more traditional approach without the dependency service.
 
 #### Setup
@@ -26,7 +26,7 @@ Please ensure you have the VIBRATE persmission enabled:
 <uses-permission android:name="android.permission.VIBRATE" />
 ```
 
-### API Usage
+#### API Usage
 
 To gain access to the Vibrate class simply use the dependency service:
 
@@ -46,7 +46,8 @@ Vibrate device for specified amount of time. 0 is the default and will vibrate f
 There is no API to vibrate for a specific amount of time, so it will vibrate for the default no matter what.
 
 
-### Traditional Xamarin
+
+## Traditional Xamarin
 This NuGet can be used for all tradition Xamarin and Windows development with out without Xamarin.Forms. There is no requirement of a dependency service as it has a built in Singleton to access the vibrate functionality.
 
 
@@ -61,7 +62,7 @@ Please ensure you have the VIBRATE persmission enabled:
 <uses-permission android:name="android.permission.VIBRATE" />
 ```
 
-### API Usage
+#### API Usage
 
 To gain access to the Vibrate class simply use this method:
 
