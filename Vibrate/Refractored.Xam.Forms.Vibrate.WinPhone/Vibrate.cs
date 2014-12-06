@@ -27,6 +27,8 @@ namespace Refractored.Xam.Forms.Vibrate.WinPhone
 
       if (milliseconds < 0)
         milliseconds = 0;
+      else if (milliseconds > 5000)
+        milliseconds = 5000;
 
       v.Start(TimeSpan.FromMilliseconds(milliseconds));
     }
