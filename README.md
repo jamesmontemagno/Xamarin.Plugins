@@ -51,7 +51,7 @@ Platform specific:
 New Unified APIs 
 
 * Xamarin.iOS10 
-* Xamarin.Mac10
+* Xamarin.Mac20
 
 PCL:
 
