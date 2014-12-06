@@ -55,6 +55,13 @@ This NuGet can be used for all tradition Xamarin and Windows development with ou
 * Available on NuGet: https://www.nuget.org/packages/Xamarin.Plugins.Forms
 * Install into your PCL project and Client projects.
 
+**Supports**
+* Xamarin.iOS
+* Xamarin.iOS (x64 Unified)
+* Xamarin.Android
+* Windows Phone 8 (Silverlight)
+* Windows PHone 8.1 RT
+* 
 **ANDROID Specific**
 Please ensure you have the VIBRATE persmission enabled:
 
