@@ -4,12 +4,20 @@
 * Android: SharedPreferences
 * iOS: NSUserDefaults
 * Windows Phone: IsolatedStorageSettings
-* Windows Store: ApplicationDataContainer
+* Windows Store / Windows Phone RT: ApplicationDataContainer
 
 ### Setup & Usage
 * Available on NuGet: https://www.nuget.org/packages/Xam.Plugins.Settings/
 * Install into your PCL project and Client projects.
 * Open up Helpers/Settings.cs in your PCL for directions on how to use.
+
+**Supports**
+* Xamarin.iOS
+* Xamarin.iOS (x64 Unified)
+* Xamarin.Android
+* Windows Phone 8 (Silverlight)
+* Windows Pone 8.1 RT
+* Windows Store 8.0+
 
 ### NuGet Creation & Packaging
 
