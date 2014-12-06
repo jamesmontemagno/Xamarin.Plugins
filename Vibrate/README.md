@@ -6,7 +6,7 @@ Simple but elegant way of performing Vibrate in your Xamarin, Windows, and Xamar
 There are 2 current implementations, a strict Xamarin.Forms Plugin using the Dependency service and a more traditional approach without the dependency service.
 
 #### Setup
-* Available on NuGet: https://www.nuget.org/packages/Xamarin.Plugins.Forms.Vibrate
+* Available on NuGet: https://www.nuget.org/packages/Xam.Plugins.Forms.Vibrate
 * Install into your PCL project and Client projects.
 
 In your iOS, Android, and Windows Phone projects please call:
@@ -52,7 +52,7 @@ This NuGet can be used for all tradition Xamarin and Windows development with ou
 
 
 #### Setup
-* Available on NuGet: https://www.nuget.org/packages/Xamarin.Plugins.Forms
+* Available on NuGet: https://www.nuget.org/packages/Xam.Plugins.Vibrate
 * Install into your PCL project and Client projects.
 
 **Supports**
