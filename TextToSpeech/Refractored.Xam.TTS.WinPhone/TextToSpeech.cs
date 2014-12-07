@@ -200,11 +200,15 @@ namespace Refractored.Xam.TTS
 #if NETFX_CORE
       return SpeechSynthesizer.AllVoices
         .OrderBy(a => a.Language)
-        .Select(a => new CrossLocale { Language = a.Language, DisplayName = a.DisplayName });
+        .Select(a => new CrossLocale { Language = a.Language, DisplayName = a.DisplayName })
+        .GroupBy(c => c.ToString())
+        .Select(g => g.First());
 #else
       return InstalledVoices.All
         .OrderBy(a => a.Language)
-        .Select(a => new CrossLocale { Language = a.Language, DisplayName = a.DisplayName });
+        .Select(a => new CrossLocale { Language = a.Language, DisplayName = a.DisplayName })
+        .GroupBy(c => c.ToString())
+        .Select(g => g.First());
 #endif
     }
 

@@ -16,7 +16,7 @@
            Xamarin and Windows plugin to perform text to speech functionality.
            Adjustable pitch, speak rate, locale, and more.
        </description>
-       <tags>xamarin, xamarin.forms, android, ios, windows phone, text to speech, tts</tags>
+       <tags>xamarin, xamarin.forms, android, ios, windows phone, windows store, winrt, universal apps, text to speech, tts</tags>
        <dependencies>
        </dependencies>
    </metadata>
