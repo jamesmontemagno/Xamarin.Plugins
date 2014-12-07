@@ -1,4 +1,4 @@
-## Settings 
+## ![](https://raw.githubusercontent.com/jamesmontemagno/Xamarin.Plugins/master/Settings/Common/pcl_settings_icon.png) Settings 
 
 ### Uses the native settings management
 * Android: SharedPreferences
