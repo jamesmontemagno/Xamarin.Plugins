@@ -61,7 +61,8 @@ This NuGet can be used for all tradition Xamarin and Windows development with ou
 * Xamarin.Android
 * Windows Phone 8 (Silverlight)
 * Windows Phone 8.1 RT
-* 
+* Windows Store 8.1 (Vibrate not supported on these devices, just a blank DLL installed)
+
 **ANDROID Specific**
 Please ensure you have the VIBRATE persmission enabled:
 
