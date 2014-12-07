@@ -26,8 +26,6 @@ namespace TestAppForms.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Refractored.Xam.TTS.Resource.String.ApplicationName = global::TestAppForms.Droid.Resource.String.ApplicationName;
-			global::Refractored.Xam.TTS.Resource.String.Hello = global::TestAppForms.Droid.Resource.String.Hello;
 			global::Refractored.Xam.Vibrate.Resource.String.ApplicationName = global::TestAppForms.Droid.Resource.String.ApplicationName;
 			global::Refractored.Xam.Vibrate.Resource.String.Hello = global::TestAppForms.Droid.Resource.String.Hello;
 		}

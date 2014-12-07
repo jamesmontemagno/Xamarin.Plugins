@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Vibrate", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Vibrate.Android", "Refractored.Xam.Vibrate.Android\Refractored.Xam.Vibrate.Android.csproj", "{3C98C724-1797-4991-9AF2-969A337465DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Vibrate.WinStore", "Refractored.Xam.Vibrate.WinStore\Refractored.Xam.Vibrate.WinStore.csproj", "{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -157,6 +159,22 @@ Global
 		{3C98C724-1797-4991-9AF2-969A337465DE}.Release|ARM.ActiveCfg = Release|Any CPU
 		{3C98C724-1797-4991-9AF2-969A337465DE}.Release|x64.ActiveCfg = Release|Any CPU
 		{3C98C724-1797-4991-9AF2-969A337465DE}.Release|x86.ActiveCfg = Release|Any CPU
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Debug|ARM.ActiveCfg = Debug|ARM
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Debug|ARM.Build.0 = Debug|ARM
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Debug|x64.ActiveCfg = Debug|x64
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Debug|x64.Build.0 = Debug|x64
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Debug|x86.ActiveCfg = Debug|x86
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Debug|x86.Build.0 = Debug|x86
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Release|ARM.ActiveCfg = Release|ARM
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Release|ARM.Build.0 = Release|ARM
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Release|x64.ActiveCfg = Release|x64
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Release|x64.Build.0 = Release|x64
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Release|x86.ActiveCfg = Release|x86
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,5 +189,6 @@ Global
 		{9606B619-FC46-4512-A5AC-97B4B4A0FB60} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
 		{E018DEDF-8FB8-4D46-A04B-97C9447965F5} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
 		{3C98C724-1797-4991-9AF2-969A337465DE} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
+		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
 	EndGlobalSection
 EndGlobal

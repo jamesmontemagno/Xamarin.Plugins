@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 #if NETFX_CORE
 using Windows.Media.SpeechSynthesis;
+using Windows.UI.Xaml.Controls;
+using System.Diagnostics;
 #else
 using Windows.Phone.Speech.Synthesis;
 #endif
@@ -11,11 +13,14 @@ using Windows.Phone.Speech.Synthesis;
 namespace Refractored.Xam.TTS
 {
   /// <summary>
-  /// Text To Speech Impelemenatation Windows Phone
+  /// Text To Speech Impelemenatation Windows
   /// </summary>
   public class TextToSpeech : ITextToSpeech, IDisposable
   {
     SpeechSynthesizer speechSynthesizer;
+#if NETFX_CORE
+    MediaElement element;
+#endif
     /// <summary>
     /// SpeechSynthesizer
     /// </summary>
@@ -30,6 +35,11 @@ namespace Refractored.Xam.TTS
     {
       if(speechSynthesizer == null)
         speechSynthesizer = new SpeechSynthesizer();
+
+#if NETFX_CORE
+      if (element == null)
+        element = new MediaElement();
+#endif
     }
 
     /// <summary>
@@ -41,7 +51,7 @@ namespace Refractored.Xam.TTS
     /// <param name="pitch">Pitch of voice</param>
     /// <param name="speakRate">Speak Rate of voice (All) (0.0 - 2.0f)</param>
     /// <param name="volume">Volume of voice (iOS/WP) (0.0-1.0)</param>
-    public void Speak(string text, bool queue = false, CrossLocale? crossLocale = null, float? pitch = null, float? speakRate = null, float? volume = null)
+    public async void Speak(string text, bool queue = false, CrossLocale? crossLocale = null, float? pitch = null, float? speakRate = null, float? volume = null)
     {
       if (string.IsNullOrWhiteSpace(text))
         return;
@@ -86,7 +96,16 @@ namespace Refractored.Xam.TTS
         }
 
 #if NETFX_CORE
-        speechSynthesizer.SynthesizeTextToStreamAsync(text);
+        try
+        {
+          var stream = await speechSynthesizer.SynthesizeTextToStreamAsync(text);
+          element.SetSource(stream, stream.ContentType);
+          element.Play();
+        }
+        catch(Exception ex)
+        {
+          Debug.WriteLine("Unable to playback stream: " + ex);
+        }
 #else
         speechSynthesizer.SpeakTextAsync(text);
 #endif
@@ -157,7 +176,15 @@ namespace Refractored.Xam.TTS
       ssmlText += "</speak>";
 
 #if NETFX_CORE
-      speechSynthesizer.SynthesizeSsmlToStreamAsync(ssmlText);
+      try{
+      var stream = await speechSynthesizer.SynthesizeSsmlToStreamAsync(ssmlText);
+      element.SetSource(stream, stream.ContentType);
+      element.Play();
+      }
+      catch(Exception ex)
+      {
+        Debug.WriteLine("Unable to playback stream: " + ex);
+      }
 #else
       speechSynthesizer.SpeakSsmlAsync(ssmlText);
 #endif
@@ -191,6 +218,13 @@ namespace Refractored.Xam.TTS
         speechSynthesizer.Dispose();
         speechSynthesizer = null;
       }
+
+#if NETFX_CORE
+      if(element != null)
+      {
+        element = null;
+      }
+#endif
     }
   }
 }

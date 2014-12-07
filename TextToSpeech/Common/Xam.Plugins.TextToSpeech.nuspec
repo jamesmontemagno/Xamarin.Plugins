@@ -45,6 +45,15 @@
      <file src="..\Refractored.Xam.TTS.WinPhone\bin\Release\Refractored.Xam.TTS.xml" target="lib\wp8\Refractored.Xam.TTS.xml" />
      <file src="..\Refractored.Xam.TTS.WinPhone\bin\Release\Refractored.Xam.TTS.pdb" target="lib\wp8\Refractored.Xam.TTS.pdb" />
 
+     <!--Win Store-->
+     <file src="..\Refractored.Xam.TTS.Abstractions\bin\Release\Refractored.Xam.TTS.Abstractions.dll" target="lib\win8\Refractored.Xam.TTS.Abstractions.dll" />
+     <file src="..\Refractored.Xam.TTS.Abstractions\bin\Release\Refractored.Xam.TTS.Abstractions.xml" target="lib\win8\Refractored.Xam.TTS.Abstractions.xml" />
+     <file src="..\Refractored.Xam.TTS.Abstractions\bin\Release\Refractored.Xam.TTS.Abstractions.pdb" target="lib\win8\Refractored.Xam.TTS.Abstractions.pdb" />
+     <file src="..\Refractored.Xam.TTS.WinStore\bin\Release\Refractored.Xam.TTS.dll" target="lib\win8\Refractored.Xam.TTS.dll" />
+     <file src="..\Refractored.Xam.TTS.WinStore\bin\Release\Refractored.Xam.TTS.xml" target="lib\win8\Refractored.Xam.TTS.xml" />
+     <file src="..\Refractored.Xam.TTS.WinStore\bin\Release\Refractored.Xam.TTS.pdb" target="lib\win8\Refractored.Xam.TTS.pdb" />
+
+     
      <!--Xamarin.Android-->
      <file src="..\Refractored.Xam.TTS.Abstractions\bin\Release\Refractored.Xam.TTS.Abstractions.dll" target="lib\MonoAndroid10\Refractored.Xam.TTS.Abstractions.dll" />
      <file src="..\Refractored.Xam.TTS.Abstractions\bin\Release\Refractored.Xam.TTS.Abstractions.xml" target="lib\MonoAndroid10\Refractored.Xam.TTS.Abstractions.xml" />

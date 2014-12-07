@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.3">
        <id>Xam.Plugins.Vibrate</id>
-       <version>1.0.0.3</version>
+       <version>1.0.0.4</version>
        <title>Vibrate Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -45,6 +45,15 @@
      <file src="..\Refractored.Xam.Vibrate.WinPhoneRT\bin\Release\Refractored.Xam.Vibrate.xml" target="lib\wpa81\Refractored.Xam.Vibrate.xml" />
      <file src="..\Refractored.Xam.Vibrate.WinPhoneRT\bin\Release\Refractored.Xam.Vibrate.xml" target="lib\wpa81\Refractored.Xam.Vibrate.pdb" />
 
+     <!--Win Store-->
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.dll" target="lib\win8\Refractored.Xam.Vibrate.Abstractions.dll" />
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.xml" target="lib\win8\Refractored.Xam.Vibrate.Abstractions.xml" />
+     <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.xml" target="lib\win8\Refractored.Xam.Vibrate.Abstractions.pdb" />
+     <file src="..\Refractored.Xam.Vibrate.WinStore\bin\Release\Refractored.Xam.Vibrate.dll" target="lib\win8\Refractored.Xam.Vibrate.dll" />
+     <file src="..\Refractored.Xam.Vibrate.WinStore\bin\Release\Refractored.Xam.Vibrate.xml" target="lib\win8\Refractored.Xam.Vibrate.xml" />
+     <file src="..\Refractored.Xam.Vibrate.WinStore\bin\Release\Refractored.Xam.Vibrate.xml" target="lib\win8\Refractored.Xam.Vibrate.pdb" />
+
+     
      
      <!--Xamarin.Android-->
      <file src="..\Refractored.Xam.Vibrate.Abstractions\bin\Release\Refractored.Xam.Vibrate.Abstractions.dll" target="lib\MonoAndroid10\Refractored.Xam.Vibrate.Abstractions.dll" />

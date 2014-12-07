@@ -172,12 +172,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.0\lib\wp8\Refractored.Xam.TTS.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Refractored.Xam.Vibrate">
-      <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.3\lib\wp8\Refractored.Xam.Vibrate.dll</HintPath>
-    </Reference>
-    <Reference Include="Refractored.Xam.Vibrate.Abstractions, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Refractored.Xam.Vibrate, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.3\lib\wp8\Refractored.Xam.Vibrate.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.4\lib\wp8\Refractored.Xam.Vibrate.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Xam.Vibrate.Abstractions, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.4\lib\wp8\Refractored.Xam.Vibrate.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core">
       <HintPath>..\..\packages\Xamarin.Forms.1.2.3.6257\lib\WP80\Xamarin.Forms.Core.dll</HintPath>
