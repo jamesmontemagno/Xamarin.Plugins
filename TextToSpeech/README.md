@@ -1,6 +1,6 @@
 ## ![](Common/tts_icon_large.png) Text To Speech
 
-Simple but elegant way of performing Text To Speech across iOS, Android, and Windows Phone Project.
+Simple but elegant way of performing Text To Speech across Xamarni.iOS, Xamarin.Android,  Windows Phone, and Windows Store Projects.
 
 Preview: http://screencast.com/t/voW1P48Ka
 
@@ -11,6 +11,7 @@ Preview: http://screencast.com/t/voW1P48Ka
 * Speak Rate
 * Locale/Language of Speech
 * Decide to queue speech block
+* Gather all available languages to speak in
 
 
 ### Setup
