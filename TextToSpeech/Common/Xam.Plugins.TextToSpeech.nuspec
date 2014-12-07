@@ -8,6 +8,7 @@
        <owners>James Montemagno</owners>
        <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
        <projectUrl>https://github.com/jamesmontemagno/Xamarin.Plugins</projectUrl>
+       <iconUrl>http://refractored.com/images/tts_icon_large.png</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <summary>
           Cross platform Text to Speech for Xamarin and Windows.

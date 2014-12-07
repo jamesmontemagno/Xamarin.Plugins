@@ -1,4 +1,4 @@
-## Text To Speech
+## ![](Common/tts_icon_large.png) Text To Speech
 
 Simple but elegant way of performing Text To Speech across iOS, Android, and Windows Phone Project.
 
