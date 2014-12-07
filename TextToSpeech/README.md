@@ -22,7 +22,8 @@ Preview: http://screencast.com/t/voW1P48Ka
 * Xamarin.iOS (x64 Unified)
 * Xamarin.Android
 * Windows Phone 8 (Silverlight)
-* Windows PHone 8.1 RT
+* Windows Ptone 8.1 RT
+* Windows Store 8.1
 
 
 ### Usage
