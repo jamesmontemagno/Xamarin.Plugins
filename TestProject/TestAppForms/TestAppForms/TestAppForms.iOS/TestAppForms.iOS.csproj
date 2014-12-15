@@ -43,8 +43,26 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchDebug>true</MtouchDebug>
+    <MtouchDebug>False</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchSdkVersion>8.1</MtouchSdkVersion>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchProfiling>False</MtouchProfiling>
+    <MtouchExtraArgs />
+    <MtouchFastDev>False</MtouchFastDev>
+    <MtouchEnableGenericValueTypeSharing>True</MtouchEnableGenericValueTypeSharing>
+    <MtouchArch>Default, ARMv7</MtouchArch>
+    <MtouchUseLlvm>False</MtouchUseLlvm>
+    <MtouchUseThumb>False</MtouchUseThumb>
+    <MtouchUseSGen>False</MtouchUseSGen>
+    <MtouchUseRefCounting>False</MtouchUseRefCounting>
+    <MtouchOptimizePNGs>False</MtouchOptimizePNGs>
+    <MtouchI18n />
+    <CodesignProvision />
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <CodesignResourceRules />
+    <CodesignExtraArgs />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -87,8 +105,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-  </ItemGroup>
-  <ItemGroup>
+    <Reference Include="Connectivity.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\MonoTouch10\Connectivity.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Connectivity.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\MonoTouch10\Connectivity.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceInfo.Plugin">
+      <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\MonoTouch10\DeviceInfo.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceInfo.Plugin.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\MonoTouch10\DeviceInfo.Plugin.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Refractored.Xam.TTS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.0\lib\MonoTouch10\Refractored.Xam.TTS.dll</HintPath>
@@ -118,6 +148,10 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\..\packages\Xamarin.Forms.1.2.3.6257\lib\MonoTouch10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConnectivityReadme.txt" />
+    <Content Include="DeviceInfoReadme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />

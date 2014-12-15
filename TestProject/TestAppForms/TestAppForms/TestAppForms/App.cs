@@ -1,4 +1,6 @@
-﻿using Refractored.Xam.TTS;
+﻿using Connectivity.Plugin;
+using DeviceInfo.Plugin;
+using Refractored.Xam.TTS;
 using Refractored.Xam.TTS.Abstractions;
 using Refractored.Xam.Vibrate.Abstractions;
 using System;
@@ -64,6 +66,74 @@ namespace TestAppForms
           Refractored.Xam.Vibrate.CrossVibrate.Current.Vibration((int)sliderVibrate.Value);
         };
 
+
+      var connectivityButton = new Button
+      {
+        Text = "Connectivity Test"
+      };
+
+      var connected = new Label
+      {
+        Text = "Is Connected: "
+      };
+
+      var connectionTypes = new Label
+      {
+        Text = "Connection Types: "
+      };
+
+      var bandwidths = new Label
+      {
+        Text = "Bandwidths"
+      };
+
+      var host = new Entry
+      {
+        Text = "montemagno.com"
+      };
+
+
+      var host2 = new Entry
+      {
+        Text = "montemagno.com"
+      };
+
+      var port = new Entry
+      {
+        Text = "80",
+        Keyboard = Keyboard.Numeric
+      };
+
+      var canReach1 = new Label
+      {
+        Text = "Can reach1: "
+      };
+
+      var canReach2 = new Label
+      {
+        Text = "Can reach2: "
+      };
+
+
+      connectivityButton.Clicked += async (sender, args)=>
+      {
+        connected.Text = CrossConnectivity.Current.IsConnected ? "Connected" : "No Connection";
+        bandwidths.Text = "Bandwidths: ";
+        foreach(var band in CrossConnectivity.Current.Bandwidths)
+        {
+          bandwidths.Text += band.ToString() + ", ";
+        }
+        connectionTypes.Text = "ConnectionTypes:  ";
+        foreach(var band in CrossConnectivity.Current.ConnectionTypes)
+        {
+          connectionTypes.Text += band.ToString() + ", ";
+        }
+
+        canReach1.Text = await CrossConnectivity.Current.IsReachable(host.Text)?"Reachable":"Not reachable";
+        canReach2.Text = await CrossConnectivity.Current.IsPortReachable(host2.Text, int.Parse(port.Text)) ? "Reachable" : "Not reachable";
+
+
+      };
       
 
       languageButton.Clicked += async (sender, args) =>
@@ -91,6 +161,8 @@ namespace TestAppForms
           }
         };
 
+
+
       page = new ContentPage
       {
         Content = new ScrollView
@@ -113,7 +185,24 @@ namespace TestAppForms
               speakButton,
               new Label{ Text = "Vibrate Length"},
               sliderVibrate,
-              vibrateButton
+              vibrateButton,
+              new Label{ Text = "Generated AppId: " + CrossDeviceInfo.Current.GenerateAppId()},
+              new Label{ Text = "Generated AppId: " + CrossDeviceInfo.Current.GenerateAppId(true)},
+              new Label{ Text = "Generated AppId: " + CrossDeviceInfo.Current.GenerateAppId(true, "hello")},
+              new Label{ Text = "Generated AppId: " + CrossDeviceInfo.Current.GenerateAppId(true, "hello", "world")},
+              new Label{ Text = "Id: " + CrossDeviceInfo.Current.Id},
+              new Label{ Text = "Model: " + CrossDeviceInfo.Current.Model},
+              new Label{ Text = "Platform: " + CrossDeviceInfo.Current.Platform},
+              new Label{ Text = "Version: " + CrossDeviceInfo.Current.Version},
+              connectivityButton,
+              connected,
+              bandwidths,
+              connectionTypes,
+              host,
+              host2,
+              port,
+              canReach1,
+              canReach2,
             }
           }
         }

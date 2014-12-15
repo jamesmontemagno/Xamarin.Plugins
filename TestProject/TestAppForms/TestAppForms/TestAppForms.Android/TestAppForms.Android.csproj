@@ -48,6 +48,22 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Connectivity.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\MonoAndroid10\Connectivity.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Connectivity.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\MonoAndroid10\Connectivity.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceInfo.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\MonoAndroid10\DeviceInfo.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceInfo.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\MonoAndroid10\DeviceInfo.Plugin.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="FormsViewGroup">
       <HintPath>..\..\packages\Xamarin.Forms.1.2.3.6257\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
     </Reference>
@@ -101,6 +117,8 @@
     <AndroidResource Include="Resources\Drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ConnectivityReadme.txt" />
+    <Content Include="DeviceInfoReadme.txt" />
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
