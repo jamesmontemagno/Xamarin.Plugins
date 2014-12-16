@@ -138,10 +138,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Connectivity.Plugin">
+    <Reference Include="Connectivity.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\win8\Connectivity.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="Connectivity.Plugin.Abstractions">
+    <Reference Include="Connectivity.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\win8\Connectivity.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="DeviceInfo.Plugin">

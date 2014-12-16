@@ -68,25 +68,34 @@ namespace Connectivity.Plugin
       if (string.IsNullOrEmpty(host))
         throw new ArgumentNullException("host");
 
-      try
-      {
-        using (var ping = new Ping())
-        {
-          var reply = await ping.SendPingAsync(host, msTimeout);
-          Debug.WriteLine(reply.ToString());
-          return (reply.Status == IPStatus.Success);
-        }
-      }
-      catch (Exception ex)
-      {
-        Debug.WriteLine(ex);
+      if (!IsConnected)
         return false;
-      }
+
+      return await Task.Run(() =>
+      {
+        bool reachable;
+        try
+        {
+          reachable = InetAddress.GetByName(host).IsReachable(msTimeout);
+        }
+        catch (UnknownHostException)
+        {
+          reachable = false;
+        }
+        return reachable;
+      });
      
     }
 
-    public async Task<bool> IsPortReachable(string host, int port = 80, int msTimeout = 5000)
+    public async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
     {
+
+      if (string.IsNullOrEmpty(host))
+        throw new ArgumentNullException("host");
+
+      if (!IsConnected)
+        return false;
+
       return await Task.Run(async () =>
       {
         var sockaddr = new InetSocketAddress(host, port);

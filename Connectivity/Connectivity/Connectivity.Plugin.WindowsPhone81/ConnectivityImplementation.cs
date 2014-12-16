@@ -23,13 +23,20 @@ namespace Connectivity.Plugin
 
     public async Task<bool> IsReachable(string host, int msTimeout = 5000)
     {
-      return await IsPortReachable(host, 80, msTimeout);
+
+      if (!IsConnected)
+        return false;
+
+      return await IsRemoteReachable(host, 80, msTimeout);
     }
 
-    public async Task<bool> IsPortReachable(string host, int port = 80, int msTimeout = 5000)
+    public async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
         throw new ArgumentNullException("host");
+     
+      if (!IsConnected)
+        return false;
 
       try
       {

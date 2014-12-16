@@ -89,7 +89,7 @@ namespace TestAppForms
 
       var host = new Entry
       {
-        Text = "montemagno.com"
+        Text = "127.0.0.1"
       };
 
 
@@ -140,7 +140,7 @@ namespace TestAppForms
         }
         try
         {
-          canReach2.Text = await CrossConnectivity.Current.IsPortReachable(host2.Text, int.Parse(port.Text)) ? "Reachable" : "Not reachable";
+          canReach2.Text = await CrossConnectivity.Current.IsRemoteReachable(host2.Text, int.Parse(port.Text)) ? "Reachable" : "Not reachable";
 
         }
         catch(Exception ex)

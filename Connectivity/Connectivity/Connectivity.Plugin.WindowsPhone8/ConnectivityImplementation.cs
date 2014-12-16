@@ -22,6 +22,9 @@ namespace Connectivity.Plugin
       if (string.IsNullOrEmpty(host))
         throw new ArgumentNullException("host");
 
+      if (!IsConnected)
+        return false;
+
       return await Task.Run(() =>
       {
         var manualResetEvent = new ManualResetEvent(false);
@@ -36,10 +39,14 @@ namespace Connectivity.Plugin
       });
     }
 
-    public async Task<bool> IsPortReachable(string host, int port = 80, int msTimeout = 5000)
+    public async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
         throw new ArgumentNullException("host");
+
+      if (!IsConnected)
+        return false;
+
 
       return await Task.Run(() =>
       {
