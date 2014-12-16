@@ -3,15 +3,24 @@
 ## What is this?
 This is my main repo for all all Xamarin Plugins that I have or will be publishing. It is also example and documentation on how to create your very own PCL Plugin. These PCL plugins will allow you to add rich cross platform functionality to Xamarin, Xamarin.Forms and Windows Projects that use a PCLs or Shared Project.
 
-# Current Plugins
+Read more on my blog: http://motzcod.es/post/104507063997/what-exactly-is-a-plugin-for-xamarin
+
+# Current Plugins for Xamarin
 
 Each plugin has a README with more information on what they contain.
 
-* **Settings**: Cross platform settings for iOS, Android, Windows Phone, and Windows Store
-* **Text To Speech**: Cross platform text to speech funcationlaity on iOS, Android, and Windows Phone
-* **Vibrate**: Cross platform device vibration on iOS, Android, and Windows Phone
-* **Messages_Sample**: This is a simple test PCL NuGet to show anyone how easy it is to get a NuGet up and running. It uses an example of a stubbed out class and also a linked file class with #if's throughout it.
+* **[Device Information](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/DeviceInfo)**
+* **[Settings](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Settings)**
+* **[Text To Speech](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/TextToSpeech)**
+* **[Vibrate](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Vibrate)**
+
+Coming soon:
+
 * **Messages_Production**: In the works
+* **[Connectivity](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Connectivity)**: See if device is connected to the internet and through what connection type.
+
+Other:
+* **Messages_Sample**: This is a simple test PCL NuGet to show anyone how easy it is to get a NuGet up and running. It uses an example of a stubbed out class and also a linked file class with #if's throughout it.
 
 
 ## How PCL's Work!
@@ -66,8 +75,6 @@ PCL:
 
 #### Upcoming PCL Plugins
 * A real Messages PCL
-* Device
-* Connectivity
 * SMS
 
 #### Contributors
