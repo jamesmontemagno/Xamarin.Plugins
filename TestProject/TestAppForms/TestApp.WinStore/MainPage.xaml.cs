@@ -1,4 +1,5 @@
-﻿using DeviceInfo.Plugin;
+﻿using Connectivity.Plugin;
+using DeviceInfo.Plugin;
 using Refractored.Xam.TTS;
 using Refractored.Xam.TTS.Abstractions;
 using Refractored.Xam.Vibrate;
@@ -73,6 +74,26 @@ namespace TestApp.WinStore
             pitch: (float)SliderPitch.Value,
             speakRate: (float)SliderSpeakRate.Value,
             volume: (float)SliderVolume.Value);
+        }
+
+
+        private async void Connectivity_Click(object sender, RoutedEventArgs e)
+        {
+          ConnectivityResults.Text = "Running";
+          var builder = new StringBuilder();
+          builder.AppendLine(CrossConnectivity.Current.IsConnected ? "Connected" : "Not Connected");
+          builder.AppendLine("Connection Types: ");
+          foreach (var item in CrossConnectivity.Current.ConnectionTypes)
+            builder.AppendLine(item.ToString());
+
+          builder.AppendLine("Bandwidths: ");
+          foreach (var item in CrossConnectivity.Current.Bandwidths)
+            builder.AppendLine(item.ToString());
+
+          builder.AppendLine((await CrossConnectivity.Current.IsReachable(Address1.Text.Trim())) ? "Reachable" : "Not Reachable");
+
+          builder.AppendLine((await CrossConnectivity.Current.IsReachable(Address2.Text.Trim(), int.Parse(Port.Text))) ? "Reachable" : "Not Reachable");
+          ConnectivityResults.Text = builder.ToString();
         }
     }
 }

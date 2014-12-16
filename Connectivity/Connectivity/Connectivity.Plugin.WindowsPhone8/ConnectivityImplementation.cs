@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Phone.Net.NetworkInformation;
 using Connectivity.Plugin.Abstractions;
+using System.Diagnostics;
 
 namespace Connectivity.Plugin
 {
@@ -50,26 +51,34 @@ namespace Connectivity.Plugin
 
       return await Task.Run(() =>
       {
-        var clientDone = new ManualResetEvent(false);
-        var reachable = false;
-        var hostEntry = new DnsEndPoint(host, port);
-        using (var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
+        try
         {
-          var socketEventArg = new SocketAsyncEventArgs { RemoteEndPoint = hostEntry };
-          socketEventArg.Completed += (s, e) =>
+          var clientDone = new ManualResetEvent(false);
+          var reachable = false;
+          var hostEntry = new DnsEndPoint(host, port);
+          using (var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
           {
-            reachable = e.SocketError == SocketError.Success;
+            var socketEventArg = new SocketAsyncEventArgs { RemoteEndPoint = hostEntry };
+            socketEventArg.Completed += (s, e) =>
+            {
+              reachable = e.SocketError == SocketError.Success;
 
-            clientDone.Set();
-          };
+              clientDone.Set();
+            };
 
-          clientDone.Reset();
+            clientDone.Reset();
 
-          socket.ConnectAsync(socketEventArg);
+            socket.ConnectAsync(socketEventArg);
 
-          clientDone.WaitOne(msTimeout);
+            clientDone.WaitOne(msTimeout);
 
-          return reachable;
+            return reachable;
+          }
+        }
+        catch(Exception ex)
+        {
+          Debug.WriteLine("Unable to reach: " + host + " Error: " + ex);
+          return false;
         }
       });
     }

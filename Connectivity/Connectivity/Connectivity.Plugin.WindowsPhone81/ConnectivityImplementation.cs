@@ -8,6 +8,7 @@ using System.Threading;
 using System.Net.NetworkInformation;
 using Windows.Networking.Sockets;
 using Windows.Networking;
+using System.Diagnostics;
 
 namespace Connectivity.Plugin
 {
@@ -21,13 +22,39 @@ namespace Connectivity.Plugin
       }
     }
 
+    /// <summary>
+    /// Checks if remote is reachable. RT apps can not do loopback so this will alway return false.
+    /// You can use it to check remote calls though.
+    /// </summary>
+    /// <param name="host"></param>
+    /// <param name="msTimeout"></param>
+    /// <returns></returns>
     public async Task<bool> IsReachable(string host, int msTimeout = 5000)
     {
+      if (string.IsNullOrEmpty(host))
+        throw new ArgumentNullException("host");
 
       if (!IsConnected)
         return false;
 
-      return await IsRemoteReachable(host, 80, msTimeout);
+
+     
+      try
+      {
+        var serverHost = new HostName(host);
+        using(var client = new StreamSocket())
+        {
+          await client.ConnectAsync(serverHost, "http");
+          return true;
+        }
+
+
+      }
+      catch(Exception ex)
+      {
+        Debug.WriteLine("Unable to reach: " + host + " Error: " + ex);
+        return false;
+      }
     }
 
     public async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
@@ -57,6 +84,7 @@ namespace Connectivity.Plugin
       }
       catch (Exception ex)
       {
+        Debug.WriteLine("Unable to reach: " + host + " Error: " + ex);
         return false;
       }
       finally

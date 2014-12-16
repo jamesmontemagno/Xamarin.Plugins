@@ -27,5 +27,13 @@
             <TextBlock x:Name="DeviceInfo" TextWrapping="Wrap" Text="TextBlock"/>
             
         </StackPanel>
+        
+        <StackPanel Grid.Column="1" Margin="10">
+            <Button Content="Connectivity Test" Click="Connectivity_Click"></Button>
+            <TextBox x:Name="Address1" Text="127.0.0.1"></TextBox>
+            <TextBox x:Name="Address2" Text="montemagno.com"></TextBox>
+            <TextBox x:Name="Port" Text="80"></TextBox>
+            <TextBlock x:Name="ConnectivityResults" Text="Results will appear here."/>
+        </StackPanel>
     </Grid>
 </Page>

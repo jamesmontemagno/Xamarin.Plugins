@@ -78,8 +78,9 @@ namespace Connectivity.Plugin
         {
           reachable = InetAddress.GetByName(host).IsReachable(msTimeout);
         }
-        catch (UnknownHostException)
+        catch (UnknownHostException ex)
         {
+          Debug.WriteLine("Unable to reach: " + host + " Error: " + ex);
           reachable = false;
         }
         return reachable;
@@ -106,8 +107,9 @@ namespace Connectivity.Plugin
             await sock.ConnectAsync(sockaddr, msTimeout);
             return true;
           }
-          catch (Exception)
+          catch (Exception ex)
           {
+            Debug.WriteLine("Unable to reach: " + host + " Error: " + ex);
             return false;
           }
         }
