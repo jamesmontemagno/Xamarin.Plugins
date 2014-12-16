@@ -15,7 +15,7 @@ Preview: http://screencast.com/t/voW1P48Ka
 
 
 ### Setup
-* Available on NuGet:
+* Available on NuGet: https://www.nuget.org/packages/Xam.Plugins.TextToSpeech/
 * Install into your PCL project and Client projects.
 
 **Supports**
