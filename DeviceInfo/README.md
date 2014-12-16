@@ -1,4 +1,4 @@
-## ![](Common/device_info_ocin.png) Device Info Plugin for Xamarin
+## ![](Common/device_info_icon.png) Device Info Plugin for Xamarin
 
 Simple way of getting common device information.
 
