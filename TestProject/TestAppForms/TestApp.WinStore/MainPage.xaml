@@ -25,6 +25,7 @@
             <Button Content="Speak" Click="ButtonSpeak_Click" x:Name="ButtonSpeak"/>
             <ListView x:Name="ListViewLocales" SelectionMode="Single"/>
             <TextBlock x:Name="DeviceInfo" TextWrapping="Wrap" Text="TextBlock"/>
+            
         </StackPanel>
     </Grid>
 </Page>

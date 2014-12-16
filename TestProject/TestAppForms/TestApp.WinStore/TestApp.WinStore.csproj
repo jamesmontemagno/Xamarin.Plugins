@@ -123,7 +123,6 @@
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
-    <Content Include="ConnectivityReadme.txt" />
     <Content Include="DeviceInfoReadme.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -137,14 +136,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Connectivity.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\win8\Connectivity.Plugin.dll</HintPath>
-    </Reference>
-    <Reference Include="Connectivity.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\win8\Connectivity.Plugin.Abstractions.dll</HintPath>
-    </Reference>
     <Reference Include="DeviceInfo.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\win8\DeviceInfo.Plugin.dll</HintPath>

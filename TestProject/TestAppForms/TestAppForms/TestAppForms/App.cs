@@ -129,9 +129,25 @@ namespace TestAppForms
           connectionTypes.Text += band.ToString() + ", ";
         }
 
-        canReach1.Text = await CrossConnectivity.Current.IsReachable(host.Text)?"Reachable":"Not reachable";
-        canReach2.Text = await CrossConnectivity.Current.IsPortReachable(host2.Text, int.Parse(port.Text)) ? "Reachable" : "Not reachable";
+        try
+        {
+          canReach1.Text = await CrossConnectivity.Current.IsReachable(host.Text) ? "Reachable" : "Not reachable";
+        
+        }
+        catch(Exception ex)
+        {
 
+        }
+        try
+        {
+          canReach2.Text = await CrossConnectivity.Current.IsPortReachable(host2.Text, int.Parse(port.Text)) ? "Reachable" : "Not reachable";
+
+        }
+        catch(Exception ex)
+        {
+
+        }
+       
 
       };
       

@@ -142,7 +142,6 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ConnectivityReadme.txt" />
     <Content Include="DeviceInfoReadme.txt" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
@@ -163,14 +162,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Connectivity.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\wp8\Connectivity.Plugin.dll</HintPath>
-    </Reference>
-    <Reference Include="Connectivity.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\wp8\Connectivity.Plugin.Abstractions.dll</HintPath>
-    </Reference>
     <Reference Include="DeviceInfo.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\wp8\DeviceInfo.Plugin.dll</HintPath>

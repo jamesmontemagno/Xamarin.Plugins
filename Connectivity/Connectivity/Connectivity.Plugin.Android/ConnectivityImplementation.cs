@@ -9,6 +9,7 @@ using Android.Net;
 using Android.Net.Wifi;
 using Android.App;
 using Java.Net;
+using System.Net.NetworkInformation;
 
 
 namespace Connectivity.Plugin
@@ -67,22 +68,21 @@ namespace Connectivity.Plugin
       if (string.IsNullOrEmpty(host))
         throw new ArgumentNullException("host");
 
-      if (!IsConnected)
-        return false;
-
-      return await Task.Run(() =>
+      try
       {
-        bool reachable;
-        try
+        using (var ping = new Ping())
         {
-          reachable = InetAddress.GetByName(host).IsReachable(msTimeout);
+          var reply = await ping.SendPingAsync(host, msTimeout);
+          Debug.WriteLine(reply.ToString());
+          return (reply.Status == IPStatus.Success);
         }
-        catch (UnknownHostException)
-        {
-          reachable = false;
-        }
-        return reachable;
-      });
+      }
+      catch (Exception ex)
+      {
+        Debug.WriteLine(ex);
+        return false;
+      }
+     
     }
 
     public async Task<bool> IsPortReachable(string host, int port = 80, int msTimeout = 5000)

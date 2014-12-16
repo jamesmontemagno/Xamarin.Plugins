@@ -23,51 +23,38 @@ namespace Connectivity.Plugin
 
     public async Task<bool> IsReachable(string host, int msTimeout = 5000)
     {
-      if (string.IsNullOrEmpty(host))
-        throw new ArgumentNullException("host");
-
-      return await Task.Run(async () =>
-      {
-        try
-        {
-          using (var socket = new StreamSocket())
-          {
-            //var host = new HostName(host);
-            //await socket.ConnectAsync(host);
-            return true;
-          }
-        }
-        catch(Exception ex)
-        {
-          return false;
-        }
-        
-       
-      });
+      return await IsPortReachable(host, 80, msTimeout);
     }
 
     public async Task<bool> IsPortReachable(string host, int port = 80, int msTimeout = 5000)
     {
-      return await Task.Run(async () =>
+      if (string.IsNullOrEmpty(host))
+        throw new ArgumentNullException("host");
+
+      try
       {
-        try
+        using (var tcpClient = new StreamSocket())
         {
-          using (var socket = new StreamSocket())
-          {
-            var hostName = new HostName(host);
-            
-            await socket.ConnectAsync(hostName, port.ToString());
-            return true;
-            
-          }
-        }
-        catch (Exception ex)
-        {
-          return false;
-        }
+          await tcpClient.ConnectAsync(
+              new Windows.Networking.HostName(host),
+              port.ToString(),
+              SocketProtectionLevel.PlainSocket);
 
+          var localIp = tcpClient.Information.LocalAddress.DisplayName;
+          var remoteIp = tcpClient.Information.RemoteAddress.DisplayName;
 
-      });
+          tcpClient.Dispose();
+
+          return true;
+        }
+      }
+      catch (Exception ex)
+      {
+        return false;
+      }
+      finally
+      {
+      }
     }
 
     public IEnumerable<ConnectionType> ConnectionTypes

@@ -105,14 +105,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Connectivity.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\MonoTouch10\Connectivity.Plugin.dll</HintPath>
-    </Reference>
-    <Reference Include="Connectivity.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\MonoTouch10\Connectivity.Plugin.Abstractions.dll</HintPath>
-    </Reference>
     <Reference Include="DeviceInfo.Plugin">
       <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\MonoTouch10\DeviceInfo.Plugin.dll</HintPath>
     </Reference>
@@ -150,7 +142,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ConnectivityReadme.txt" />
     <Content Include="DeviceInfoReadme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
