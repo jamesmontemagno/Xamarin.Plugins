@@ -8,9 +8,7 @@
        <owners>James Montemagno</owners>
        <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
        <projectUrl>http://www.github.com/jamesmontemagno/Xamarin.Plugins</projectUrl>
-       <iconUrl>
-       http://www.refractored.com/images/device_info_icon.png
-       </iconUrl>
+       <iconUrl>http://www.refractored.com/images/device_info_icon.png</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
          Receive information about the device that you are using. Properties such as Model, Operatin System, Version, Id, and even the ability to generate a unique Id for your application based off of these properties.

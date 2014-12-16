@@ -123,7 +123,9 @@
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="ConnectivityReadme.txt" />
     <Content Include="DeviceInfoReadme.txt" />
+    <Content Include="Properties\_SettingsStarted.txt" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -136,20 +138,28 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="DeviceInfo.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Connectivity.Plugin">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\win8\Connectivity.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Connectivity.Plugin.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\win8\Connectivity.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceInfo.Plugin">
       <HintPath>..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\win8\DeviceInfo.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="DeviceInfo.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="DeviceInfo.Plugin.Abstractions">
       <HintPath>..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\win8\DeviceInfo.Plugin.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Refractored.Xam.TTS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Refractored.Xam.Settings">
+      <HintPath>..\packages\Xam.Plugins.Settings.1.4.0.1\lib\win8\Refractored.Xam.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Xam.Settings.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Settings.1.4.0.1\lib\win8\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Xam.TTS">
       <HintPath>..\packages\Xam.Plugins.TextToSpeech.1.0.0.0\lib\win8\Refractored.Xam.TTS.dll</HintPath>
     </Reference>
-    <Reference Include="Refractored.Xam.TTS.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Refractored.Xam.TTS.Abstractions">
       <HintPath>..\packages\Xam.Plugins.TextToSpeech.1.0.0.0\lib\win8\Refractored.Xam.TTS.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.Vibrate">

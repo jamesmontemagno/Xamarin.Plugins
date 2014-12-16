@@ -48,12 +48,16 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DeviceInfo.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Connectivity.Plugin">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\MonoAndroid10\Connectivity.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Connectivity.Plugin.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\MonoAndroid10\Connectivity.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceInfo.Plugin">
       <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\MonoAndroid10\DeviceInfo.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="DeviceInfo.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="DeviceInfo.Plugin.Abstractions">
       <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\MonoAndroid10\DeviceInfo.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="FormsViewGroup">
@@ -61,20 +65,22 @@
     </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
-    <Reference Include="Refractored.Xam.TTS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Refractored.Xam.Settings">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.1.4.0.1\lib\MonoAndroid10\Refractored.Xam.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Xam.Settings.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.1.4.0.1\lib\MonoAndroid10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Xam.TTS">
       <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.0\lib\MonoAndroid10\Refractored.Xam.TTS.dll</HintPath>
     </Reference>
-    <Reference Include="Refractored.Xam.TTS.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Refractored.Xam.TTS.Abstractions">
       <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.0\lib\MonoAndroid10\Refractored.Xam.TTS.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Refractored.Xam.Vibrate, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Refractored.Xam.Vibrate">
       <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.4\lib\MonoAndroid10\Refractored.Xam.Vibrate.dll</HintPath>
     </Reference>
-    <Reference Include="Refractored.Xam.Vibrate.Abstractions, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Refractored.Xam.Vibrate.Abstractions">
       <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.4\lib\MonoAndroid10\Refractored.Xam.Vibrate.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -109,8 +115,10 @@
     <AndroidResource Include="Resources\Drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ConnectivityReadme.txt" />
     <Content Include="DeviceInfoReadme.txt" />
     <Content Include="Properties\AndroidManifest.xml" />
+    <Content Include="Properties\_SettingsStarted.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestAppForms\TestAppForms.csproj">
