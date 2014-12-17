@@ -8,17 +8,33 @@ using System.Threading.Tasks;
 using Microsoft.Phone.Net.NetworkInformation;
 using Connectivity.Plugin.Abstractions;
 using System.Diagnostics;
+using System.Net.NetworkInformation;
 
 namespace Connectivity.Plugin
 {
-  public class ConnectivityImplementation : IConnectivity
+  public class ConnectivityImplementation : BaseConnectivity
   {
-    public bool IsConnected
+    bool isConnected;
+    public ConnectivityImplementation()
     {
-      get { return DeviceNetworkInformation.IsNetworkAvailable; }
+      isConnected = IsConnected;
+      NetworkChange.NetworkAddressChanged += (sender, args) =>
+      {
+        bool previous = isConnected;
+        if (previous != IsConnected)
+          OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = IsConnected });
+      };
+    }
+    public override bool IsConnected
+    {
+      get 
+      {
+        isConnected = DeviceNetworkInformation.IsNetworkAvailable;
+        return isConnected;
+      }
     }
 
-    public async Task<bool> IsReachable(string host, int msTimeout = 5000)
+    public override async Task<bool> IsReachable(string host, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
         throw new ArgumentNullException("host");
@@ -40,7 +56,7 @@ namespace Connectivity.Plugin
       });
     }
 
-    public async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
+    public override async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
         throw new ArgumentNullException("host");
@@ -83,7 +99,7 @@ namespace Connectivity.Plugin
       });
     }
 
-    public IEnumerable<ConnectionType> ConnectionTypes
+    public override IEnumerable<ConnectionType> ConnectionTypes
     {
       get
       {
@@ -111,7 +127,7 @@ namespace Connectivity.Plugin
       }
     }
 
-    public IEnumerable<UInt64> Bandwidths
+    public override IEnumerable<UInt64> Bandwidths
     {
       get
       {

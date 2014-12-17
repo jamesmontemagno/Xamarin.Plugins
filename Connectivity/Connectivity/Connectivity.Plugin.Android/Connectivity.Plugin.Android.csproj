@@ -47,6 +47,7 @@
     <Compile Include="..\Connectivity.Plugin\CrossConnectivity.cs">
       <Link>CrossConnectivity.cs</Link>
     </Compile>
+    <Compile Include="ConnectivityChangeBroadcastReceiver.cs" />
     <Compile Include="ConnectivityImplementation.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

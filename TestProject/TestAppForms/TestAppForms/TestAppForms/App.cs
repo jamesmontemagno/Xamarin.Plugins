@@ -224,6 +224,11 @@ namespace TestAppForms
         }
       };
 
+      CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
+        {
+          page.DisplayAlert("Connectivity Changed", "IsConnected: " + args.IsConnected.ToString(), "OK");
+        };
+
       return page;
     }
   }

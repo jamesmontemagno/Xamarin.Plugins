@@ -40,5 +40,18 @@ namespace Connectivity.Plugin.Abstractions
     /// Only active connections.
     /// </summary>
     IEnumerable<UInt64> Bandwidths { get; }
+
+    /// <summary>
+    /// Event handler when connection changes
+    /// </summary>
+    event ConnectivityChangedEventHandler ConnectivityChanged; 
   }
+
+  public class ConnectivityChangedEventArgs : EventArgs
+  {
+    public bool IsConnected { get; set; }
+  }
+
+  public delegate void ConnectivityChangedEventHandler(object sender, ConnectivityChangedEventArgs e);
+
 }

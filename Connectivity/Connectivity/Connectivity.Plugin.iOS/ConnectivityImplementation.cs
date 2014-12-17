@@ -14,35 +14,40 @@ namespace Connectivity.Plugin
   /// <summary>
   /// Implementation for Connectivity
   /// </summary>
-  public class ConnectivityImplementation : IConnectivity
+  public class ConnectivityImplementation : BaseConnectivity
   {
 
     public ConnectivityImplementation()
     {
-      Bandwidths = new List<UInt64>();
-      UpdateConnected();
+      UpdateConnected(false);
       Reachability.ReachabilityChanged += (sender, args) => UpdateConnected();
     }
 
 
-
-    private void UpdateConnected()
+    private bool isConnected;
+    private void UpdateConnected(bool triggerChange = true)
     {
       var remoteHostStatus = Reachability.RemoteHostStatus();
       var internetStatus = Reachability.InternetConnectionStatus();
       var localWifiStatus = Reachability.LocalWifiConnectionStatus();
-      IsConnected = (internetStatus == NetworkStatus.ReachableViaCarrierDataNetwork ||
+
+      var previous = isConnected;
+      isConnected = (internetStatus == NetworkStatus.ReachableViaCarrierDataNetwork ||
                       internetStatus == NetworkStatus.ReachableViaWiFiNetwork) ||
                     (localWifiStatus == NetworkStatus.ReachableViaCarrierDataNetwork ||
                       localWifiStatus == NetworkStatus.ReachableViaWiFiNetwork) ||
                     (remoteHostStatus == NetworkStatus.ReachableViaCarrierDataNetwork ||
                       remoteHostStatus == NetworkStatus.ReachableViaWiFiNetwork);
+
+      //dont' trigger on 
+      if(triggerChange && previous != isConnected)
+        OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = isConnected });
     }
 
 
-    public bool IsConnected { get; private set; }
+    public override bool IsConnected { get { return isConnected; } }
 
-    public async Task<bool> IsReachable(string host, int msTimeout = 5000)
+    public override async Task<bool> IsReachable(string host, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
         throw new ArgumentNullException("host");
@@ -53,7 +58,7 @@ namespace Connectivity.Plugin
       return await IsRemoteReachable(host, 80, msTimeout);
     }
 
-    public async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
+    public override async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
         throw new ArgumentNullException("host");
@@ -95,7 +100,7 @@ namespace Connectivity.Plugin
       });
     }
 
-    public IEnumerable<ConnectionType> ConnectionTypes 
+    public override IEnumerable<ConnectionType> ConnectionTypes
     {
       get
       {
@@ -117,10 +122,9 @@ namespace Connectivity.Plugin
     /// <summary>
     /// Not supported on iOS
     /// </summary>
-    public IEnumerable<UInt64> Bandwidths
+    public override IEnumerable<UInt64> Bandwidths
     {
-      get;
-      private set;
+      get { return new UInt64[] { }; }
     }
 
   }

@@ -17,8 +17,13 @@ namespace Connectivity.Plugin
   /// <summary>
   /// Implementation for Feature
   /// </summary>
-  public class ConnectivityImplementation : IConnectivity
+  public class ConnectivityImplementation : BaseConnectivity
   {
+
+    public ConnectivityImplementation()
+    {
+      ConnectivityChangeBroadcastReceiver.ConnectionChanged = OnConnectivityChanged;
+    }
     private ConnectivityManager connectivityManager;
     private WifiManager wifiManager;
 
@@ -45,7 +50,7 @@ namespace Connectivity.Plugin
       }
     }
 
-    public bool IsConnected
+    public override bool IsConnected
     {
       get
       {
@@ -63,7 +68,7 @@ namespace Connectivity.Plugin
       }
     }
 
-    public async Task<bool> IsReachable(string host, int msTimeout = 5000)
+    public override async Task<bool> IsReachable(string host, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
         throw new ArgumentNullException("host");
@@ -88,7 +93,7 @@ namespace Connectivity.Plugin
      
     }
 
-    public async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
+    public override async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
     {
 
       if (string.IsNullOrEmpty(host))
@@ -116,7 +121,7 @@ namespace Connectivity.Plugin
       });
     }
 
-    public IEnumerable<ConnectionType> ConnectionTypes
+    public override IEnumerable<ConnectionType> ConnectionTypes
     {
       get
       {
@@ -138,16 +143,16 @@ namespace Connectivity.Plugin
       }
     }
 
-    public IEnumerable<UInt64> Bandwidths
+    public override IEnumerable<UInt64> Bandwidths
     {
       get
       {
         try
         {
           if (ConnectionTypes.Contains(ConnectionType.WiFi))
-            return new []{(UInt64)WifiManager.ConnectionInfo.LinkSpeed};
+            return new[] { (UInt64)WifiManager.ConnectionInfo.LinkSpeed };
         }
-        catch(Exception e)
+        catch (Exception e)
         {
           Debug.WriteLine("Unable to get connected state - do you have ACCESS_WIFI_STATE permission? - error: {0}", e);
         }

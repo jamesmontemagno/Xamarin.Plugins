@@ -23,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Connectivity.Plugin.nuspec = Connectivity.Plugin.nuspec
 		ConnectivityReadme.txt.pp = ConnectivityReadme.txt.pp
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TempTests", "TempTests", "{8D5A6259-4850-4480-B787-CD9C90B0BF15}"

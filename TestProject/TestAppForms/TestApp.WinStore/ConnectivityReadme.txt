@@ -10,6 +10,8 @@ iOS:
 Bandwidths is not supported and will always return an empty list.
 
 Windows 8.1 & Windows Phone 8.1 RT:
-Permissions to add:
+RT apps can not perform loopback, so you can not use IsReachable to query the states of a local IP.
+
+Permissions to think about:
 The Private Networks (Client & Server) capability is represented by the Capability name = "privateNetworkClientServer" tag in the app manifest. 
 The Internet (Client & Server) capability is represented by the Capability name = "internetClientServer" tag in the app manifest.

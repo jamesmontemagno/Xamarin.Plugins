@@ -12,11 +12,20 @@ using System.Diagnostics;
 
 namespace Connectivity.Plugin
 {
-  public class ConnectivityImplementation : IConnectivity
+  public class ConnectivityImplementation : BaseConnectivity
   {
-    public bool IsConnected
+
+    public ConnectivityImplementation()
     {
-      get 
+      NetworkInformation.NetworkStatusChanged += (sender) =>
+        {
+          
+          OnConnectivityChanged(new ConnectivityChangedEventArgs{IsConnected = IsConnected});
+        };
+    }
+    public override bool IsConnected
+    {
+      get
       {
         return NetworkInterface.GetIsNetworkAvailable();
       }
@@ -29,7 +38,7 @@ namespace Connectivity.Plugin
     /// <param name="host"></param>
     /// <param name="msTimeout"></param>
     /// <returns></returns>
-    public async Task<bool> IsReachable(string host, int msTimeout = 5000)
+    public override async Task<bool> IsReachable(string host, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
         throw new ArgumentNullException("host");
@@ -57,7 +66,7 @@ namespace Connectivity.Plugin
       }
     }
 
-    public async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
+    public override async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
         throw new ArgumentNullException("host");
@@ -87,12 +96,9 @@ namespace Connectivity.Plugin
         Debug.WriteLine("Unable to reach: " + host + " Error: " + ex);
         return false;
       }
-      finally
-      {
-      }
     }
 
-    public IEnumerable<ConnectionType> ConnectionTypes
+    public override IEnumerable<ConnectionType> ConnectionTypes
     {
       get
       {
@@ -111,20 +117,20 @@ namespace Connectivity.Plugin
                 break;
               case 71:
                 type = ConnectionType.WiFi;
-                  break;
+                break;
               case 243:
               case 244:
                 type = ConnectionType.Cellular;
                 break;
             }
           }
-         
+
           yield return type;
         }
       }
     }
 
-    public IEnumerable<UInt64> Bandwidths
+    public override IEnumerable<UInt64> Bandwidths
     {
       get
       {

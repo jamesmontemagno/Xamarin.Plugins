@@ -11,6 +11,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -52,6 +53,15 @@ namespace TestApp.WinStore
           info.AppendLine("Platform: " + CrossDeviceInfo.Current.Platform);
           info.AppendLine("Version: " + CrossDeviceInfo.Current.Version);
           DeviceInfo.Text = info.ToString();
+
+          CrossConnectivity.Current.ConnectivityChanged += (sender2, args2) =>
+            {
+              this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
+              {
+                var dialog = new MessageDialog("ConnectionChanged: " + args2.IsConnected.ToString());
+                dialog.ShowAsync();
+              });
+            };
         }
 
         private void ButtonSpeak_Click(object sender, RoutedEventArgs e)
