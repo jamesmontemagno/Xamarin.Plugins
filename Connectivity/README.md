@@ -70,6 +70,34 @@ Task<bool> IsReachable(string host, int msTimeout = 5000);
 Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000);
 ```
 
+#### Changes in Connectivity
+When any network connectiivty is gained, changed, or loss you can register for an event to fire:
+```
+/// <summary>
+/// Event handler when connection changes
+/// </summary>
+event ConnectivityChangedEventHandler ConnectivityChanged; 
+```
+
+You will get a ConnectivityChangeEventArgs with the status if you are connected or not:
+```
+public class ConnectivityChangedEventArgs : EventArgs
+{
+  public bool IsConnected { get; set; }
+}
+
+public delegate void ConnectivityChangedEventHandler(object sender, ConnectivityChangedEventArgs e);
+```
+
+Usage sample from Xamarin.Forms:
+```
+CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
+  {
+    page.DisplayAlert("Connectivity Changed", "IsConnected: " + args.IsConnected.ToString(), "OK");
+  };
+```
+
+
 ### **IMPORTANT**
 Android:
 You must request ACCESS_NETWORK_STATE permission to get the network state
