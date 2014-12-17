@@ -18,6 +18,13 @@ namespace Connectivity.Plugin
     public ConnectivityImplementation()
     {
       isConnected = IsConnected;
+      //Must register for both for WP8 for some reason.
+      DeviceNetworkInformation.NetworkAvailabilityChanged += (sender, args) =>
+        {
+          bool previous = isConnected;
+          if (previous != IsConnected)
+            OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = IsConnected });
+        };
       NetworkChange.NetworkAddressChanged += (sender, args) =>
       {
         bool previous = isConnected;
