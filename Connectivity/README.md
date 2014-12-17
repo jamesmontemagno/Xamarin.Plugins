@@ -1,4 +1,4 @@
-## ![](Common/connectivity_icon.png) Connectivity Plugin for Xamarin
+## ![](Common/connectivity_icon.png) Connectivity Plugin for Xamarin and Windows
 
 Simple cross platform plugin to check connection status of mobile device, gather connection type, bandwidths, and more.
 
