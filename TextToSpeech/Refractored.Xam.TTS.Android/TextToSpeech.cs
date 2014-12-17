@@ -222,6 +222,7 @@ namespace Refractored.Xam.TTS
      {
        textToSpeech.Stop();
        textToSpeech.Dispose();
+       textToSpeech = null;
      }
     }
   }

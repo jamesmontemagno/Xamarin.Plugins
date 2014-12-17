@@ -9,7 +9,7 @@ namespace Refractored.Xam.TTS
   /// <summary>
   /// Cross platform TTS implemenations
   /// </summary>
-    public class CrossTextToSpeech : IDisposable
+    public class CrossTextToSpeech
     {
       static Lazy<ITextToSpeech> TTS = new Lazy<ITextToSpeech>(() => CreateTextToSpeech(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
 
@@ -46,7 +46,7 @@ namespace Refractored.Xam.TTS
       /// <summary>
       /// Dispose of TTS, reset lazy load
       /// </summary>
-      public void Dispose()
+      public static void Dispose()
       {
         if(TTS.Value != null && TTS.IsValueCreated)
         {

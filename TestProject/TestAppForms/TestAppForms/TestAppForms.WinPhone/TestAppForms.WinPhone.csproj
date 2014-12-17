@@ -187,11 +187,13 @@
     <Reference Include="Refractored.Xam.Settings.Abstractions">
       <HintPath>..\..\packages\Xam.Plugins.Settings.1.4.0.1\lib\wp8\Refractored.Xam.Settings.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Refractored.Xam.TTS">
-      <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.0\lib\wp8\Refractored.Xam.TTS.dll</HintPath>
+    <Reference Include="Refractored.Xam.TTS, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.1\lib\wp8\Refractored.Xam.TTS.dll</HintPath>
     </Reference>
-    <Reference Include="Refractored.Xam.TTS.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.0\lib\wp8\Refractored.Xam.TTS.Abstractions.dll</HintPath>
+    <Reference Include="Refractored.Xam.TTS.Abstractions, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.1\lib\wp8\Refractored.Xam.TTS.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.Vibrate">
       <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.4\lib\wp8\Refractored.Xam.Vibrate.dll</HintPath>

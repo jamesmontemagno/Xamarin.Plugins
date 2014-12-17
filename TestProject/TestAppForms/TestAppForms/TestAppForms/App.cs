@@ -186,7 +186,7 @@ namespace TestAppForms
       disposeButton.Clicked += (sender, args) =>
         {
           CrossConnectivity.Dispose();
-          CrossTextToSpeech.Current.Dispose();//must fix
+          CrossTextToSpeech.Dispose();
         };
 
 
