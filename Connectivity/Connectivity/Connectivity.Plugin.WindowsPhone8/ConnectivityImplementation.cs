@@ -12,26 +12,42 @@ using System.Net.NetworkInformation;
 
 namespace Connectivity.Plugin
 {
+  /// <summary>
+  /// Implemenation WinPhone 8
+  /// </summary>
   public class ConnectivityImplementation : BaseConnectivity
   {
     bool isConnected;
+    /// <summary>
+    /// Default constructor
+    /// </summary>
     public ConnectivityImplementation()
     {
       isConnected = IsConnected;
       //Must register for both for WP8 for some reason.
-      DeviceNetworkInformation.NetworkAvailabilityChanged += (sender, args) =>
-        {
-          bool previous = isConnected;
-          if (previous != IsConnected)
-            OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = IsConnected });
-        };
-      NetworkChange.NetworkAddressChanged += (sender, args) =>
-      {
-        bool previous = isConnected;
-        if (previous != IsConnected)
-          OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = IsConnected });
-      };
+      DeviceNetworkInformation.NetworkAvailabilityChanged += NetworkAvailabilityChanged;
+      NetworkChange.NetworkAddressChanged += NetworkAddressChanged;
     }
+
+    void NetworkAddressChanged(object sender, EventArgs e)
+    {
+      UpdateStatus();
+    }
+
+    void NetworkAvailabilityChanged(object sender, NetworkNotificationEventArgs e)
+    {
+      UpdateStatus();
+    }
+
+    private void UpdateStatus()
+    {
+      bool previous = isConnected;
+      if (previous != IsConnected)
+        OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = IsConnected });
+    }
+    /// <summary>
+    /// Gets if there is an active internet connection
+    /// </summary>
     public override bool IsConnected
     {
       get 
@@ -41,6 +57,12 @@ namespace Connectivity.Plugin
       }
     }
 
+    /// <summary>
+    /// Tests if a host name is pingable
+    /// </summary>
+    /// <param name="host">The host name can either be a machine name, such as "java.sun.com", or a textual representation of its IP address (127.0.0.1)</param>
+    /// <param name="msTimeout">Timeout in milliseconds</param>
+    /// <returns></returns>
     public override async Task<bool> IsReachable(string host, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
@@ -63,6 +85,13 @@ namespace Connectivity.Plugin
       });
     }
 
+    /// <summary>
+    /// Tests if a remote host name is reachable
+    /// </summary>
+    /// <param name="host">Host name can be a remote IP or URL of website</param>
+    /// <param name="port">Port to attempt to check is reachable.</param>
+    /// <param name="msTimeout">Timeout in milliseconds.</param>
+    /// <returns></returns>
     public override async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
@@ -106,6 +135,9 @@ namespace Connectivity.Plugin
       });
     }
 
+    /// <summary>
+    /// Returns connection types active
+    /// </summary>
     public override IEnumerable<ConnectionType> ConnectionTypes
     {
       get
@@ -134,6 +166,9 @@ namespace Connectivity.Plugin
       }
     }
 
+    /// <summary>
+    /// Returns list of Bandwidths
+    /// </summary>
     public override IEnumerable<UInt64> Bandwidths
     {
       get
@@ -146,6 +181,26 @@ namespace Connectivity.Plugin
                                 .Select(networkInterfaceInfo => (UInt64)networkInterfaceInfo.Bandwidth)
                                 .ToArray();
       }
+    }
+    private bool disposed = false;
+    /// <summary>
+    /// Dispose of class
+    /// </summary>
+    /// <param name="disposing"></param>
+    public override void Dispose(bool disposing)
+    {
+      if (!disposed)
+      {
+        if (disposing)
+        {
+          DeviceNetworkInformation.NetworkAvailabilityChanged -= NetworkAvailabilityChanged;
+          NetworkChange.NetworkAddressChanged -= NetworkAddressChanged;
+        }
+
+        disposed = true;
+      }
+
+      base.Dispose(disposing);
     }
   }
 }

@@ -1,4 +1,4 @@
-using System;
+
 /*
  * reachability.cs from
  * https://github.com/xamarin/monotouch-samples/blob/master/ReachabilitySample/reachability.cs
@@ -22,17 +22,40 @@ using System.Diagnostics;
 
 namespace Connectivity.Plugin
 {
+  /// <summary>
+  /// Status of newtowkr enum
+  /// </summary>
   public enum NetworkStatus
   {
+    /// <summary>
+    /// No internet connection
+    /// </summary>
     NotReachable,
+    /// <summary>
+    /// Reachable view Cellular.
+    /// </summary>
     ReachableViaCarrierDataNetwork,
+    /// <summary>
+    /// Reachable view wifi
+    /// </summary>
     ReachableViaWiFiNetwork
   }
 
+  /// <summary>
+  /// Reachability helper
+  /// </summary>
   public static class Reachability
   {
+    /// <summary>
+    /// Default host name to use
+    /// </summary>
     public static string HostName = "www.google.com";
 
+    /// <summary>
+    /// Checks if reachable without requireing a connection
+    /// </summary>
+    /// <param name="flags"></param>
+    /// <returns></returns>
     public static bool IsReachableWithoutRequiringConnection(NetworkReachabilityFlags flags)
     { 
       // Is it reachable with the current network configuration?
@@ -49,6 +72,12 @@ namespace Connectivity.Plugin
       return isReachable && noConnectionRequired;
     }
 
+    /// <summary>
+    /// Checks if host is reachable
+    /// </summary>
+    /// <param name="host"></param>
+    /// <param name="port"></param>
+    /// <returns></returns>
     public static bool IsHostReachable(string host, int port)
     {
       if (string.IsNullOrWhiteSpace(host))
@@ -73,7 +102,11 @@ namespace Connectivity.Plugin
       return false;
     }
 
-    // Is the host reachable with the current network configuration
+    /// <summary>
+    ///  Is the host reachable with the current network configuration
+    /// </summary>
+    /// <param name="host"></param>
+    /// <returns></returns>
     public static bool IsHostReachable(string host)
     {
       if (string.IsNullOrWhiteSpace(host))
@@ -92,11 +125,12 @@ namespace Connectivity.Plugin
       return false;
     }
 
-    //
-    // Raised every time there is an interesting reachable event,
-    // we do not even pass the info as to what changed, and
-    // we lump all three status we probe into one
-    //
+ 
+    /// <summary>
+    /// Raised every time there is an interesting reachable event,
+    /// we do not even pass the info as to what changed, and
+    /// we lump all three status we probe into one
+    /// </summary>
     public static event EventHandler ReachabilityChanged;
 
     static void OnChange(NetworkReachabilityFlags flags)
@@ -112,6 +146,11 @@ namespace Connectivity.Plugin
     // out parameter
     //
     static NetworkReachability adHocWiFiNetworkReachability;
+    /// <summary>
+    /// Checks ad hoc wifi is available
+    /// </summary>
+    /// <param name="flags"></param>
+    /// <returns></returns>
     public static bool IsAdHocWiFiNetworkAvailable(out NetworkReachabilityFlags flags)
     {
       if (adHocWiFiNetworkReachability == null)
@@ -130,6 +169,7 @@ namespace Connectivity.Plugin
     static NetworkReachability defaultRouteReachability;
     static bool IsNetworkAvailable(out NetworkReachabilityFlags flags)
     {
+      
       if (defaultRouteReachability == null)
       {
         defaultRouteReachability = new NetworkReachability(new IPAddress(0));
@@ -142,6 +182,10 @@ namespace Connectivity.Plugin
     }
 
     static NetworkReachability remoteHostReachability;
+    /// <summary>
+    /// Checks the remote host status
+    /// </summary>
+    /// <returns></returns>
     public static NetworkStatus RemoteHostStatus()
     {
       NetworkReachabilityFlags flags;
@@ -173,6 +217,10 @@ namespace Connectivity.Plugin
       return NetworkStatus.ReachableViaWiFiNetwork;
     }
 
+    /// <summary>
+    /// Checks internet connection status
+    /// </summary>
+    /// <returns></returns>
     public static NetworkStatus InternetConnectionStatus()
     {
       NetworkReachabilityFlags flags;
@@ -189,6 +237,10 @@ namespace Connectivity.Plugin
       return NetworkStatus.ReachableViaWiFiNetwork;
     }
 
+    /// <summary>
+    /// Check local wifi status
+    /// </summary>
+    /// <returns></returns>
     public static NetworkStatus LocalWifiConnectionStatus()
     {
       NetworkReachabilityFlags flags;
@@ -198,6 +250,30 @@ namespace Connectivity.Plugin
           return NetworkStatus.ReachableViaWiFiNetwork;
       }
       return NetworkStatus.NotReachable;
+    }
+
+    /// <summary>
+    /// Dispose
+    /// </summary>
+    public static void Dispose()
+    {
+      if(remoteHostReachability != null)
+      {
+        remoteHostReachability.Dispose();
+        remoteHostReachability = null;
+      }
+
+      if(defaultRouteReachability != null)
+      {
+        defaultRouteReachability.Dispose();
+        defaultRouteReachability = null;
+      }
+
+      if(adHocWiFiNetworkReachability != null)
+      {
+        adHocWiFiNetworkReachability.Dispose();
+        adHocWiFiNetworkReachability = null;
+      }
     }
 
   }

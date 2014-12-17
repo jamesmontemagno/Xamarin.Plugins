@@ -3,7 +3,7 @@
    <metadata minClientVersion="2.8.3">
        <id>Xam.Plugin.Connectivity</id>
        <version>1.0.0.0</version>
-       <title>Connectivity Plugin for Xamarin</title>
+       <title>Connectivity Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
        <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>

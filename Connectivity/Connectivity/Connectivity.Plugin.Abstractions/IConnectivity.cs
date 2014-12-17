@@ -10,7 +10,7 @@ namespace Connectivity.Plugin.Abstractions
   /// <summary>
   /// Interface for Connectivity
   /// </summary>
-  public interface IConnectivity
+  public interface IConnectivity : IDisposable
   {
     /// <summary>
     /// Gets if there is an active internet connection
@@ -47,11 +47,22 @@ namespace Connectivity.Plugin.Abstractions
     event ConnectivityChangedEventHandler ConnectivityChanged; 
   }
 
+  /// <summary>
+  /// Arguments to pass to event handlers
+  /// </summary>
   public class ConnectivityChangedEventArgs : EventArgs
   {
+    /// <summary>
+    /// Gets if there is an active internet connection
+    /// </summary>
     public bool IsConnected { get; set; }
   }
 
+  /// <summary>
+  /// Connectivity changed event handlers
+  /// </summary>
+  /// <param name="sender"></param>
+  /// <param name="e"></param>
   public delegate void ConnectivityChangedEventHandler(object sender, ConnectivityChangedEventArgs e);
 
 }

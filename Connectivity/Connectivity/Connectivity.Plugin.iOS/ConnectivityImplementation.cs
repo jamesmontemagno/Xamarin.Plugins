@@ -16,11 +16,18 @@ namespace Connectivity.Plugin
   /// </summary>
   public class ConnectivityImplementation : BaseConnectivity
   {
-
+    /// <summary>
+    /// Defautl constructor
+    /// </summary>
     public ConnectivityImplementation()
     {
       UpdateConnected(false);
-      Reachability.ReachabilityChanged += (sender, args) => UpdateConnected();
+      Reachability.ReachabilityChanged += ReachabilityChanged;
+    }
+
+    void ReachabilityChanged(object sender, EventArgs e)
+    {
+      UpdateConnected();
     }
 
 
@@ -45,8 +52,17 @@ namespace Connectivity.Plugin
     }
 
 
+    /// <summary>
+    /// Gets if there is an active internet connection
+    /// </summary>
     public override bool IsConnected { get { return isConnected; } }
 
+    /// <summary>
+    /// Tests if a host name is pingable
+    /// </summary>
+    /// <param name="host">The host name can either be a machine name, such as "java.sun.com", or a textual representation of its IP address (127.0.0.1)</param>
+    /// <param name="msTimeout">Timeout in milliseconds</param>
+    /// <returns></returns>
     public override async Task<bool> IsReachable(string host, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
@@ -58,6 +74,13 @@ namespace Connectivity.Plugin
       return await IsRemoteReachable(host, 80, msTimeout);
     }
 
+    /// <summary>
+    /// Tests if a remote host name is reachable
+    /// </summary>
+    /// <param name="host">Host name can be a remote IP or URL of website</param>
+    /// <param name="port">Port to attempt to check is reachable.</param>
+    /// <param name="msTimeout">Timeout in milliseconds.</param>
+    /// <returns></returns>
     public override async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
@@ -100,6 +123,9 @@ namespace Connectivity.Plugin
       });
     }
 
+    /// <summary>
+    /// Gets the list of all active connection types.
+    /// </summary>
     public override IEnumerable<ConnectionType> ConnectionTypes
     {
       get
@@ -125,6 +151,27 @@ namespace Connectivity.Plugin
     public override IEnumerable<UInt64> Bandwidths
     {
       get { return new UInt64[] { }; }
+    }
+
+    private bool disposed = false;
+    /// <summary>
+    /// Dispose
+    /// </summary>
+    /// <param name="disposing"></param>
+    public override void Dispose(bool disposing)
+    {
+      if (!disposed)
+      {
+        if (disposing)
+        {
+          Reachability.ReachabilityChanged -= ReachabilityChanged;
+          Reachability.Dispose();
+        }
+
+        disposed = true;
+      }
+
+      base.Dispose(disposing);
     }
 
   }

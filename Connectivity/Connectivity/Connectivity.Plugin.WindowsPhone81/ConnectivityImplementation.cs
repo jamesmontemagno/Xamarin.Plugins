@@ -12,17 +12,26 @@ using System.Diagnostics;
 
 namespace Connectivity.Plugin
 {
+  /// <summary>
+  /// Connectivity Implemenation WinRT
+  /// </summary>
   public class ConnectivityImplementation : BaseConnectivity
   {
-
+    /// <summary>
+    /// Default constructor
+    /// </summary>
     public ConnectivityImplementation()
     {
-      NetworkInformation.NetworkStatusChanged += (sender) =>
-        {
-          
-          OnConnectivityChanged(new ConnectivityChangedEventArgs{IsConnected = IsConnected});
-        };
+      NetworkInformation.NetworkStatusChanged += NetworkStatusChanged;
     }
+
+    void NetworkStatusChanged(object sender)
+    {
+      OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = IsConnected });  
+    }
+    /// <summary>
+    /// Gets if there is an active internet connection
+    /// </summary>
     public override bool IsConnected
     {
       get
@@ -66,6 +75,13 @@ namespace Connectivity.Plugin
       }
     }
 
+    /// <summary>
+    /// Tests if a remote host name is reachable
+    /// </summary>
+    /// <param name="host">Host name can be a remote IP or URL of website</param>
+    /// <param name="port">Port to attempt to check is reachable.</param>
+    /// <param name="msTimeout">Timeout in milliseconds.</param>
+    /// <returns></returns>
     public override async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
@@ -98,6 +114,9 @@ namespace Connectivity.Plugin
       }
     }
 
+    /// <summary>
+    /// Gets the list of all active connection types.
+    /// </summary>
     public override IEnumerable<ConnectionType> ConnectionTypes
     {
       get
@@ -130,6 +149,10 @@ namespace Connectivity.Plugin
       }
     }
 
+    /// <summary>
+    /// Retrieves a list of available bandwidths for the platform.
+    /// Only active connections.
+    /// </summary>
     public override IEnumerable<UInt64> Bandwidths
     {
       get
@@ -147,6 +170,25 @@ namespace Connectivity.Plugin
           yield return speed;
         }
       }
+    }
+    private bool disposed = false;
+    /// <summary>
+    /// Dispose
+    /// </summary>
+    /// <param name="disposing"></param>
+    public override void Dispose(bool disposing)
+    {
+      if (!disposed)
+      {
+        if (disposing)
+        {
+          NetworkInformation.NetworkStatusChanged -= NetworkStatusChanged;
+        }
+
+        disposed = true;
+      }
+
+      base.Dispose(disposing);
     }
   }
 }

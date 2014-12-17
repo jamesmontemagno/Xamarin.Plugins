@@ -178,6 +178,17 @@ namespace TestAppForms
         };
 
 
+      var disposeButton = new Button
+      {
+        Text = "Dispose Me"
+      };
+
+      disposeButton.Clicked += (sender, args) =>
+        {
+          CrossConnectivity.Dispose();
+          CrossTextToSpeech.Current.Dispose();//must fix
+        };
+
 
       page = new ContentPage
       {
@@ -219,6 +230,7 @@ namespace TestAppForms
               port,
               canReach1,
               canReach2,
+              disposeButton
             }
           }
         }

@@ -20,6 +20,9 @@ namespace Connectivity.Plugin
   public class ConnectivityImplementation : BaseConnectivity
   {
 
+    /// <summary>
+    /// Default constructor
+    /// </summary>
     public ConnectivityImplementation()
     {
       ConnectivityChangeBroadcastReceiver.ConnectionChanged = OnConnectivityChanged;
@@ -27,7 +30,7 @@ namespace Connectivity.Plugin
     private ConnectivityManager connectivityManager;
     private WifiManager wifiManager;
 
-    protected ConnectivityManager ConnectivityManager
+    ConnectivityManager ConnectivityManager
     {
       get
       {
@@ -39,7 +42,7 @@ namespace Connectivity.Plugin
       }
     }
 
-    protected WifiManager WifiManager
+    WifiManager WifiManager
     {
       get
       {
@@ -50,6 +53,9 @@ namespace Connectivity.Plugin
       }
     }
 
+    /// <summary>
+    /// Gets if there is an active internet connection
+    /// </summary>
     public override bool IsConnected
     {
       get
@@ -68,6 +74,12 @@ namespace Connectivity.Plugin
       }
     }
 
+    /// <summary>
+    /// Tests if a host name is pingable
+    /// </summary>
+    /// <param name="host">The host name can either be a machine name, such as "java.sun.com", or a textual representation of its IP address (127.0.0.1)</param>
+    /// <param name="msTimeout">Timeout in milliseconds</param>
+    /// <returns></returns>
     public override async Task<bool> IsReachable(string host, int msTimeout = 5000)
     {
       if (string.IsNullOrEmpty(host))
@@ -93,6 +105,13 @@ namespace Connectivity.Plugin
      
     }
 
+    /// <summary>
+    /// Tests if a remote host name is reachable
+    /// </summary>
+    /// <param name="host">Host name can be a remote IP or URL of website</param>
+    /// <param name="port">Port to attempt to check is reachable.</param>
+    /// <param name="msTimeout">Timeout in milliseconds.</param>
+    /// <returns></returns>
     public override async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
     {
 
@@ -121,6 +140,9 @@ namespace Connectivity.Plugin
       });
     }
 
+    /// <summary>
+    /// Gets the list of all active connection types.
+    /// </summary>
     public override IEnumerable<ConnectionType> ConnectionTypes
     {
       get
@@ -143,6 +165,10 @@ namespace Connectivity.Plugin
       }
     }
 
+    /// <summary>
+    /// Retrieves a list of available bandwidths for the platform.
+    /// Only active connections.
+    /// </summary>
     public override IEnumerable<UInt64> Bandwidths
     {
       get
@@ -160,5 +186,40 @@ namespace Connectivity.Plugin
         return new UInt64[] { };
       }
     }
+
+    private bool disposed = false;
+    
+    
+    /// <summary>
+    /// Dispose
+    /// </summary>
+    /// <param name="disposing"></param>
+    public override void Dispose(bool disposing)
+    {
+      if (!disposed)
+      {
+        if (disposing)
+        {
+          ConnectivityChangeBroadcastReceiver.ConnectionChanged = null;
+          if (wifiManager != null)
+          {
+            wifiManager.Dispose();
+            wifiManager = null;
+          }
+
+          if (connectivityManager != null)
+          {
+            connectivityManager.Dispose();
+            connectivityManager = null;
+          }
+        }
+
+        disposed = true;
+      }
+
+      base.Dispose(disposing);
+    }
+
+
   }
 }
