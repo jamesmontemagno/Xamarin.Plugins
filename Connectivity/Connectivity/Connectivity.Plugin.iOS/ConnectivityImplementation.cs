@@ -17,7 +17,7 @@ namespace Connectivity.Plugin
   public class ConnectivityImplementation : BaseConnectivity
   {
     /// <summary>
-    /// Defautl constructor
+    /// Default constructor
     /// </summary>
     public ConnectivityImplementation()
     {
@@ -38,7 +38,7 @@ namespace Connectivity.Plugin
       var internetStatus = Reachability.InternetConnectionStatus();
       var localWifiStatus = Reachability.LocalWifiConnectionStatus();
 
-      var previous = isConnected;
+      var previouslyConnected = isConnected;
       isConnected = (internetStatus == NetworkStatus.ReachableViaCarrierDataNetwork ||
                       internetStatus == NetworkStatus.ReachableViaWiFiNetwork) ||
                     (localWifiStatus == NetworkStatus.ReachableViaCarrierDataNetwork ||
@@ -46,8 +46,7 @@ namespace Connectivity.Plugin
                     (remoteHostStatus == NetworkStatus.ReachableViaCarrierDataNetwork ||
                       remoteHostStatus == NetworkStatus.ReachableViaWiFiNetwork);
 
-      //dont' trigger on 
-      if(triggerChange && previous != isConnected)
+      if(triggerChange && previouslyConnected != isConnected)
         OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = isConnected });
     }
 
