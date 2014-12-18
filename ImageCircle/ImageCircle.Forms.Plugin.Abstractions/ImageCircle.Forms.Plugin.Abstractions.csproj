@@ -5,16 +5,17 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{67E5F881-BE9F-40CC-8A19-D350D3663F18}</ProjectGuid>
+    <ProjectGuid>{14C534B6-1984-41A9-A384-D3A5508588E3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestAppForms</RootNamespace>
-    <AssemblyName>TestAppForms</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+    <RootNamespace>ImageCircle.Forms.Plugin.Abstractions</RootNamespace>
+    <AssemblyName>ImageCircle.Forms.Plugin.Abstractions</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <NuGetPackageImportStamp>65c421f7</NuGetPackageImportStamp>
+    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <NuGetPackageImportStamp>870159c5</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,47 +33,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\ImageCircle.Forms.Plugin.Abstractions.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="App.cs" />
-    <Compile Include="Helpers\Settings.cs" />
-    <Compile Include="IDialogs.cs" />
+    <Compile Include="CircleImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Connectivity.Plugin">
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Connectivity.Plugin.dll</HintPath>
-    </Reference>
-    <Reference Include="Connectivity.Plugin.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Connectivity.Plugin.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="DeviceInfo.Plugin">
-      <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\DeviceInfo.Plugin.dll</HintPath>
-    </Reference>
-    <Reference Include="DeviceInfo.Plugin.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\DeviceInfo.Plugin.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="ImageCircle.Forms.Plugin.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.1.0.0.0\lib\portable-net45+wp8+win8+MonoAndroid10+MonoTouch10\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Refractored.Xam.Settings">
-      <HintPath>..\..\packages\Xam.Plugins.Settings.1.4.0.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.dll</HintPath>
-    </Reference>
-    <Reference Include="Refractored.Xam.Settings.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugins.Settings.1.4.0.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Refractored.Xam.TTS">
-      <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.TTS.dll</HintPath>
-    </Reference>
-    <Reference Include="Refractored.Xam.TTS.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.TTS.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Refractored.Xam.Vibrate">
-      <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.4\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.Vibrate.dll</HintPath>
-    </Reference>
-    <Reference Include="Refractored.Xam.Vibrate.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.4\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.Vibrate.Abstractions.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Forms.Core">
       <HintPath>..\..\packages\Xamarin.Forms.1.2.3.6257\lib\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
@@ -82,10 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ConnectivityReadme.txt" />
-    <Content Include="DeviceInfoReadme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />

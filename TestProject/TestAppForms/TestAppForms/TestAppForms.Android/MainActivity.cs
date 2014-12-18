@@ -10,6 +10,7 @@ using Android.OS;
 using Xamarin.Forms.Platform.Android;
 //using Refractored.Xam.Forms.Vibrate.Droid;
 using Refractored.Xam.TTS;
+using ImageCircle.Forms.Plugin.Droid;
 
 namespace TestAppForms.Droid
 {
@@ -23,6 +24,7 @@ namespace TestAppForms.Droid
       Xamarin.Forms.Forms.Init(this, bundle);
       //Vibrate.Init();
       CrossTextToSpeech.Current.Init();
+      ImageCircleRenderer.Init();
       SetPage(App.GetMainPage());
     }
   }

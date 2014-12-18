@@ -6,6 +6,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
 using Xamarin.Forms;
+using ImageCircle.Forms.Plugin.iOS;
 //using Refractored.Xam.Forms.Vibrate.iOS;
 
 namespace TestAppForms.iOS
@@ -30,7 +31,7 @@ namespace TestAppForms.iOS
     {
       Forms.Init();
       //Vibrate.Init();
-
+      ImageCircleRenderer.Init();
       window = new UIWindow(UIScreen.MainScreen.Bounds);
 
       window.RootViewController = App.GetMainPage().CreateViewController();

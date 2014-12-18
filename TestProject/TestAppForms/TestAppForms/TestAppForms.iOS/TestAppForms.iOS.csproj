@@ -22,7 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>False</MtouchDebug>
     <MtouchSdkVersion>8.1</MtouchSdkVersion>
     <MtouchProfiling>False</MtouchProfiling>
@@ -132,6 +132,12 @@
     </Reference>
     <Reference Include="DeviceInfo.Plugin.Abstractions">
       <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\MonoTouch10\DeviceInfo.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageCircle.Forms.Plugin.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.1.0.0.0\lib\MonoTouch10\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageCircle.Forms.Plugin.iOS">
+      <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.1.0.0.0\lib\MonoTouch10\ImageCircle.Forms.Plugin.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.Settings">
       <HintPath>..\..\packages\Xam.Plugins.Settings.1.4.0.1\lib\MonoTouch10\Refractored.Xam.Settings.dll</HintPath>
