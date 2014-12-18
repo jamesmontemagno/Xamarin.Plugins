@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Connectivity.Plugin.Abstractions
 {
   /// <summary>
-  /// Base class for all connetivity classes
+  /// Base class for all connectivity classes
   /// </summary>
   public abstract class BaseConnectivity : IConnectivity, IDisposable
   {
@@ -72,7 +72,7 @@ namespace Connectivity.Plugin.Abstractions
 
 
     /// <summary>
-    /// dispose of class and parent classes
+    /// Dispose of class and parent classes
     /// </summary>
     public void Dispose()
     {
