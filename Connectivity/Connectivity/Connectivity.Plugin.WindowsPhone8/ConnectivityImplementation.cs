@@ -13,7 +13,7 @@ using System.Net.NetworkInformation;
 namespace Connectivity.Plugin
 {
   /// <summary>
-  /// Implemenation WinPhone 8
+  /// Implementation for WinPhone 8
   /// </summary>
   public class ConnectivityImplementation : BaseConnectivity
   {
