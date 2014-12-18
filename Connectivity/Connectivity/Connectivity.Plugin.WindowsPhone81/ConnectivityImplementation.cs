@@ -13,7 +13,7 @@ using System.Diagnostics;
 namespace Connectivity.Plugin
 {
   /// <summary>
-  /// Connectivity Implemenation WinRT
+  /// Connectivity Implementation for WinRT
   /// </summary>
   public class ConnectivityImplementation : BaseConnectivity
   {
@@ -41,7 +41,7 @@ namespace Connectivity.Plugin
     }
 
     /// <summary>
-    /// Checks if remote is reachable. RT apps can not do loopback so this will alway return false.
+    /// Checks if remote is reachable. RT apps cannot do loopback so this will alway return false.
     /// You can use it to check remote calls though.
     /// </summary>
     /// <param name="host"></param>
