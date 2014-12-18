@@ -28,7 +28,7 @@ new CircleImage
   WidthRequest = 150,
   Aspect = Aspect.AspectFill,
   HorizontalOptions = LayoutOptions.Center,
-  Source = UriImageSource.FromFile("http://upload.wikimedia.org/wikipedia/commons/5/55/Tamarin_portrait.JPG")
+  Source = UriImageSource.FromUri(new Uri("http://upload.wikimedia.org/wikipedia/commons/5/55/Tamarin_portrait.JPG"))
 }
 ```
 
