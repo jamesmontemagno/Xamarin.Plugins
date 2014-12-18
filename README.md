@@ -15,7 +15,7 @@ Each plugin has a README with more information on what they contain.
 * **[Vibrate](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Vibrate)**
 
 Controls:
-* **[Circle Image](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/ImageCircle) for Xamarin.Forms
+* **[Circle Image](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/ImageCircle)** for Xamarin.Forms
 
 Coming soon:
 * **Messages_Production**: In the works
