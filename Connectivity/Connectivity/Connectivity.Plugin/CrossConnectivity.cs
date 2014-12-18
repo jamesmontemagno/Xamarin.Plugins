@@ -4,7 +4,7 @@ using System;
 namespace Connectivity.Plugin
 {
   /// <summary>
-  /// Cross platform Connectivity implemenations
+  /// Cross platform Connectivity implementations
   /// </summary>
   public class CrossConnectivity
   {
