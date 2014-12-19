@@ -74,9 +74,12 @@ PCL:
 * Ensure that Assembly Names are the same. You will see all of mine are called Refractored.Xam.Messages.dll in all projects!
 
 
+#### Get a hold of that Context and UIViewController
+* Android you can use: Android.App.Application.Context
+* iOS you can use: UIApplication.SharedApplication.KeyWindow.RootViewController.View
+
 #### Upcoming PCL Plugins
-* A real Messages PCL
-* SMS
+* A real Messages/Dialogs PCL
 
 #### Contributors
 * [jamesmontemagno](https://github.com/jamesmontemagno)
