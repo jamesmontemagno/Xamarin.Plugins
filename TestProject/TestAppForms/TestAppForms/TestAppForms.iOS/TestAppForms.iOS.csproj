@@ -22,8 +22,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchDebug>False</MtouchDebug>
+    <MtouchLink>Full</MtouchLink>
+    <MtouchDebug>True</MtouchDebug>
     <MtouchSdkVersion>8.1</MtouchSdkVersion>
     <MtouchProfiling>False</MtouchProfiling>
     <MtouchExtraArgs />
@@ -55,10 +55,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchDebug>False</MtouchDebug>
+    <MtouchDebug>True</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchSdkVersion>8.1</MtouchSdkVersion>
-    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchLink>Full</MtouchLink>
     <MtouchProfiling>False</MtouchProfiling>
     <MtouchExtraArgs />
     <MtouchFastDev>False</MtouchFastDev>
@@ -121,11 +121,11 @@
   <ItemGroup>
     <Reference Include="Connectivity.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\MonoTouch10\Connectivity.Plugin.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.2\lib\MonoTouch10\Connectivity.Plugin.dll</HintPath>
     </Reference>
     <Reference Include="Connectivity.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.0\lib\MonoTouch10\Connectivity.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.2\lib\MonoTouch10\Connectivity.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="DeviceInfo.Plugin">
       <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\MonoTouch10\DeviceInfo.Plugin.dll</HintPath>
@@ -158,6 +158,12 @@
     </Reference>
     <Reference Include="Refractored.Xam.Vibrate.Abstractions">
       <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.4\lib\MonoTouch10\Refractored.Xam.Vibrate.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Sms.Plugin">
+      <HintPath>..\..\packages\Company.Sms.Plugin.1.0.0.0\lib\MonoTouch10\Sms.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Sms.Plugin.Abstractions">
+      <HintPath>..\..\packages\Company.Sms.Plugin.1.0.0.0\lib\MonoTouch10\Sms.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />

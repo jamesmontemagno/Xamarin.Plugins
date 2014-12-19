@@ -7,6 +7,7 @@ using MonoTouch.UIKit;
 
 using Xamarin.Forms;
 using ImageCircle.Forms.Plugin.iOS;
+using MonoTouch.MessageUI;
 //using Refractored.Xam.Forms.Vibrate.iOS;
 
 namespace TestAppForms.iOS

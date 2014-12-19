@@ -4,6 +4,7 @@ using ImageCircle.Forms.Plugin.Abstractions;
 using Refractored.Xam.TTS;
 using Refractored.Xam.TTS.Abstractions;
 using Refractored.Xam.Vibrate.Abstractions;
+using Sms.Plugin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,8 @@ namespace TestAppForms
 
       speakButton.Clicked += (sender, args) =>
         {
+
+          CrossSms.Current.SendSms("Hello there!", "+16024926689");
           var text = "The quick brown fox jumped over the lazy dog.";
           if (useDefaults.IsToggled)
           {
