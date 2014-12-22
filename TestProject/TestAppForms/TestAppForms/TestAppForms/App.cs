@@ -235,15 +235,39 @@ namespace TestAppForms
               canReach1,
               canReach2,
               disposeButton,
+              new StackLayout
+              {
+                HeightRequest = 300
+              },
               new CircleImage
               {
-                BorderColor = Color.White,
+                BorderColor = Color.Pink,
                 BorderThickness = 3,
                 HeightRequest = 150,
                 WidthRequest = 150,
                 Aspect = Aspect.AspectFill,
                 HorizontalOptions = LayoutOptions.Center,
                 Source = UriImageSource.FromUri(new Uri("http://upload.wikimedia.org/wikipedia/commons/5/55/Tamarin_portrait.JPG"))
+              },
+              new CircleImage
+              {
+                BorderColor = Color.Purple,
+                BorderThickness = 6,
+                HeightRequest = 150,
+                WidthRequest = 150,
+                Aspect = Aspect.AspectFill,
+                HorizontalOptions = LayoutOptions.Center,
+                Source = UriImageSource.FromUri(new Uri("http://upload.wikimedia.org/wikipedia/commons/e/ed/Saguinus_tripartitus_-_Golden-mantled_Tamarin.jpg"))
+              },
+              new CircleImage
+              {
+                BorderColor = Color.Yellow,
+                BorderThickness = 9,
+                HeightRequest = 150,
+                WidthRequest = 150,
+                Aspect = Aspect.AspectFill,
+                HorizontalOptions = LayoutOptions.Center,
+                Source = UriImageSource.FromUri(new Uri("http://upload.wikimedia.org/wikipedia/commons/5/53/Golden_Lion_Tamarin_Leontopithecus_rosalia.jpg"))
               }
             }
           }
