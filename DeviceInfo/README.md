@@ -3,7 +3,7 @@
 Simple way of getting common device information.
 
 ### Setup
-* Available on NuGet: http://www.nuget.org/packages/Xam.Plugins.DeviceInfo
+* Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.DeviceInfo
 * Install into your PCL project and Client projects.
 
 **Supports**
