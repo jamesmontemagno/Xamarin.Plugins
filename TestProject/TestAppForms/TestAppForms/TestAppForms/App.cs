@@ -1,4 +1,5 @@
-﻿using Connectivity.Plugin;
+﻿using Battery.Plugin;
+using Connectivity.Plugin;
 using DeviceInfo.Plugin;
 using ImageCircle.Forms.Plugin.Abstractions;
 using Refractored.Xam.TTS;
@@ -193,6 +194,49 @@ namespace TestAppForms
           CrossTextToSpeech.Dispose();
         };
 
+      var getBatteryButton = new Button
+      {
+        Text = "Get Battery Stats"
+      };
+
+      var batteryLevel = new Label
+      {
+        Text = "Level?"
+      };
+
+
+      var batteryStatus = new Label
+      {
+        Text = "Status?"
+      };
+
+      var batteryChargeType = new Label
+      {
+        Text = "ChargeType?"
+      };
+
+
+      var batteryIsLow = new Label
+      {
+        Text = "IsLow"
+      };
+
+      getBatteryButton.Clicked += (sender, args) =>
+        {
+          batteryLevel.Text = "Level: " + CrossBattery.Current.Level;
+          batteryStatus.Text = "Status: "+ CrossBattery.Current.Status.ToString();
+          batteryChargeType.Text = "ChargeType: " + CrossBattery.Current.ChargeType.ToString();
+          batteryIsLow.Text =  "IsLow: " + ((CrossBattery.Current.Level <= 15) ? "YES" : "NO");
+        };
+
+      CrossBattery.Current.BatteryChanged += (sender, args) =>
+      {
+          batteryLevel.Text = "Changed EVENT! Level: " + args.Level;
+          batteryStatus.Text = "Status: "+ args.ToString();
+          batteryChargeType.Text = "ChargeType: " + args.ChargeType.ToString();
+          batteryIsLow.Text =  "IsLow: " + ((args.IsLow) ? "YES" : "NO");
+      };
+
 
       page = new ContentPage
       {
@@ -235,10 +279,6 @@ namespace TestAppForms
               canReach1,
               canReach2,
               disposeButton,
-              new StackLayout
-              {
-                HeightRequest = 300
-              },
               new CircleImage
               {
                 BorderColor = Color.Pink,
@@ -268,7 +308,16 @@ namespace TestAppForms
                 Aspect = Aspect.AspectFill,
                 HorizontalOptions = LayoutOptions.Center,
                 Source = UriImageSource.FromUri(new Uri("http://upload.wikimedia.org/wikipedia/commons/5/53/Golden_Lion_Tamarin_Leontopithecus_rosalia.jpg"))
-              }
+              },
+              getBatteryButton,
+              new Label{ Text = "Battery Level"},
+              batteryLevel,
+              new Label{ Text = "Battery Status"},
+              batteryStatus,
+              new Label{ Text = "Battery Charge Type"},
+              batteryChargeType,
+              new Label{ Text = "Battery is low"},
+              batteryIsLow
             }
           }
         }

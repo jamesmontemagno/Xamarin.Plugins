@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-   <metadata minClientVersion="2.8.3">
+   <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Battery</id>
        <version>1.0.0.0</version>
        <title>Battery Status Plugin for Xamarin</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
-       <licenseUrl></licenseUrl>
-       <projectUrl></projectUrl>
+     <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
+     <projectUrl>https://github.com/jamesmontemagno/Xamarin.Plugins</projectUrl>
+     <iconUrl>http://www.refractored.com/images/battery_icon.png</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
-         Long description for your plugin.
+         Subscribe to battery change notifications across iOS, Android, Windows Phone, and Windows from a single API. 
+         
+         Ability to gather current battery level, charging status, and charging type.
        </description>
-       <summary>Short description for your plugin.</summary>
+       <summary>Get battery level, charging status, and events on battery change.</summary>
        <tags>xamarin, pcl, xam.pcl, battery, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
        <dependencies>
        </dependencies>

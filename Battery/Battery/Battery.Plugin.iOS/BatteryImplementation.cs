@@ -30,7 +30,6 @@ namespace Battery.Plugin
     /// <summary>
     /// Battery changed notification triggered, bubble up.
     /// </summary>
-    /// <param name="args"></param>
     void ObserveBatteryChanged()
     {
       OnBatteryChanged(new BatteryChangedEventArgs
