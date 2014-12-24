@@ -18,8 +18,6 @@ namespace Battery.Plugin
   /// <summary>
   /// Broadcast receiver to get notifications from Android on battery change
   /// </summary>
-  [BroadcastReceiver(Enabled = true, Label = "Battery Status Plugin Broadcast Receiver")]
-  [IntentFilter(new[] { Intent.ActionBatteryChanged, Intent.ActionBatteryLow, Intent.ActionBatteryOkay })]
   public class BatteryBroadcastReceiver : BroadcastReceiver
   {
     /// <summary>

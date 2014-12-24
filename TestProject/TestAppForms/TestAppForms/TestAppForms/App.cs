@@ -232,7 +232,7 @@ namespace TestAppForms
       CrossBattery.Current.BatteryChanged += (sender, args) =>
       {
           batteryLevel.Text = "Changed EVENT! Level: " + args.Level;
-          batteryStatus.Text = "Status: "+ args.ToString();
+          batteryStatus.Text = "Status: "+ args.Status.ToString();
           batteryChargeType.Text = "ChargeType: " + args.ChargeType.ToString();
           batteryIsLow.Text =  "IsLow: " + ((args.IsLow) ? "YES" : "NO");
       };

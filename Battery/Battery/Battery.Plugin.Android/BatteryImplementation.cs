@@ -14,12 +14,25 @@ namespace Battery.Plugin
   /// </summary>
   public class BatteryImplementation : BaseCrossBattery
   {
+    private BatteryBroadcastReceiver batteryReceiver;
     /// <summary>
     /// Default Constructor
     /// </summary>
     public BatteryImplementation()
     {
-      BatteryBroadcastReceiver.BatteryLevelChanged = OnBatteryChanged;
+      try
+      {
+        batteryReceiver = new BatteryBroadcastReceiver();
+        BatteryBroadcastReceiver.BatteryLevelChanged = OnBatteryChanged;
+        Application.Context.RegisterReceiver(batteryReceiver, new IntentFilter(Intent.ActionBatteryChanged));
+        Application.Context.RegisterReceiver(batteryReceiver, new IntentFilter(Intent.ActionBatteryLow));
+        Application.Context.RegisterReceiver(batteryReceiver, new IntentFilter(Intent.ActionBatteryOkay));
+      }
+      catch
+      {
+        Debug.WriteLine("Unable to register for battery events, ensure you have android.permission.BATTERY_STATS set in AndroidManifest.");
+        throw;
+      }
     }
     /// <summary>
     /// Get the current battery level
