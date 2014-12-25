@@ -192,6 +192,7 @@ namespace TestAppForms
         {
           CrossConnectivity.Dispose();
           CrossTextToSpeech.Dispose();
+          CrossBattery.Dispose();
         };
 
       var getBatteryButton = new Button
@@ -223,17 +224,17 @@ namespace TestAppForms
 
       getBatteryButton.Clicked += (sender, args) =>
         {
-          batteryLevel.Text = "Level: " + CrossBattery.Current.Level;
+          batteryLevel.Text = "Level: " + CrossBattery.Current.RemainingChargePercent;
           batteryStatus.Text = "Status: "+ CrossBattery.Current.Status.ToString();
-          batteryChargeType.Text = "ChargeType: " + CrossBattery.Current.ChargeType.ToString();
-          batteryIsLow.Text =  "IsLow: " + ((CrossBattery.Current.Level <= 15) ? "YES" : "NO");
+          batteryChargeType.Text = "ChargeType: " + CrossBattery.Current.PowerSource.ToString();
+          batteryIsLow.Text =  "IsLow: " + ((CrossBattery.Current.RemainingChargePercent <= 15) ? "YES" : "NO");
         };
 
       CrossBattery.Current.BatteryChanged += (sender, args) =>
       {
-          batteryLevel.Text = "Changed EVENT! Level: " + args.Level;
+          batteryLevel.Text = "Changed EVENT! Level: " + args.RemainingChargePercent;
           batteryStatus.Text = "Status: "+ args.Status.ToString();
-          batteryChargeType.Text = "ChargeType: " + args.ChargeType.ToString();
+          batteryChargeType.Text = "ChargeType: " + args.PowerSource.ToString();
           batteryIsLow.Text =  "IsLow: " + ((args.IsLow) ? "YES" : "NO");
       };
 

@@ -41,7 +41,7 @@ namespace Battery.Plugin.Abstractions
     /// <summary>
     /// Gets if there is an active internet connection
     /// </summary>
-    public int Level { get; set; }
+    public int RemainingChargePercent { get; set; }
 
     /// <summary>
     /// Current status of battery

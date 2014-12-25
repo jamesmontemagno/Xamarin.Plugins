@@ -44,14 +44,14 @@ namespace Battery.Plugin
       var scale = intent.GetIntExtra(BatteryManager.ExtraScale, -1);
 
 
-      args.Level = (int)Math.Floor(level * 100D / scale);
+      args.RemainingChargePercent = (int)Math.Floor(level * 100D / scale);
 
       if (intent.Action == Intent.ActionBatteryLow)
         args.IsLow = true;
       else if (intent.Action == Intent.ActionBatteryOkay)
         args.IsLow = false;
       else
-        args.IsLow = args.Level <= 15;
+        args.IsLow = args.RemainingChargePercent <= 15;
 
       // Are we charging / charged? works on phones, not emulators must check how.
       int status = intent.GetIntExtra(BatteryManager.ExtraStatus, -1);

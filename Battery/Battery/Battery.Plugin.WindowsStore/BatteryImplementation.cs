@@ -1,5 +1,6 @@
 using Battery.Plugin.Abstractions;
 using System;
+using System.Diagnostics;
 
 
 namespace Battery.Plugin
@@ -14,7 +15,11 @@ namespace Battery.Plugin
     /// </summary>
     public override int RemainingChargePercent
     {
-      get { return 100; }
+      get 
+      {
+        Debug.WriteLine("Not supported on Windows Store, will return 100");
+        return 100; 
+      }
     }
 
     /// <summary>
@@ -22,7 +27,11 @@ namespace Battery.Plugin
     /// </summary>
     public override BatteryStatus Status
     {
-      get { return BatteryStatus.Full; }
+      get 
+      {
+        Debug.WriteLine("Not supported on Windows Store, will return Full");
+        return BatteryStatus.Full; 
+      }
     }
 
     /// <summary>
@@ -30,7 +39,11 @@ namespace Battery.Plugin
     /// </summary>
     public override PowerSource PowerSource
     {
-      get { return Abstractions.PowerSource.Ac; }
+      get
+      {
+        Debug.WriteLine("Not supported on Windows Store, will return Ac.");
+        return Abstractions.PowerSource.Ac; 
+      }
     }
 
 

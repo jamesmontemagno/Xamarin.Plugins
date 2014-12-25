@@ -36,7 +36,7 @@ namespace Battery.Plugin
     {
       OnBatteryChanged(new BatteryChangedEventArgs
         {
-          Level = RemainingChargePercent,
+          RemainingChargePercent = RemainingChargePercent,
           IsLow = RemainingChargePercent <= 15,
           Status = Status,
           PowerSource = PowerSource
