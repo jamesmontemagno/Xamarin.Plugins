@@ -5,12 +5,12 @@ namespace Battery.Plugin.Abstractions
   /// <summary>
   /// Interface for Battery
   /// </summary>
-  public interface IBattery
+  public interface IBattery : IDisposable
   {
     /// <summary>
     /// Current battery level 0 - 100
     /// </summary>
-    int Level { get; }
+    int RemainingChargePercent { get; }
 
     /// <summary>
     /// Current status of the battery
@@ -20,7 +20,7 @@ namespace Battery.Plugin.Abstractions
     /// <summary>
     /// Currenlty how the battery is being charged.
     /// </summary>
-    ChargeType ChargeType { get; }
+    PowerSource PowerSource { get; }
 
     /// <summary>
     /// Event handler when battery changes
@@ -48,7 +48,10 @@ namespace Battery.Plugin.Abstractions
     /// </summary>
     public BatteryStatus Status { get; set; }
 
-    public ChargeType ChargeType { get; set; }
+    /// <summary>
+    /// Get the source of power.
+    /// </summary>
+    public PowerSource PowerSource { get; set; }
   }
 
   /// <summary>

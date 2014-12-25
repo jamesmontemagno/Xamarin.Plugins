@@ -7,21 +7,52 @@ namespace Battery.Plugin
   /// <summary>
   /// Implementation for Battery
   /// </summary>
-  public class BatteryImplementation : BaseCrossBattery
+  public class BatteryImplementation : BaseBatteryImplementation
   {
-    public override int Level
+    /// <summary>
+    /// Not supported in Windows Store, always returns 100
+    /// </summary>
+    public override int RemainingChargePercent
     {
-      get { throw new NotImplementedException(); }
+      get { return 100; }
     }
 
+    /// <summary>
+    /// Not supported in Window Store, always returns full
+    /// </summary>
     public override BatteryStatus Status
     {
-      get { throw new NotImplementedException(); }
+      get { return BatteryStatus.Full; }
     }
 
-    public override ChargeType ChargeType
+    /// <summary>
+    /// No supported in Windows Store, always returns AC
+    /// </summary>
+    public override PowerSource PowerSource
     {
-      get { throw new NotImplementedException(); }
+      get { return Abstractions.PowerSource.Ac; }
+    }
+
+
+    private bool disposed = false;
+
+
+    /// <summary>
+    /// Dispose
+    /// </summary>
+    /// <param name="disposing"></param>
+    public override void Dispose(bool disposing)
+    {
+      if (!disposed)
+      {
+        if (disposing)
+        {
+        }
+
+        disposed = true;
+      }
+
+      base.Dispose(disposing);
     }
   }
 }

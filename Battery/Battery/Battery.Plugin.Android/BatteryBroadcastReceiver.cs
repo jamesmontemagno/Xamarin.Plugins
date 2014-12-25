@@ -25,6 +25,11 @@ namespace Battery.Plugin
     /// </summary>
     public static Action<BatteryChangedEventArgs> BatteryLevelChanged;
 
+    /// <summary>
+    /// Receiver BR
+    /// </summary>
+    /// <param name="context"></param>
+    /// <param name="intent"></param>
     public override void OnReceive(Context context, Intent intent)
     {
       if (BatteryLevelChanged == null)
@@ -61,23 +66,23 @@ namespace Battery.Plugin
       isCharging = (usbCharge || acCharge || wirelessCharge);
       if (!isCharging)
       {
-        args.ChargeType = ChargeType.None;
+        args.PowerSource = PowerSource.Battery;
       }
       else if (usbCharge)
       {
-        args.ChargeType = ChargeType.Usb;
+        args.PowerSource = PowerSource.Usb;
       }
       else if (acCharge)
       {
-        args.ChargeType = ChargeType.Ac;
+        args.PowerSource = PowerSource.Ac;
       }
       else if (wirelessCharge)
       {
-        args.ChargeType = ChargeType.Wireless;
+        args.PowerSource = PowerSource.Wireless;
       }
       else
       {
-        args.ChargeType = ChargeType.Other;
+        args.PowerSource = PowerSource.Other;
       }
 
 

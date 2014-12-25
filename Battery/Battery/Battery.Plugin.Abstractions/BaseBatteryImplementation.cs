@@ -9,12 +9,12 @@ namespace Battery.Plugin.Abstractions
   /// <summary>
   /// Base class for cross battery.
   /// </summary>
-  public abstract class BaseCrossBattery : IBattery
+  public abstract class BaseBatteryImplementation : IBattery, IDisposable
   {
     /// <summary>
     /// Current battery level (0 - 100)
     /// </summary>
-    public abstract int Level
+    public abstract int RemainingChargePercent
     {
       get;
     }
@@ -30,7 +30,7 @@ namespace Battery.Plugin.Abstractions
     /// <summary>
     /// Current charge type of battery
     /// </summary>
-    public abstract ChargeType ChargeType
+    public abstract PowerSource PowerSource
     {
       get;
     }
@@ -55,6 +55,40 @@ namespace Battery.Plugin.Abstractions
     /// Event that fires when Battery status, level, power changes
     /// </summary>
     public event BatteryChangedEventHandler BatteryChanged;
+
+     /// <summary>
+    /// Dispose of class and parent classes
+    /// </summary>
+    public void Dispose()
+    {
+      Dispose(true);
+      GC.SuppressFinalize(this);
+    }
+
+    /// <summary>
+    /// Dispose up
+    /// </summary>
+    ~BaseBatteryImplementation()
+    {
+      Dispose(false); 
+    }
+    private bool disposed = false;
+    /// <summary>
+    /// Dispose method
+    /// </summary>
+    /// <param name="disposing"></param>
+    public virtual void Dispose(bool disposing)
+    {
+      if(!disposed)
+      {
+        if(disposing)
+        {
+          //dispose only
+        }
+
+        disposed = true;
+      }
+    }
 
   }
 }

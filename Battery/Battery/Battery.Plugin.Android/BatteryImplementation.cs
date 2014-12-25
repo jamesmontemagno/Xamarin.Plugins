@@ -12,7 +12,7 @@ namespace Battery.Plugin
   /// <summary>
   /// Implementation for Feature
   /// </summary>
-  public class BatteryImplementation : BaseCrossBattery
+  public class BatteryImplementation : BaseBatteryImplementation
   {
     private BatteryBroadcastReceiver batteryReceiver;
     /// <summary>
@@ -25,8 +25,6 @@ namespace Battery.Plugin
         batteryReceiver = new BatteryBroadcastReceiver();
         BatteryBroadcastReceiver.BatteryLevelChanged = OnBatteryChanged;
         Application.Context.RegisterReceiver(batteryReceiver, new IntentFilter(Intent.ActionBatteryChanged));
-        Application.Context.RegisterReceiver(batteryReceiver, new IntentFilter(Intent.ActionBatteryLow));
-        Application.Context.RegisterReceiver(batteryReceiver, new IntentFilter(Intent.ActionBatteryOkay));
       }
       catch
       {
@@ -37,7 +35,7 @@ namespace Battery.Plugin
     /// <summary>
     /// Get the current battery level
     /// </summary>
-    public override int Level
+    public override int RemainingChargePercent
     {
       get 
       {
@@ -63,6 +61,9 @@ namespace Battery.Plugin
       }
     }
 
+    /// <summary>
+    /// Get Current battery status
+    /// </summary>
     public override Abstractions.BatteryStatus Status
     {
       get 
@@ -109,7 +110,10 @@ namespace Battery.Plugin
       }
     }
 
-    public override ChargeType ChargeType
+    /// <summary>
+    /// Get current power source of device
+    /// </summary>
+    public override PowerSource PowerSource
     {
       get 
       {
@@ -130,15 +134,15 @@ namespace Battery.Plugin
               isCharging = (usbCharge || acCharge || wirelessCharge);
 
               if (!isCharging)
-                return Abstractions.ChargeType.None;
+                return Abstractions.PowerSource.Battery;
               else if (usbCharge)
-                return Abstractions.ChargeType.Usb;
+                return Abstractions.PowerSource.Usb;
               else if (acCharge)
-                return Abstractions.ChargeType.Ac;
+                return Abstractions.PowerSource.Ac;
               else if (wirelessCharge)
-                return Abstractions.ChargeType.Wireless;
+                return Abstractions.PowerSource.Wireless;
               else
-                return Abstractions.ChargeType.Other;
+                return Abstractions.PowerSource.Other;
             }
           }
         }
@@ -148,6 +152,32 @@ namespace Battery.Plugin
           throw;
         }
       }
+    }
+
+    private bool disposed = false;
+
+
+    /// <summary>
+    /// Dispose
+    /// </summary>
+    /// <param name="disposing"></param>
+    public override void Dispose(bool disposing)
+    {
+      if (!disposed)
+      {
+        if (disposing)
+        {
+          if(batteryReceiver != null)
+          {
+            Application.Context.UnregisterReceiver(batteryReceiver);
+            batteryReceiver = null;
+          }
+        }
+
+        disposed = true;
+      }
+
+      base.Dispose(disposing);
     }
   }
 }

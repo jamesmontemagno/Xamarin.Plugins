@@ -9,12 +9,12 @@ namespace Battery.Plugin.Abstractions
   /// <summary>
   /// Currently how battery is being charged.
   /// </summary>
-  public enum ChargeType
+  public enum PowerSource
   {
     /// <summary>
-    /// Not currently charging
+    /// Not currently charging and on battery
     /// </summary>
-    None,
+    Battery,
     /// <summary>
     /// Wall charging
     /// </summary>

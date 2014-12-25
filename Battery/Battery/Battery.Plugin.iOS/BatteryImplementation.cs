@@ -14,30 +14,32 @@ namespace Battery.Plugin
   /// <summary>
   /// Implementation for Battery
   /// </summary>
-  public class BatteryImplementation : BaseCrossBattery
+  public class BatteryImplementation : BaseBatteryImplementation
   {
-
+    NSObject batteryLevel, batteryState;
     /// <summary>
     /// Default constructor
     /// </summary>
     public BatteryImplementation()
     {
       UIDevice.CurrentDevice.BatteryMonitoringEnabled = true;
-      UIDevice.Notifications.ObserveBatteryLevelDidChange(delegate { ObserveBatteryChanged(); });
-      UIDevice.Notifications.ObserveBatteryStateDidChange(delegate { ObserveBatteryChanged(); });
+      batteryLevel = UIDevice.Notifications.ObserveBatteryLevelDidChange(BatteryChangedNotification);
+      batteryState = UIDevice.Notifications.ObserveBatteryStateDidChange(BatteryChangedNotification);
     }
+
+
 
     /// <summary>
     /// Battery changed notification triggered, bubble up.
     /// </summary>
-    void ObserveBatteryChanged()
+    void BatteryChangedNotification(object sender, NSNotificationEventArgs args)
     {
       OnBatteryChanged(new BatteryChangedEventArgs
         {
-          Level = Level,
-          IsLow = Level <= 15,
+          Level = RemainingChargePercent,
+          IsLow = RemainingChargePercent <= 15,
           Status = Status,
-          ChargeType = ChargeType
+          PowerSource = PowerSource
         });
     }
 
@@ -45,11 +47,11 @@ namespace Battery.Plugin
     /// <summary>
     /// Gets current level of battery
     /// </summary>
-    public override int Level
+    public override int RemainingChargePercent
     {
       get 
       {
-        return (int)UIDevice.CurrentDevice.BatteryLevel;
+        return (int)(UIDevice.CurrentDevice.BatteryLevel * 100F);
       }
     }
 
@@ -77,23 +79,55 @@ namespace Battery.Plugin
     /// <summary>
     /// Get charge type (guesstimate on iOS)
     /// </summary>
-    public override ChargeType ChargeType
+    public override PowerSource PowerSource
     {
       get 
       {
         switch (UIDevice.CurrentDevice.BatteryState)
         {
           case UIDeviceBatteryState.Charging:
-            return Abstractions.ChargeType.Ac;
+            return Abstractions.PowerSource.Ac;
           case UIDeviceBatteryState.Full:
-            return Abstractions.ChargeType.Ac;
+            return Abstractions.PowerSource.Ac;
           case UIDeviceBatteryState.Unplugged:
-            return Abstractions.ChargeType.None;
+            return Abstractions.PowerSource.Battery;
           default:
-            return Abstractions.ChargeType.Other;
+            return Abstractions.PowerSource.Other;
         }
       }
     }
 
+    private bool disposed = false;
+
+
+    /// <summary>
+    /// Dispose
+    /// </summary>
+    /// <param name="disposing"></param>
+    public override void Dispose(bool disposing)
+    {
+      if (!disposed)
+      {
+        if (disposing)
+        {
+          UIDevice.CurrentDevice.BatteryMonitoringEnabled = false;
+          if (batteryLevel != null)
+          {
+            batteryLevel.Dispose();
+            batteryLevel = null;
+          }
+
+          if(batteryState != null)
+          {
+            batteryState.Dispose();
+            batteryState = null;
+          }
+        }
+
+        disposed = true;
+      }
+
+      base.Dispose(disposing);
+    }
   }
 }

@@ -38,9 +38,9 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseCrossBattery.cs" />
+    <Compile Include="BaseBatteryImplementation.cs" />
     <Compile Include="BatteryStatus.cs" />
-    <Compile Include="ChargeType.cs" />
+    <Compile Include="PowerSource.cs" />
     <Compile Include="IBattery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

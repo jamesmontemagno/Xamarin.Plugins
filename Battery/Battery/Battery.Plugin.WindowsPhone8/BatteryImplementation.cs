@@ -8,23 +8,56 @@ namespace Battery.Plugin
   /// <summary>
   /// Implementation for Battery
   /// </summary>
-  public class BatteryImplementation : BaseCrossBattery
+  public class BatteryImplementation : BaseBatteryImplementation
   {
-    public override int Level
+    /// <summary>
+    /// Default constructor
+    /// </summary>
+    public BatteryImplementation()
+    {
+      DefaultBattery.RemainingChargePercentChanged += RemainingChargePercentChanged;
+    }
+
+    void RemainingChargePercentChanged(object sender, object e)
+    {
+      OnBatteryChanged(new BatteryChangedEventArgs
+      {
+        Level = DefaultBattery.RemainingChargePercent,
+        IsLow = DefaultBattery.RemainingChargePercent <= 15,
+        PowerSource = this.PowerSource,
+        Status = this.Status
+      });
+    }
+
+    Windows.Phone.Devices.Power.Battery battery;
+    private Windows.Phone.Devices.Power.Battery DefaultBattery
+    {
+      get { return battery ?? (battery = Windows.Phone.Devices.Power.Battery.GetDefault()); }
+    }
+    /// <summary>
+    /// Get remaining charge percent
+    /// </summary>
+    public override int RemainingChargePercent
     {
       get 
       {
-        throw new NotImplementedException();
+        return DefaultBattery.RemainingChargePercent;
       }
     }
 
+    /// <summary>
+    /// Get current battery status
+    /// </summary>
     public override BatteryStatus Status
     {
       get 
       {
+        if (DefaultBattery.RemainingChargePercent == 100)
+          return BatteryStatus.Full;
+
         switch (DeviceStatus.PowerSource)
         {
-          case PowerSource.Battery:
+          case Microsoft.Phone.Info.PowerSource.Battery:
             return BatteryStatus.Discharging;
           default:
             return BatteryStatus.Charging;
@@ -32,18 +65,44 @@ namespace Battery.Plugin
       }
     }
 
-    public override ChargeType ChargeType
+    /// <summary>
+    /// Get current charge type, either 
+    /// </summary>
+    public override Abstractions.PowerSource PowerSource
     {
       get 
       {
         switch (DeviceStatus.PowerSource)
         {
-          case PowerSource.Battery:
-            return ChargeType.None;
+          case Microsoft.Phone.Info.PowerSource.Battery:
+            return Abstractions.PowerSource.Battery;
           default:
-            return ChargeType.Ac;
+            return Abstractions.PowerSource.Ac;
         }
       }
+    }
+
+
+    private bool disposed = false;
+
+
+    /// <summary>
+    /// Dispose
+    /// </summary>
+    /// <param name="disposing"></param>
+    public override void Dispose(bool disposing)
+    {
+      if (!disposed)
+      {
+        if (disposing)
+        {
+          DefaultBattery.RemainingChargePercentChanged -= RemainingChargePercentChanged;
+        }
+
+        disposed = true;
+      }
+
+      base.Dispose(disposing);
     }
   }
 }
