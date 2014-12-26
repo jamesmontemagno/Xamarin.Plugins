@@ -34,13 +34,16 @@ namespace Battery.Plugin
     /// </summary>
     void BatteryChangedNotification(object sender, NSNotificationEventArgs args)
     {
-      OnBatteryChanged(new BatteryChangedEventArgs
-        {
-          RemainingChargePercent = RemainingChargePercent,
-          IsLow = RemainingChargePercent <= 15,
-          Status = Status,
-          PowerSource = PowerSource
-        });
+      Helpers.EnsureInvokedOnMainThread(() =>
+      {
+        OnBatteryChanged(new BatteryChangedEventArgs
+          {
+            RemainingChargePercent = RemainingChargePercent,
+            IsLow = RemainingChargePercent <= 15,
+            Status = Status,
+            PowerSource = PowerSource
+          });
+      });
     }
 
 

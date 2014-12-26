@@ -38,6 +38,9 @@
     <Compile Include="..\Battery.Plugin.iOS\BatteryImplementation.cs">
       <Link>BatteryImplementation.cs</Link>
     </Compile>
+    <Compile Include="..\Battery.Plugin.iOS\Helpers.cs">
+      <Link>Helpers.cs</Link>
+    </Compile>
     <Compile Include="..\Battery.Plugin\CrossBattery.cs">
       <Link>CrossBattery.cs</Link>
     </Compile>

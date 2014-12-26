@@ -1,5 +1,6 @@
 using Battery.Plugin.Abstractions;
 using System;
+using Windows.ApplicationModel.Core;
 
 
 namespace Battery.Plugin
@@ -32,15 +33,34 @@ namespace Battery.Plugin
         status = BatteryStatus.Unknown;
 
       last = DefaultBattery.RemainingChargePercent; ;
-
-      OnBatteryChanged(new BatteryChangedEventArgs
+      
+      var dispatcher = CoreApplication.MainView.CoreWindow.Dispatcher;
+      if(dispatcher != null)
       {
-        RemainingChargePercent = DefaultBattery.RemainingChargePercent,
-        IsLow = DefaultBattery.RemainingChargePercent <= 15,
-        PowerSource = PowerSource,
-        Status = Status
-      });
+        dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+        {
+          OnBatteryChanged(new BatteryChangedEventArgs
+          {
+            RemainingChargePercent = DefaultBattery.RemainingChargePercent,
+            IsLow = DefaultBattery.RemainingChargePercent <= 15,
+            PowerSource = PowerSource,
+            Status = Status
+          });
+        });
+      }
+      else
+      {
+        OnBatteryChanged(new BatteryChangedEventArgs
+        {
+          RemainingChargePercent = DefaultBattery.RemainingChargePercent,
+          IsLow = DefaultBattery.RemainingChargePercent <= 15,
+          PowerSource = PowerSource,
+          Status = Status
+        });
+      }
+ 
     }
+
     Windows.Phone.Devices.Power.Battery battery;
     private Windows.Phone.Devices.Power.Battery DefaultBattery
     {

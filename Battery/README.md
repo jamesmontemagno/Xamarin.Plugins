@@ -1,9 +1,9 @@
-## ![](Common/battery_icon.png) Connectivity Plugin for Xamarin and Windows
+## ![](Common/battery_icon.png) Battery Status Plugin for Xamarin and Windows
 
 Simple cross platform plugin to check batterystatus of mobile device, get remaining percentage, 
 
 ### Setup
-* Available on NuGet: http://www.nuget.org/packages/Xam.Plugins.Connectivity
+* Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.Battery
 * Install into your PCL project and Client projects.
 
 **Supports**

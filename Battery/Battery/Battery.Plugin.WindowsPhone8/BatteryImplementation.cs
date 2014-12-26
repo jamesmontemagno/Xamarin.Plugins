@@ -1,6 +1,8 @@
 using Battery.Plugin.Abstractions;
 using Microsoft.Phone.Info;
 using System;
+using System.Windows;
+using System.Windows.Threading;
 
 
 namespace Battery.Plugin
@@ -20,13 +22,18 @@ namespace Battery.Plugin
 
     void RemainingChargePercentChanged(object sender, object e)
     {
-      OnBatteryChanged(new BatteryChangedEventArgs
+
+      Deployment.Current.Dispatcher.BeginInvoke(() =>
       {
-        RemainingChargePercent = DefaultBattery.RemainingChargePercent,
-        IsLow = DefaultBattery.RemainingChargePercent <= 15,
-        PowerSource = this.PowerSource,
-        Status = this.Status
+        OnBatteryChanged(new BatteryChangedEventArgs
+        {
+          RemainingChargePercent = DefaultBattery.RemainingChargePercent,
+          IsLow = DefaultBattery.RemainingChargePercent <= 15,
+          PowerSource = this.PowerSource,
+          Status = this.Status
+        }); 
       });
+      
     }
 
     Windows.Phone.Devices.Power.Battery battery;

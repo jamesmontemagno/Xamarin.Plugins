@@ -39,6 +39,7 @@
       <Link>CrossBattery.cs</Link>
     </Compile>
     <Compile Include="BatteryImplementation.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

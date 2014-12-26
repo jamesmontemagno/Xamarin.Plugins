@@ -3,7 +3,7 @@
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Battery</id>
        <version>1.0.0.0</version>
-       <title>Battery Status Plugin for Xamarin</title>
+       <title>Battery Status Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
      <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>

@@ -138,10 +138,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Battery.Plugin">
+    <Reference Include="Battery.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Xam.Plugin.Battery.1.0.0.0\lib\win8\Battery.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="Battery.Plugin.Abstractions">
+    <Reference Include="Battery.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Xam.Plugin.Battery.1.0.0.0\lib\win8\Battery.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Connectivity.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
