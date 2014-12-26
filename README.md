@@ -8,6 +8,7 @@ Read more on my blog: http://motzcod.es/post/104507063997/what-exactly-is-a-plug
 # Current Plugins for Xamarin
 
 Each plugin has a README with more information on what they contain.
+* **[Battery Status](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Battery)**
 * **[Connectivity](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Connectivity)**: See if device is connected to the internet and through what connection type.
 * **[Device Information](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/DeviceInfo)**
 * **[Settings](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Settings)**
