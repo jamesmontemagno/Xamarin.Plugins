@@ -10,6 +10,12 @@
 * Available on NuGet: https://www.nuget.org/packages/Xam.Plugins.Settings/
 * Install into your PCL project and Client projects.
 * Open up Helpers/Settings.cs in your PCL for directions on how to use.
+*
+
+**iOS Specific**
+You must enable generic type sharing in the settings. It is on by default on new projects.
+
+![](http://content.screencast.com/users/JamesMontemagno/folders/Jing/media/7466bca6-a916-4fd9-9301-3c3403d3a6ad/00000097.png)
 
 **Supports**
 * Xamarin.iOS
