@@ -32,6 +32,7 @@ namespace Connectivity.Plugin
 
 
     private bool isConnected;
+    private NetworkStatus previousInternetStatus = NetworkStatus.NotReachable;
     private void UpdateConnected(bool triggerChange = true)
     {
       var remoteHostStatus = Reachability.RemoteHostStatus();
@@ -46,8 +47,9 @@ namespace Connectivity.Plugin
                     (remoteHostStatus == NetworkStatus.ReachableViaCarrierDataNetwork ||
                       remoteHostStatus == NetworkStatus.ReachableViaWiFiNetwork);
 
-      if(triggerChange && previouslyConnected != isConnected)
-        OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = isConnected });
+      if(triggerChange && (previouslyConnected != isConnected || previousInternetStatus != internetStatus))
+            OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = isConnected });
+      previousInternetStatus = internetStatus;
     }
 
 

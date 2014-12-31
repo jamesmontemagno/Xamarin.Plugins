@@ -223,18 +223,31 @@ namespace Connectivity.Plugin
     /// <returns></returns>
     public static NetworkStatus InternetConnectionStatus()
     {
-      NetworkReachabilityFlags flags;
-      bool defaultNetworkAvailable = IsNetworkAvailable(out flags);
-      if (defaultNetworkAvailable)
-      {
-        if ((flags & NetworkReachabilityFlags.IsDirect) != 0)
-          return NetworkStatus.NotReachable;
-      }
-      else if ((flags & NetworkReachabilityFlags.IsWWAN) != 0)
-        return NetworkStatus.ReachableViaCarrierDataNetwork;
-      else if (flags == 0)
-        return NetworkStatus.NotReachable;
-      return NetworkStatus.ReachableViaWiFiNetwork;
+        NetworkStatus status = NetworkStatus.NotReachable;
+
+        NetworkReachabilityFlags flags;
+        bool defaultNetworkAvailable = IsNetworkAvailable (out flags);
+
+        // If the connection is reachable and no connection is required, then assume it's WiFi
+        if (defaultNetworkAvailable)
+        {
+            status = NetworkStatus.ReachableViaWiFiNetwork;
+        } 
+
+        // If the connection is on-demand or on-traffic and no user intervention
+        // is required, then assume WiFi.
+        if (((flags & NetworkReachabilityFlags.ConnectionOnDemand) != 0
+            || (flags & NetworkReachabilityFlags.ConnectionOnTraffic) != 0)
+            && (flags & NetworkReachabilityFlags.InterventionRequired) == 0) 
+        {
+            status = NetworkStatus.ReachableViaWiFiNetwork;
+        }
+
+        // If it's a WWAN connection..
+        if ((flags & NetworkReachabilityFlags.IsWWAN) != 0)
+            status = NetworkStatus.ReachableViaCarrierDataNetwork;
+
+        return status;
     }
 
     /// <summary>
