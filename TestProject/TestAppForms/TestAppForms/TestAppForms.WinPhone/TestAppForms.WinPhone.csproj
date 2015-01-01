@@ -186,6 +186,12 @@
     <Reference Include="DeviceInfo.Plugin.Abstractions">
       <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\wp8\DeviceInfo.Plugin.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="ExternalMaps.Plugin">
+      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\wp8\ExternalMaps.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="ExternalMaps.Plugin.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\wp8\ExternalMaps.Plugin.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="ImageCircle.Forms.Plugin.Abstractions">
       <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.1.0.0.0\lib\wp8\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
     </Reference>

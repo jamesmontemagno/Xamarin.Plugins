@@ -124,6 +124,12 @@
     <Reference Include="Connectivity.Plugin.Abstractions">
       <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.0.2\lib\wpa81\Connectivity.Plugin.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="ExternalMaps.Plugin">
+      <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\wpa81\ExternalMaps.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="ExternalMaps.Plugin.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\wpa81\ExternalMaps.Plugin.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Refractored.Xam.TTS">
       <HintPath>..\packages\Xam.Plugins.TextToSpeech.1.0.0.1\lib\wpa81\Refractored.Xam.TTS.dll</HintPath>
     </Reference>

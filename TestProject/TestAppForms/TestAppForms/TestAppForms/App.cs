@@ -1,6 +1,7 @@
 ﻿using Battery.Plugin;
 using Connectivity.Plugin;
 using DeviceInfo.Plugin;
+using ExternalMaps.Plugin;
 using ImageCircle.Forms.Plugin.Abstractions;
 using Refractored.Xam.TTS;
 using Refractored.Xam.TTS.Abstractions;
@@ -238,6 +239,27 @@ namespace TestAppForms
           batteryIsLow.Text =  "IsLow: " + ((args.IsLow) ? "YES" : "NO");
       };
 
+      var navigateLatLong = new Button
+      {
+        Text = "Navigate Lat Long"
+      };
+
+      navigateLatLong.Clicked += (sender, args) =>
+        {
+          CrossExternalMaps.Current.NavigateTo("Space Needle", 47.6204, -122.3491);
+        };
+
+
+      var navigateAddress = new Button
+      {
+        Text = "Navigate Address"
+      };
+
+      navigateAddress.Clicked += (sender, args) =>
+      {
+        CrossExternalMaps.Current.NavigateTo("Xamarin", "394 pacific ave.", "San Francisco", "CA", "94111", "USA", "USA");
+      };
+
 
       page = new ContentPage
       {
@@ -318,7 +340,9 @@ namespace TestAppForms
               new Label{ Text = "Battery Charge Type"},
               batteryChargeType,
               new Label{ Text = "Battery is low"},
-              batteryIsLow
+              batteryIsLow,
+              navigateAddress,
+              navigateLatLong
             }
           }
         }

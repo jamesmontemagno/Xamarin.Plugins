@@ -9,6 +9,7 @@ using MonoTouch.Foundation;
 using MonoTouch.MapKit;
 #endif
 using System;
+using System.Diagnostics;
 
 
 namespace ExternalMaps.Plugin
@@ -58,7 +59,7 @@ namespace ExternalMaps.Plugin
     /// <param name="country">Country</param>
     /// <param name="countryCode">Country Code if applicable</param>
     /// <param name="navigationType">Navigation type</param>
-    public void NavigateTo(string name, string street, string city, string state, string zip, string country, string countryCode, NavigationType navigationType = NavigationType.Default)
+    public async void NavigateTo(string name, string street, string city, string state, string zip, string country, string countryCode, NavigationType navigationType = NavigationType.Default)
     {
       if (string.IsNullOrWhiteSpace(name))
         name = string.Empty;
@@ -91,7 +92,19 @@ namespace ExternalMaps.Plugin
         Zip = zip,
         CountryCode = countryCode
       };
-      var mapItem = new MKMapItem(new MKPlacemark(new CLLocationCoordinate2D(), placemarkAddress));
+
+      var coder = new CLGeocoder();
+      var placemarks = await coder.GeocodeAddressAsync(placemarkAddress.Dictionary);
+
+      if(placemarks.Length == 0)
+      {
+        Debug.WriteLine("Unable to get geocode address from address");
+        return;
+      }
+
+      CLPlacemark placemark = placemarks[0];
+
+      var mapItem = new MKMapItem(new MKPlacemark(placemark.Location.Coordinate, placemarkAddress));
       mapItem.Name = name;
 
       MKLaunchOptions launchOptions = null;
