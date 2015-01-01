@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExternalMaps.Plugin;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -43,6 +44,18 @@ namespace TestApp.WinPhoneRT
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
+        }
+
+        private void ButtonNavLatLong_Click(object sender, RoutedEventArgs e)
+        {
+          CrossExternalMaps.Current.NavigateTo("Space Needle", 47.6204, -122.3491);
+        
+        }
+
+        private void ButtonNavAddress_Click(object sender, RoutedEventArgs e)
+        {
+          CrossExternalMaps.Current.NavigateTo("Xamarin", "394 pacific ave.", "San Francisco", "CA", "94111", "USA", "USA");
+      
         }
     }
 }

@@ -11,9 +11,9 @@
        <iconUrl>http://www.refractored.com/images/external_map_icon.png</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
-         Open external maps to a specific geolocation or address. Option to launch with navigation option on iOS as well.
+         Open external maps to navigate to a specific geolocation or address. Option to launch with navigation option on iOS as well.
        </description>
-       <summary>Open external maps to a specific geolocation or address.</summary>
+       <summary>Open external maps to navigate to a specific geolocation or address.</summary>
        <tags>xamarin, pcl, xam.pcl, maps, navigation, external maps, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
        <dependencies>
        </dependencies>

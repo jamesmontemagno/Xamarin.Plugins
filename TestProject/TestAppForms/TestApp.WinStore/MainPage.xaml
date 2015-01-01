@@ -34,6 +34,9 @@
             <TextBox x:Name="Address2" Text="montemagno.com"></TextBox>
             <TextBox x:Name="Port" Text="80"></TextBox>
             <TextBlock x:Name="ConnectivityResults" Text="Results will appear here."/>
+
+            <Button Content="Nav Lat/Long" Click="ButtonNavLatLong_Click"/>
+            <Button Content="Nav Address" Click="ButtonNavAddress_Click"/>
         </StackPanel>
     </Grid>
 </Page>

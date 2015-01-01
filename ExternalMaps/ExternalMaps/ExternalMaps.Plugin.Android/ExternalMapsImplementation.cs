@@ -23,26 +23,36 @@ namespace ExternalMaps.Plugin
     {
       var uri = String.Format("http://maps.google.com/maps?&daddr={0},{1} ({2})", latitude, longitude, name);
       var intent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(uri));
-      intent.SetFlags(ActivityFlags.ClearTop);
-      intent.SetFlags(ActivityFlags.NewTask);
       intent.SetClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+
+      if (TryIntent(intent))
+        return;
+
+      var uri2 = string.Format("geo:{0},{1}?q={0},{1}({2})", latitude, longitude, name);
+
+      if (TryIntent(new Intent(Intent.ActionView, Android.Net.Uri.Parse(uri2))))
+        return;
+
+      if (TryIntent(new Intent(Intent.ActionView, Android.Net.Uri.Parse(uri))))
+        return;
+
+
+      Toast.MakeText(Android.App.Application.Context, "Please install a maps application", ToastLength.Long).Show();
+      
+    }
+
+    private bool TryIntent(Intent intent)
+    {
       try
       {
+        intent.SetFlags(ActivityFlags.ClearTop);
+        intent.SetFlags(ActivityFlags.NewTask);
         Android.App.Application.Context.StartActivity(intent);
+        return true;
       }
-      catch (ActivityNotFoundException)
+      catch(ActivityNotFoundException)
       {
-        try
-        {
-          var unrestrictedIntent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(uri));
-          unrestrictedIntent.SetFlags(ActivityFlags.ClearTop);
-          unrestrictedIntent.SetFlags(ActivityFlags.NewTask);
-          Android.App.Application.Context.StartActivity(unrestrictedIntent);
-        }
-        catch (ActivityNotFoundException)
-        {
-          Toast.MakeText(Android.App.Application.Context, "Please install a maps application", ToastLength.Long).Show();
-        }
+        return false;
       }
     }
     /// <summary>
@@ -80,29 +90,25 @@ namespace ExternalMaps.Plugin
       if (string.IsNullOrWhiteSpace(country))
         country = string.Empty;
 
-      var uri = String.Format("http://maps.google.com/maps?q={0} {1}, {2} {3} {4} ({5})", street, city, state, zip, country, name);
+      var uri = String.Format("http://maps.google.com/maps?q={0} {1}, {2} {3} {4}", street, city, state, zip, country);
       var intent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(uri));
-      intent.SetFlags(ActivityFlags.ClearTop);
-      intent.SetFlags(ActivityFlags.NewTask);
+  
       intent.SetClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
-      try
-      {
-        Android.App.Application.Context.StartActivity(intent);
-      }
-      catch (ActivityNotFoundException)
-      {
-        try
-        {
-          var unrestrictedIntent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(uri));
-          unrestrictedIntent.SetFlags(ActivityFlags.ClearTop);
-          unrestrictedIntent.SetFlags(ActivityFlags.NewTask);
-          Android.App.Application.Context.StartActivity(unrestrictedIntent);
-        }
-        catch (ActivityNotFoundException)
-        {
-          Toast.MakeText(Android.App.Application.Context, "Please install a maps application", ToastLength.Long).Show();
-        }
-      }
+
+
+      if (TryIntent(intent))
+        return;
+
+      var uri2 = String.Format("geo:0,0?q={0} {1} {2} {3} {4}", street, city, state, zip, country);
+      
+      if (TryIntent(new Intent(Intent.ActionView, Android.Net.Uri.Parse(uri2))))
+        return;
+
+      if (TryIntent(new Intent(Intent.ActionView, Android.Net.Uri.Parse(uri))))
+        return;
+
+     
+      Toast.MakeText(Android.App.Application.Context, "Please install a maps application", ToastLength.Long).Show();
     }
   }
 }

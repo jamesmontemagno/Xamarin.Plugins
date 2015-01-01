@@ -1,5 +1,6 @@
 ﻿using Connectivity.Plugin;
 using DeviceInfo.Plugin;
+using ExternalMaps.Plugin;
 using Refractored.Xam.TTS;
 using Refractored.Xam.TTS.Abstractions;
 using Refractored.Xam.Vibrate;
@@ -104,6 +105,18 @@ namespace TestApp.WinStore
 
           builder.AppendLine((await CrossConnectivity.Current.IsReachable(Address2.Text.Trim(), int.Parse(Port.Text))) ? "Reachable" : "Not Reachable");
           ConnectivityResults.Text = builder.ToString();
+        }
+
+        private void ButtonNavLatLong_Click(object sender, RoutedEventArgs e)
+        {
+          CrossExternalMaps.Current.NavigateTo("Space Needle", 47.6204, -122.3491);
+
+        }
+
+        private void ButtonNavAddress_Click(object sender, RoutedEventArgs e)
+        {
+          CrossExternalMaps.Current.NavigateTo("Xamarin", "394 pacific ave.", "San Francisco", "CA", "94111", "USA", "USA");
+
         }
     }
 }

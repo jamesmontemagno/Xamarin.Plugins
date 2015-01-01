@@ -15,6 +15,7 @@ namespace ExternalMaps.Plugin.Abstractions
     /// <param name="longitude">Long</param>
     /// <param name="navigationType">Type of navigation</param>
     void NavigateTo(string name, double latitude, double longitude, NavigationType navigationType = NavigationType.Default);
+    
     /// <summary>
     /// Navigate to an address
     /// </summary>

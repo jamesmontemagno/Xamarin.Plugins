@@ -18,14 +18,37 @@ namespace ExternalMaps.Plugin
     /// <param name="latitude">Lat</param>
     /// <param name="longitude">Long</param>
     /// <param name="navigationType">Type of navigation</param>
-    public void NavigateTo(string name, double latitude, double longitude, NavigationType navigationType = NavigationType.Default)
+    public async void NavigateTo(string name, double latitude, double longitude, NavigationType navigationType = NavigationType.Default)
     {
 
       if (string.IsNullOrWhiteSpace(name))
         name = string.Empty;
 
+      // Get the values required to specify the destination.
+      var driveOrWalk = navigationType == NavigationType.Walking ? "ms-walk-to" : "ms-drive-to";
 
-      Windows.System.Launcher.LaunchUriAsync(new Uri(string.Format("bingmaps:?cp={0}~{1}", latitude, longitude)));
+      // Assemble the Uri to launch.
+      var uri = new Uri(driveOrWalk + ":?destination.latitude=" + latitude +
+          "&destination.longitude=" + longitude + "&destination.name=" + name);;
+
+      // Launch the Uri.
+      var success = await Windows.System.Launcher.LaunchUriAsync(uri);
+
+      if (success)
+      {
+        return;
+      }
+
+
+      var mapsDirectionsTask = new MapsDirectionsTask();
+
+
+      // You can specify a label and a geocoordinate for the end point.
+      var location = new GeoCoordinate(latitude, longitude);
+      var lml = new LabeledMapLocation(name, location);
+      mapsDirectionsTask.End = lml;
+
+      mapsDirectionsTask.Show();
     }
     /// <summary>
     /// Navigate to an address
@@ -58,7 +81,18 @@ namespace ExternalMaps.Plugin
       if (string.IsNullOrWhiteSpace(country))
         country = string.Empty;
 
-      Windows.System.Launcher.LaunchUriAsync(new Uri(string.Format("bingmaps:?where={0%20{1}%20{2}%20{3}%20{4}", street, city, state, zip, country)));
+      var mapsDirectionsTask = new MapsDirectionsTask();
+
+
+      // If you set the geocoordinate parameter to null, the label parameter is used as a search term.
+      var lml = new LabeledMapLocation(string.Format("{0}%20{1},%20{2}%20{3}%20{4}", street, city, state, zip, country), null);
+
+      mapsDirectionsTask.End = lml;
+
+      // If mapsDirectionsTask.Start is not set, the user's current location is used as the start point.
+
+      mapsDirectionsTask.Show();
+
     }
   }
 }
