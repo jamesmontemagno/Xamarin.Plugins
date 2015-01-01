@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Connectivity</id>
-       <version>1.0.0.2</version>
+       <version>1.0.0.3</version>
        <title>Connectivity Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -12,6 +12,8 @@
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
          Get network connectivity information such as network type, speeds, and if connection is available. Additional functionality includes the ability to ping a specific host and port number. Ensure you have proper permissions set by reading the README.
+         
+         1.0.0.3 - Updates for iOS
        </description>
        <summary>Get network connectivity information such as network type, speeds, and if connection is available.</summary>
        <tags>xamarin, pcl, xam.pcl, settings, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
