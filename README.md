@@ -11,6 +11,7 @@ Each plugin has a README with more information on what they contain.
 * **[Battery Status](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Battery)**
 * **[Connectivity](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Connectivity)**: See if device is connected to the internet and through what connection type.
 * **[Device Information](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/DeviceInfo)**
+* **[Extended Maps](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/ExternalMaps)**: Launch navigation directions in default map app on each OS
 * **[Settings](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Settings)**
 * **[Text To Speech](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/TextToSpeech)**
 * **[Vibrate](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Vibrate)**
