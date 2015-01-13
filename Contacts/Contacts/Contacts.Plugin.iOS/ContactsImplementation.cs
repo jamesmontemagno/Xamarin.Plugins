@@ -10,7 +10,6 @@ using System;
 using System.Threading.Tasks;
 using System.Linq;
 
-
 namespace Contacts.Plugin
 {
   /// <summary>
@@ -23,6 +22,7 @@ namespace Contacts.Plugin
     {
       get { return addressBook ?? (addressBook = new AddressBook()); }
     }
+
     public Task<bool> RequestPermission()
     {
       return AddressBook.RequestPermission();
@@ -30,7 +30,7 @@ namespace Contacts.Plugin
 
     public IQueryable<Contact> Contacts
     {
-      get { return AddressBook;  }
+      get { return (IQueryable<Contact>)AddressBook; }
     }
 
     public Contact LoadContact(string id)
@@ -63,5 +63,6 @@ namespace Contacts.Plugin
     {
       get { return true; }
     }
+
   }
 }

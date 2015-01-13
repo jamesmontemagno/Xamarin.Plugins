@@ -2,7 +2,11 @@
 using Refractored.Xam.Forms.Vibrate.iOS;
 using System;
 using Xamarin.Forms;
+#if __UNIFIED__
+using AudioToolbox;
+#else
 using MonoTouch.AudioToolbox;
+#endif
 
 [assembly:Dependency(typeof(Vibrate))]
 namespace Refractored.Xam.Forms.Vibrate.iOS

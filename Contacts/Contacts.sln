@@ -24,27 +24,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Contacts.Plugin.nuspec = Contacts.Plugin.nuspec
 	EndProjectSection
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Contacts.Plugin.Targets.Shared", "Contacts.Plugin.Shared\Contacts.Plugin.Targets.Shared.shproj", "{F56D67D9-7CC0-49B0-BBB1-3878BF1CD49F}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Contacts.Plugin.Targets.Shared", "Contacts.Plugin.Targets.Shared\Contacts.Plugin.Targets.Shared.shproj", "{F56D67D9-7CC0-49B0-BBB1-3878BF1CD49F}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Contatcs.Plugin.Shared", "Contatcs.Plugin.Shared\Contatcs.Plugin.Shared.shproj", "{DD23087A-2D1F-4D58-9D79-CFB9E9D5B6B2}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Contacts.Plugin.Shared", "Contacts.Plugin.Shared\Contacts.Plugin.Shared.shproj", "{DD23087A-2D1F-4D58-9D79-CFB9E9D5B6B2}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems*{d7f3aa16-8ef1-4924-9e0a-dad4ab46b2eb}*SharedItemsImports = 4
-		Contatcs.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{d7f3aa16-8ef1-4924-9e0a-dad4ab46b2eb}*SharedItemsImports = 4
-		Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems*{56a56f17-7de1-4ca1-9617-bf32e971ac84}*SharedItemsImports = 4
-		Contatcs.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{56a56f17-7de1-4ca1-9617-bf32e971ac84}*SharedItemsImports = 4
-		Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems*{2882aeeb-d4cd-4eb9-8a6c-6653b33681f0}*SharedItemsImports = 4
-		Contatcs.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{2882aeeb-d4cd-4eb9-8a6c-6653b33681f0}*SharedItemsImports = 4
-		Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems*{5876144b-47dd-4c4e-b421-bc03f191b996}*SharedItemsImports = 4
-		Contatcs.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{5876144b-47dd-4c4e-b421-bc03f191b996}*SharedItemsImports = 4
-		Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems*{f56d67d9-7cc0-49b0-bbb1-3878bf1cd49f}*SharedItemsImports = 13
-		Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
-		Contatcs.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
-		Contatcs.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{dd23087a-2d1f-4d58-9d79-cfb9e9d5b6b2}*SharedItemsImports = 13
-		Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
-		Contatcs.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
-		Contatcs.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}*SharedItemsImports = 4
+		Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{d7f3aa16-8ef1-4924-9e0a-dad4ab46b2eb}*SharedItemsImports = 4
+		Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems*{d7f3aa16-8ef1-4924-9e0a-dad4ab46b2eb}*SharedItemsImports = 4
+		Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{56a56f17-7de1-4ca1-9617-bf32e971ac84}*SharedItemsImports = 4
+		Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems*{56a56f17-7de1-4ca1-9617-bf32e971ac84}*SharedItemsImports = 4
+		Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{2882aeeb-d4cd-4eb9-8a6c-6653b33681f0}*SharedItemsImports = 4
+		Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems*{2882aeeb-d4cd-4eb9-8a6c-6653b33681f0}*SharedItemsImports = 4
+		Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{5876144b-47dd-4c4e-b421-bc03f191b996}*SharedItemsImports = 4
+		Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems*{5876144b-47dd-4c4e-b421-bc03f191b996}*SharedItemsImports = 4
+		Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems*{f56d67d9-7cc0-49b0-bbb1-3878bf1cd49f}*SharedItemsImports = 13
+		Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{dd23087a-2d1f-4d58-9d79-cfb9e9d5b6b2}*SharedItemsImports = 13
+		Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -2,6 +2,7 @@ using Contacts.Plugin.Abstractions;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Linq;
 
 
 namespace Contacts.Plugin
@@ -35,7 +36,7 @@ namespace Contacts.Plugin
     }
     public System.Linq.IQueryable<Contact> Contacts
     {
-      get { return AddressBook; }
+      get { return (IQueryable<Contact>)AddressBook; }
     }
 
     public Contact LoadContact(string id)

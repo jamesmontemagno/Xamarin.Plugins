@@ -260,6 +260,16 @@ namespace TestAppForms
         CrossExternalMaps.Current.NavigateTo("Xamarin", "394 pacific ave.", "San Francisco", "CA", "94111", "USA", "USA");
       };
 
+      var buttonContacts = new Button
+      {
+        Text = "Contacts"
+      };
+
+      buttonContacts.Clicked += (sender, args) =>
+        {
+          page.Navigation.PushAsync(new ContactsPage()); ;
+        };
+
 
       page = new ContentPage
       {
@@ -342,7 +352,8 @@ namespace TestAppForms
               new Label{ Text = "Battery is low"},
               batteryIsLow,
               navigateAddress,
-              navigateLatLong
+              navigateLatLong,
+              buttonContacts
             }
           }
         }
@@ -353,7 +364,7 @@ namespace TestAppForms
           page.DisplayAlert("Connectivity Changed", "IsConnected: " + args.IsConnected.ToString(), "OK");
         };
 
-      return page;
+      return new NavigationPage(page);
     }
   }
 }

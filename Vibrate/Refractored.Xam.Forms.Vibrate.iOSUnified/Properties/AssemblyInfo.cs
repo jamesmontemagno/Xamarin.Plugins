@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Refractored.Xam.Vibrate")]
+[assembly: AssemblyTitle("Refractored.Xam.Forms.Vibrate.iOS")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Refractored.Xam.Vibrate")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyProduct("Refractored.Xam.Forms.Vibrate.iOS")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("7402b52b-d1c6-4041-a1c6-6883367b858b")]
+[assembly: Guid("38c615ef-6edb-4cb9-8304-f8aac8632b22")]
 
 // Version information for an assembly consists of the following four values:
 //

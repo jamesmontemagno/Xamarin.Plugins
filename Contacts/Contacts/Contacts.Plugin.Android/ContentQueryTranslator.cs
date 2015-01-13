@@ -273,6 +273,7 @@ namespace Contacts.Plugin
       private ContentResolverColumnMapping currentMap;
 
 
+
       protected override Expression VisitMemberAccess(MemberExpression memberExpression)
       {
         TableFindResult result = this.tableFinder.Find(memberExpression);

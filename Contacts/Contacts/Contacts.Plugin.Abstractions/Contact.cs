@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contacts.Plugin.Abstractions
 {
-  public class Contact
+  public partial class Contact
   {
 
     public Contact()

@@ -98,6 +98,8 @@
   <Import Project="..\..\Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems" Label="Shared" Condition="Exists('..\..\Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems')" />
   <Import Project="..\..\Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems" Label="Shared" Condition="Exists('..\..\Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems')" />
   <Import Project="..\..\Contatcs.Plugin.Shared\Contatcs.Plugin.Shared.projitems" Label="Shared" Condition="Exists('..\..\Contatcs.Plugin.Shared\Contatcs.Plugin.Shared.projitems')" />
+  <Import Project="..\..\Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems" Label="Shared" Condition="Exists('..\..\Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems')" />
+  <Import Project="..\..\Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems" Label="Shared" Condition="Exists('..\..\Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <ProjectExtensions />

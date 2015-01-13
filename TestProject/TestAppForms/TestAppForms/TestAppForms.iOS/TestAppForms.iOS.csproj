@@ -22,8 +22,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchDebug>False</MtouchDebug>
+    <MtouchLink>Full</MtouchLink>
+    <MtouchDebug>True</MtouchDebug>
     <MtouchSdkVersion>8.1</MtouchSdkVersion>
     <MtouchProfiling>False</MtouchProfiling>
     <MtouchExtraArgs />
@@ -134,6 +134,14 @@
     <Reference Include="Connectivity.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.2\lib\MonoTouch10\Connectivity.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Contacts.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugin.Contacts.1.0.0.0\lib\MonoTouch10\Contacts.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Contacts.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugin.Contacts.1.0.0.0\lib\MonoTouch10\Contacts.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="DeviceInfo.Plugin">
       <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\MonoTouch10\DeviceInfo.Plugin.dll</HintPath>

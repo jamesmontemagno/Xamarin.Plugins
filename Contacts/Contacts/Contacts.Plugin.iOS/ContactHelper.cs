@@ -75,22 +75,22 @@ namespace Contacts.Plugin
 
       contact.Organizations = orgs;
 
-      contact.InstantMessagingAccounts = person.GetInstantMessages().Select(ima => new InstantMessagingAccount()
+      contact.InstantMessagingAccounts = person.GetInstantMessageServices().Select(ima => new InstantMessagingAccount()
       {
-        Service = GetImService((NSString)ima.Value[ABPersonInstantMessageKey.Service]),
-        ServiceLabel = (NSString)ima.Value[ABPersonInstantMessageKey.Service],
-        Account = (NSString)ima.Value[ABPersonInstantMessageKey.Username]
+        Service = GetImService(ima.Value.ServiceName),
+        ServiceLabel = ima.Value.ServiceName,
+        Account = ima.Value.Username
       }).ToList();
 
-      contact.Addresses = person.GetAddresses().Select(a => new Address()
+      contact.Addresses = person.GetAllAddresses().Select(a => new Address()
       {
         Type = GetAddressType(a.Label),
         Label = (a.Label != null) ? GetLabel(a.Label) : GetLabel(ABLabel.Other),
-        StreetAddress = (NSString)a.Value[ABPersonAddressKey.Street],
-        City = (NSString)a.Value[ABPersonAddressKey.City],
-        Region = (NSString)a.Value[ABPersonAddressKey.State],
-        Country = (NSString)a.Value[ABPersonAddressKey.Country],
-        PostalCode = (NSString)a.Value[ABPersonAddressKey.Zip]
+        StreetAddress = a.Value.Street,
+        City = a.Value.City,
+        Region = a.Value.State,
+        Country = a.Value.Country,
+        PostalCode = a.Value.Zip
       }).ToList();
 
       contact.Websites = person.GetUrls().Select(url => new Website

@@ -74,6 +74,9 @@
   <Import Project="..\..\Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems" Label="Shared" Condition="Exists('..\..\Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems')" />
   <Import Project="..\..\Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems" Label="Shared" Condition="Exists('..\..\Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems')" />
   <Import Project="..\..\Contatcs.Plugin.Shared\Contatcs.Plugin.Shared.projitems" Label="Shared" Condition="Exists('..\..\Contatcs.Plugin.Shared\Contatcs.Plugin.Shared.projitems')" />
+  <Import Project="..\..\Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems" Label="Shared" Condition="Exists('..\..\Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems')" />
+  <Import Project="..\..\Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems" Label="Shared" Condition="Exists('..\..\Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems')" />
+  <Import Project="..\..\Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems" Label="Shared" Condition="Exists('..\..\Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

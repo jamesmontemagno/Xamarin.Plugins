@@ -19,7 +19,8 @@ namespace Contacts.Plugin
       {
         try
         {
-          var cursor = Android.App.Application.Context.Query(ContactsContract.Data.ContentUri, null, null, null, null);
+          var cursor = Android.App.Application.Context.ContentResolver.Query(ContactsContract.Data.ContentUri, null, null, null, null);
+          cursor.Close();
           cursor.Dispose();
 
           return true;
@@ -32,11 +33,11 @@ namespace Contacts.Plugin
     }
 
     private AddressBook addressBook;
-    public IQueryable<Contact> Contacts
+    public IQueryable<Abstractions.Contact> Contacts
     {
       get 
       {
-        return AddressBook;   
+        return (IQueryable<Contact>)AddressBook;   
       }
     }
     private AddressBook AddressBook
@@ -47,14 +48,14 @@ namespace Contacts.Plugin
       }
     }
 
-    public Contact LoadContact(string id)
+    public Abstractions.Contact LoadContact(string id)
     {
       return AddressBook.Load(id);
     }
 
     public bool LoadSupported
     {
-      get { true; }
+      get { return true; }
     }
 
     public bool PreferContactAggregation

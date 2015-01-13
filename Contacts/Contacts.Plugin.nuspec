@@ -6,9 +6,8 @@
        <title>Contacts Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
-       <licenseUrl></licenseUrl>
-       <projectUrl></projectUrl>
-       <iconUrl></iconUrl>
+     <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
+     <projectUrl>http://www.github.com/jamesmontemagno/Xamarin.Plugins</projectUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
          Long description for your plugin.

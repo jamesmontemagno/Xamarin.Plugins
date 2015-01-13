@@ -101,28 +101,28 @@ namespace Contacts.Plugin
       }
 
       foreach (ContactAddress address in contact.Addresses)
-        c.addresses.Add(GetAddress(address));
+        c.Addresses.Add(GetAddress(address));
 
       foreach (ContactEmailAddress email in contact.EmailAddresses)
-        c.emails.Add(GetEmail(email));
+        c.Emails.Add(GetEmail(email));
 
       foreach (ContactPhoneNumber phone in contact.PhoneNumbers)
-        c.phones.Add(GetPhone(phone));
+        c.Phones.Add(GetPhone(phone));
 
       foreach (ContactCompanyInformation company in contact.Companies)
-        c.organizations.Add(GetOrganization(company));
+        c.Organizations.Add(GetOrganization(company));
 
       foreach (string name in contact.Children)
-        c.relationships.Add(new Relationship { Name = name, Type = RelationshipType.Child });
+        c.Relationships.Add(new Relationship { Name = name, Type = RelationshipType.Child });
 
       foreach (string name in contact.SignificantOthers)
-        c.relationships.Add(new Relationship { Name = name, Type = RelationshipType.SignificantOther });
+        c.Relationships.Add(new Relationship { Name = name, Type = RelationshipType.SignificantOther });
 
       foreach (string url in contact.Websites)
-        c.websites.Add(new Website { Address = url });
+        c.Websites.Add(new Website { Address = url });
 
       foreach (string note in contact.Notes)
-        c.notes.Add(new Note { Contents = note });
+        c.Notes.Add(new Note { Contents = note });
 
       return c;
     }

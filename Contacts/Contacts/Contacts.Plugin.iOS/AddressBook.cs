@@ -37,7 +37,6 @@ namespace Contacts.Plugin
   {
     public AddressBook()
     {
-      CheckStatus();
       contactsProvider = new ContactQueryProvider(this.addressBook);
     }
 

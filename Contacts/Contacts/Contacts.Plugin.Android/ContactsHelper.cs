@@ -50,7 +50,7 @@ namespace Contacts.Plugin
         if (cursor == null)
           yield break;
 
-        foreach (Contact contact in GetContacts(cursor, rawContacts, content, resources, 20))
+        foreach (Contact contact in GetContacts(cursor, rawContacts, content, resources, 256))
           yield return contact;
       }
       finally
@@ -149,7 +149,7 @@ namespace Contacts.Plugin
 
             currentContact = new Contact(id, !rawContacts)
             {
-              Tag = content;
+              Tag = content
             };
             currentContact.DisplayName = c.GetString(dnIndex);
           }
@@ -178,7 +178,7 @@ namespace Contacts.Plugin
 
       var contact = new Contact(id, !rawContact)
       {
-        Tag = content;
+        Tag = content
       };
       contact.DisplayName = GetString(cursor, ContactsContract.ContactsColumns.DisplayName);
 
