@@ -79,7 +79,7 @@ namespace Refractored.Xam.Settings.NUnitTest
       DateTime test = new DateTime(1986, 6, 25, 4, 0, 0);
 
       TestSettings.DateTimeSetting = test;
-      Assert.True(TestSettings.DateTimeSetting.Ticks == test.Ticks, "DateTime not saved");
+      Assert.True(TestSettings.DateTimeSetting.Value.Ticks == test.Ticks, "DateTime not saved");
     }
 
     [Test]
@@ -90,6 +90,24 @@ namespace Refractored.Xam.Settings.NUnitTest
       TestSettings.GuidSetting = test;
       Assert.True(TestSettings.GuidSetting.ToString() == test.ToString(), "Guid not saved");
     }
+
+
+    [Test]
+    public void AddRemove()
+    {
+      TestSettings.StringSetting = "Hello World";
+
+      TestSettings.DateTimeSetting = null;
+
+      Assert.IsTrue(TestSettings.DateTimeSetting.HasValue, "Date wasn't set to null, it is: " + TestSettings.StringSetting);
+
+
+
+      TestSettings.Remove("date_setting");
+
+      Assert.IsFalse(TestSettings.DateTimeSetting.HasValue, "String should be back to default of string.empty, it is: " + TestSettings.StringSetting);
+    }
+
 
   }
 }

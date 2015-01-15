@@ -17,6 +17,15 @@ namespace Refractored.Xam.Settings.Abstractions
     /// <returns>Value or default</returns>
     T GetValueOrDefault<T>(string key, T defaultValue = default(T));
 
+
+    /// <summary>
+    /// Adds or updates the value 
+    /// </summary>
+    /// <param name="key">Key for settting</param>
+    /// <param name="value">Value to set</param>
+    /// <returns>True of was added or updated and you need to save it.</returns>
+    bool AddOrUpdateValue<T>(string key, T value);
+
     /// <summary>
     /// Adds or updates the value 
     /// </summary>
@@ -24,6 +33,12 @@ namespace Refractored.Xam.Settings.Abstractions
     /// <param name="value">Value to set</param>
     /// <returns>True of was added or updated and you need to save it.</returns>
     bool AddOrUpdateValue(string key, Object value);
+
+    /// <summary>
+    /// Removes a desired key from the settings
+    /// </summary>
+    /// <param name="key">Key for setting</param>
+    void Remove(string key);
 
     /// <summary>
     /// Saves any changes out.
