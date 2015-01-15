@@ -36,12 +36,12 @@ namespace Refractored.Xam.Settings
           // If the key exists, retrieve the value.
           if (AppSettings.Values.ContainsKey(key))
           {
-            savedDecimal = (string)AppSettings.Values[key];
+            savedDecimal = Convert.ToString(AppSettings.Values[key]);
           }
           // Otherwise, use the default value.
           else
           {
-            savedDecimal = defaultValue.ToString();
+            savedDecimal = defaultValue == null ? default(decimal).ToString() : defaultValue.ToString();
           }
 
           value = Convert.ToDecimal(savedDecimal, System.Globalization.CultureInfo.InvariantCulture);
@@ -54,7 +54,7 @@ namespace Refractored.Xam.Settings
           // If the key exists, retrieve the value.
           if (AppSettings.Values.ContainsKey(key))
           {
-            savedTime = (string)AppSettings.Values[key];
+            savedTime = Convert.ToString(AppSettings.Values[key]);
           }
 
           var ticks = string.IsNullOrWhiteSpace(savedTime) ? -1 : Convert.ToInt64(savedTime, System.Globalization.CultureInfo.InvariantCulture);
@@ -69,7 +69,11 @@ namespace Refractored.Xam.Settings
         // If the key exists, retrieve the value.
         if (AppSettings.Values.ContainsKey(key))
         {
-          value = (T)AppSettings.Values[key];
+          var tempValue = AppSettings.Values[key];
+          if (tempValue != null)
+            value = (T)tempValue;
+          else
+            value = defaultValue;
         }
         // Otherwise, use the default value.
         else

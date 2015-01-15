@@ -27,7 +27,11 @@ namespace Refractored.Xam.Settings
         // If the key exists, retrieve the value.
         if (IsoSettings.Contains(key))
         {
-          value = (T)IsoSettings[key];
+          var tempValue = IsoSettings[key];
+          if (tempValue != null)
+            value = (T)tempValue;
+          else
+            value = defaultValue;
         }
         // Otherwise, use the default value.
         else
@@ -36,7 +40,7 @@ namespace Refractored.Xam.Settings
         }
       }
 
-      return value;
+      return null != value ? value : defaultValue;
     }
 
     /// <summary>

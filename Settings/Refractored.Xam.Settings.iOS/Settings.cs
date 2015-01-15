@@ -134,6 +134,7 @@ namespace Refractored.Xam.Settings
     /// <param name="key">Key for settting</param>
     /// <param name="value">Value to set</param>
     /// <returns>True of was added or updated and you need to save it.</returns>
+    /// <exception cref="NullReferenceException">If value is null, this will be thrown.</exception>
     [Obsolete("This method is now obsolete, please use generic version as this may be removed in the future.")]
     public bool AddOrUpdateValue(string key, object value)
     {

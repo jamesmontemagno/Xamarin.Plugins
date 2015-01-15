@@ -104,14 +104,6 @@ namespace Refractored.Xam.Settings
     /// <param name="key">key to update</param>
     /// <param name="value">value to set</param>
     /// <returns>True if added or update and you need to save</returns>
-
-
-    /// <summary>
-    /// Adds or updates a value
-    /// </summary>
-    /// <param name="key">key to update</param>
-    /// <param name="value">value to set</param>
-    /// <returns>True if added or update and you need to save</returns>
     public bool AddOrUpdateValue<T>(string key, T value)
     {
       Type typeOf = typeof(T);
@@ -130,10 +122,10 @@ namespace Refractored.Xam.Settings
     /// <param name="key">key to update</param>
     /// <param name="value">value to set</param>
     /// <returns>True if added or update and you need to save</returns>
+    /// <exception cref="NullReferenceException">If value is null, this will be thrown.</exception>
     [Obsolete("This method is now obsolete, please use generic version as this may be removed in the future.")]
     public bool AddOrUpdateValue(string key, object value)
     {
-
       Type typeOf = value.GetType();
       if (typeOf.IsGenericType && typeOf.GetGenericTypeDefinition() == typeof(Nullable<>))
       {

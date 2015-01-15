@@ -108,7 +108,7 @@ namespace Refractored.Xam.Settings.Tests.Portable.Helpers
     {
       get
       {
-        return AppSettings.GetValueOrDefault<DateTime?>("date_setting", null);
+        return AppSettings.GetValueOrDefault<DateTime?>("date_setting");
       }
       set
       {
