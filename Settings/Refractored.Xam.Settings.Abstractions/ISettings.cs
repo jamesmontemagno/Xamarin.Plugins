@@ -32,6 +32,7 @@ namespace Refractored.Xam.Settings.Abstractions
     /// <param name="key">Key for settting</param>
     /// <param name="value">Value to set</param>
     /// <returns>True of was added or updated and you need to save it.</returns>
+    [Obsolete("This method is now obsolete, please use generic version as this may be removed in the future.")]
     bool AddOrUpdateValue(string key, Object value);
 
     /// <summary>
