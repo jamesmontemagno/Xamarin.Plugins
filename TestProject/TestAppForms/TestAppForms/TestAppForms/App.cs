@@ -2,6 +2,7 @@
 using Connectivity.Plugin;
 using DeviceInfo.Plugin;
 using ExternalMaps.Plugin;
+using Geolocator.Plugin;
 using ImageCircle.Forms.Plugin.Abstractions;
 using Refractored.Xam.TTS;
 using Refractored.Xam.TTS.Abstractions;
@@ -271,6 +272,34 @@ namespace TestAppForms
         };
 
 
+      var buttonGetGPS = new Button
+      {
+        Text = "GetGPS"
+      };
+
+      var labelGPS = new Label
+      {
+        Text = "GPS goes here"
+      };
+
+      buttonGetGPS.Clicked += async (sender, args) =>
+        {
+          var locator = CrossGeolocator.Current;
+          locator.DesiredAccuracy = 50;
+          labelGPS.Text = "Getting gps";
+
+          var position = await locator.GetPositionAsync(timeout: 10000);
+
+          if(position == null)
+          {
+            labelGPS.Text = "null gps :(";
+            return;
+          }
+          labelGPS.Text = string.Format("Time: {0} \nLat: {1} \nLong: {2} \n Altitude: {3} \nAltitude Accuracy: {4} \nAccuracy: {5} \n Heading: {6} \n Speed: {7}",
+            position.Timestamp, position.Latitude, position.Longitude,
+            position.Altitude, position.AltitudeAccuracy, position.Accuracy, position.Heading, position.Speed);
+        };
+
       page = new ContentPage
       {
         Content = new ScrollView
@@ -353,7 +382,9 @@ namespace TestAppForms
               batteryIsLow,
               navigateAddress,
               navigateLatLong,
-              buttonContacts
+              buttonContacts,
+              buttonGetGPS,
+              labelGPS
             }
           }
         }

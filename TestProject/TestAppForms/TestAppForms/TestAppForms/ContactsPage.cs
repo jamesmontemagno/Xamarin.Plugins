@@ -60,9 +60,10 @@ namespace TestAppForms
             return;
 
           contacts = CrossContacts.Current.Contacts
-            .Where(c => !string.IsNullOrWhiteSpace(c.LastName) && c.Phones.Count > 0)
-            .OrderBy(c => c.LastName)
+            .Where(c => !string.IsNullOrWhiteSpace(c.LastName) && c.Phones.Count > 0)         
             .ToList();
+
+          contacts = contacts.OrderBy(c => c.LastName).ToList();
         });
         contactsList.ItemsSource = contacts;
         this.Title = "Contacts: " + contacts.Count;
