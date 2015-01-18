@@ -50,7 +50,12 @@ namespace Refractored.Xam.Settings
         switch (typeCode)
         {
           case TypeCode.Decimal:
-            value = (decimal)SharedPreferences.GetLong(key, (long)Convert.ToDecimal(defaultValue, System.Globalization.CultureInfo.InvariantCulture));
+            //Android doesn't have decimal in shared prefs so get string and convert
+            var savedDecimal = SharedPreferences.GetString(key, string.Empty);
+            if (string.IsNullOrWhiteSpace(savedDecimal))
+              value = Convert.ToDecimal(defaultValue, System.Globalization.CultureInfo.InvariantCulture);
+            else
+              value = Convert.ToDecimal(savedDecimal, System.Globalization.CultureInfo.InvariantCulture);
             break;
           case TypeCode.Boolean:
             value = SharedPreferences.GetBoolean(key, Convert.ToBoolean(defaultValue));
@@ -63,7 +68,12 @@ namespace Refractored.Xam.Settings
             value = SharedPreferences.GetString(key, Convert.ToString(defaultValue));
             break;
           case TypeCode.Double:
-            value = (double)SharedPreferences.GetLong(key, (long)Convert.ToDouble(defaultValue, System.Globalization.CultureInfo.InvariantCulture));
+            //Android doesn't have double, so must get as string and parse.
+            var savedDouble = SharedPreferences.GetString(key, string.Empty);
+            if (string.IsNullOrWhiteSpace(savedDouble))
+              value = Convert.ToDouble(defaultValue, System.Globalization.CultureInfo.InvariantCulture);
+            else
+              value = Convert.ToDouble(savedDouble, System.Globalization.CultureInfo.InvariantCulture);
             break;
           case TypeCode.Int32:
             value = SharedPreferences.GetInt(key, Convert.ToInt32(defaultValue, System.Globalization.CultureInfo.InvariantCulture));
@@ -142,7 +152,7 @@ namespace Refractored.Xam.Settings
         switch (typeCode)
         {
           case TypeCode.Decimal:
-            SharedPreferencesEditor.PutLong(key, (long)Convert.ToDecimal(value, System.Globalization.CultureInfo.InvariantCulture));
+            SharedPreferencesEditor.PutString(key, Convert.ToString(value, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.Boolean:
             SharedPreferencesEditor.PutBoolean(key, Convert.ToBoolean(value));
@@ -154,7 +164,7 @@ namespace Refractored.Xam.Settings
             SharedPreferencesEditor.PutString(key, Convert.ToString(value));
             break;
           case TypeCode.Double:
-            SharedPreferencesEditor.PutLong(key, (long)Convert.ToDouble(value, System.Globalization.CultureInfo.InvariantCulture));
+            SharedPreferencesEditor.PutString(key, Convert.ToString(value, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.Int32:
             SharedPreferencesEditor.PutInt(key, Convert.ToInt32(value, System.Globalization.CultureInfo.InvariantCulture));

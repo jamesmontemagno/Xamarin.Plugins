@@ -155,25 +155,25 @@ namespace Refractored.Xam.Settings
         switch (typeCode)
         {
           case TypeCode.Decimal:
-            defaults.SetString(Convert.ToString(value), key);
+            defaults.SetString(Convert.ToString(value, System.Globalization.CultureInfo.InvariantCulture), key);
             break;
           case TypeCode.Boolean:
             defaults.SetBool(Convert.ToBoolean(value), key);
             break;
           case TypeCode.Int64:
-            defaults.SetString(Convert.ToString(value), key);
+            defaults.SetString(Convert.ToString(value, System.Globalization.CultureInfo.InvariantCulture), key);
             break;
           case TypeCode.Double:
-            defaults.SetDouble(Convert.ToDouble(value), key);
+            defaults.SetDouble(Convert.ToDouble(value, System.Globalization.CultureInfo.InvariantCulture), key);
             break;
           case TypeCode.String:
             defaults.SetString(Convert.ToString(value), key);
             break;
           case TypeCode.Int32:
-            defaults.SetInt(Convert.ToInt32(value), key);
+            defaults.SetInt(Convert.ToInt32(value, System.Globalization.CultureInfo.InvariantCulture), key);
             break;
           case TypeCode.Single:
-            defaults.SetFloat(Convert.ToSingle(value), key);
+            defaults.SetFloat(Convert.ToSingle(value, System.Globalization.CultureInfo.InvariantCulture), key);
             break;
           case TypeCode.DateTime:
             defaults.SetString(Convert.ToString((Convert.ToDateTime(value)).Ticks), key);

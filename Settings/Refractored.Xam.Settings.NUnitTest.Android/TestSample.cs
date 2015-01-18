@@ -57,7 +57,7 @@ namespace Refractored.Xam.Settings.NUnitTest
     [Test]
     public void Double()
     {
-      double test = 10;
+      double test = 10.001;
 
       TestSettings.DoubleSetting = test;
       Assert.True(TestSettings.DoubleSetting == test, "Double not saved");
@@ -66,7 +66,7 @@ namespace Refractored.Xam.Settings.NUnitTest
     [Test]
     public void Decimal()
     {
-      decimal test = 10;
+      decimal test = 0.099M;
 
       TestSettings.DecimalSetting = test;
       Assert.True(TestSettings.DecimalSetting == test, "Decimal not saved");
