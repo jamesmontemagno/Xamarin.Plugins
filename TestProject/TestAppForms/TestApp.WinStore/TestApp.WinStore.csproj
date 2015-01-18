@@ -125,6 +125,7 @@
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="ConnectivityReadme.txt" />
     <Content Include="DeviceInfoReadme.txt" />
+    <Content Include="GeolocatorReadme.txt" />
     <Content Include="Properties\_SettingsStarted.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -146,19 +147,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Xam.Plugin.Battery.1.0.0.0\lib\win8\Battery.Plugin.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Connectivity.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.0.2\lib\win8\Connectivity.Plugin.dll</HintPath>
+    <Reference Include="Connectivity.Plugin">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.0.3\lib\win8\Connectivity.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="Connectivity.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.0.2\lib\win8\Connectivity.Plugin.Abstractions.dll</HintPath>
+    <Reference Include="Connectivity.Plugin.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.0.3\lib\win8\Connectivity.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="DeviceInfo.Plugin">
-      <HintPath>..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\win8\DeviceInfo.Plugin.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugin.DeviceInfo.1.0.0.2\lib\win8\DeviceInfo.Plugin.dll</HintPath>
     </Reference>
     <Reference Include="DeviceInfo.Plugin.Abstractions">
-      <HintPath>..\packages\Xam.Plugin.DeviceInfo.1.0.0.0\lib\win8\DeviceInfo.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugin.DeviceInfo.1.0.0.2\lib\win8\DeviceInfo.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="ExternalMaps.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -168,25 +167,29 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\win8\ExternalMaps.Plugin.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Geolocator.Plugin">
+      <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.0-alpha\lib\win8\Geolocator.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Geolocator.Plugin.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.0-alpha\lib\win8\Geolocator.Plugin.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Refractored.Xam.Settings">
       <HintPath>..\packages\Xam.Plugins.Settings.1.4.0.1\lib\win8\Refractored.Xam.Settings.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.Settings.Abstractions">
       <HintPath>..\packages\Xam.Plugins.Settings.1.4.0.1\lib\win8\Refractored.Xam.Settings.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Refractored.Xam.TTS, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xam.Plugins.TextToSpeech.1.0.0.1\lib\win8\Refractored.Xam.TTS.dll</HintPath>
+    <Reference Include="Refractored.Xam.TTS">
+      <HintPath>..\packages\Xam.Plugins.TextToSpeech.1.0.0.3\lib\win8\Refractored.Xam.TTS.dll</HintPath>
     </Reference>
-    <Reference Include="Refractored.Xam.TTS.Abstractions, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xam.Plugins.TextToSpeech.1.0.0.1\lib\win8\Refractored.Xam.TTS.Abstractions.dll</HintPath>
+    <Reference Include="Refractored.Xam.TTS.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.TextToSpeech.1.0.0.3\lib\win8\Refractored.Xam.TTS.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.Vibrate">
-      <HintPath>..\packages\Xam.Plugins.Vibrate.1.0.0.4\lib\win8\Refractored.Xam.Vibrate.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugins.Vibrate.1.0.0.5\lib\win8\Refractored.Xam.Vibrate.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.Vibrate.Abstractions">
-      <HintPath>..\packages\Xam.Plugins.Vibrate.1.0.0.4\lib\win8\Refractored.Xam.Vibrate.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugins.Vibrate.1.0.0.5\lib\win8\Refractored.Xam.Vibrate.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Sms.Plugin">
       <HintPath>..\packages\Company.Sms.Plugin.1.0.0.0\lib\win8\Sms.Plugin.dll</HintPath>

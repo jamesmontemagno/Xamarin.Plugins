@@ -2,18 +2,21 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.3">
        <id>Xam.Plugin.Contacts</id>
-       <version>1.0.0.0</version>
+       <version>1.0.0-alpha</version>
        <title>Contacts Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
+     <iconUrl>http://www.refractored.com/images/plugin_icon_contacts.png</iconUrl>
      <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
      <projectUrl>http://www.github.com/jamesmontemagno/Xamarin.Plugins</projectUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
-         Long description for your plugin.
+         Gather and query contacts across Xamarin.iOS, Xamarin.Android, and Windows Phone
        </description>
-       <summary>Short description for your plugin.</summary>
-       <tags>xamarin, pcl, xam.pcl, contacts, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios, plugins, plugins for xamarin</tags>
+       <summary>
+         Gather and query contacts across Xamarin.iOS, Xamarin.Android, and Windows Phone
+       </summary>
+       <tags>xamarin, pcl, xam.pcl, contacts, windows phone, winphone, wp8, android, xamarin.forms, ios, plugins, plugins for xamarin</tags>
        <dependencies>
        </dependencies>
    </metadata>
@@ -34,23 +37,23 @@
      <file src="Contacts\Contacts.Plugin.Abstractions\bin\Release\Contacts.Plugin.Abstractions.xml" target="lib\wp8\Contacts.Plugin.Abstractions.xml" />
      <file src="Contacts\Contacts.Plugin.Abstractions\bin\Release\Contacts.Plugin.Abstractions.pdb" target="lib\wp8\Contacts.Plugin.Abstractions.pdb" />
 
-     <!--Win Phone 81-->
+     <!--Win Phone 81
      <file src="Contacts\Contacts.Plugin.WindowsPhone81\bin\Release\Contacts.Plugin.dll" target="lib\wpa81\Contacts.Plugin.dll" />
      <file src="Contacts\Contacts.Plugin.WindowsPhone81\bin\Release\Contacts.Plugin.xml" target="lib\wpa81\Contacts.Plugin.xml" />
      <file src="Contacts\Contacts.Plugin.WindowsPhone81\bin\Release\Contacts.Plugin.pdb" target="lib\wpa81\Contacts.Plugin.pdb" />
      <file src="Contacts\Contacts.Plugin.Abstractions\bin\Release\Contacts.Plugin.Abstractions.dll" target="lib\wpa81\Contacts.Plugin.Abstractions.dll" />
      <file src="Contacts\Contacts.Plugin.Abstractions\bin\Release\Contacts.Plugin.Abstractions.xml" target="lib\wpa81\Contacts.Plugin.Abstractions.xml" />
      <file src="Contacts\Contacts.Plugin.Abstractions\bin\Release\Contacts.Plugin.Abstractions.pdb" target="lib\wpa81\Contacts.Plugin.Abstractions.pdb" />
+-->
 
-
-     <!--WinStore-->
+     <!--WinStore
      <file src="Contacts\Contacts.Plugin.WindowsStore\bin\Release\Contacts.Plugin.dll" target="lib\win8\Contacts.Plugin.dll" />
      <file src="Contacts\Contacts.Plugin.WindowsStore\bin\Release\Contacts.Plugin.xml" target="lib\win8\Contacts.Plugin.xml" />
      <file src="Contacts\Contacts.Plugin.WindowsStore\bin\Release\Contacts.Plugin.pdb" target="lib\win8\Contacts.Plugin.pdb" />
      <file src="Contacts\Contacts.Plugin.Abstractions\bin\Release\Contacts.Plugin.Abstractions.dll" target="lib\win8\Contacts.Plugin.Abstractions.dll" />
      <file src="Contacts\Contacts.Plugin.Abstractions\bin\Release\Contacts.Plugin.Abstractions.xml" target="lib\win8\Contacts.Plugin.Abstractions.xml" />
      <file src="Contacts\Contacts.Plugin.Abstractions\bin\Release\Contacts.Plugin.Abstractions.pdb" target="lib\win8\Contacts.Plugin.Abstractions.pdb" />
-
+-->
 
      <!--Xamarin.Android-->
      <file src="Contacts\Contacts.Plugin.Android\bin\Release\Contacts.Plugin.dll" target="lib\MonoAndroid10\Contacts.Plugin.dll" />
