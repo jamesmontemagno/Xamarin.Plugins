@@ -28,7 +28,9 @@ namespace Refractored.Xam.Settings
     {
       lock (locker)
       {
-        if (NSUserDefaults.StandardUserDefaults[key] == null)
+        var defaults = NSUserDefaults.StandardUserDefaults;
+        
+        if (defaults.ValueForKey(new NSString(key)) == null)
           return defaultValue;
 
         Type typeOf = typeof(T);
@@ -38,7 +40,6 @@ namespace Refractored.Xam.Settings
         }
         object value = null;
         var typeCode = Type.GetTypeCode(typeOf);
-        var defaults = NSUserDefaults.StandardUserDefaults;
         switch (typeCode)
         {
           case TypeCode.Decimal:
@@ -69,9 +70,8 @@ namespace Refractored.Xam.Settings
 #if __UNIFIED__
             value = (float)defaults.FloatForKey(key);
 #else
-             value = defaults.FloatForKey(key);
+            value = defaults.FloatForKey(key);
 #endif
-           
             break;
 
           case TypeCode.DateTime:
@@ -112,51 +112,78 @@ namespace Refractored.Xam.Settings
     }
 
     /// <summary>
+    /// Adds or updates a value
+    /// </summary>
+    /// <param name="key">key to update</param>
+    /// <param name="value">value to set</param>
+    /// <returns>True if added or update and you need to save</returns>
+    public bool AddOrUpdateValue<T>(string key, T value)
+    {
+      Type typeOf = typeof(T);
+      if (typeOf.IsGenericType && typeOf.GetGenericTypeDefinition() == typeof(Nullable<>))
+      {
+        typeOf = Nullable.GetUnderlyingType(typeOf);
+      }
+      var typeCode = Type.GetTypeCode(typeOf);
+      return AddOrUpdateValue(key, value, typeCode);
+    }
+
+    /// <summary>
     /// Adds or updates the value 
     /// </summary>
     /// <param name="key">Key for settting</param>
     /// <param name="value">Value to set</param>
     /// <returns>True of was added or updated and you need to save it.</returns>
+    /// <exception cref="NullReferenceException">If value is null, this will be thrown.</exception>
+    [Obsolete("This method is now obsolete, please use generic version as this may be removed in the future.")]
     public bool AddOrUpdateValue(string key, object value)
     {
-      lock (locker)
+      Type typeOf = value.GetType();
+      if (typeOf.IsGenericType && typeOf.GetGenericTypeDefinition() == typeof(Nullable<>))
       {
-        Type typeOf = value.GetType();
-        if (typeOf.IsGenericType && typeOf.GetGenericTypeDefinition() == typeof(Nullable<>))
-        {
-          typeOf = Nullable.GetUnderlyingType(typeOf);
-        }
-        var typeCode = Type.GetTypeCode(typeOf);
+        typeOf = Nullable.GetUnderlyingType(typeOf);
+      }
+      var typeCode = Type.GetTypeCode(typeOf);
+      return AddOrUpdateValue(key, value, typeCode);   
+    }
+
+    private bool AddOrUpdateValue(string key, object value, TypeCode typeCode)
+    {
+      lock(locker)
+      {
         var defaults = NSUserDefaults.StandardUserDefaults;
         switch (typeCode)
         {
           case TypeCode.Decimal:
-            defaults.SetString(Convert.ToString(value), key);
+            defaults.SetString(Convert.ToString(value, System.Globalization.CultureInfo.InvariantCulture), key);
             break;
           case TypeCode.Boolean:
             defaults.SetBool(Convert.ToBoolean(value), key);
             break;
           case TypeCode.Int64:
-            defaults.SetString(Convert.ToString(value), key);
+            defaults.SetString(Convert.ToString(value, System.Globalization.CultureInfo.InvariantCulture), key);
             break;
           case TypeCode.Double:
-            defaults.SetDouble(Convert.ToDouble(value), key);
+            defaults.SetDouble(Convert.ToDouble(value, System.Globalization.CultureInfo.InvariantCulture), key);
             break;
           case TypeCode.String:
             defaults.SetString(Convert.ToString(value), key);
             break;
           case TypeCode.Int32:
-            defaults.SetInt(Convert.ToInt32(value), key);
+            defaults.SetInt(Convert.ToInt32(value, System.Globalization.CultureInfo.InvariantCulture), key);
             break;
           case TypeCode.Single:
-            defaults.SetFloat(Convert.ToSingle(value), key);
+            defaults.SetFloat(Convert.ToSingle(value, System.Globalization.CultureInfo.InvariantCulture), key);
             break;
           case TypeCode.DateTime:
-            defaults.SetString(Convert.ToString(((DateTime)(object)value).Ticks), key);
+            defaults.SetString(Convert.ToString((Convert.ToDateTime(value)).Ticks), key);
             break;
           default:
             if (value is Guid)
             {
+              if (value == null)
+                value = Guid.Empty;
+
               defaults.SetString(((Guid)value).ToString(), key);
             }
             else
@@ -167,8 +194,7 @@ namespace Refractored.Xam.Settings
         }
         try
         {
-            defaults.Synchronize();
-          
+          defaults.Synchronize();
         }
         catch (Exception ex)
         {
@@ -187,6 +213,31 @@ namespace Refractored.Xam.Settings
     public void Save()
     {
      
+    }
+
+    /// <summary>
+    /// Removes a desired key from the settings
+    /// </summary>
+    /// <param name="key">Key for setting</param>
+    public void Remove(string key)
+    {
+      lock (locker)
+      {
+        var defaults = NSUserDefaults.StandardUserDefaults;
+        try
+        {
+          var nsString = new NSString(key);
+          if (defaults.ValueForKey(nsString) != null)
+          {
+            defaults.RemoveObject(key);
+            defaults.Synchronize();
+          }
+        }
+        catch (Exception ex)
+        {
+          Console.WriteLine("Unable to remove: " + key, " Message: " + ex.Message);
+        }
+      }
     }
 
   }

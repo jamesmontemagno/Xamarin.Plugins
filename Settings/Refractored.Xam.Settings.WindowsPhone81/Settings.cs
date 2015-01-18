@@ -16,7 +16,7 @@ namespace Refractored.Xam.Settings
       get { return ApplicationData.Current.LocalSettings; }
     }
 
-    private readonly object m_Locker = new object();
+    private readonly object locker = new object();
 
     /// <summary>
     /// Gets the current value or the default that you specify.
@@ -28,7 +28,7 @@ namespace Refractored.Xam.Settings
     public T GetValueOrDefault<T>(string key, T defaultValue = default(T))
     {
       object value;
-      lock (m_Locker)
+      lock (locker)
       {
         if(typeof(T) == typeof(decimal))
         {
@@ -36,12 +36,12 @@ namespace Refractored.Xam.Settings
           // If the key exists, retrieve the value.
           if (AppSettings.Values.ContainsKey(key))
           {
-            savedDecimal = (string)AppSettings.Values[key];
+            savedDecimal = Convert.ToString(AppSettings.Values[key]);
           }
           // Otherwise, use the default value.
           else
           {
-            savedDecimal = defaultValue.ToString();
+            savedDecimal = defaultValue == null ? default(decimal).ToString() : defaultValue.ToString();
           }
 
           value = Convert.ToDecimal(savedDecimal, System.Globalization.CultureInfo.InvariantCulture);
@@ -54,7 +54,7 @@ namespace Refractored.Xam.Settings
           // If the key exists, retrieve the value.
           if (AppSettings.Values.ContainsKey(key))
           {
-            savedTime = (string)AppSettings.Values[key];
+            savedTime = Convert.ToString(AppSettings.Values[key]);
           }
 
           var ticks = string.IsNullOrWhiteSpace(savedTime) ? -1 : Convert.ToInt64(savedTime, System.Globalization.CultureInfo.InvariantCulture);
@@ -69,7 +69,11 @@ namespace Refractored.Xam.Settings
         // If the key exists, retrieve the value.
         if (AppSettings.Values.ContainsKey(key))
         {
-          value = (T)AppSettings.Values[key];
+          var tempValue = AppSettings.Values[key];
+          if (tempValue != null)
+            value = (T)tempValue;
+          else
+            value = defaultValue;
         }
         // Otherwise, use the default value.
         else
@@ -82,24 +86,43 @@ namespace Refractored.Xam.Settings
     }
 
     /// <summary>
+    /// Adds or updates a value
+    /// </summary>
+    /// <param name="key">key to update</param>
+    /// <param name="value">value to set</param>
+    /// <returns>True if added or update and you need to save</returns>
+    public bool AddOrUpdateValue<T>(string key, T value)
+    {
+      return InternalAddOrUpdateValue(key, value);
+    }
+
+
+
+    /// <summary>
     /// Adds or updates the value 
     /// </summary>
     /// <param name="key">Key for settting</param>
     /// <param name="value">Value to set</param>
     /// <returns>True of was added or updated and you need to save it.</returns>
+    [Obsolete("This method is now obsolete, please use generic version as this may be removed in the future.")]
     public bool AddOrUpdateValue(string key, object value)
     {
+      return InternalAddOrUpdateValue(key, value);
+    }
+
+    private bool InternalAddOrUpdateValue(string key, object value)
+    {
       bool valueChanged = false;
-      lock (m_Locker)
+      lock (locker)
       {
 
         if (value is decimal)
         {
-          return AddOrUpdateValue(key, Convert.ToString((decimal)value, System.Globalization.CultureInfo.InvariantCulture));
+          return AddOrUpdateValue(key, Convert.ToString(Convert.ToDecimal(value), System.Globalization.CultureInfo.InvariantCulture));
         }
         else if (value is DateTime)
         {
-          return AddOrUpdateValue(key, Convert.ToString(((DateTime)value).Ticks, System.Globalization.CultureInfo.InvariantCulture));
+          return AddOrUpdateValue(key, Convert.ToString((Convert.ToDateTime(value)).Ticks, System.Globalization.CultureInfo.InvariantCulture));
         }
 
 
@@ -136,5 +159,20 @@ namespace Refractored.Xam.Settings
       //nothing to do it is automatic
     }
 
+    /// <summary>
+    /// Removes a desired key from the settings
+    /// </summary>
+    /// <param name="key">Key for setting</param>
+    public void Remove(string key)
+    {
+      lock (locker)
+      {
+        // If the key exists remove
+        if (AppSettings.Values.ContainsKey(key))
+        {
+          AppSettings.Values.Remove(key);
+        }
+      }
+    }
   }
 }

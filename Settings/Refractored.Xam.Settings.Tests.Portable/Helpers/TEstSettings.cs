@@ -21,7 +21,7 @@ namespace Refractored.Xam.Settings.Tests.Portable.Helpers
 
     #region Setting Constants
 
-    private const string SettingsKey = "settings_key";
+    public const string SettingsKey = "settings_key";
     private static readonly string SettingsDefault = string.Empty;
 
     #endregion
@@ -104,11 +104,11 @@ namespace Refractored.Xam.Settings.Tests.Portable.Helpers
       }
     }
 
-    public static DateTime DateTimeSetting
+    public static DateTime? DateTimeSetting
     {
       get
       {
-        return AppSettings.GetValueOrDefault("date_setting", DateTime.Now);
+        return AppSettings.GetValueOrDefault<DateTime?>("date_setting");
       }
       set
       {
@@ -153,6 +153,11 @@ namespace Refractored.Xam.Settings.Tests.Portable.Helpers
         //if value has changed then save it!
         AppSettings.AddOrUpdateValue(SettingsKey, value);
       }
+    }
+
+    public static void Remove(string key)
+    {
+      AppSettings.Remove(key);
     }
 
   }

@@ -50,7 +50,12 @@ namespace Refractored.Xam.Settings
         switch (typeCode)
         {
           case TypeCode.Decimal:
-            value = (decimal)SharedPreferences.GetLong(key, (long)Convert.ToDecimal(defaultValue, System.Globalization.CultureInfo.InvariantCulture));
+            //Android doesn't have decimal in shared prefs so get string and convert
+            var savedDecimal = SharedPreferences.GetString(key, string.Empty);
+            if (string.IsNullOrWhiteSpace(savedDecimal))
+              value = Convert.ToDecimal(defaultValue, System.Globalization.CultureInfo.InvariantCulture);
+            else
+              value = Convert.ToDecimal(savedDecimal, System.Globalization.CultureInfo.InvariantCulture);
             break;
           case TypeCode.Boolean:
             value = SharedPreferences.GetBoolean(key, Convert.ToBoolean(defaultValue));
@@ -59,10 +64,16 @@ namespace Refractored.Xam.Settings
             value = (Int64)SharedPreferences.GetLong(key, (long)Convert.ToInt64(defaultValue, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.String:
+
             value = SharedPreferences.GetString(key, Convert.ToString(defaultValue));
             break;
           case TypeCode.Double:
-            value = (double)SharedPreferences.GetLong(key, (long)Convert.ToDouble(defaultValue, System.Globalization.CultureInfo.InvariantCulture));
+            //Android doesn't have double, so must get as string and parse.
+            var savedDouble = SharedPreferences.GetString(key, string.Empty);
+            if (string.IsNullOrWhiteSpace(savedDouble))
+              value = Convert.ToDouble(defaultValue, System.Globalization.CultureInfo.InvariantCulture);
+            else
+              value = Convert.ToDouble(savedDouble, System.Globalization.CultureInfo.InvariantCulture);
             break;
           case TypeCode.Int32:
             value = SharedPreferences.GetInt(key, Convert.ToInt32(defaultValue, System.Globalization.CultureInfo.InvariantCulture));
@@ -79,7 +90,7 @@ namespace Refractored.Xam.Settings
             break;
           default:
 
-            if(defaultValue is Guid)
+            if (defaultValue is Guid)
             {
               var outGuid = Guid.Empty;
               Guid.TryParse(SharedPreferences.GetString(key, Guid.Empty.ToString()), out outGuid);
@@ -93,8 +104,6 @@ namespace Refractored.Xam.Settings
             break;
         }
 
-
-
         return null != value ? (T)value : defaultValue;
       }
     }
@@ -105,20 +114,45 @@ namespace Refractored.Xam.Settings
     /// <param name="key">key to update</param>
     /// <param name="value">value to set</param>
     /// <returns>True if added or update and you need to save</returns>
+    public bool AddOrUpdateValue<T>(string key, T value)
+    {
+      Type typeOf = typeof(T);
+      if (typeOf.IsGenericType && typeOf.GetGenericTypeDefinition() == typeof(Nullable<>))
+      {
+        typeOf = Nullable.GetUnderlyingType(typeOf);
+      }
+      var typeCode = Type.GetTypeCode(typeOf);
+      return AddOrUpdateValue(key, value, typeCode);
+    }
+
+
+    /// <summary>
+    /// Adds or updates a value
+    /// </summary>
+    /// <param name="key">key to update</param>
+    /// <param name="value">value to set</param>
+    /// <returns>True if added or update and you need to save</returns>
+    /// <exception cref="NullReferenceException">If value is null, this will be thrown.</exception>
+    [Obsolete("This method is now obsolete, please use generic version as this may be removed in the future.")]
     public bool AddOrUpdateValue(string key, object value)
     {
-      lock (locker)
+      Type typeOf = value.GetType();
+      if (typeOf.IsGenericType && typeOf.GetGenericTypeDefinition() == typeof(Nullable<>))
       {
-        Type typeOf = value.GetType();
-        if (typeOf.IsGenericType && typeOf.GetGenericTypeDefinition() == typeof(Nullable<>))
-        {
-          typeOf = Nullable.GetUnderlyingType(typeOf);
-        }
-        var typeCode = Type.GetTypeCode(typeOf);
+        typeOf = Nullable.GetUnderlyingType(typeOf);
+      }
+      var typeCode = Type.GetTypeCode(typeOf);
+      return AddOrUpdateValue(key, value, typeCode);
+    }
+
+    private bool AddOrUpdateValue(string key, object value, TypeCode typeCode)
+    {
+      lock(locker)
+      {
         switch (typeCode)
         {
           case TypeCode.Decimal:
-            SharedPreferencesEditor.PutLong(key, (long)Convert.ToDecimal(value, System.Globalization.CultureInfo.InvariantCulture));
+            SharedPreferencesEditor.PutString(key, Convert.ToString(value, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.Boolean:
             SharedPreferencesEditor.PutBoolean(key, Convert.ToBoolean(value));
@@ -130,7 +164,7 @@ namespace Refractored.Xam.Settings
             SharedPreferencesEditor.PutString(key, Convert.ToString(value));
             break;
           case TypeCode.Double:
-            SharedPreferencesEditor.PutLong(key, (long)Convert.ToDouble(value, System.Globalization.CultureInfo.InvariantCulture));
+            SharedPreferencesEditor.PutString(key, Convert.ToString(value, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.Int32:
             SharedPreferencesEditor.PutInt(key, Convert.ToInt32(value, System.Globalization.CultureInfo.InvariantCulture));
@@ -139,11 +173,14 @@ namespace Refractored.Xam.Settings
             SharedPreferencesEditor.PutFloat(key, Convert.ToSingle(value, System.Globalization.CultureInfo.InvariantCulture));
             break;
           case TypeCode.DateTime:
-            SharedPreferencesEditor.PutLong(key, ((DateTime)(object)value).Ticks);
+            SharedPreferencesEditor.PutLong(key, (Convert.ToDateTime(value)).Ticks);
             break;
           default:
             if(value is Guid)
             {
+              if(value == null)
+                value = Guid.Empty;
+
               SharedPreferencesEditor.PutString(key, ((Guid)value).ToString());
             }
             else
@@ -152,12 +189,11 @@ namespace Refractored.Xam.Settings
             }
             break;
         }
+
+        SharedPreferencesEditor.Commit();
+
       }
 
-      lock (locker)
-      {
-        SharedPreferencesEditor.Commit();
-      }
       return true;
     }
 
@@ -167,8 +203,21 @@ namespace Refractored.Xam.Settings
     [Obsolete("Save is deprecated and settings are automatically saved when AddOrUpdateValue is called.")]
     public void Save()
     {
-      
+
     }
 
+
+    /// <summary>
+    /// Removes a desired key from the settings
+    /// </summary>
+    /// <param name="key">Key for setting</param>
+    public void Remove(string key)
+    {
+      lock (locker)
+      {
+        SharedPreferencesEditor.Remove(key);
+        SharedPreferencesEditor.Commit();
+      }
+    }
   }
 }
