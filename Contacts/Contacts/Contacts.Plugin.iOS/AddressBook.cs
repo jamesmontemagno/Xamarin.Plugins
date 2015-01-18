@@ -37,7 +37,7 @@ namespace Contacts.Plugin
   {
     public AddressBook()
     {
-      contactsProvider = new ContactQueryProvider(this.addressBook);
+      this.provider = new ContactQueryProvider(this.addressBook);
     }
 
     public Task<bool> RequestPermission()
@@ -155,9 +155,8 @@ namespace Contacts.Plugin
 
     IQueryProvider IQueryable.Provider
     {
-      get { return this.contactsProvider; }
+      get { return this.provider; }
     }
 
-    private readonly ContactQueryProvider contactsProvider;
   }
 }

@@ -135,11 +135,11 @@
     </Reference>
     <Reference Include="Contacts.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugin.Contacts.1.0.0.0\lib\MonoTouch10\Contacts.Plugin.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.Contacts.1.0.0-alpha\lib\MonoTouch10\Contacts.Plugin.dll</HintPath>
     </Reference>
     <Reference Include="Contacts.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugin.Contacts.1.0.0.0\lib\MonoTouch10\Contacts.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.Contacts.1.0.0-alpha\lib\MonoTouch10\Contacts.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="DeviceInfo.Plugin">
       <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.2\lib\MonoTouch10\DeviceInfo.Plugin.dll</HintPath>
