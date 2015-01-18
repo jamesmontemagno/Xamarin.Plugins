@@ -13,7 +13,7 @@ Ported from [Xamarin.Mobile](http://www.github.com/xamarin/xamarin.mobile) to a 
 * Xamarin.iOS (x64 Unified)
 * Xamarin.Android
 * Windows Phone 8 (Silverlight)
-* Windows Ptone 8.1 RT
+* Windows Phone 8.1 RT
 * Windows Store 8.1
 
 
