@@ -1,0 +1,22 @@
+%YAML 1.2
+---
+summary: Simple cross platform plugin to check connection status of mobile device, gather connection type, bandwidths, and more.
+getting-started: GettingStarted.md
+details: Details.md
+license: License.md
+icons: 
+  - ConnectivityPlugin_128x128.png
+  - ConnectivityPlugin_512x512.png
+publisher: James Montemagno
+name: Connectivity Plugin for Xamarin and Windows
+id: ConnectivityPlugin
+samples: 
+  iOS Sample: ../samples/ConnectivitySample.sln
+  Android Sample: ../samples/ConnectivitySample.sln
+  Windows Phone 8 Sample: ../samples/ConnectivitySample.sln
+publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
+is_shell: true
+packages:
+  "": Xam.Plugin.Connectivity, Version=1.0.0.3
+version: 1.0.0.3
+...
