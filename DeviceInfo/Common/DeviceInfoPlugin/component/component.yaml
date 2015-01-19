@@ -1,0 +1,22 @@
+%YAML 1.2
+---
+summary: Get device information such as Model, OS, and other properties.
+getting-started: GettingStarted.md
+details: Details.md
+license: License.md
+icons: 
+  - DeviceInfoPlugin_128x128.png
+  - DeviceInfoPlugin_512x512.png
+publisher: James Montemagno
+name: Device Info Plugin for Xamarin and Windows
+id: DeviceInfoPlugin
+samples: 
+  iOS Sample: ../samples/DeviceInfoSample.sln
+  Android Sample: ../samples/DeviceInfoSample.sln
+  Windows Phone 8 Sample: ../samples/DeviceInfoSample.sln
+publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
+is_shell: true
+packages:
+  "": Xam.Plugin.DeviceInfo, Version=1.0.0.2
+version: 1.0.0.2
+...
