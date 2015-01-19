@@ -1,0 +1,22 @@
+%YAML 1.2
+---
+summary: Xamarin and Windows plugin to perform text to speech functionality.
+getting-started: GettingStarted.md
+details: Details.md
+license: License.md
+icons: 
+  - TextToSpeechPlugin_128x128.png
+  - TextToSpeechPlugin_512x512.png
+publisher: James Montemagno
+name: Text to Speech Plugin for Xamarin and Windows
+id: TextToSpeechPlugin
+samples: 
+  iOS Sample: ../samples/TextToSpeechSample.sln
+  Android Sample: ../samples/TextToSpeechSample.sln
+  Windows Phone 8 Sample: ../samples/TextToSpeechSample.sln
+publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
+is_shell: true
+packages:
+  "": Xam.Plugins.TextToSpeech, Version=1.0.0.3
+version: 1.0.0.3
+...

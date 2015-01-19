@@ -10,9 +10,9 @@ icons:
 publisher: James Montemagno
 name: Vibrate Plugin for Xamarin and Windows
 samples: 
-  iOS Sample: samples/VibrateSample.sln
-  Android Sample: samples/VibrateSample.sln
-  Windows Phone 8 Sample: samples/VibrateSample.sln
+  iOS Sample: ../samples/VibrateSample.sln
+  Android Sample: ../samples/VibrateSample.sln
+  Windows Phone 8 Sample: ../samples/VibrateSample.sln
 id: VibratePlugin
 publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
 is_shell: true
