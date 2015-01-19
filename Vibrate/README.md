@@ -37,10 +37,10 @@ var v = DependencyService.Get<IVibrate>();
 #### Methods
 
 ```
-Vibrate(int milliseconds = 0);
+Vibrate(int milliseconds = 500);
 ```
 
-Vibrate device for specified amount of time. 0 is the default and will vibrate for 500 milliseconds.
+Vibrate device for specified amount of time. 500 is the default and will vibrate for 500 milliseconds.
 
 **iOS Specific**
 There is no API to vibrate for a specific amount of time, so it will vibrate for the default no matter what.
@@ -81,10 +81,10 @@ var v = CrossVibrate.Current;
 #### Methods
 
 ```
- CrossVibrate.Current.Vibrate(int milliseconds = 0);
+ CrossVibrate.Current.Vibrate(int milliseconds = 500);
 ```
 
-Vibrate device for specified amount of time. 0 is the default and will vibrate for 500 milliseconds.
+Vibrate device for specified amount of time. 500 is the default and will vibrate for 500 milliseconds.
 
 **iOS Specific**
 There is no API to vibrate for a specific amount of time, so it will vibrate for the default no matter what.
