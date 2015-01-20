@@ -85,7 +85,10 @@ namespace Refractored.Xam.TTS
 
     private void SetDefaultLanguage()
     {
-      int version = (int)global::Android.OS.Build.VERSION.SdkInt;
+     
+     
+      SetDefaultLanguageNonLollipop();
+      /*int version = (int)global::Android.OS.Build.VERSION.SdkInt;
       bool isLollipop = version >= 21;
       if (isLollipop)
       {
@@ -94,13 +97,19 @@ namespace Refractored.Xam.TTS
       }
       else
       {
-        //disable warning because we are checking ahead of time.
+        SetDefaultLanguageNonLollipop();
+      }*/
+    }
+
+    private void SetDefaultLanguageNonLollipop()
+    {
+      //disable warning because we are checking ahead of time.
 #pragma warning disable 0618
-        if (textToSpeech.DefaultLanguage == null)
-          textToSpeech.SetLanguage(textToSpeech.Language);
+      if (textToSpeech.DefaultLanguage == null && textToSpeech.Language != null)
+        textToSpeech.SetLanguage(textToSpeech.Language);
+      else if (textToSpeech.DefaultLanguage != null)
         textToSpeech.SetLanguage(textToSpeech.DefaultLanguage);
 #pragma warning restore 0618
-      }
     }
 
     /// <summary>
@@ -108,7 +117,17 @@ namespace Refractored.Xam.TTS
     /// </summary>
     private void SetDefaultLanguageLollipop()
     {
-      textToSpeech.SetLanguage(textToSpeech.DefaultVoice.Locale);
+      /*if (textToSpeech.DefaultVoice != null)
+      {
+        textToSpeech.SetVoice(textToSpeech.DefaultVoice);
+        if (textToSpeech.DefaultVoice.Locale != null)
+          textToSpeech.SetLanguage(textToSpeech.DefaultVoice.Locale);
+      }
+      else
+        SetDefaultLanguageNonLollipop();*/
+      
+
+      
     }
 
     private void Speak()
@@ -145,7 +164,6 @@ namespace Refractored.Xam.TTS
       
       textToSpeech.SetPitch(pitch);
       textToSpeech.SetSpeechRate(speakRate);
-      
       textToSpeech.Speak(text, queue ? QueueMode.Add : QueueMode.Flush, null);
     }
 

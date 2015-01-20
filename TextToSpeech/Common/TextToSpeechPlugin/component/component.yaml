@@ -17,6 +17,6 @@ samples:
 publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
 is_shell: true
 packages:
-  "": Xam.Plugins.TextToSpeech, Version=1.0.0.3
-version: 1.0.0.3
+  "": Xam.Plugins.TextToSpeech, Version=1.0.1
+version: 1.0.1
 ...
