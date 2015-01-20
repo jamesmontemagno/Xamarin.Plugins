@@ -1,0 +1,22 @@
+%YAML 1.2
+---
+summary: Open external maps to navigate to a specific geolocation or address.
+getting-started: GettingStarted.md
+details: Details.md
+license: License.md
+icons: 
+  - ExternalMapsPlugin_128x128.png
+  - ExternalMapsPlugin_512x512.png
+publisher: James Montemagno
+name: External Maps Plugin for Xamarin and Windows
+id: ExternalMapsPlugin
+samples: 
+  iOS Sample: ../samples/ExternalMapsSample.sln
+  Android Sample: ../samples/ExternalMapsSample.sln
+  Windows Phone 8 Sample: ../samples/ExternalMapsSample.sln
+publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
+is_shell: true
+packages:
+  "": Xam.Plugin.ExternalMaps, Version=1.0.0.0
+version: 1.0.0.0
+...
