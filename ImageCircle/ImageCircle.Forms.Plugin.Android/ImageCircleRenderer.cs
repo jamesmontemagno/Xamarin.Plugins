@@ -33,9 +33,12 @@ namespace ImageCircle.Forms.Plugin.Droid
 
       if (e.OldElement == null)
       {
-
-        if ((int)Android.OS.Build.VERSION.SdkInt < 18)
+        //Only enable hardware accelleration on lollipop
+        if ((int)Android.OS.Build.VERSION.SdkInt < 21)
+        {
           SetLayerType(LayerType.Software, null);
+        }
+
       }
     }
 
