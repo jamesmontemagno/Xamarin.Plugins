@@ -10,7 +10,7 @@
 * Available on NuGet: https://www.nuget.org/packages/Xam.Plugins.Settings/
 * Install into your PCL project and Client projects.
 * Open up Helpers/Settings.cs in your PCL for directions on how to use.
-* If you are not using a PCL you will find an _SettingsStarted.txt file under properties to get started. Else you can follow this guid:
+* If you are not using a PCL you will find an _SettingsStarted.txt file under properties to get started. Else you can follow this guide:
 
 #### Create a new static class
 You will want to create a new `static` class called "Settings" in your shared code project or PCL that will house all of your settings.
