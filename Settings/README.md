@@ -1,4 +1,6 @@
-## ![](https://raw.githubusercontent.com/jamesmontemagno/Xamarin.Plugins/master/Settings/Common/pcl_settings_icon_small.png) Settings 
+## ![](https://raw.githubusercontent.com/jamesmontemagno/Xamarin.Plugins/master/Settings/Common/pcl_settings_icon_small.png) Settings Plugin for Xamarin And Windows
+
+Create and access settings from shared code across all of your mobile apps!
 
 ### Uses the native settings management
 * Android: SharedPreferences
