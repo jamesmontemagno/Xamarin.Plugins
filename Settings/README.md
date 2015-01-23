@@ -36,7 +36,7 @@ private static ISettings AppSettings
 ```
 
 #### Create your Key and Default Values
-Each setting consists of a `const string` key and a default value. I HIGHLY recommend delclaring these ahead of time such as:
+Each setting consists of a `const string` key and a default value. I HIGHLY recommend declaring these ahead of time such as:
 
 ```
 private const string UserNameKey = "username_key";
