@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugins.Settings</id>
-       <version>2.0.0-alpha</version>
+       <version>1.5.0</version>
        <title>Settings Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
        <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
-       <projectUrl>https://github.com/jamesmontemagno/Xam.PCL.Plugins</projectUrl>
+       <projectUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Settings</projectUrl>
        <iconUrl>http://refractored.com/images/pcl_settings_icon.png</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
@@ -17,9 +17,7 @@
          
          You can always serialize and deserialize a string out if needed.
          
-         2.0.0-alpha- Final Unified Support + Ability to remove a key.
-         1.4.0.1- Add iOS Unified (64 bit), Fix Doubles on Android.
-         1.3.0.0- Add Windows Phone 8.1 Support with new PCL profile
+         1.5.0- Final Unified Support + Ability to remove a key. Now save decimals/double correctly on Android. 
        </description>
        <summary>Cross platform settings for Windows Phone Silverlight 8/8.1, Windows Phone 8.1, Windows Store, Xamarin.Android and Xamarin.iOS with a PCL or in a base project. This is also Xamarin.Forms compatible as well!</summary>
        <tags>xamarin, pcl, xam.pcl, plugin for xamarin, plugin, settings, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios, monoandroid, monodroid, monotouch, mvvmcross</tags>

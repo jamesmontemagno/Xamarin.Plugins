@@ -47,15 +47,41 @@ namespace Refractored.Xam.Settings
 
         object value = null;
         var typeCode = Type.GetTypeCode(typeOf);
+        bool resave = false;
         switch (typeCode)
         {
           case TypeCode.Decimal:
             //Android doesn't have decimal in shared prefs so get string and convert
-            var savedDecimal = SharedPreferences.GetString(key, string.Empty);
+            var savedDecimal = string.Empty;
+            try
+            {
+              savedDecimal = SharedPreferences.GetString(key, string.Empty);
+            }
+            catch(Java.Lang.ClassCastException cce)
+            {
+              Console.WriteLine("Settings 2.0 change, have to remove key.");
+            
+              try
+              {
+                Console.WriteLine("Attempting to get old value.");
+                savedDecimal = SharedPreferences.GetLong(key, (long)Convert.ToDecimal(defaultValue, System.Globalization.CultureInfo.InvariantCulture)).ToString();
+                Console.WriteLine("Old value has been parsed and will be updated and saved.");
+              }
+              catch (Java.Lang.ClassCastException cce2)
+              {
+                Console.WriteLine("Could not parse old value, will be lost.");
+              }
+              Remove("key");
+              resave = true;
+            }
             if (string.IsNullOrWhiteSpace(savedDecimal))
               value = Convert.ToDecimal(defaultValue, System.Globalization.CultureInfo.InvariantCulture);
             else
               value = Convert.ToDecimal(savedDecimal, System.Globalization.CultureInfo.InvariantCulture);
+            
+            if (resave)
+              AddOrUpdateValue(key, value);
+
             break;
           case TypeCode.Boolean:
             value = SharedPreferences.GetBoolean(key, Convert.ToBoolean(defaultValue));
@@ -69,11 +95,35 @@ namespace Refractored.Xam.Settings
             break;
           case TypeCode.Double:
             //Android doesn't have double, so must get as string and parse.
-            var savedDouble = SharedPreferences.GetString(key, string.Empty);
+            var savedDouble = string.Empty;
+            try
+            {
+              savedDouble = SharedPreferences.GetString(key, string.Empty);
+            }
+            catch(Java.Lang.ClassCastException cce)
+            {
+              Console.WriteLine("Settings 2.0  change, have to remove key.");
+
+              try
+              {
+                Console.WriteLine("Attempting to get old value.");
+                savedDouble = SharedPreferences.GetLong(key, (long)Convert.ToDouble(defaultValue, System.Globalization.CultureInfo.InvariantCulture)).ToString();
+                Console.WriteLine("Old value has been parsed and will be updated and saved.");
+              }
+              catch (Java.Lang.ClassCastException cce2)
+              {
+                Console.WriteLine("Could not parse old value, will be lost.");
+              }
+              Remove(key);
+              resave = true;
+            }
             if (string.IsNullOrWhiteSpace(savedDouble))
               value = Convert.ToDouble(defaultValue, System.Globalization.CultureInfo.InvariantCulture);
             else
               value = Convert.ToDouble(savedDouble, System.Globalization.CultureInfo.InvariantCulture);
+            
+            if (resave)
+              AddOrUpdateValue(key, value);
             break;
           case TypeCode.Int32:
             value = SharedPreferences.GetInt(key, Convert.ToInt32(defaultValue, System.Globalization.CultureInfo.InvariantCulture));

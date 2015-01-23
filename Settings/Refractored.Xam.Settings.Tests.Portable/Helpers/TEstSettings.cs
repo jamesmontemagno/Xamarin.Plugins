@@ -11,7 +11,7 @@ namespace Refractored.Xam.Settings.Tests.Portable.Helpers
   /// </summary>
   public static class TestSettings
   {
-    private static ISettings AppSettings
+    public static ISettings AppSettings
     {
       get
       {

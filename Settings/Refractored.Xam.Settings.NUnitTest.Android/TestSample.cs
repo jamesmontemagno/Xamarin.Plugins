@@ -108,6 +108,51 @@ namespace Refractored.Xam.Settings.NUnitTest
       Assert.IsFalse(TestSettings.DateTimeSetting.HasValue, "String should be back to default of string.empty, it is: " + TestSettings.StringSetting);
     }
 
+    [Test]
+    public void Upgrade140To150Test()
+    {
+      //old value was stored as a long to test
+      TestSettings.AppSettings.AddOrUpdateValue("test1", (long)100);
+
+      Assert.IsTrue(TestSettings.AppSettings.GetValueOrDefault<decimal>("test1", (decimal)101.01M) == (decimal)100M, "Decimal did not upgrade correctly");
+      Assert.IsTrue(TestSettings.AppSettings.GetValueOrDefault<decimal>("test1", (decimal)101.01M) == (decimal)100M, "Decimal did not upgrade correctly");
+
+
+      //new value is stored as a string via decimal
+      TestSettings.AppSettings.AddOrUpdateValue("test1", (decimal)100.01M);
+
+      Assert.IsTrue(TestSettings.AppSettings.GetValueOrDefault<decimal>("test1", (decimal)100.02M) == (decimal)100.01M, "Decimal did not upgrade correctly");
+
+
+      //old value was stored as a long to test
+      TestSettings.AppSettings.AddOrUpdateValue("test2", (long)100);
+
+      Assert.IsTrue(TestSettings.AppSettings.GetValueOrDefault<double>("test2", (double)101) == (double)100, "Double did not upgrade correctly");
+      Assert.IsTrue(TestSettings.AppSettings.GetValueOrDefault<double>("test2", (double)101) == (double)100, "Double did not upgrade correctly");
+    
+      //new value is stored as a string via decimal
+      TestSettings.AppSettings.AddOrUpdateValue("test2", (double)100.01);
+
+      Assert.IsTrue(TestSettings.AppSettings.GetValueOrDefault<double>("test2", (double)100.02) == (double)100.01, "Double did not upgrade correctly");
+    }
+
+    [Test]
+    public void Upgrade140To150TestAddAndUpdate()
+    {
+      //old value was stored as a long to test
+      TestSettings.AppSettings.AddOrUpdateValue("test1", (long)100);
+      //new value is stored as a string via decimal
+      TestSettings.AppSettings.AddOrUpdateValue("test1", (decimal)100.01M);
+
+      Assert.IsTrue(TestSettings.AppSettings.GetValueOrDefault<decimal>("test1", (decimal)100.02M) == (decimal)100.01M, "Decimal did not upgrade correctly");
+
+
+      //old value was stored as a long to test
+      TestSettings.AppSettings.AddOrUpdateValue("test2", (long)100);
+      TestSettings.AppSettings.AddOrUpdateValue("test2", (double)100.01);
+
+      Assert.IsTrue(TestSettings.AppSettings.GetValueOrDefault<double>("test2", (double)100.02) == (double)100.01, "Double did not upgrade correctly");
+    }
 
   }
 }
