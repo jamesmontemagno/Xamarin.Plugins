@@ -8,15 +8,19 @@ icons:
   - ExternalMapsPlugin_128x128.png
   - ExternalMapsPlugin_512x512.png
 publisher: James Montemagno
-name: External Maps Plugin for Xamarin and Windows
+name: External Maps Plugin
 id: ExternalMapsPlugin
 samples: 
   iOS Sample: ../samples/ExternalMapsSample.sln
   Android Sample: ../samples/ExternalMapsSample.sln
-  Windows Phone 8 Sample: ../samples/ExternalMapsSample.sln
+  WindowsPhone Sample: ../samples/ExternalMapsSample.sln
 publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
 is_shell: true
 packages:
-  "": Xam.Plugin.ExternalMaps, Version=1.0.0.0
+  ios: Xam.Plugin.ExternalMaps, Version=1.0.0.0
+  ios-unified: Xam.Plugin.ExternalMaps, Version=1.0.0.0
+  android: Xam.Plugin.ExternalMaps, Version=1.0.0.0
+  winphone-8.0: Xam.Plugin.ExternalMaps, Version=1.0.0.0
+  winphone-8.1: Xam.Plugin.ExternalMaps, Version=1.0.0.0
 version: 1.0.0.0
 ...

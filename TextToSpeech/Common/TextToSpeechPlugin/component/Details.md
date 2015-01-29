@@ -1,6 +1,6 @@
-# TextToSpeech Plugin Details
+# Text to Speech Plugin Details
 
-Simple but elegant way of performing Text To Speech across Xamarni.iOS, Xamarin.Android,  Windows Phone, and Windows Store Projects.
+Simple but elegant way of performing Text To Speech across Xamarin.iOS, Xamarin.Android,  Windows Phone, and Windows Store Projects.
 
 ### Features
 * Speak back text
@@ -9,4 +9,6 @@ Simple but elegant way of performing Text To Speech across Xamarni.iOS, Xamarin.
 * Speak Rate
 * Locale/Language of Speech
 * Decide to queue speech block
-* Gather all available languages to speak in
+* Gather all available languages to speak
+
+Works completely from shared code or PCL projects.

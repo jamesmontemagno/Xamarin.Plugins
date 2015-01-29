@@ -8,15 +8,19 @@ icons:
   - TextToSpeechPlugin_128x128.png
   - TextToSpeechPlugin_512x512.png
 publisher: James Montemagno
-name: Text to Speech Plugin for Xamarin and Windows
+name: Text to Speech Plugin
 id: TextToSpeechPlugin
 samples: 
   iOS Sample: ../samples/TextToSpeechSample.sln
   Android Sample: ../samples/TextToSpeechSample.sln
-  Windows Phone 8 Sample: ../samples/TextToSpeechSample.sln
+  WindowsPhone Sample: ../samples/TextToSpeechSample.sln
 publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
 is_shell: true
 packages:
-  "": Xam.Plugins.TextToSpeech, Version=1.0.1
+  ios: Xam.Plugins.TextToSpeech, Version=1.0.1
+  ios-unified: Xam.Plugins.TextToSpeech, Version=1.0.1
+  android: Xam.Plugins.TextToSpeech, Version=1.0.1
+  winphone-8.0: Xam.Plugins.TextToSpeech, Version=1.0.1
+  winphone-8.1: Xam.Plugins.TextToSpeech, Version=1.0.1
 version: 1.0.1
 ...

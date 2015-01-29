@@ -8,15 +8,19 @@ icons:
   - ConnectivityPlugin_128x128.png
   - ConnectivityPlugin_512x512.png
 publisher: James Montemagno
-name: Connectivity Plugin for Xamarin and Windows
+name: Connectivity Plugin
 id: ConnectivityPlugin
 samples: 
   iOS Sample: ../samples/ConnectivitySample.sln
   Android Sample: ../samples/ConnectivitySample.sln
-  Windows Phone 8 Sample: ../samples/ConnectivitySample.sln
+  WindowsPhone Sample: ../samples/ConnectivitySample.sln
 publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
 is_shell: true
 packages:
-  "": Xam.Plugin.Connectivity, Version=1.0.0.3
+  ios: Xam.Plugin.Connectivity, Version=1.0.0.3
+  ios-unified: Xam.Plugin.Connectivity, Version=1.0.0.3
+  android: Xam.Plugin.Connectivity, Version=1.0.0.3
+  winphone-8.0: Xam.Plugin.Connectivity, Version=1.0.0.3
+  winphone-8.1: Xam.Plugin.Connectivity, Version=1.0.0.3
 version: 1.0.0.3
 ...

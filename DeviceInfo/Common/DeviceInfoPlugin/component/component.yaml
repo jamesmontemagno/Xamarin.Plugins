@@ -8,15 +8,19 @@ icons:
   - DeviceInfoPlugin_128x128.png
   - DeviceInfoPlugin_512x512.png
 publisher: James Montemagno
-name: Device Info Plugin for Xamarin and Windows
+name: Device Info Plugin
 id: DeviceInfoPlugin
 samples: 
   iOS Sample: ../samples/DeviceInfoSample.sln
   Android Sample: ../samples/DeviceInfoSample.sln
-  Windows Phone 8 Sample: ../samples/DeviceInfoSample.sln
+  WindowsPhone Sample: ../samples/DeviceInfoSample.sln
 publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
 is_shell: true
 packages:
-  "": Xam.Plugin.DeviceInfo, Version=1.0.0.2
+  ios: Xam.Plugin.DeviceInfo, Version=1.0.0.2
+  ios-unified: Xam.Plugin.DeviceInfo, Version=1.0.0.2
+  android: Xam.Plugin.DeviceInfo, Version=1.0.0.2
+  winphone-8.0: Xam.Plugin.DeviceInfo, Version=1.0.0.2
+  winphone-8.1: Xam.Plugin.DeviceInfo, Version=1.0.0.2
 version: 1.0.0.2
 ...

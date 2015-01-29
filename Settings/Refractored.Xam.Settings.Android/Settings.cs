@@ -59,7 +59,7 @@ namespace Refractored.Xam.Settings
             }
             catch(Java.Lang.ClassCastException cce)
             {
-              Console.WriteLine("Settings 2.0 change, have to remove key.");
+              Console.WriteLine("Settings 1.5 change, have to remove key.");
             
               try
               {
@@ -102,7 +102,7 @@ namespace Refractored.Xam.Settings
             }
             catch(Java.Lang.ClassCastException cce)
             {
-              Console.WriteLine("Settings 2.0  change, have to remove key.");
+              Console.WriteLine("Settings 1.5  change, have to remove key.");
 
               try
               {

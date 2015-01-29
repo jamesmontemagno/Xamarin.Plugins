@@ -1,4 +1,12 @@
 # Device Info Plugin Details
 
-Receive information about the device that you are using. Properties such as Model, Operatin System, Version, Id, and even the ability to generate a unique Id for your application based off of these properties.
-    
+Receive information about the device that you are using from a cross-platform API for Xamarin.iOS, Xamarin.Android, Windows Phone, and Windows
+
+### Features
+* Model
+* Operating System
+* Version
+* Id
+* Generate a unique Id for your application based off of these properties.
+
+Works completely from shared code or PCL projects.
