@@ -1,0 +1,26 @@
+%YAML 1.2
+---
+summary: Create and access settings from shared code across all of your mobile apps from a simple cross-platform API.
+getting-started: GettingStarted.md
+details: Details.md
+license: License.md
+icons: 
+  - SettingsPlugin_128x128.png
+  - SettingsPlugin_512x512.png
+publisher: James Montemagno
+name: Settings Plugin
+id: SettingsPlugin
+samples: 
+  iOS Sample: ../samples/SettingsSample.sln
+  Android Sample: ../samples/SettingsSample.sln
+  WindowsPhone Sample: ../samples/SettingsSample.sln
+publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
+is_shell: true
+packages:
+  ios: Xam.Plugins.Settings, Version=1.5.0
+  ios-unified: Xam.Plugins.Settings, Version=1.5.0
+  android: Xam.Plugins.Settings, Version=1.5.0
+  winphone-8.0: Xam.Plugins.Settings, Version=1.5.0
+  winphone-8.1: Xam.Plugins.Settings, Version=1.5.0
+version: 1.5.0
+...

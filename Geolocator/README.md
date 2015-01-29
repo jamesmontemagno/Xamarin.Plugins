@@ -5,7 +5,6 @@ Simple cross platform plugin to get GPS location including heading, speed, and m
 Ported from [Xamarin.Mobile](http://www.github.com/xamarin/xamarin.mobile) to a cross platform API.
 
 ### Setup
-* Currently in Alpha (turn on pre-release packages)
 * Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.Geolocator
 * Install into your PCL project and Client projects.
 

@@ -1,0 +1,26 @@
+%YAML 1.2
+---
+summary: Simple cross platform plugin to get GPS location including heading, speed, and more.
+getting-started: GettingStarted.md
+details: Details.md
+license: License.md
+icons: 
+  - GeolocatorPlugin_128x128.png
+  - GeolocatorPlugin_512x512.png
+publisher: James Montemagno
+name: Geoloator Plugin
+id: GeolocatorPlugin
+samples: 
+  iOS Sample: ../samples/GeolocatorSample.sln
+  Android Sample: ../samples/GeolocatorSample.sln
+  WindowsPhone Sample: ../samples/GeolocatorSample.sln
+publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
+is_shell: true
+packages:
+  ios: Xam.Plugin.Geolocator, Version=1.0.0
+  ios-unified: Xam.Plugin.Geolocator, Version=1.0.0
+  android: Xam.Plugin.Geolocator, Version=1.0.0
+  winphone-8.0: Xam.Plugin.Geolocator, Version=1.0.0
+  winphone-8.1: Xam.Plugin.Geolocator, Version=1.0.0
+version: 1.0.0
+...
