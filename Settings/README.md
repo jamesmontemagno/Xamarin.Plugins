@@ -20,7 +20,7 @@ You will want to create a new `static` class called "Settings" in your shared co
 ```
 public static class Settings
 {
- // cod here...
+ // code here...
 }
 ```
 
