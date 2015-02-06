@@ -18,7 +18,7 @@ namespace Battery.Plugin.Abstractions
     BatteryStatus Status { get; }
 
     /// <summary>
-    /// Currenlty how the battery is being charged.
+    /// Currently how the battery is being charged.
     /// </summary>
     PowerSource PowerSource { get; }
 
