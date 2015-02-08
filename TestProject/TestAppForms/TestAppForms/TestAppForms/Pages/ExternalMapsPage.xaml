@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestAppForms.Pages.ExternalMapsPage"
+             Title ="External Maps Plugin">
+  <StackLayout Spacing="10" Padding="10">
+    <Button x:Name="navigateAddress" Text="Navigate to Address"/>
+    <Button x:Name="navigateLatLong" Text="Navigate to Lat|Long"/>
+  </StackLayout>
+</ContentPage>

@@ -32,12 +32,13 @@ using OrganizationData = Android.Provider.ContactsContract.CommonDataKinds.Organ
 using WebsiteData = Android.Provider.ContactsContract.CommonDataKinds.Website;
 using Relation = Android.Provider.ContactsContract.CommonDataKinds.Relation;
 using Contacts.Plugin.Abstractions;
+using System.Threading.Tasks;
 
 namespace Contacts.Plugin
 {
   internal static class ContactHelper
   {
-    internal static IEnumerable<Contact> GetContacts(bool rawContacts, ContentResolver content, Resources resources)
+    internal static IEnumerable<Task<Contact>> GetContacts(bool rawContacts, ContentResolver content, Resources resources)
     {
       Uri curi = (rawContacts)
             ? ContactsContract.RawContacts.ContentUri
@@ -50,13 +51,22 @@ namespace Contacts.Plugin
         if (cursor == null)
           yield break;
 
-        foreach (Contact contact in GetContacts(cursor, rawContacts, content, resources, 256))
-          yield return contact;
+        Task.Run(()=>{
+          
+          try
+          {
+            return GetContacts(cursor, rawContacts, content, resources, 256);
+          }
+          finally
+          {
+            if (cursor != null)
+              cursor.Close();
+          }
+        });
       }
       finally
       {
-        if (cursor != null)
-          cursor.Close();
+        
       }
     }
 

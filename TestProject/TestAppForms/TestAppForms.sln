@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.iOSUnified", "TestA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.iOS", "TestApp.iOS\TestApp.iOS.csproj", "{35740368-1D23-428A-A45C-335D246C39C2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OtherPlatforms", "OtherPlatforms", "{C57E9B62-2913-48B9-B9F8-5831D5F37988}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -448,5 +450,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1A72718A-0E8E-4A7B-987D-B6F692450674} = {C57E9B62-2913-48B9-B9F8-5831D5F37988}
+		{70449682-4AD7-4C7D-8FE1-32A71B1A91E8} = {C57E9B62-2913-48B9-B9F8-5831D5F37988}
+		{E83DA84D-558B-402B-BB68-F2345D0935BB} = {C57E9B62-2913-48B9-B9F8-5831D5F37988}
+		{35740368-1D23-428A-A45C-335D246C39C2} = {C57E9B62-2913-48B9-B9F8-5831D5F37988}
 	EndGlobalSection
 EndGlobal

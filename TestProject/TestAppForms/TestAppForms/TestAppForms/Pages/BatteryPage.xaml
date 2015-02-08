@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestAppForms.Pages.BatteryPage"
+             Title="Battery Plugin">
+  <StackLayout Padding="10" Spacing="10">
+    <Button x:Name="getBatteryButton" Text="Get Battery Stats"/>
+    <Label x:Name="batteryLevel"/>
+    <Label x:Name="batteryStatus"/>
+    <Label x:Name="batteryChargeType"/>
+    <Label x:Name="batteryIsLow"/>
+  </StackLayout>
+</ContentPage>

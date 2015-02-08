@@ -7,7 +7,6 @@ using ImageCircle.Forms.Plugin.Abstractions;
 using Refractored.Xam.TTS;
 using Refractored.Xam.TTS.Abstractions;
 using Refractored.Xam.Vibrate.Abstractions;
-using Sms.Plugin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +21,9 @@ namespace TestAppForms
     static CrossLocale? locale = null;
     public static Page GetMainPage()
     {
+
+      return new NavigationPage(new Home());
+
       var speakButton = new Button
       {
         Text = "Speak"
@@ -44,7 +46,7 @@ namespace TestAppForms
       speakButton.Clicked += (sender, args) =>
         {
 
-          CrossSms.Current.SendSms("Hello there!", "+16024926689");
+          //CrossSms.Current.SendSms("Hello there!", "+16024926689");
           var text = "The quick brown fox jumped over the lazy dog.";
           if (useDefaults.IsToggled)
           {
@@ -66,12 +68,7 @@ namespace TestAppForms
 
       var sliderVibrate = new Slider(0, 10000.0, 500.0);
 
-      vibrateButton.Clicked += (sender, args) =>
-        {
-          //var v = DependencyService.Get<IVibrate>();
-          //v.Vibration((int)sliderVibrate.Value);
-          Refractored.Xam.Vibrate.CrossVibrate.Current.Vibration((int)sliderVibrate.Value);
-        };
+      
 
 
       var connectivityButton = new Button
@@ -268,7 +265,7 @@ namespace TestAppForms
 
       buttonContacts.Clicked += (sender, args) =>
         {
-          page.Navigation.PushAsync(new ContactsPage()); ;
+          page.Navigation.PushAsync(new ContactsPage());
         };
 
 

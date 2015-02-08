@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestAppForms.Pages.ConnectivityPage" 
+             Title="Connectivity Plugin">
+  <StackLayout Padding="10" Spacing="10">
+    <Button x:Name="connectivityButton" Text="Test Connectivity"/>
+    <Label x:Name="connected" Text="Is Connected: "/>
+    <Label x:Name="connectionTypes" Text="Connection Types:"/>
+    <Label x:Name="bandwidths" Text="Bandwidths: "/>
+    <Entry x:Name="host" Text="127.0.0.1"/>
+    <Entry x:Name="host2" Text="montemagno.com"/>
+    <Entry x:Name="port" Text="80" Keyboard="Numeric"/>
+    <Label x:Name="canReach1"/>
+    <Label x:Name="canReach2"/>
+  </StackLayout>
+</ContentPage>

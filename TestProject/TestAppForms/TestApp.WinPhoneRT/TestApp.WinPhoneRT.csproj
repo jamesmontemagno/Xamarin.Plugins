@@ -100,7 +100,7 @@
     <Content Include="Assets\StoreLogo.scale-240.png" />
     <Content Include="Assets\WideLogo.scale-240.png" />
     <Content Include="ConnectivityReadme.txt" />
-    <Content Include="GeolocatorReadme.txt" />
+    <Content Include="PluginsHelp\GeolocatorReadme.txt" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -132,16 +132,16 @@
       <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\wpa81\ExternalMaps.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Geolocator.Plugin">
-      <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.0-alpha\lib\wpa81\Geolocator.Plugin.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.0\lib\wpa81\Geolocator.Plugin.dll</HintPath>
     </Reference>
     <Reference Include="Geolocator.Plugin.Abstractions">
-      <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.0-alpha\lib\wpa81\Geolocator.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.0\lib\wpa81\Geolocator.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.TTS">
-      <HintPath>..\packages\Xam.Plugins.TextToSpeech.1.0.0.3\lib\wpa81\Refractored.Xam.TTS.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugins.TextToSpeech.1.0.1\lib\wpa81\Refractored.Xam.TTS.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.TTS.Abstractions">
-      <HintPath>..\packages\Xam.Plugins.TextToSpeech.1.0.0.3\lib\wpa81\Refractored.Xam.TTS.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugins.TextToSpeech.1.0.1\lib\wpa81\Refractored.Xam.TTS.Abstractions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

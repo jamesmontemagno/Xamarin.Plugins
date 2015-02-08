@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestAppForms.Pages.TextToSpeechPage"
+             Title="Text to Speech Plugin">
+  <StackLayout Padding="10" Spacing="10">
+    <Label Text="Pitch"/>
+    <Slider x:Name="sliderPitch" Minimum="0" Maximum="2.0" Value="1.0"/>
+    <Label Text="Speak Rate"/>
+    <Slider x:Name="sliderRate" Minimum="0" Maximum="2.0" Value="1.0"/>
+    <Label Text="Volume"/>
+    <Slider x:Name="sliderVolume" Minimum="0" Maximum="1.0" Value="1.0"/>
+    <Label Text="Use Defaults"/>
+    <Switch x:Name="useDefaults" IsToggled="false"/>
+    <Button x:Name="languageButton" Text="Default Language"/>
+    <Button x:Name="speakButton" Text="Speak"/>
+  </StackLayout>
+</ContentPage>

@@ -76,7 +76,7 @@ namespace TestAppForms
   {
     public ContactPage(Contact contact)
     {
-      var stack = new StackLayout();
+      var stack = new StackLayout { Padding = 10, Spacing = 10 };
 
       stack.Children.Add(new Label
         {

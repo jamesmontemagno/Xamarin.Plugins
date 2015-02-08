@@ -14,7 +14,7 @@ using ImageCircle.Forms.Plugin.Droid;
 
 namespace TestAppForms.Droid
 {
-  [Activity(Label = "TestAppForms", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+  [Activity(Label = "Plugins for Xamarin", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
   public class MainActivity : AndroidActivity
   {
     protected override void OnCreate(Bundle bundle)

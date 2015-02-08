@@ -14,7 +14,7 @@
     <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <NuGetPackageImportStamp>77e0d4e0</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>38581db6</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,9 +35,43 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="ContactsPage.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Pages\ContactsPage.cs" />
+    <Compile Include="Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IDialogs.cs" />
+    <Compile Include="Models\PluginItem.cs" />
+    <Compile Include="Pages\BatteryPage.xaml.cs">
+      <DependentUpon>BatteryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConnectivityPage.xaml.cs">
+      <DependentUpon>ConnectivityPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DeviceInfoPage.xaml.cs">
+      <DependentUpon>DeviceInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExternalMapsPage.xaml.cs">
+      <DependentUpon>ExternalMapsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GeolocatorPage.xaml.cs">
+      <DependentUpon>GeolocatorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ImageCirclePage.xaml.cs">
+      <DependentUpon>ImageCirclePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MediaPage.xaml.cs">
+      <DependentUpon>MediaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TextToSpeechPage.xaml.cs">
+      <DependentUpon>TextToSpeechPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\VibratePage.xaml.cs">
+      <DependentUpon>VibratePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,25 +106,31 @@
       <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\ExternalMaps.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Geolocator.Plugin">
-      <HintPath>..\..\packages\Xam.Plugin.Geolocator.1.0.0-alpha\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Geolocator.Plugin.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.1.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Geolocator.Plugin.dll</HintPath>
     </Reference>
     <Reference Include="Geolocator.Plugin.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugin.Geolocator.1.0.0-alpha\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Geolocator.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.1.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Geolocator.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="ImageCircle.Forms.Plugin.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.1.0.0.5\lib\portable-net45+wp8+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.1.0.6\lib\portable-net45+wp8+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Media.Plugin">
+      <HintPath>..\..\packages\Xam.Plugin.Media.1.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Media.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Media.Plugin.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.Media.1.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Media.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.Settings">
-      <HintPath>..\..\packages\Xam.Plugins.Settings.1.4.0.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugins.Settings.1.5.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.Settings.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugins.Settings.1.4.0.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugins.Settings.1.5.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.TTS">
-      <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.3\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.TTS.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.TTS.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.TTS.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.0.3\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.TTS.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.TTS.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.Vibrate">
       <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.5\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.Vibrate.dll</HintPath>
@@ -98,17 +138,11 @@
     <Reference Include="Refractored.Xam.Vibrate.Abstractions">
       <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.5\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.Vibrate.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Sms.Plugin">
-      <HintPath>..\..\packages\Company.Sms.Plugin.1.0.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Sms.Plugin.dll</HintPath>
-    </Reference>
-    <Reference Include="Sms.Plugin.Abstractions">
-      <HintPath>..\..\packages\Company.Sms.Plugin.1.0.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Sms.Plugin.Abstractions.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Forms.Core">
-      <HintPath>..\..\packages\Xamarin.Forms.1.3.1.6296\lib\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.1.3.2.6316\lib\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
-      <HintPath>..\..\packages\Xamarin.Forms.1.3.1.6296\lib\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.1.3.2.6316\lib\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -117,15 +151,81 @@
   <ItemGroup>
     <Content Include="ConnectivityReadme.txt" />
     <Content Include="DeviceInfoReadme.txt" />
-    <Content Include="GeolocatorReadme.txt" />
+    <Content Include="PluginsHelp\GeolocatorReadme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Home.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\BatteryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\ConnectivityPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\DeviceInfoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\ExternalMapsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\GeolocatorPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\ImageCirclePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\MediaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\TextToSpeechPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\VibratePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\..\packages\Xamarin.Forms.1.3.1.6296\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.3.1.6296\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Import Project="..\..\packages\Xamarin.Forms.1.3.2.6316\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.3.2.6316\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.1.3.1.6296\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.1.3.1.6296\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.1.3.2.6316\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.1.3.2.6316\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
