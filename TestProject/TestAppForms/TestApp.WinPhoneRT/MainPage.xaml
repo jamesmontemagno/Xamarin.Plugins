@@ -11,5 +11,11 @@
     <StackPanel>
         <Button Content="Nav Lat/Long" Click="ButtonNavLatLong_Click"/>
         <Button Content="Nav Address" Click="ButtonNavAddress_Click"/>
+        <Button Content="Take Photo" x:Name="TakePhoto" Click="TakePhoto_Click"/>
+
+        <Button Content="Pick Photo" x:Name="PickPhoto" Click="PickPhoto_Click"/>
+        <Button Content="Take Video" x:Name="TakeVideo" Click="TakeVideo_Click"/>
+
+        <Button Content="Pick Video" x:Name="PickVideo" Click="PickVideo_Click"/>
     </StackPanel>
 </Page>

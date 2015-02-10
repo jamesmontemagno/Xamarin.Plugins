@@ -57,5 +57,25 @@ namespace TestApp.WinPhoneRT
           CrossExternalMaps.Current.NavigateTo("Xamarin", "394 pacific ave.", "San Francisco", "CA", "94111", "USA", "USA");
       
         }
+
+        private void PickPhoto_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TakePhoto_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TakeVideo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PickVideo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
