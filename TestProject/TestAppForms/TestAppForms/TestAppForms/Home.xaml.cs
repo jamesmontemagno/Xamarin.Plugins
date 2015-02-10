@@ -63,7 +63,14 @@ namespace TestAppForms
         };
 
       int count = 0;
-      PluginList.ItemsSource = new List<PluginItem>
+
+      var cell = new DataTemplate(typeof(ImageCell));
+      cell.SetBinding(ImageCell.TextProperty, "Name");
+      cell.SetBinding(ImageCell.DetailProperty, "Description");
+      cell.SetBinding(ImageCell.ImageSourceProperty, new Binding("Image"));
+      PluginList.ItemTemplate = cell;
+
+      var items = new List<PluginItem>
       {
         new PluginItem
         {
@@ -146,11 +153,10 @@ namespace TestAppForms
 
       };
 
-      var cell = new DataTemplate(typeof(ImageCell));
-      cell.SetBinding(ImageCell.TextProperty, "Name");
-      cell.SetBinding(ImageCell.DetailProperty, "Description");
-      cell.SetBinding(ImageCell.ImageSourceProperty, "Image");
-      PluginList.ItemTemplate = cell;
+
+      PluginList.ItemsSource = items;
+      BindingContext = items;
+
     }
   }
 }
