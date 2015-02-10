@@ -41,7 +41,14 @@ namespace Media.Plugin
 
       this.cameraCapture.Completed += OnPhotoChosen;
 
-      IsCameraAvailable = Camera.IsCameraTypeSupported(CameraType.Primary) || Camera.IsCameraTypeSupported(CameraType.FrontFacing);
+      try
+      {
+        IsCameraAvailable = Camera.IsCameraTypeSupported(CameraType.Primary) || Camera.IsCameraTypeSupported(CameraType.FrontFacing);
+      }
+      catch(Exception ex)
+      {
+        Console.WriteLine("You must set the ID_CAP_ISV_CAMERA permission.");
+      }
     }
 
     public bool IsCameraAvailable
@@ -104,7 +111,7 @@ namespace Media.Plugin
 
       if (photoResult.TaskResult == TaskResult.Cancel)
       {
-        tcs.SetCanceled();
+        tcs.SetResult(null);
         return;
       }
 

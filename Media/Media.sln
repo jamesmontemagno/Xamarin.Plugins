@@ -24,6 +24,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Media.Plugin.nuspec = Media.Plugin.nuspec
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestsApps", "TestsApps", "{EAB7ED86-6B88-4D76-9CCC-83BFDF137EA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaAndroidTest", "MediaAndroidTest\MediaAndroidTest.csproj", "{25ABD9E0-F2C6-4E86-9B9D-FED01E44E0FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -130,8 +134,23 @@ Global
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x64.Build.0 = Release|x64
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x86.ActiveCfg = Release|x86
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x86.Build.0 = Release|x86
+		{25ABD9E0-F2C6-4E86-9B9D-FED01E44E0FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25ABD9E0-F2C6-4E86-9B9D-FED01E44E0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25ABD9E0-F2C6-4E86-9B9D-FED01E44E0FA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{25ABD9E0-F2C6-4E86-9B9D-FED01E44E0FA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{25ABD9E0-F2C6-4E86-9B9D-FED01E44E0FA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{25ABD9E0-F2C6-4E86-9B9D-FED01E44E0FA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{25ABD9E0-F2C6-4E86-9B9D-FED01E44E0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25ABD9E0-F2C6-4E86-9B9D-FED01E44E0FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25ABD9E0-F2C6-4E86-9B9D-FED01E44E0FA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{25ABD9E0-F2C6-4E86-9B9D-FED01E44E0FA}.Release|ARM.ActiveCfg = Release|Any CPU
+		{25ABD9E0-F2C6-4E86-9B9D-FED01E44E0FA}.Release|x64.ActiveCfg = Release|Any CPU
+		{25ABD9E0-F2C6-4E86-9B9D-FED01E44E0FA}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{25ABD9E0-F2C6-4E86-9B9D-FED01E44E0FA} = {EAB7ED86-6B88-4D76-9CCC-83BFDF137EA8}
 	EndGlobalSection
 EndGlobal

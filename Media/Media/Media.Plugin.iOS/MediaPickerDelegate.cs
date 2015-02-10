@@ -91,7 +91,7 @@ namespace Media.Plugin
 
 		public override void Canceled (UIImagePickerController picker)
 		{
-			Dismiss (picker, () => this.tcs.TrySetCanceled());
+			Dismiss (picker, () => this.tcs.SetResult(null));
 		}
 
 		public void DisplayPopover (bool hideFirst = false)

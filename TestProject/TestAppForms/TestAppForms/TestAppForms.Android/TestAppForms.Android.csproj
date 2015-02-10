@@ -17,7 +17,7 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseLatestPlatformSdk />
-    <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
     <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
@@ -99,12 +99,10 @@
     <Reference Include="ImageCircle.Forms.Plugin.Android">
       <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.1.0.7\lib\MonoAndroid10\ImageCircle.Forms.Plugin.Android.dll</HintPath>
     </Reference>
-    <Reference Include="Media.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Media.Plugin">
       <HintPath>..\..\packages\Xam.Plugin.Media.1.0.0\lib\MonoAndroid10\Media.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="Media.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Media.Plugin.Abstractions">
       <HintPath>..\..\packages\Xam.Plugin.Media.1.0.0\lib\MonoAndroid10\Media.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android" />

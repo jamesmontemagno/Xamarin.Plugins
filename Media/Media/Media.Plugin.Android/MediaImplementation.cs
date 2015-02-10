@@ -188,12 +188,12 @@ namespace Media.Plugin
 				if (e.RequestId != id)
 					return;
 
-				if (e.Error != null)
-					tcs.SetException (e.Error);
-				else if (e.IsCanceled)
-					tcs.SetCanceled();
-				else
-					tcs.SetResult (e.Media);
+        if (e.Error != null)
+          tcs.SetException(e.Error);
+        else if (e.IsCanceled)
+          tcs.SetResult(null);
+        else
+          tcs.SetResult(e.Media);
 			};
 
 			MediaPickerActivity.MediaPicked += handler;

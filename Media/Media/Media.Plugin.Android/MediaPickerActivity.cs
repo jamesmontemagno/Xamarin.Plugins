@@ -87,16 +87,16 @@ namespace Media.Plugin
 
 			bool ran = b.GetBoolean ("ran", defaultValue: false);
 
-			//this.title = b.GetString (MediaStore.MediaColumns.Title);
-			//this.description = b.GetString (MediaStore.Images.ImageColumns.Description);
+			this.title = b.GetString (MediaStore.MediaColumns.Title);
+			this.description = b.GetString (MediaStore.Images.ImageColumns.Description);
 
 			this.tasked = b.GetBoolean (ExtraTasked);
 			this.id = b.GetInt (ExtraId, 0);
-			//this.type = b.GetString (ExtraType);
+			this.type = b.GetString (ExtraType);
 			if (this.type == "image/*")
 				this.isPhoto = true;
 
-			//this.action = b.GetString (ExtraAction);
+			this.action = b.GetString (ExtraAction);
 			Intent pickIntent = null;
 			try
 			{
@@ -451,7 +451,7 @@ namespace Media.Plugin
 			var tcs = new TaskCompletionSource<MediaFile>();
 
 			if (IsCanceled)
-				tcs.SetCanceled();
+				tcs.SetResult(null);
 			else if (Error != null)
 				tcs.SetException (Error);
 			else
