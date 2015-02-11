@@ -103,7 +103,12 @@ namespace Media.Plugin
         StorageFolder folder = ApplicationData.Current.LocalFolder;
 
         string path = options.GetFilePath(folder.Path);
-        folder = await StorageFolder.GetFolderFromPathAsync(Path.GetDirectoryName(path));
+        var directoryFull = Path.GetDirectoryName(path);
+        var newFolder = directoryFull.Replace(folder.Path, string.Empty);
+        if (!string.IsNullOrWhiteSpace(newFolder))
+          folder.CreateFolderAsync(newFolder, CreationCollisionOption.OpenIfExists);
+
+        folder = await StorageFolder.GetFolderFromPathAsync(directoryFull);
         string filename = Path.GetFileName(path);
       
         // create storage file in local app storage
@@ -111,7 +116,9 @@ namespace Media.Plugin
           filename,
           CreationCollisionOption.GenerateUniqueName);
 
-        await takePhotoManager.CapturePhotoToStorageFileAsync(imgFormat, file);
+        
+        await takePhotoManager.StartPreviewAsync();
+        //await takePhotoManager.CapturePhotoToStorageFileAsync(imgFormat, file);
 
         return new MediaFile(file.Path, () => file.OpenStreamForReadAsync().Result);
       }

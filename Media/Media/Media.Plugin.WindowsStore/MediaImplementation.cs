@@ -91,12 +91,18 @@ namespace Media.Plugin
       var capture = new CameraCaptureUI();
       var result = await capture.CaptureFileAsync(CameraCaptureUIMode.Photo);
       if (result == null)
-        throw new TaskCanceledException();
+        return null;
 
       StorageFolder folder = ApplicationData.Current.LocalFolder;
 
       string path = options.GetFilePath(folder.Path);
-      folder = await StorageFolder.GetFolderFromPathAsync(Path.GetDirectoryName(path));
+      var directoryFull = Path.GetDirectoryName(path);
+      var newFolder = directoryFull.Replace(folder.Path, string.Empty);
+      if (!string.IsNullOrWhiteSpace(newFolder))
+        folder.CreateFolderAsync(newFolder, CreationCollisionOption.OpenIfExists);
+
+      folder = await StorageFolder.GetFolderFromPathAsync(directoryFull);
+
       string filename = Path.GetFileName(path);
 
       var file = await result.CopyAsync(folder, filename, NameCollisionOption.GenerateUniqueName).AsTask();
@@ -115,7 +121,7 @@ namespace Media.Plugin
 
       var result = await picker.PickSingleFileAsync();
       if (result == null)
-        throw new TaskCanceledException();
+        return null;
 
       return new MediaFile(result.Path, () => result.OpenStreamForReadAsync().Result);
     }
@@ -131,7 +137,7 @@ namespace Media.Plugin
 
       var result = await capture.CaptureFileAsync(CameraCaptureUIMode.Video);
       if (result == null)
-        throw new TaskCanceledException();
+        return null;
 
       return new MediaFile(result.Path, () => result.OpenStreamForReadAsync().Result);
     }
@@ -145,7 +151,7 @@ namespace Media.Plugin
 
       var result = await picker.PickSingleFileAsync();
       if (result == null)
-        throw new TaskCanceledException();
+        return null;
 
       return new MediaFile(result.Path, () => result.OpenStreamForReadAsync().Result);
     }

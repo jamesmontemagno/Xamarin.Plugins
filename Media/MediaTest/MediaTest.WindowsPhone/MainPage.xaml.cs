@@ -1,5 +1,4 @@
-﻿using ExternalMaps.Plugin;
-using Media.Plugin;
+﻿using Media.Plugin;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,9 +15,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace TestApp.WinPhoneRT
+namespace MediaTest
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -48,22 +47,12 @@ namespace TestApp.WinPhoneRT
             // this event is handled for you.
         }
 
-        private void ButtonNavLatLong_Click(object sender, RoutedEventArgs e)
-        {
-          CrossExternalMaps.Current.NavigateTo("Space Needle", 47.6204, -122.3491);
-        
-        }
-
-        private void ButtonNavAddress_Click(object sender, RoutedEventArgs e)
-        {
-          CrossExternalMaps.Current.NavigateTo("Xamarin", "394 pacific ave.", "San Francisco", "CA", "94111", "USA", "USA");
-      
-        }
 
         private async void PickPhoto_Click(object sender, RoutedEventArgs e)
         {
           var file = await CrossMedia.Current.PickPhotoAsync();
-
+          if (file == null)
+            return;
           var message = new MessageDialog(file.Path);
           message.ShowAsync();
         }
@@ -76,7 +65,8 @@ namespace TestApp.WinPhoneRT
             Directory = "Sample",
             Name = "test.jpg"
           });
-
+          if (file == null)
+            return;
           var message = new MessageDialog(file.Path);
           message.ShowAsync();
         }
@@ -89,7 +79,8 @@ namespace TestApp.WinPhoneRT
             Directory = "Sample",
             Name = "test.mp4"
           });
-
+          if (file == null)
+            return;
           var message = new MessageDialog(file.Path);
           message.ShowAsync();
         }
@@ -97,7 +88,8 @@ namespace TestApp.WinPhoneRT
         private async void PickVideo_Click(object sender, RoutedEventArgs e)
         {
           var file = await CrossMedia.Current.PickVideoAsync();
-
+          if (file == null)
+            return;
           var message = new MessageDialog(file.Path);
           message.ShowAsync();
         }

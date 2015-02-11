@@ -74,7 +74,7 @@ namespace TestAppForms.Pages
           var file = await CrossMedia.Current.TakeVideoAsync(new Media.Plugin.Abstractions.StoreVideoOptions
             {
               Name = "video.mp4",
-              Directory = "DefaultVideos"
+              Directory = "DefaultVideos", 
             });
 
           if (file == null)
