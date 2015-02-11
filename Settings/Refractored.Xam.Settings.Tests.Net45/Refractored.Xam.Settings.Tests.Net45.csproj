@@ -54,7 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Refactored.Xam.Settings.Net45\Refactored.Xam.Settings.Net45.csproj">
+    <ProjectReference Include="..\Refractored.Xam.Settings.Net45\Refractored.Xam.Settings.Net45.csproj">
       <Project>{71c2770d-de6a-4282-abdb-a32400f955a7}</Project>
       <Name>Refactored.Xam.Settings.Net45</Name>
     </ProjectReference>

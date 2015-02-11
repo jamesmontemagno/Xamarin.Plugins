@@ -45,7 +45,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Common\Xam.Plugins.Settings.nuspec = Common\Xam.Plugins.Settings.nuspec
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactored.Xam.Settings.Net45", "Refactored.Xam.Settings.Net45\Refactored.Xam.Settings.Net45.csproj", "{71C2770D-DE6A-4282-ABDB-A32400F955A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Settings.Net45", "Refractored.Xam.Settings.Net45\Refractored.Xam.Settings.Net45.csproj", "{71C2770D-DE6A-4282-ABDB-A32400F955A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Settings.Tests.Net45", "Refractored.Xam.Settings.Tests.Net45\Refractored.Xam.Settings.Tests.Net45.csproj", "{0FC7AD14-DB00-461C-AB5B-4284EAF15246}"
 EndProject
