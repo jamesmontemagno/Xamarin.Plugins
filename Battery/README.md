@@ -79,7 +79,7 @@ Important:
 **PowerSource**
 ```
 /// <summary>
-/// Currenlty how the battery is being charged.
+/// Currently how the battery is being charged.
 /// </summary>
 PowerSource PowerSource { get; }
 ```
