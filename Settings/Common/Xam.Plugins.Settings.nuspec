@@ -75,6 +75,13 @@
      <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.xml" target="lib\Xamarin.iOS10\Refractored.Xam.Settings.Abstractions.xml" />
      <file src="core\_SettingsStarted.txt.pp" target="content\Xamarin.iOS10\Properties\_SettingsStarted.txt.pp" />
 
+     <!--Net45-->
+     <file src="..\Refractored.Xam.Settings.Net45\bin\Release\Refractored.Xam.Settings.dll" target="lib\net45\Refractored.Xam.Settings.dll" />
+     <file src="..\Refractored.Xam.Settings.Net45\bin\Release\Refractored.Xam.Settings.xml" target="lib\net45\Refractored.Xam.Settings.xml" />
+     <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.dll" target="lib\net45\Refractored.Xam.Settings.Abstractions.dll" />
+     <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.xml" target="lib\net45\Refractored.Xam.Settings.Abstractions.xml" />
+     <file src="core\_SettingsStarted.txt.pp" target="content\net45\Properties\_SettingsStarted.txt.pp" />
+
 
    </files>
 </package>
