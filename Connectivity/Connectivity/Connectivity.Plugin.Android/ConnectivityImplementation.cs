@@ -100,6 +100,11 @@ namespace Connectivity.Plugin
           Debug.WriteLine("Unable to reach: " + host + " Error: " + ex);
           reachable = false;
         }
+        catch(Exception ex2)
+        {
+          Debug.WriteLine("Unable to reach: " + host + " Error: " + ex2);
+          reachable = false;
+        }
         return reachable;
       });
      
@@ -123,19 +128,21 @@ namespace Connectivity.Plugin
 
       return await Task.Run(async () =>
       {
-        var sockaddr = new InetSocketAddress(host, port);
-        using (var sock = new Socket())
+        try
         {
-          try
+          var sockaddr = new InetSocketAddress(host, port);
+          using (var sock = new Socket())
           {
-            await sock.ConnectAsync(sockaddr, msTimeout);
-            return true;
+          
+              await sock.ConnectAsync(sockaddr, msTimeout);
+              return true;
+      
           }
-          catch (Exception ex)
-          {
-            Debug.WriteLine("Unable to reach: " + host + " Error: " + ex);
-            return false;
-          }
+        }
+        catch (Exception ex)
+        {
+          Debug.WriteLine("Unable to reach: " + host + " Error: " + ex);
+          return false;
         }
       });
     }
@@ -147,21 +154,29 @@ namespace Connectivity.Plugin
     {
       get
       {
-        ConnectionType type;
-        var activeConnection = ConnectivityManager.ActiveNetworkInfo;
-        switch (activeConnection.Type)
+        try
         {
-          case ConnectivityType.Wimax:
-            type = ConnectionType.Wimax;
-            break;
-          case ConnectivityType.Wifi:
-            type = ConnectionType.WiFi;
-            break;
-          default:
-            type = ConnectionType.Cellular;
-            break;
+          ConnectionType type;
+          var activeConnection = ConnectivityManager.ActiveNetworkInfo;
+          switch (activeConnection.Type)
+          {
+            case ConnectivityType.Wimax:
+              type = ConnectionType.Wimax;
+              break;
+            case ConnectivityType.Wifi:
+              type = ConnectionType.WiFi;
+              break;
+            default:
+              type = ConnectionType.Cellular;
+              break;
+          }
+          return new ConnectionType[] { type };
         }
-        yield return type;
+        catch(Exception ex)
+        {
+          //no connections
+          return new ConnectionType[] { };
+        }
       }
     }
 

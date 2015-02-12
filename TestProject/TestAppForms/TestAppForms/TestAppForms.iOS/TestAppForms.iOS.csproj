@@ -127,11 +127,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Xam.Plugin.Battery.1.0.0.0\lib\MonoTouch10\Battery.Plugin.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Connectivity.Plugin">
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.3\lib\MonoTouch10\Connectivity.Plugin.dll</HintPath>
+    <Reference Include="Connectivity.Plugin, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.1\lib\MonoTouch10\Connectivity.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="Connectivity.Plugin.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.0.3\lib\MonoTouch10\Connectivity.Plugin.Abstractions.dll</HintPath>
+    <Reference Include="Connectivity.Plugin.Abstractions, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.1\lib\MonoTouch10\Connectivity.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Contacts.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -217,9 +219,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ConnectivityReadme.txt" />
     <Content Include="DeviceInfoReadme.txt" />
     <BundleResource Include="Resources\Default-568h%402x.png" />
+    <Content Include="PluginsHelp\ConnectivityReadme.txt" />
     <Content Include="PluginsHelp\GeolocatorReadme.txt" />
     <Content Include="Properties\_SettingsStarted.txt" />
   </ItemGroup>
