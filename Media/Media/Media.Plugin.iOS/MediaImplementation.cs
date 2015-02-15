@@ -36,7 +36,9 @@ namespace Media.Plugin
   /// </summary>
   public class MediaImplementation : IMedia
   {
-
+    /// <summary>
+    /// Implementation
+    /// </summary>
     public MediaImplementation()
     {
       IsCameraAvailable = UIImagePickerController.IsSourceTypeAvailable(UIImagePickerControllerSourceType.Camera);
@@ -47,50 +49,73 @@ namespace Media.Plugin
       foreach (string type in availableCameraMedia.Concat(avaialbleLibraryMedia))
       {
         if (type == TypeMovie)
-          VideosSupported = true;
+          IsTakeVideoSupported = IsPickVideoSupported = true;
         else if (type == TypeImage)
-          PhotosSupported = true;
+          IsTakePhotoSupported = IsPickPhotoSupported = true;
       }
     }
-
+    /// <inheritdoc/>
     public bool IsCameraAvailable
     {
       get;
       private set;
     }
-
-    public bool PhotosSupported
+    /// <inheritdoc/>
+    public bool IsTakePhotoSupported
     {
       get;
       private set;
     }
-
-    public bool VideosSupported
+    /// <inheritdoc/>
+    public bool IsPickPhotoSupported
     {
       get;
       private set;
     }
-
+    /// <inheritdoc/>
+    public bool IsTakeVideoSupported
+    {
+      get;
+      private set;
+    }
+    /// <inheritdoc/>
+    public bool IsPickVideoSupported
+    {
+      get;
+      private set;
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public MediaPickerController GetPickPhotoUI()
     {
-      if (!PhotosSupported)
+      if (!IsPickPhotoSupported)
         throw new NotSupportedException();
 
       var d = new MediaPickerDelegate(null, UIImagePickerControllerSourceType.PhotoLibrary, null);
       return SetupController(d, UIImagePickerControllerSourceType.PhotoLibrary, TypeImage);
     }
 
+    /// <summary>
+    /// Picks a photo from the default gallery
+    /// </summary>
+    /// <returns>Media file or null if canceled</returns>
     public Task<MediaFile> PickPhotoAsync()
     {
-      if (!PhotosSupported)
+      if (!IsPickPhotoSupported)
         throw new NotSupportedException();
 
       return GetMediaAsync(UIImagePickerControllerSourceType.PhotoLibrary, TypeImage);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="options"></param>
+    /// <returns></returns>
     public MediaPickerController GetTakePhotoUI(StoreCameraMediaOptions options)
     {
-      if (!PhotosSupported)
+      if (!IsTakePhotoSupported)
         throw new NotSupportedException();
       if (!IsCameraAvailable)
         throw new NotSupportedException();
@@ -101,9 +126,14 @@ namespace Media.Plugin
       return SetupController(d, UIImagePickerControllerSourceType.Camera, TypeImage, options);
     }
 
+    /// <summary>
+    /// Take a photo async with specified options
+    /// </summary>
+    /// <param name="options">Camera Media Options</param>
+    /// <returns>Media file of photo or null if canceled</returns>
     public Task<MediaFile> TakePhotoAsync(StoreCameraMediaOptions options)
     {
-      if (!PhotosSupported)
+      if (!IsTakePhotoSupported)
         throw new NotSupportedException();
       if (!IsCameraAvailable)
         throw new NotSupportedException();
@@ -112,27 +142,38 @@ namespace Media.Plugin
 
       return GetMediaAsync(UIImagePickerControllerSourceType.Camera, TypeImage, options);
     }
-    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public MediaPickerController GetPickVideoUI()
     {
-      if (!VideosSupported)
+      if (!IsPickVideoSupported)
         throw new NotSupportedException();
 
       var d = new MediaPickerDelegate(null, UIImagePickerControllerSourceType.PhotoLibrary, null);
       return SetupController(d, UIImagePickerControllerSourceType.PhotoLibrary, TypeMovie);
     }
 
+    /// <summary>
+    /// Picks a video from the default gallery
+    /// </summary>
+    /// <returns>Media file of video or null if canceled</returns>
     public Task<MediaFile> PickVideoAsync()
     {
-      if (!VideosSupported)
+      if (!IsPickVideoSupported)
         throw new NotSupportedException();
 
       return GetMediaAsync(UIImagePickerControllerSourceType.PhotoLibrary, TypeMovie);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="options"></param>
+    /// <returns></returns>
     public MediaPickerController GetTakeVideoUI(StoreVideoOptions options)
     {
-      if (!VideosSupported)
+      if (!IsTakeVideoSupported)
         throw new NotSupportedException();
       if (!IsCameraAvailable)
         throw new NotSupportedException();
@@ -143,9 +184,14 @@ namespace Media.Plugin
       return SetupController(d, UIImagePickerControllerSourceType.Camera, TypeMovie, options);
     }
 
+    /// <summary>
+    /// Take a video with specified options
+    /// </summary>
+    /// <param name="options">Video Media Options</param>
+    /// <returns>Media file of new video or null if canceled</returns>
     public Task<MediaFile> TakeVideoAsync(StoreVideoOptions options)
     {
-      if (!VideosSupported)
+      if (!IsTakeVideoSupported)
         throw new NotSupportedException();
       if (!IsCameraAvailable)
         throw new NotSupportedException();
@@ -157,7 +203,13 @@ namespace Media.Plugin
 
     private UIPopoverController popover;
     private UIImagePickerControllerDelegate pickerDelegate;
+    /// <summary>
+    /// image type
+    /// </summary>
     public const string TypeImage = "public.image";
+    /// <summary>
+    /// movie type
+    /// </summary>
     public const string TypeMovie = "public.movie";
 
     private void VerifyOptions(StoreMediaOptions options)

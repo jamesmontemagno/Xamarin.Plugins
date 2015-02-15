@@ -16,7 +16,7 @@ namespace TestAppForms.Pages
       takePhoto.Clicked += async (sender, args) =>
         {
 
-          if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.PhotosSupported)
+          if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
           {
             DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
             return;
@@ -44,7 +44,7 @@ namespace TestAppForms.Pages
 
       pickPhoto.Clicked += async (sender, args) =>
         {
-          if (!CrossMedia.Current.PhotosSupported)
+          if (!CrossMedia.Current.IsPickPhotoSupported)
           {
             DisplayAlert("Photos Not Supported", ":( Permission not granted to photos.", "OK");
             return;
@@ -65,7 +65,7 @@ namespace TestAppForms.Pages
 
       takeVideo.Clicked += async (sender, args) =>
         {
-          if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.VideosSupported)
+          if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakeVideoSupported)
           {
             DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
             return;
@@ -87,7 +87,7 @@ namespace TestAppForms.Pages
 
       pickVideo.Clicked += async (sender, args) =>
         {
-          if (!CrossMedia.Current.VideosSupported)
+          if (!CrossMedia.Current.IsPickVideoSupported)
           {
             DisplayAlert("Videos Not Supported", ":( Permission not granted to videos.", "OK");
             return;

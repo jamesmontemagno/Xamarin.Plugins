@@ -139,10 +139,12 @@
     <Reference Include="Geolocator.Plugin.Abstractions">
       <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.0\lib\wpa81\Geolocator.Plugin.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Media.Plugin">
+    <Reference Include="Media.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Xam.Plugin.Media.1.0.0\lib\wpa81\Media.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="Media.Plugin.Abstractions">
+    <Reference Include="Media.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Xam.Plugin.Media.1.0.0\lib\wpa81\Media.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Refractored.Xam.TTS">

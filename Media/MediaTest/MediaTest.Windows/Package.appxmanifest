@@ -22,8 +22,6 @@
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
-    <Capability Name="picturesLibrary" />
-    <Capability Name="videosLibrary" />
     <DeviceCapability Name="webcam" />
     <DeviceCapability Name="microphone" />
   </Capabilities>

@@ -24,9 +24,18 @@ using Media.Plugin.Abstractions;
 
 namespace Media.Plugin
 {
+  /// <summary>
+  /// 
+  /// </summary>
   [Android.Runtime.Preserve(AllMembers = true)]
 	public static class MediaFileExtensions
 	{
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="self"></param>
+    /// <param name="context"></param>
+    /// <returns></returns>
 		public static Task<MediaFile> GetMediaFileExtraAsync (this Intent self, Context context)
 		{
 			if (self == null)
@@ -38,7 +47,7 @@ namespace Media.Plugin
 			if (action == null)
 				throw new ArgumentException ("Intent was not results from MediaPicker", "self");
 
-      var uri = (Android.Net.Uri)self.GetParcelableExtra(MediaFileAndroid.ExtraName);		
+      var uri = (Android.Net.Uri)self.GetParcelableExtra("MediaFile");		
 			bool isPhoto = self.GetBooleanExtra ("isPhoto", false);			
 			var path = (Android.Net.Uri)self.GetParcelableExtra ("path");
 
@@ -47,66 +56,4 @@ namespace Media.Plugin
 		}
 	}
 
-	public sealed class MediaFileAndroid
-		: IDisposable
-	{
-		internal MediaFileAndroid (string path, bool deletePathOnDispose)
-		{
-			this.deletePathOnDispose = deletePathOnDispose;
-			this.path = path;
-		}
-
-		public string Path
-		{
-			get
-			{
-				if (this.isDisposed)
-					throw new ObjectDisposedException (null);
-
-				return this.path;
-			}
-		}
-
-		public Stream GetStream()
-		{
-			if (this.isDisposed)
-				throw new ObjectDisposedException (null);
-
-			return File.OpenRead (this.path);
-		}
-
-		public void Dispose()
-		{
-			Dispose (true);
-			GC.SuppressFinalize (this);
-		}
-
-		private bool isDisposed;
-		private readonly bool deletePathOnDispose;
-		private readonly string path;
-
-		internal const string ExtraName = "MediaFile";
-		
-		private void Dispose (bool disposing)
-		{
-			if (this.isDisposed)
-				return;
-
-			this.isDisposed = true;
-			if (this.deletePathOnDispose) {
-				try {
-					File.Delete (this.path);
-					// We don't really care if this explodes for a normal IO reason.
-				} catch (UnauthorizedAccessException) {
-				} catch (DirectoryNotFoundException) {
-				} catch (IOException) {
-				}
-			}
-		}
-
-		~MediaFileAndroid()
-		{
-			Dispose (false);
-		}
-	}
 }

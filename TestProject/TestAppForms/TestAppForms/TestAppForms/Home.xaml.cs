@@ -125,7 +125,7 @@ namespace TestAppForms
         new PluginItem
         {
           Name = "Media",
-          Image = "https://raw.githubusercontent.com/jamesmontemagno/Xamarin-Templates/master/Plugins-Templates/icons/plugin_icon_nuget.png",
+          Image = "http://www.refractored.com/images/plugin_icon_media.png",
           Description ="Take or pick photos and videos.",
           Id = count++
         },

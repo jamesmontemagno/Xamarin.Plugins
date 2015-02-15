@@ -101,10 +101,12 @@
     <Reference Include="ImageCircle.Forms.Plugin.Android">
       <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.1.0.7\lib\MonoAndroid10\ImageCircle.Forms.Plugin.Android.dll</HintPath>
     </Reference>
-    <Reference Include="Media.Plugin">
+    <Reference Include="Media.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Xam.Plugin.Media.1.0.0\lib\MonoAndroid10\Media.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="Media.Plugin.Abstractions">
+    <Reference Include="Media.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Xam.Plugin.Media.1.0.0\lib\MonoAndroid10\Media.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android" />

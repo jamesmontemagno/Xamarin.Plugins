@@ -29,6 +29,9 @@ using MonoTouch.Foundation;
 
 namespace Media.Plugin
 {
+  /// <summary>
+  /// Media Picker Controller
+  /// </summary>
 	public sealed class MediaPickerController
 		: UIImagePickerController
 	{
@@ -37,12 +40,19 @@ namespace Media.Plugin
 			base.Delegate = mpDelegate;
 		}
 
+    /// <summary>
+    /// Deleage
+    /// </summary>
 		public override NSObject Delegate
 		{
 			get { return base.Delegate; }
 			set { throw new NotSupportedException(); }
 		}
 
+    /// <summary>
+    /// Gets result of picker
+    /// </summary>
+    /// <returns></returns>
 		public Task<MediaFile> GetResultAsync()
 		{
 			return ((MediaPickerDelegate)Delegate).Task;

@@ -24,6 +24,10 @@ using Microsoft.Devices;
 using Microsoft.Phone.Tasks;
 
 using Media.Plugin.Abstractions;
+using Windows.Storage.Pickers;
+using System.Collections.Generic;
+using Windows.Storage;
+using Windows.ApplicationModel.Activation;
 
 
 namespace Media.Plugin
@@ -33,6 +37,11 @@ namespace Media.Plugin
   /// </summary>
   public class MediaImplementation : IMedia
   {
+    private static readonly IEnumerable<string> SupportedVideoFileTypes = new List<string> { ".mp4", ".wmv", ".avi" };
+    private static readonly IEnumerable<string> SupportedImageFileTypes = new List<string> { ".jpeg", ".jpg", ".png", ".gif", ".bmp" };
+    /// <summary>
+    /// Implementation
+    /// </summary>
     public MediaImplementation()
     {
 
@@ -50,27 +59,42 @@ namespace Media.Plugin
         Console.WriteLine("You must set the ID_CAP_ISV_CAMERA permission.");
       }
     }
-
+    /// <inheritdoc/>
     public bool IsCameraAvailable
     {
       get;
       private set;
     }
-
-    public bool PhotosSupported
+    /// <inheritdoc/>
+    public bool IsTakePhotoSupported
     {
       get { return true; }
     }
-
-    public bool VideosSupported
+    /// <inheritdoc/>
+    public bool IsPickPhotoSupported
+    {
+      get {return true;}
+    }
+    /// <inheritdoc/>
+    public bool IsTakeVideoSupported
     {
       get { return false; }
     }
+    /// <inheritdoc/>
+    public bool IsPickVideoSupported
+    {
+      get {return false;}
+    }
 
+    /// <summary>
+    /// Picks a photo from the default gallery
+    /// </summary>
+    /// <returns>Media file or null if canceled</returns>
     public Task<MediaFile> PickPhotoAsync()
     {
+
       var ntcs = new TaskCompletionSource<MediaFile>();
-      if (Interlocked.CompareExchange(ref this.completionSource, ntcs, null) != null)
+      if (Interlocked.CompareExchange(ref completionSource, ntcs, null) != null)
         throw new InvalidOperationException("Only one operation can be active at at time");
 
       this.photoChooser.Show();
@@ -78,12 +102,20 @@ namespace Media.Plugin
       return ntcs.Task;
     }
 
+    /// <summary>
+    /// Take a photo async with specified options
+    /// </summary>
+    /// <param name="options">Camera Media Options</param>
+    /// <returns>Media file of photo or null if canceled</returns>
     public Task<MediaFile> TakePhotoAsync(StoreCameraMediaOptions options)
     {
+      if (!IsCameraAvailable)
+        throw new NotSupportedException();
+
       options.VerifyOptions();
 
       var ntcs = new TaskCompletionSource<MediaFile>(options);
-      if (Interlocked.CompareExchange(ref this.completionSource, ntcs, null) != null)
+      if (Interlocked.CompareExchange(ref completionSource, ntcs, null) != null)
         throw new InvalidOperationException("Only one operation can be active at a time");
 
       this.cameraCapture.Show();
@@ -91,11 +123,36 @@ namespace Media.Plugin
       return ntcs.Task;
     }
 
-    public Task<MediaFile> PickVideoAsync()
+    /// <summary>
+    /// Picks a video from the default gallery
+    /// </summary>
+    /// <returns>Media file of video or null if canceled</returns>
+    public async Task<MediaFile> PickVideoAsync()
     {
       throw new NotSupportedException();
+
+      /*var ntcs = new TaskCompletionSource<MediaFile>();
+      if (Interlocked.CompareExchange(ref completionSource, ntcs, null) != null)
+        throw new InvalidOperationException("Only one operation can be active at at time");
+
+      var picker = new FileOpenPicker();
+      picker.SuggestedStartLocation = PickerLocationId.VideosLibrary;
+      picker.ViewMode = PickerViewMode.Thumbnail;
+      foreach (var filter in SupportedVideoFileTypes)
+        picker.FileTypeFilter.Add(filter);
+
+      var file = await picker.PickSingleFileAsync();
+      if(file == null)
+        return null;
+
+      return new MediaFile(file.Path, () => file.OpenStreamForReadAsync().Result);*/
     }
 
+    /// <summary>
+    /// Take a video with specified options
+    /// </summary>
+    /// <param name="options">Video Media Options</param>
+    /// <returns>Media file of new video or null if canceled</returns>
     public Task<MediaFile> TakeVideoAsync(StoreVideoOptions options)
     {
       throw new NotSupportedException();
@@ -103,11 +160,12 @@ namespace Media.Plugin
 
     private readonly CameraCaptureTask cameraCapture = new CameraCaptureTask();
     private readonly PhotoChooserTask photoChooser = new PhotoChooserTask();
-    private TaskCompletionSource<MediaFile> completionSource;
+    private static TaskCompletionSource<MediaFile> completionSource;
 
+ 
     private void OnPhotoChosen(object sender, PhotoResult photoResult)
     {
-      var tcs = Interlocked.Exchange(ref this.completionSource, null);
+      var tcs = Interlocked.Exchange(ref completionSource, null);
 
       if (photoResult.TaskResult == TaskResult.Cancel)
       {
@@ -158,7 +216,7 @@ namespace Media.Plugin
         case TaskResult.None:
           photoResult.ChosenPhoto.Dispose();
           if (photoResult.Error != null)
-            tcs.SetException(photoResult.Error);
+            tcs.SetResult(null);
 
           break;
       }

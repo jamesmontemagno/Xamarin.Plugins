@@ -21,21 +21,10 @@
         </m3:DefaultTile>
         <m3:SplashScreen Image="Assets\SplashScreen.png" />
       </m3:VisualElements>
-      <Extensions>
-        <Extension Category="windows.fileOpenPicker">
-          <FileOpenPicker>
-            <SupportedFileTypes>
-              <SupportsAnyFileType />
-            </SupportedFileTypes>
-          </FileOpenPicker>
-        </Extension>
-      </Extensions>
     </Application>
   </Applications>
   <Capabilities>
     <Capability Name="internetClientServer" />
-    <Capability Name="picturesLibrary" />
-    <Capability Name="videosLibrary" />
     <DeviceCapability Name="webcam" />
   </Capabilities>
 </Package>
