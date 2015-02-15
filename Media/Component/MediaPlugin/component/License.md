@@ -1,0 +1,1 @@
+# MediaPlugin license

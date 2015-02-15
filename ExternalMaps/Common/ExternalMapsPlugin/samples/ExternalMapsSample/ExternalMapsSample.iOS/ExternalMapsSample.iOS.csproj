@@ -123,10 +123,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ExternalMaps.Plugin">
-      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\Xamarin.iOS10\ExternalMaps.Plugin.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.2\lib\Xamarin.iOS10\ExternalMaps.Plugin.dll</HintPath>
     </Reference>
     <Reference Include="ExternalMaps.Plugin.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\Xamarin.iOS10\ExternalMaps.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.2\lib\Xamarin.iOS10\ExternalMaps.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />

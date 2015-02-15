@@ -149,11 +149,13 @@
     <Reference Include="DeviceInfo.Plugin.Abstractions">
       <HintPath>..\..\packages\Xam.Plugin.DeviceInfo.1.0.0.2\lib\MonoTouch10\DeviceInfo.Plugin.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="ExternalMaps.Plugin">
-      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\MonoTouch10\ExternalMaps.Plugin.dll</HintPath>
+    <Reference Include="ExternalMaps.Plugin, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.1\lib\MonoTouch10\ExternalMaps.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="ExternalMaps.Plugin.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\MonoTouch10\ExternalMaps.Plugin.Abstractions.dll</HintPath>
+    <Reference Include="ExternalMaps.Plugin.Abstractions, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.1\lib\MonoTouch10\ExternalMaps.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Geolocator.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
