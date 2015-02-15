@@ -29,8 +29,8 @@ namespace ExternalMaps.Plugin
       var driveOrWalk = navigationType == NavigationType.Walking ? "ms-walk-to" : "ms-drive-to";
 
       // Assemble the Uri to launch.
-      var uri = new Uri(driveOrWalk + ":?destination.latitude=" + latitude.ToString("0.0000000000") +
-          "&destination.longitude=" + longitude.ToString("0.0000000000") + "&destination.name=" + name);
+      var uri = new Uri(driveOrWalk + ":?destination.latitude=" + latitude.ToString(CultureInfo.InvariantCulture) +
+          "&destination.longitude=" + longitude.ToString(CultureInfo.InvariantCulture) + "&destination.name=" + name);
 
       // Launch the Uri.
       var success = await Windows.System.Launcher.LaunchUriAsync(uri);

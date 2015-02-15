@@ -22,14 +22,14 @@ namespace ExternalMaps.Plugin
     /// <param name="navigationType">Type of navigation</param>
     public void NavigateTo(string name, double latitude, double longitude, NavigationType navigationType = NavigationType.Default)
     {
-      var uri = String.Format("http://maps.google.com/maps?&daddr={0},{1} ({2})", latitude.ToString("0.0000000000"), longitude.ToString("0.0000000000"), name);
+      var uri = String.Format("http://maps.google.com/maps?&daddr={0},{1} ({2})", latitude.ToString(CultureInfo.InvariantCulture), longitude.ToString(CultureInfo.InvariantCulture), name);
       var intent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(uri));
       intent.SetClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
 
       if (TryIntent(intent))
         return;
 
-      var uri2 = string.Format("geo:{0},{1}?q={0},{1}({2})", latitude.ToString("0.0000000000"), longitude.ToString("0.0000000000"), name);
+      var uri2 = string.Format("geo:{0},{1}?q={0},{1}({2})", latitude.ToString(CultureInfo.InvariantCulture), longitude.ToString(CultureInfo.InvariantCulture), name);
 
       if (TryIntent(new Intent(Intent.ActionView, Android.Net.Uri.Parse(uri2))))
         return;

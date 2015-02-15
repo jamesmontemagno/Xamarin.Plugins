@@ -46,13 +46,13 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ExternalMaps.Plugin, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ExternalMaps.Plugin, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.2\lib\MonoAndroid10\ExternalMaps.Plugin.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.4\lib\MonoAndroid10\ExternalMaps.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="ExternalMaps.Plugin.Abstractions, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ExternalMaps.Plugin.Abstractions, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.2\lib\MonoAndroid10\ExternalMaps.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.4\lib\MonoAndroid10\ExternalMaps.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="FormsViewGroup">
       <HintPath>..\..\packages\Xamarin.Forms.1.3.1.6296\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
