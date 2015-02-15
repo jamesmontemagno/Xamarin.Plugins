@@ -108,21 +108,17 @@ Via a Xamarin.Forms project with a Button and Image to take a photo:
 
 
 ### **IMPORTANT**
-Android:
+**Android:**
 
 You must request `WRITE_EXTERNAL_STORAGE` permission
 
-Windows Phone 8/8.1 Silverlight:
+**Windows Phone 8/8.1 Silverlight:**
 
 You must set the `IC_CAP_ISV_CAMERA` permission.
 
-In your App.xaml.cs you MUST place the following code:
+WP 8/8.1 Silverlight only supports photo, not video.
 
-```csharp
-Media.Plugin.MediaImplementation.OnFilesPicked(args);
-```
-
-Windows Phone 8.1 RT:
+**Windows Phone 8.1 RT:**
 
 Set `Webcam` permission.
 
@@ -132,7 +128,7 @@ In your App.xaml.cs you MUST place the following code:
 Media.Plugin.MediaImplementation.OnFilesPicked(args);
 ```
 
-Windows Store:
+**Windows Store:**
 
 Set `Webcam` permission.
 
