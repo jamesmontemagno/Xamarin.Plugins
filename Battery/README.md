@@ -10,7 +10,7 @@ Simple cross platform plugin to check batterystatus of mobile device, get remain
 * Xamarin.iOS
 * Xamarin.iOS (x64 Unified)
 * Xamarin.Android
-* Windows Phone 8 (Silverlight)
+* Windows Phone 8/8.1 (Silverlight)
 * Windows Phone 8.1 RT
 
 
