@@ -25,7 +25,7 @@ namespace ImageCircle.Forms.Plugin.iOS
     protected override void OnElementChanged(ElementChangedEventArgs<Image> e)
     {
       base.OnElementChanged(e);
-      if (e.OldElement != null || Element == null)
+      if (Element == null)
         return;
       CreateCircle();
     }
