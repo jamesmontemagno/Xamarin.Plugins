@@ -127,13 +127,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.1\lib\wpa81\Connectivity.Plugin.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="ExternalMaps.Plugin, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ExternalMaps.Plugin, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.1\lib\wpa81\ExternalMaps.Plugin.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.4\lib\wpa81\ExternalMaps.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="ExternalMaps.Plugin.Abstractions, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ExternalMaps.Plugin.Abstractions, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.1\lib\wpa81\ExternalMaps.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.4\lib\wpa81\ExternalMaps.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Geolocator.Plugin">
       <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.0\lib\wpa81\Geolocator.Plugin.dll</HintPath>
