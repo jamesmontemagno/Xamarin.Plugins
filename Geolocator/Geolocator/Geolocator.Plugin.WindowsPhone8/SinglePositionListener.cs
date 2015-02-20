@@ -102,7 +102,7 @@ namespace Geolocator.Plugin
       if (e.Position.Location.IsUnknown)
         return;
 
-      bool isRecent = (e.Position.Timestamp - this.start).TotalMilliseconds < this.timeout;
+      bool isRecent = timeout == Timeout.Infinite || (e.Position.Timestamp - this.start).TotalMilliseconds < this.timeout;
 
       if (e.Position.Location.HorizontalAccuracy <= this.desiredAccuracy && isRecent)
         this.tcs.TrySetResult(GeolocatorImplementation.GetPosition(e.Position));
