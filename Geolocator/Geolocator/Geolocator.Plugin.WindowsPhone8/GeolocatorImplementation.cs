@@ -28,15 +28,19 @@ namespace Geolocator.Plugin
   /// </summary>
   public class GeolocatorImplementation : IGeolocator
   {
+    public GeolocatorImplementation()
+    {
+      DesiredAccuracy = 50;
+    }
     public event EventHandler<PositionErrorEventArgs> PositionError;
     public event EventHandler<PositionEventArgs> PositionChanged;
 
-
+    /// <inheritdoc/>
     public bool IsGeolocationAvailable
     {
       get { return true; }
     }
-
+    /// <inheritdoc/>
     public bool IsGeolocationEnabled
     {
       get
@@ -49,24 +53,24 @@ namespace Geolocator.Plugin
         return this.isEnabled;
       }
     }
-
+    /// <inheritdoc/>
     public double DesiredAccuracy
     {
       get;
       set;
     }
-
+    /// <inheritdoc/>
     public bool SupportsHeading
     {
       get { return true; }
     }
-
+    /// <inheritdoc/>
     public bool IsListening
     {
       get { return (this.watcher != null); }
     }
 
-
+    /// <inheritdoc/>
     public Task<Position> GetPositionAsync(int timeout = Timeout.Infinite, CancellationToken? cancelToken = null, bool includeHeading = false)
     {
       if (!cancelToken.HasValue)
@@ -77,7 +81,7 @@ namespace Geolocator.Plugin
 
       return new SinglePositionListener(DesiredAccuracy, timeout, cancelToken.Value).Task;
     }
-
+    /// <inheritdoc/>
     public void StartListening(int minTime, double minDistance, bool includeHeading = false)
     {
       if (minTime < 0)
@@ -93,7 +97,7 @@ namespace Geolocator.Plugin
       this.watcher.StatusChanged += WatcherOnStatusChanged;
       this.watcher.Start();
     }
-
+    /// <inheritdoc/>
     public void StopListening()
     {
       if (this.watcher == null)

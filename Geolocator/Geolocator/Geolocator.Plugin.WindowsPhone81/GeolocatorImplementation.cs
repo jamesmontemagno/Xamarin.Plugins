@@ -31,16 +31,19 @@ namespace Geolocator.Plugin
   {
     public GeolocatorImplementation()
 		{
+      DesiredAccuracy = 50;
 			this.locator.StatusChanged += OnLocatorStatusChanged;
 		}
-
+    /// <inheritdoc/>
 		public event EventHandler<PositionEventArgs> PositionChanged;
+    /// <inheritdoc/>
 		public event EventHandler<PositionErrorEventArgs> PositionError;
-
+    /// <inheritdoc/>
     public bool SupportsHeading
     {
       get { return false; }
     }
+    /// <inheritdoc/>
 		public bool IsGeolocationAvailable
 		{
 			get
@@ -56,7 +59,7 @@ namespace Geolocator.Plugin
 				return status != PositionStatus.NotAvailable;
 			}
 		}
-
+    /// <inheritdoc/>
 		public bool IsGeolocationEnabled
 		{
 			get
@@ -72,7 +75,7 @@ namespace Geolocator.Plugin
 				return status != PositionStatus.Disabled && status != PositionStatus.NotAvailable;
 			}
 		}
-
+    /// <inheritdoc/>
 		public double DesiredAccuracy
 		{
 			get { return this.desiredAccuracy; }
@@ -82,12 +85,13 @@ namespace Geolocator.Plugin
 				GetGeolocator().DesiredAccuracy = (value < 100) ? PositionAccuracy.High : PositionAccuracy.Default;
 			}
 		}
-
+    /// <inheritdoc/>
 		public bool IsListening
 		{
 			get { return this.isListening; }
 		}
-		
+
+    /// <inheritdoc/>
 		public Task<Position> GetPositionAsync (int timeout = Timeout.Infite, CancellationToken? token = null, bool includeHeading = false)
 		{
 			if (timeout < 0)
@@ -128,6 +132,7 @@ namespace Geolocator.Plugin
 
 			return tcs.Task;
 		}
+    /// <inheritdoc/>
 		public void StartListening (int minTime, double minDistance, bool includeHeading = false)
 		{
 			if (minTime < 0)
@@ -144,7 +149,7 @@ namespace Geolocator.Plugin
 			loc.ReportInterval = (uint)minTime;
 			loc.MovementThreshold = minDistance;
 		}
-
+    /// <inheritdoc/>
 		public void StopListening()
 		{
 			if (!this.isListening)
