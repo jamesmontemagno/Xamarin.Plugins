@@ -92,4 +92,4 @@ PCL:
 Thanks!
 
 #### License
-Licensed under MIT see License file
+Licensed under MIT see License file. Each plugin licensed under parent license unless stated in it's readme file.
