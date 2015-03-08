@@ -165,10 +165,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ExternalMaps.Plugin">
-      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\wp8\ExternalMaps.Plugin.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.4\lib\wp8\ExternalMaps.Plugin.dll</HintPath>
     </Reference>
     <Reference Include="ExternalMaps.Plugin.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\wp8\ExternalMaps.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.1.0.4\lib\wp8\ExternalMaps.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>

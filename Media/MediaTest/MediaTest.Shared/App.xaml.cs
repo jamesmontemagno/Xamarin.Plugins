@@ -39,6 +39,15 @@ namespace MediaTest
             this.Suspending += this.OnSuspending;
         }
 
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+#if WINDOWS_PHONE_APP
+          Media.Plugin.MediaImplementation.OnFilesPicked(args);
+#endif
+
+          base.OnActivated(args);
+        }
+
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used when the application is launched to open a specific file, to display

@@ -20,9 +20,19 @@ using System.IO;
 
 namespace Media.Plugin.Abstractions
 {
+  /// <summary>
+  /// Media file representations
+  /// </summary>
   public sealed class MediaFile
     : IDisposable
   {
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    /// <param name="path"></param>
+    /// <param name="streamGetter"></param>
+    /// <param name="deletePathOnDispose"></param>
+    /// <param name="dispose"></param>
     public MediaFile(string path, Func<Stream> streamGetter, bool deletePathOnDispose = false, Action<bool> dispose = null)
     {
       this.dispose = dispose;
@@ -30,7 +40,9 @@ namespace Media.Plugin.Abstractions
       this.path = path;
       this.deletePathOnDispose =  deletePathOnDispose;
     }
-
+    /// <summary>
+    /// Path to file
+    /// </summary>
     public string Path
     {
       get
@@ -41,7 +53,10 @@ namespace Media.Plugin.Abstractions
         return this.path;
       }
     }
-
+    /// <summary>
+    /// Get stream if available
+    /// </summary>
+    /// <returns></returns>
     public Stream GetStream()
     {
       if (this.isDisposed)
@@ -49,7 +64,9 @@ namespace Media.Plugin.Abstractions
 
       return this.streamGetter();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public void Dispose()
     {
       Dispose(true);
@@ -71,7 +88,9 @@ namespace Media.Plugin.Abstractions
       if (this.dispose != null)
         this.dispose(disposing);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     ~MediaFile()
     {
       Dispose(false);

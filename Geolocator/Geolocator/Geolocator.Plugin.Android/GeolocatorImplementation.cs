@@ -35,25 +35,26 @@ namespace Geolocator.Plugin
   {
     public GeolocatorImplementation()
     {
-
+      DesiredAccuracy = 50;
 			this.manager = (LocationManager)Android.App.Application.Context.GetSystemService (Context.LocationService);
 			this.providers = manager.GetProviders (enabledOnly: false).Where (s => s != LocationManager.PassiveProvider).ToArray();
 		}
-
+    /// <inheritdoc/>
 		public event EventHandler<PositionErrorEventArgs> PositionError;
+    /// <inheritdoc/>
 		public event EventHandler<PositionEventArgs> PositionChanged;
-
+    /// <inheritdoc/>
 		public bool IsListening
 		{
 			get { return this.listener != null; }
 		}
-
+    /// <inheritdoc/>
 		public double DesiredAccuracy
 		{
 			get;
 			set;
 		}
-
+    /// <inheritdoc/>
 		public bool SupportsHeading
 		{
 			get
@@ -81,12 +82,12 @@ namespace Geolocator.Plugin
 //					return true;
 			}
 		}
-
+    /// <inheritdoc/>
 		public bool IsGeolocationAvailable
 		{
 			get { return this.providers.Length > 0; }
 		}
-		
+    /// <inheritdoc/>
 		public bool IsGeolocationEnabled
 		{
 			get { return this.providers.Any (this.manager.IsProviderEnabled); }
@@ -97,7 +98,7 @@ namespace Geolocator.Plugin
       var res = Android.App.Application.Context.CheckCallingOrSelfPermission(permission);
       return (res == Permission.Granted);
     }
-
+    /// <inheritdoc/>
 		public Task<Position> GetPositionAsync (int timeout = Timeout.Infinite, CancellationToken? cancelToken = null, bool includeHeading = false)
 		{
 
@@ -203,7 +204,7 @@ namespace Geolocator.Plugin
 			return tcs.Task;
 		}
 
-
+    /// <inheritdoc/>
 		public void StartListening (int minTime, double minDistance, bool includeHeading = false)
 		{
 			if (minTime < 0)
@@ -221,7 +222,7 @@ namespace Geolocator.Plugin
 			for (int i = 0; i < this.providers.Length; ++i)
 				this.manager.RequestLocationUpdates (providers[i], minTime, (float)minDistance, listener, looper);
 		}
-
+    /// <inheritdoc/>
 		public void StopListening()
 		{
 			if (this.listener == null)
@@ -244,7 +245,7 @@ namespace Geolocator.Plugin
 
 		private readonly object positionSync = new object();
 		private Position lastPosition;
-
+    /// <inheritdoc/>
 		private void OnListenerPositionChanged (object sender, PositionEventArgs e)
 		{
 			if (!IsListening) // ignore anything that might come in afterwards
@@ -259,7 +260,7 @@ namespace Geolocator.Plugin
 					changed (this, e);
 			}
 		}
-		
+    /// <inheritdoc/>
 		private void OnListenerPositionError (object sender, PositionErrorEventArgs e)
 		{
 			StopListening();

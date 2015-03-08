@@ -32,7 +32,9 @@ namespace Media.Plugin.Abstractions
     {
       Path = path;
     }
-
+    /// <summary>
+    /// Path
+    /// </summary>
     public string Path
     {
       get;

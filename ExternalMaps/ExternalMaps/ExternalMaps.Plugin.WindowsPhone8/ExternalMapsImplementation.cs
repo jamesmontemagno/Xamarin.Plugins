@@ -2,6 +2,7 @@ using ExternalMaps.Plugin.Abstractions;
 using Microsoft.Phone.Tasks;
 using System;
 using System.Device.Location;
+using System.Globalization;
 
 
 namespace ExternalMaps.Plugin
@@ -28,8 +29,8 @@ namespace ExternalMaps.Plugin
       var driveOrWalk = navigationType == NavigationType.Walking ? "ms-walk-to" : "ms-drive-to";
 
       // Assemble the Uri to launch.
-      var uri = new Uri(driveOrWalk + ":?destination.latitude=" + latitude +
-          "&destination.longitude=" + longitude + "&destination.name=" + name);;
+      var uri = new Uri(driveOrWalk + ":?destination.latitude=" + latitude.ToString(CultureInfo.InvariantCulture) +
+          "&destination.longitude=" + longitude.ToString(CultureInfo.InvariantCulture) + "&destination.name=" + name);
 
       // Launch the Uri.
       var success = await Windows.System.Launcher.LaunchUriAsync(uri);

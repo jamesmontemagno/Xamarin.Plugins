@@ -123,8 +123,8 @@
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
-    <Content Include="ConnectivityReadme.txt" />
     <Content Include="DeviceInfoReadme.txt" />
+    <Content Include="PluginsHelp\ConnectivityReadme.txt" />
     <Content Include="PluginsHelp\GeolocatorReadme.txt" />
     <Content Include="Properties\_SettingsStarted.txt" />
   </ItemGroup>
@@ -148,10 +148,10 @@
       <HintPath>..\packages\Xam.Plugin.Battery.1.0.0.0\lib\win8\Battery.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Connectivity.Plugin">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.0.3\lib\win8\Connectivity.Plugin.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.1\lib\win8\Connectivity.Plugin.dll</HintPath>
     </Reference>
     <Reference Include="Connectivity.Plugin.Abstractions">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.0.3\lib\win8\Connectivity.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.1\lib\win8\Connectivity.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="DeviceInfo.Plugin">
       <HintPath>..\packages\Xam.Plugin.DeviceInfo.1.0.0.2\lib\win8\DeviceInfo.Plugin.dll</HintPath>
@@ -159,13 +159,13 @@
     <Reference Include="DeviceInfo.Plugin.Abstractions">
       <HintPath>..\packages\Xam.Plugin.DeviceInfo.1.0.0.2\lib\win8\DeviceInfo.Plugin.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="ExternalMaps.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ExternalMaps.Plugin, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\win8\ExternalMaps.Plugin.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.4\lib\win8\ExternalMaps.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="ExternalMaps.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ExternalMaps.Plugin.Abstractions, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\win8\ExternalMaps.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.4\lib\win8\ExternalMaps.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Geolocator.Plugin">
       <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.0\lib\win8\Geolocator.Plugin.dll</HintPath>

@@ -26,6 +26,11 @@ using Windows.Storage.Pickers;
 using Media.Plugin.Abstractions;
 using Windows.UI.Xaml.Controls;
 using Windows.Media.MediaProperties;
+using Windows.UI.Xaml;
+using System.Threading;
+using System.Linq;
+using Windows.ApplicationModel.Activation;
+using DMX.Helper;
 
 
 namespace Media.Plugin
@@ -35,8 +40,17 @@ namespace Media.Plugin
   /// </summary>
   public class MediaImplementation : IMedia
   {
+
+    private static TaskCompletionSource<MediaFile> completionSource;
+    private static readonly IEnumerable<string> SupportedVideoFileTypes = new List<string> { ".mp4", ".wmv", ".avi" };
+    private static readonly IEnumerable<string> SupportedImageFileTypes = new List<string> { ".jpeg", ".jpg", ".png", ".gif", ".bmp" };
+
+    /// <summary>
+    /// Implementation
+    /// </summary>
     public MediaImplementation()
     {
+
 
       this.watcher = DeviceInformation.CreateWatcher(DeviceClass.VideoCapture);
       this.watcher.Added += OnDeviceAdded;
@@ -64,7 +78,7 @@ namespace Media.Plugin
                                      this.init = null;
                                    });
     }
-
+    /// <inheritdoc/>
     public bool IsCameraAvailable
     {
       get
@@ -75,101 +89,170 @@ namespace Media.Plugin
         return this.isCameraAvailable;
       }
     }
-
-    public bool PhotosSupported
+    /// <inheritdoc/>
+    public bool IsTakePhotoSupported
+    {
+      get { return true; }
+    }
+    /// <inheritdoc/>
+    public bool IsPickPhotoSupported
+    {
+      get { return true; }
+    }
+    /// <inheritdoc/>
+    public bool IsTakeVideoSupported
+    {
+      get { return false; }
+    }
+    /// <inheritdoc/>
+    public bool IsPickVideoSupported
     {
       get { return true; }
     }
 
-    public bool VideosSupported
-    {
-      get { return false; }
-    }
-
+    /// <summary>
+    /// Take a photo async with specified options
+    /// </summary>
+    /// <param name="options">Camera Media Options</param>
+    /// <returns>Media file of photo or null if canceled</returns>
     public async Task<MediaFile> TakePhotoAsync(StoreCameraMediaOptions options)
     {
+      if (!IsCameraAvailable)
+        throw new NotSupportedException();
+
       options.VerifyOptions();
 
+      var capture = new CameraCaptureUI();
+      var result = await capture.CaptureFileAsync(CameraCaptureUIMode.Photo, options);
+      if (result == null)
+        return null;
 
-      var takePhotoManager = new MediaCapture();
-      try
-      {
-        await takePhotoManager.InitializeAsync();
+      StorageFolder folder = ApplicationData.Current.LocalFolder;
 
-     
-        var imgFormat = ImageEncodingProperties.CreateJpeg();
+      string path = options.GetFilePath(folder.Path);
+      var directoryFull = Path.GetDirectoryName(path);
+      var newFolder = directoryFull.Replace(folder.Path, string.Empty);
+      if (!string.IsNullOrWhiteSpace(newFolder))
+        await folder.CreateFolderAsync(newFolder, CreationCollisionOption.OpenIfExists);
 
+      folder = await StorageFolder.GetFolderFromPathAsync(directoryFull);
 
-        StorageFolder folder = ApplicationData.Current.LocalFolder;
+      string filename = Path.GetFileName(path);
 
-        string path = options.GetFilePath(folder.Path);
-        var directoryFull = Path.GetDirectoryName(path);
-        var newFolder = directoryFull.Replace(folder.Path, string.Empty);
-        if (!string.IsNullOrWhiteSpace(newFolder))
-          folder.CreateFolderAsync(newFolder, CreationCollisionOption.OpenIfExists);
-
-        folder = await StorageFolder.GetFolderFromPathAsync(directoryFull);
-        string filename = Path.GetFileName(path);
-      
-        // create storage file in local app storage
-        var file = await ApplicationData.Current.LocalFolder.CreateFileAsync(
-          filename,
-          CreationCollisionOption.GenerateUniqueName);
-
-        
-        await takePhotoManager.StartPreviewAsync();
-        //await takePhotoManager.CapturePhotoToStorageFileAsync(imgFormat, file);
-
-        return new MediaFile(file.Path, () => file.OpenStreamForReadAsync().Result);
-      }
-      finally
-      {
-        if(takePhotoManager != null)
-          takePhotoManager.Dispose();
-      }
+      var file = await result.CopyAsync(folder, filename, NameCollisionOption.GenerateUniqueName).AsTask();
+      return new MediaFile(file.Path, () => file.OpenStreamForReadAsync().Result);
     }
 
-    public async Task<MediaFile> PickPhotoAsync()
+    /// <summary>
+    /// Picks a photo from the default gallery
+    /// </summary>
+    /// <returns>Media file or null if canceled</returns>
+    public Task<MediaFile> PickPhotoAsync()
     {
+      var ntcs = new TaskCompletionSource<MediaFile>();
+      if (Interlocked.CompareExchange(ref completionSource, ntcs, null) != null)
+        throw new InvalidOperationException("Only one operation can be active at at time");
+
+
       var picker = new FileOpenPicker();
       picker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
       picker.ViewMode = PickerViewMode.Thumbnail;
-      picker.FileTypeFilter.Add(".bmp");
-      picker.FileTypeFilter.Add(".jpg");
-      picker.FileTypeFilter.Add(".gif");
-      picker.FileTypeFilter.Add(".png");
-
-      var result = await picker.PickSingleFileAsync();
-      if (result == null)
-        throw new TaskCanceledException();
-
-      return new MediaFile(result.Path, () => result.OpenStreamForReadAsync().Result);
+      foreach (var filter in SupportedImageFileTypes)
+        picker.FileTypeFilter.Add(filter);
+      
+      picker.PickSingleFileAndContinue();
+      return ntcs.Task;
     }
 
+    /// <summary>
+    /// Take a video with specified options
+    /// </summary>
+    /// <param name="options">Video Media Options</param>
+    /// <returns>Media file of new video or null if canceled</returns>
     public Task<MediaFile> TakeVideoAsync(StoreVideoOptions options)
     {
       throw new NotSupportedException();
     }
 
 
-    public async Task<MediaFile> PickVideoAsync()
+    /// <summary>
+    /// Picks a video from the default gallery
+    /// </summary>
+    /// <returns>Media file of video or null if canceled</returns>
+    public Task<MediaFile> PickVideoAsync()
     {
+      var ntcs = new TaskCompletionSource<MediaFile>();
+      if (Interlocked.CompareExchange(ref completionSource, ntcs, null) != null)
+        throw new InvalidOperationException("Only one operation can be active at at time");
+
       var picker = new FileOpenPicker();
       picker.SuggestedStartLocation = PickerLocationId.VideosLibrary;
       picker.ViewMode = PickerViewMode.Thumbnail;
-      picker.FileTypeFilter.Add(".mp4");
+      foreach (var filter in SupportedVideoFileTypes)
+        picker.FileTypeFilter.Add(filter);
 
-      var result = await picker.PickSingleFileAsync();
-      if (result == null)
-        throw new TaskCanceledException();
-
-      return new MediaFile(result.Path, () => result.OpenStreamForReadAsync().Result);
+      picker.PickSingleFileAndContinue();
+      return ntcs.Task;
     }
 
     private Task init;
     private readonly HashSet<string> devices = new HashSet<string>();
     private readonly DeviceWatcher watcher;
     private bool isCameraAvailable;
+
+
+    /// <summary>
+    /// OnFilesPicked
+    /// </summary>
+    /// <param name="args"></param>
+    public static void OnFilesPicked(IActivatedEventArgs args)
+    {
+      var tcs = Interlocked.Exchange(ref completionSource, null);
+
+
+      IReadOnlyList<StorageFile> files;
+      var fopArgs = args as FileOpenPickerContinuationEventArgs;
+      if (fopArgs != null)
+      {
+       
+        // Pass the picked files to the subscribed event handlers
+        // In a real world app you could also use a Messenger, Listener or any other subscriber-based model
+        if (fopArgs.Files.Any())
+        {
+          files = fopArgs.Files;
+        }
+        else
+        {
+          tcs.SetResult(null);
+          return;
+        }
+      }
+      else
+      {
+        tcs.SetResult(null);
+        return;
+
+      }
+
+
+        // Check if video or image and pick first file to show
+        var imageFile = files.FirstOrDefault(f => SupportedImageFileTypes.Contains(f.FileType.ToLower()));
+        if (imageFile != null)
+        {
+          tcs.SetResult(new MediaFile(imageFile.Path, () => imageFile.OpenStreamForReadAsync().Result));
+          return;
+        }
+
+        var videoFile = files.FirstOrDefault(f => SupportedVideoFileTypes.Contains(f.FileType.ToLower()));
+        if (videoFile != null)
+        {
+          tcs.SetResult(new MediaFile(videoFile.Path, () => videoFile.OpenStreamForReadAsync().Result));
+          return;
+        }
+
+        tcs.SetResult(null);
+
+    }
 
 
     private void OnDeviceUpdated(DeviceWatcher sender, DeviceInformationUpdate update)

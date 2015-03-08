@@ -95,10 +95,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ExternalMaps.Plugin">
-      <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\MonoTouch10\ExternalMaps.Plugin.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.4\lib\MonoTouch10\ExternalMaps.Plugin.dll</HintPath>
     </Reference>
     <Reference Include="ExternalMaps.Plugin.Abstractions">
-      <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.0.0\lib\MonoTouch10\ExternalMaps.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.4\lib\MonoTouch10\ExternalMaps.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Geolocator.Plugin">
       <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.0\lib\MonoTouch10\Geolocator.Plugin.dll</HintPath>

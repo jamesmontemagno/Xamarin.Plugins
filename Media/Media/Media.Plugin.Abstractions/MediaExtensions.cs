@@ -19,9 +19,15 @@ using System.IO;
 
 namespace Media.Plugin.Abstractions
 {
-
+  /// <summary>
+  /// 
+  /// </summary>
   public static class MediaExtensions
   {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="self"></param>
     public static void VerifyOptions(this StoreMediaOptions self)
     {
       if (self == null)
@@ -36,7 +42,12 @@ namespace Media.Plugin.Abstractions
         throw new ArgumentException("options.Directory must be a relative path", "options");
       //}
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="self"></param>
+    /// <param name="rootPath"></param>
+    /// <returns></returns>
     public static string GetFilePath(this StoreMediaOptions self, string rootPath)
     {
       bool isPhoto = !(self is StoreVideoOptions);
@@ -62,7 +73,13 @@ namespace Media.Plugin.Abstractions
 
       return Path.Combine(folder, name + ext);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="self"></param>
+    /// <param name="rootPath"></param>
+    /// <param name="checkExists"></param>
+    /// <returns></returns>
     public static string GetUniqueFilepath(this StoreMediaOptions self, string rootPath, Func<string, bool> checkExists)
     {
       string path = self.GetFilePath(rootPath);

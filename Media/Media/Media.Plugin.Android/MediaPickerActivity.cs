@@ -30,6 +30,9 @@ using Media.Plugin.Abstractions;
 
 namespace Media.Plugin
 {
+  /// <summary>
+  /// Picker
+  /// </summary>
 	[Activity]
   [Android.Runtime.Preserve(AllMembers = true)]
 	public class MediaPickerActivity
@@ -60,7 +63,10 @@ namespace Media.Plugin
 		private VideoQuality quality;
 
 		private bool tasked;
-
+    /// <summary>
+    /// OnSaved
+    /// </summary>
+    /// <param name="outState"></param>
 		protected override void OnSaveInstanceState (Bundle outState)
 		{
 			outState.PutBoolean ("ran", true);
@@ -79,6 +85,10 @@ namespace Media.Plugin
 			base.OnSaveInstanceState (outState);
 		}
 
+    /// <summary>
+    /// OnCreate
+    /// </summary>
+    /// <param name="savedInstanceState"></param>
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -205,6 +215,12 @@ namespace Media.Plugin
 			});
 		}
 
+    /// <summary>
+    /// OnActivity Result
+    /// </summary>
+    /// <param name="requestCode"></param>
+    /// <param name="resultCode"></param>
+    /// <param name="data"></param>
 		protected override void OnActivityResult (int requestCode, Result resultCode, Intent data)
 		{
 			base.OnActivityResult (requestCode, resultCode, data);
@@ -225,7 +241,7 @@ namespace Media.Plugin
 					SetResult (Result.Canceled);
 				else {
 					Intent resultData = new Intent();
-          resultData.PutExtra(MediaFileAndroid.ExtraName, (data != null) ? data.Data : null);
+          resultData.PutExtra("MediaFile", (data != null) ? data.Data : null);
 					resultData.PutExtra ("path", this.path);
 					resultData.PutExtra ("isPhoto", this.isPhoto);
 					resultData.PutExtra ("action", this.action);
@@ -453,7 +469,7 @@ namespace Media.Plugin
 			if (IsCanceled)
 				tcs.SetResult(null);
 			else if (Error != null)
-				tcs.SetException (Error);
+				tcs.SetResult(null);
 			else
 				tcs.SetResult (Media);
 

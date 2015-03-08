@@ -40,6 +40,7 @@ namespace Geolocator.Plugin
   {
     public GeolocatorImplementation()
 		{
+      DesiredAccuracy = 50;
 			this.manager = GetManager();
 			this.manager.AuthorizationChanged += OnAuthorizationChanged;
 			this.manager.Failed += OnFailed;
@@ -67,32 +68,32 @@ namespace Geolocator.Plugin
           throw new UnauthorizedAccessException("On iOS 8.0 and higher you must set either NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription in your Info.plist file to enable Authorization Requests for Location updates!");
       }
     }
-
+    /// <inheritdoc/>
 		public event EventHandler<PositionErrorEventArgs> PositionError;
-
+    /// <inheritdoc/>
 		public event EventHandler<PositionEventArgs> PositionChanged;
-
+    /// <inheritdoc/>
 		public double DesiredAccuracy
 		{
 			get;
 			set;
 		}
-
+    /// <inheritdoc/>
 		public bool IsListening
 		{
 			get { return this.isListening; }
 		}
-
+    /// <inheritdoc/>
 		public bool SupportsHeading
 		{
 			get { return CLLocationManager.HeadingAvailable; }
 		}
-
+    /// <inheritdoc/>
 		public bool IsGeolocationAvailable
 		{
 			get { return true; } // all iOS devices support at least wifi geolocation
 		}
-
+    /// <inheritdoc/>
 		public bool IsGeolocationEnabled
 		{
 			get { 
@@ -107,8 +108,8 @@ namespace Geolocator.Plugin
 			}
 		}
 
-	
 
+    /// <inheritdoc/>
 		public Task<Position> GetPositionAsync (int timeout = Timeout.Infinite, CancellationToken? cancelToken = null, bool includeHeading = false)
 		{
 			if (timeout <= 0 && timeout != Timeout.Infinite)
@@ -161,7 +162,7 @@ namespace Geolocator.Plugin
 
 			return tcs.Task;
 		}
-
+    /// <inheritdoc/>
 		public void StartListening (int minTime, double minDistance, bool includeHeading = false)
 		{
 			if (minTime < 0)
@@ -179,7 +180,7 @@ namespace Geolocator.Plugin
 			if (includeHeading && CLLocationManager.HeadingAvailable)
 				this.manager.StartUpdatingHeading ();
 		}
-
+    /// <inheritdoc/>
 		public void StopListening ()
 		{
 			if (!this.isListening)

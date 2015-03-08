@@ -33,6 +33,9 @@ namespace Media.Plugin
   [Android.Runtime.Preserve(AllMembers = true)]
   public class MediaImplementation : IMedia
   {
+    /// <summary>
+    /// Implementation
+    /// </summary>
     public MediaImplementation()
 		{
 
@@ -42,29 +45,46 @@ namespace Media.Plugin
 			if (Build.VERSION.SdkInt >= BuildVersionCodes.Gingerbread)
 				IsCameraAvailable |= context.PackageManager.HasSystemFeature (PackageManager.FeatureCameraFront);
 		}
-
+    /// <inheritdoc/>
 		public bool IsCameraAvailable
 		{
 			get;
 			private set;
 		}
-
-		public bool PhotosSupported
-		{
-			get { return true; }
-		}
-
-		public bool VideosSupported
-		{
-			get { return true; }
-		}
-
+    /// <inheritdoc/>
+    public bool IsTakePhotoSupported
+    {
+      get { return true; }
+    }
+    /// <inheritdoc/>
+    public bool IsPickPhotoSupported
+    {
+      get { return true; }
+    }
+    /// <inheritdoc/>
+    public bool IsTakeVideoSupported
+    {
+      get { return true; }
+    }
+    /// <inheritdoc/>
+    public bool IsPickVideoSupported
+    {
+      get { return true; }
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
 		public Intent GetPickPhotoUI()
 		{
 			int id = GetRequestId();
 			return CreateMediaIntent (id, "image/*", Intent.ActionPick, null, tasked: false);
 		}
-		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="options"></param>
+		/// <returns></returns>
 		public Intent GetTakePhotoUI (StoreCameraMediaOptions options)
 		{
 			if (!IsCameraAvailable)
@@ -75,13 +95,20 @@ namespace Media.Plugin
 			int id = GetRequestId();
 			return CreateMediaIntent (id, "image/*", MediaStore.ActionImageCapture, options, tasked: false);
 		}
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
 		public Intent GetPickVideoUI()
 		{
 			int id = GetRequestId();
 			return CreateMediaIntent (id, "video/*", Intent.ActionPick, null, tasked: false);
 		}
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="options"></param>
+    /// <returns></returns>
 		public Intent GetTakeVideoUI (StoreVideoOptions options)
 		{
 			if (!IsCameraAvailable)
@@ -92,11 +119,20 @@ namespace Media.Plugin
 			return CreateMediaIntent (GetRequestId(), "video/*", MediaStore.ActionVideoCapture, options, tasked: false);
 		}
 
+    /// <summary>
+    /// Picks a photo from the default gallery
+    /// </summary>
+    /// <returns>Media file or null if canceled</returns>
     public Task<Media.Plugin.Abstractions.MediaFile> PickPhotoAsync()
 		{
 			return TakeMediaAsync ("image/*", Intent.ActionPick, null);
 		}
 
+    /// <summary>
+    /// Take a photo async with specified options
+    /// </summary>
+    /// <param name="options">Camera Media Options</param>
+    /// <returns>Media file of photo or null if canceled</returns>
     public Task<Media.Plugin.Abstractions.MediaFile> TakePhotoAsync(StoreCameraMediaOptions options)
 		{
 			if (!IsCameraAvailable)
@@ -107,12 +143,21 @@ namespace Media.Plugin
 			return TakeMediaAsync ("image/*", MediaStore.ActionImageCapture, options);
 		}
 
+    /// <summary>
+    /// Picks a video from the default gallery
+    /// </summary>
+    /// <returns>Media file of video or null if canceled</returns>
     public Task<Media.Plugin.Abstractions.MediaFile> PickVideoAsync()
 		{
 			return TakeMediaAsync ("video/*", Intent.ActionPick, null);
 		}
 
-		public Task<Media.Plugin.Abstractions.MediaFile> TakeVideoAsync (StoreVideoOptions options)
+    /// <summary>
+    /// Take a video with specified options
+    /// </summary>
+    /// <param name="options">Video Media Options</param>
+    /// <returns>Media file of new video or null if canceled</returns>
+    public Task<Media.Plugin.Abstractions.MediaFile> TakeVideoAsync(StoreVideoOptions options)
 		{
 			if (!IsCameraAvailable)
 				throw new NotSupportedException();
@@ -189,7 +234,7 @@ namespace Media.Plugin
 					return;
 
         if (e.Error != null)
-          tcs.SetException(e.Error);
+          tcs.SetResult(null);
         else if (e.IsCanceled)
           tcs.SetResult(null);
         else

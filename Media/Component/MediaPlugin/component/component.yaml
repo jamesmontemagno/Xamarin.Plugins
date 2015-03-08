@@ -1,0 +1,26 @@
+%YAML 1.2
+---
+summary: Simple cross platform plugin to take photos and video or pick them from a gallery from shared code.
+getting-started: GettingStarted.md
+details: Details.md
+license: License.md
+icons: 
+  - MediaPlugin_128x128.png
+  - MediaPlugin_512x512.png
+publisher: James Montemagno
+name: Media Plugin
+id: MediaPlugin
+samples: 
+  iOS Sample: ../samples/MediaSample/MediaSample.sln
+  Android Sample: ../samples/MediaSample/MediaSample.sln
+  WindowsPhone Sample: ../samples/MediaSample/MediaSample.sln
+publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
+is_shell: true
+packages:
+  ios: Xam.Plugin.Media, Version=1.0.0
+  ios-unified: Xam.Plugin.Media, Version=1.0.0
+  android: Xam.Plugin.Media, Version=1.0.0
+  winphone-8.0: Xam.Plugin.Media, Version=1.0.0
+  winphone-8.1: Xam.Plugin.Media, Version=1.0.0
+version: 1.0.0
+...

@@ -33,9 +33,14 @@ namespace Media.Plugin
   /// </summary>
   public class MediaImplementation : IMedia
   {
+    private static readonly IEnumerable<string> SupportedVideoFileTypes = new List<string> { ".mp4", ".wmv", ".avi" };
+    private static readonly IEnumerable<string> SupportedImageFileTypes = new List<string> { ".jpeg", ".jpg", ".png", ".gif", ".bmp" };
+    /// <summary>
+    /// Implementation
+    /// </summary>
     public MediaImplementation()
     {
-
+     
       this.watcher = DeviceInformation.CreateWatcher(DeviceClass.VideoCapture);
       this.watcher.Added += OnDeviceAdded;
       this.watcher.Updated += OnDeviceUpdated;
@@ -62,7 +67,7 @@ namespace Media.Plugin
                                      this.init = null;
                                    });
     }
-
+    /// <inheritdoc/>
     public bool IsCameraAvailable
     {
       get
@@ -73,22 +78,43 @@ namespace Media.Plugin
         return this.isCameraAvailable;
       }
     }
-
-    public bool PhotosSupported
+    /// <inheritdoc/>
+    public bool IsTakePhotoSupported
+    {
+      get { return true; }
+    }
+    /// <inheritdoc/>
+    public bool IsPickPhotoSupported
+    {
+      get { return true; }
+    }
+    /// <inheritdoc/>
+    public bool IsTakeVideoSupported
+    {
+      get { return true; }
+    }
+    /// <inheritdoc/>
+    public bool IsPickVideoSupported
     {
       get { return true; }
     }
 
-    public bool VideosSupported
-    {
-      get { return true; }
-    }
-
+    /// <summary>
+    /// Take a photo async with specified options
+    /// </summary>
+    /// <param name="options">Camera Media Options</param>
+    /// <returns>Media file of photo or null if canceled</returns>
     public async Task<MediaFile> TakePhotoAsync(StoreCameraMediaOptions options)
     {
+      if (!IsCameraAvailable)
+        throw new NotSupportedException();
+
       options.VerifyOptions();
 
       var capture = new CameraCaptureUI();
+      capture.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
+      capture.PhotoSettings.MaxResolution = CameraCaptureUIMaxPhotoResolution.HighestAvailable;
+     
       var result = await capture.CaptureFileAsync(CameraCaptureUIMode.Photo);
       if (result == null)
         return null;
@@ -99,7 +125,7 @@ namespace Media.Plugin
       var directoryFull = Path.GetDirectoryName(path);
       var newFolder = directoryFull.Replace(folder.Path, string.Empty);
       if (!string.IsNullOrWhiteSpace(newFolder))
-        folder.CreateFolderAsync(newFolder, CreationCollisionOption.OpenIfExists);
+        await folder.CreateFolderAsync(newFolder, CreationCollisionOption.OpenIfExists);
 
       folder = await StorageFolder.GetFolderFromPathAsync(directoryFull);
 
@@ -109,15 +135,17 @@ namespace Media.Plugin
       return new MediaFile(file.Path, () => file.OpenStreamForReadAsync().Result);
     }
 
+    /// <summary>
+    /// Picks a photo from the default gallery
+    /// </summary>
+    /// <returns>Media file or null if canceled</returns>
     public async Task<MediaFile> PickPhotoAsync()
     {
       var picker = new FileOpenPicker();
       picker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
       picker.ViewMode = PickerViewMode.Thumbnail;
-      picker.FileTypeFilter.Add(".bmp");
-      picker.FileTypeFilter.Add(".jpg");
-      picker.FileTypeFilter.Add(".gif");
-      picker.FileTypeFilter.Add(".png");
+      foreach (var filter in SupportedImageFileTypes)
+        picker.FileTypeFilter.Add(filter);
 
       var result = await picker.PickSingleFileAsync();
       if (result == null)
@@ -126,8 +154,16 @@ namespace Media.Plugin
       return new MediaFile(result.Path, () => result.OpenStreamForReadAsync().Result);
     }
 
+    /// <summary>
+    /// Take a video with specified options
+    /// </summary>
+    /// <param name="options">Video Media Options</param>
+    /// <returns>Media file of new video or null if canceled</returns>
     public async Task<MediaFile> TakeVideoAsync(StoreVideoOptions options)
     {
+      if (!IsCameraAvailable)
+        throw new NotSupportedException();
+
       options.VerifyOptions();
 
       var capture = new CameraCaptureUI();
@@ -142,12 +178,17 @@ namespace Media.Plugin
       return new MediaFile(result.Path, () => result.OpenStreamForReadAsync().Result);
     }
 
+    /// <summary>
+    /// Picks a video from the default gallery
+    /// </summary>
+    /// <returns>Media file of video or null if canceled</returns>
     public async Task<MediaFile> PickVideoAsync()
     {
       var picker = new FileOpenPicker();
       picker.SuggestedStartLocation = PickerLocationId.VideosLibrary;
       picker.ViewMode = PickerViewMode.Thumbnail;
-      picker.FileTypeFilter.Add(".mp4");
+      foreach (var filter in SupportedVideoFileTypes)
+        picker.FileTypeFilter.Add(filter);
 
       var result = await picker.PickSingleFileAsync();
       if (result == null)
@@ -160,6 +201,7 @@ namespace Media.Plugin
     private readonly HashSet<string> devices = new HashSet<string>();
     private readonly DeviceWatcher watcher;
     private bool isCameraAvailable;
+
 
     private CameraCaptureUIMaxVideoResolution GetResolutionFromQuality(VideoQuality quality)
     {

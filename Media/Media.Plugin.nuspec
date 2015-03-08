@@ -8,8 +8,7 @@
        <owners>James Montemagno</owners>
        <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
        <projectUrl>http://github.com/jamesmontemagno/Xamarin.Plugins</projectUrl>
-     <!--Default Icon, a template can be found:  https://raw.githubusercontent.com/jamesmontemagno/Xamarin-Templates/master/Plugins-Templates/icons/plugin_icon.png-->  
-     <iconUrl>https://raw.githubusercontent.com/jamesmontemagno/Xamarin-Templates/master/Plugins-Templates/icons/plugin_icon_nuget.png</iconUrl>
+     <iconUrl>http://www.refractored.com/images/plugin_icon_media.png</iconUrl>
      
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>

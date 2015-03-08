@@ -90,8 +90,24 @@
     <Compile Include="..\Media.Plugin\CrossMedia.cs">
       <Link>CrossMedia.cs</Link>
     </Compile>
+    <Compile Include="CameraCaptureUI.xaml.cs">
+      <DependentUpon>CameraCaptureUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CameraCaptureUiPage.xaml.cs">
+      <DependentUpon>CameraCaptureUiPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MediaImplementation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="CameraCaptureUI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CameraCaptureUiPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

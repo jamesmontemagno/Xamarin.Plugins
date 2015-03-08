@@ -1,5 +1,6 @@
 using ExternalMaps.Plugin.Abstractions;
 using System;
+using System.Globalization;
 
 
 namespace ExternalMaps.Plugin
@@ -24,7 +25,7 @@ namespace ExternalMaps.Plugin
         name = string.Empty;
 
 
-      Windows.System.Launcher.LaunchUriAsync(new Uri(string.Format("bingmaps:?collection=point.{0}_{1}_{2}", latitude, longitude, name)));
+      Windows.System.Launcher.LaunchUriAsync(new Uri(string.Format("bingmaps:?collection=point.{0}_{1}_{2}", latitude.ToString(CultureInfo.InvariantCulture), longitude.ToString(CultureInfo.InvariantCulture), name)));
     }
     /// <summary>
     /// Navigate to an address
