@@ -17,7 +17,7 @@ namespace Refractored.Xam.Settings
     {
         private static IsolatedStorageFile Store
         {
-            get { return IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Domain | IsolatedStorageScope.Assembly, null, null); }
+            get { return IsolatedStorageFile.GetMachineStoreForAssembly(); }
         }
 
         private readonly object locker = new object();
@@ -190,7 +190,7 @@ namespace Refractored.Xam.Settings
                         }
                     }
 
-                    using (var stream = Store.OpenFile(key, FileMode.OpenOrCreate, FileAccess.Write))
+                    using (var stream = Store.OpenFile(key, FileMode.Create, FileAccess.Write))
                     {
                         using (var sw = new StreamWriter(stream))
                         {
