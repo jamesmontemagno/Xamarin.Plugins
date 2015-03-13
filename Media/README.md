@@ -110,7 +110,11 @@ Via a Xamarin.Forms project with a Button and Image to take a photo:
 ### **IMPORTANT**
 **Android:**
 
-You must request `WRITE_EXTERNAL_STORAGE` permission
+You must request `WRITE_EXTERNAL_STORAGE` & `CAMERA` permissions
+
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+<uses-permission android:name="android.permission.CAMERA" />
 
 **Windows Phone 8/8.1 Silverlight:**
 
