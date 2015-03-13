@@ -37,7 +37,7 @@ var v = CrossVibrate.Current;
 #### Methods
 
 ```
- CrossVibrate.Current.Vibrate(int milliseconds = 500);
+ CrossVibrate.Current.Vibration(int milliseconds = 500);
 ```
 
 Vibrate device for specified amount of time. 500 is the default and will vibrate for 500 milliseconds.
