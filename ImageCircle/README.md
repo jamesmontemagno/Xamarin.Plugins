@@ -32,6 +32,35 @@ new CircleImage
 }
 ```
 
+**XAML:**
+
+First add the xmlns namespace:
+```xml
+xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+```
+
+Then add the xaml:
+
+```xml
+<controls:CircleImage Source="{Binding Image}">
+  <controls:CircleImage.WidthRequest>
+    <OnPlatform x:TypeArguments="x:Double">
+      <OnPlatform.iOS>55</OnPlatform.iOS>
+      <OnPlatform.Android>55 </OnPlatform.Android>
+      <OnPlatform.WinPhone>75</OnPlatform.WinPhone>
+    </OnPlatform>
+   </controls:CircleImage.WidthRequest>
+<controls:CircleImage.HeightRequest>
+    <OnPlatform x:TypeArguments="x:Double">
+      <OnPlatform.iOS>55</OnPlatform.iOS>
+      <OnPlatform.Android>55</OnPlatform.Android>
+      <OnPlatform.WinPhone>75</OnPlatform.WinPhone>
+    </OnPlatform>
+   </controls:CircleImage.HeightRequest>
+</controls:CircleImage>
+```
+
+
 **Bindable Properties**
 
 You are able to set the ```BorderColor``` to a Forms.Color to display a border around your image and also ```BorderThickness``` for how thick you want it. This is supported in iOS & Android only.
