@@ -1,5 +1,7 @@
 ## Plugins for Xamarin and Windows Projects
 
+[![Join the chat at https://gitter.im/jamesmontemagno/Xamarin.Plugins](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jamesmontemagno/Xamarin.Plugins?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 See a full list of community built plugins at: https://github.com/xamarin/plugins
 
 ## What is this?
