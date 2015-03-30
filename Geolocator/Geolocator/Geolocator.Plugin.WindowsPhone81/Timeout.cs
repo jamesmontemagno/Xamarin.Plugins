@@ -25,6 +25,8 @@ namespace Geolocator.Plugin
 
     public Timeout(int timeout, Action timesup)
     {
+      if (timeout == Infite)
+        return; // nothing to do
       if (timeout < 0)
         throw new ArgumentOutOfRangeException("timeout");
       if (timesup == null)
