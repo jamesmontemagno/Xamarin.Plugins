@@ -33,8 +33,6 @@ namespace Geolocator.Plugin
       if (timesup == null)
         throw new ArgumentNullException("timesup");
       
-      this.canceller = new CancellationTokenSource();
-
       Task.Delay(TimeSpan.FromSeconds(timeout), this.canceller.Token)
           .ContinueWith(t =>
           {
@@ -48,8 +46,8 @@ namespace Geolocator.Plugin
       this.canceller.Cancel();
     }
 
-    private volatile readonly CancellationTokenSource canceller;
+    private volatile readonly CancellationTokenSource canceller = new CancellationTokenSource();
 
-    public const int Infite = -1;
+        public const int Infite = -1;
   }
 }
