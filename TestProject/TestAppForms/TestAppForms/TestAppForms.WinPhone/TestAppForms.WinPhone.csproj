@@ -173,13 +173,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Xam.Plugin.Battery.1.0.0.0\lib\wp8\Battery.Plugin.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Connectivity.Plugin, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Connectivity.Plugin, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.1\lib\wp8\Connectivity.Plugin.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.2\lib\wp8\Connectivity.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="Connectivity.Plugin.Abstractions, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Connectivity.Plugin.Abstractions, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.1\lib\wp8\Connectivity.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.2\lib\wp8\Connectivity.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Contacts.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

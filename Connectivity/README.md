@@ -61,7 +61,7 @@ Task<bool> IsReachable(string host, int msTimeout = 5000);
 **IsRemoteReachable**
 ```
 /// <summary>
-/// Tests if a remote host name is reachable
+/// Tests if a remote host name is reachable (no http:// or www.)
 /// </summary>
 /// <param name="host">Host name can be a remote IP or URL of website</param>
 /// <param name="port">Port to attempt to check is reachable.</param>

@@ -147,11 +147,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Xam.Plugin.Battery.1.0.0.0\lib\win8\Battery.Plugin.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Connectivity.Plugin">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.1\lib\win8\Connectivity.Plugin.dll</HintPath>
+    <Reference Include="Connectivity.Plugin, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.2\lib\win8\Connectivity.Plugin.dll</HintPath>
     </Reference>
-    <Reference Include="Connectivity.Plugin.Abstractions">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.1\lib\win8\Connectivity.Plugin.Abstractions.dll</HintPath>
+    <Reference Include="Connectivity.Plugin.Abstractions, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Xam.Plugin.Connectivity.1.0.2\lib\win8\Connectivity.Plugin.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="DeviceInfo.Plugin">
       <HintPath>..\packages\Xam.Plugin.DeviceInfo.1.0.0.2\lib\win8\DeviceInfo.Plugin.dll</HintPath>
