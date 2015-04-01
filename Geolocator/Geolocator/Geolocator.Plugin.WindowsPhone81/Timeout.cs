@@ -15,6 +15,7 @@
 //
 
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Geolocator.Plugin
@@ -25,42 +26,27 @@ namespace Geolocator.Plugin
 
     public Timeout(int timeout, Action timesup)
     {
+      if (timeout == Infite)
+        return; // nothing to do
       if (timeout < 0)
         throw new ArgumentOutOfRangeException("timeout");
       if (timesup == null)
         throw new ArgumentNullException("timesup");
-
-      this.timeout = TimeSpan.FromMilliseconds(timeout);
-      this.timesup = timesup;
-
-      Task.Factory.StartNew(Runner, TaskCreationOptions.LongRunning);
+      
+      Task.Delay(TimeSpan.FromMilliseconds(timeout), this.canceller.Token)
+          .ContinueWith(t =>
+          {
+              if (!t.IsCanceled)
+                  timesup();
+          });
     }
 
     public void Cancel()
     {
-      this.canceled = true;
+      this.canceller.Cancel();
     }
 
-    private readonly TimeSpan timeout;
-    private readonly Action timesup;
-    private volatile bool canceled;
-
-    private void Runner()
-    {
-      DateTime start = DateTime.Now;
-      while (!this.canceled)
-      {
-        if (DateTime.Now - start < this.timeout)
-        {
-          Task.Delay(1).Wait();
-          continue;
-        }
-
-        this.timesup();
-        return;
-      }
-    }
-
+    private volatile readonly CancellationTokenSource canceller = new CancellationTokenSource();
 
     public const int Infite = -1;
   }
