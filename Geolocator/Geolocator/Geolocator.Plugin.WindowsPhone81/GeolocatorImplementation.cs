@@ -32,7 +32,6 @@ namespace Geolocator.Plugin
     public GeolocatorImplementation()
 		{
       DesiredAccuracy = 50;
-			this.locator.StatusChanged += OnLocatorStatusChanged;
 		}
     /// <inheritdoc/>
 		public event EventHandler<PositionEventArgs> PositionChanged;
@@ -145,9 +144,10 @@ namespace Geolocator.Plugin
 			this.isListening = true;
 
 			var loc = GetGeolocator();
+      loc.ReportInterval = (uint)minTime;
+      loc.MovementThreshold = minDistance;
 			loc.PositionChanged += OnLocatorPositionChanged;
-			loc.ReportInterval = (uint)minTime;
-			loc.MovementThreshold = minDistance;
+      loc.StatusChanged += OnLocatorStatusChanged;
 		}
     /// <inheritdoc/>
 		public void StopListening()

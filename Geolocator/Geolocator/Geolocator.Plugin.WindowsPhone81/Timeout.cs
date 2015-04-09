@@ -46,7 +46,7 @@ namespace Geolocator.Plugin
       this.canceller.Cancel();
     }
 
-    private volatile readonly CancellationTokenSource canceller = new CancellationTokenSource();
+    private readonly CancellationTokenSource canceller = new CancellationTokenSource();
 
     public const int Infite = -1;
   }
