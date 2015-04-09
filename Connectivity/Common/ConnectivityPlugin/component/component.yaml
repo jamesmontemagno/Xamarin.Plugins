@@ -14,13 +14,13 @@ samples:
   iOS Sample: ../samples/ConnectivitySample.sln
   Android Sample: ../samples/ConnectivitySample.sln
   WindowsPhone Sample: ../samples/ConnectivitySample.sln
-publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
+publisher-url: https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Connectivity
 is_shell: true
 packages:
-  ios: Xam.Plugin.Connectivity, Version=1.0.1
-  ios-unified: Xam.Plugin.Connectivity, Version=1.0.1
-  android: Xam.Plugin.Connectivity, Version=1.0.1
-  winphone-8.0: Xam.Plugin.Connectivity, Version=1.0.1
-  winphone-8.1: Xam.Plugin.Connectivity, Version=1.0.1
-version: 1.0.1
+  ios: Xam.Plugin.Connectivity, Version=1.0.2
+  ios-unified: Xam.Plugin.Connectivity, Version=1.0.2
+  android: Xam.Plugin.Connectivity, Version=1.0.2
+  winphone-8.0: Xam.Plugin.Connectivity, Version=1.0.2
+  winphone-8.1: Xam.Plugin.Connectivity, Version=1.0.2
+version: 1.0.2
 ...
