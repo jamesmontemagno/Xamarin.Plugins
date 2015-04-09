@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugins.Settings</id>
-       <version>1.5.0</version>
+       <version>1.5.2</version>
        <title>Settings Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -18,6 +18,8 @@
          You can always serialize and deserialize a string out if needed.
          
          1.5.0- Final Unified Support + Ability to remove a key. Now save decimals/double correctly on Android. 
+		 1.5.1- Include Net45 implementation
+		 1.5.2- Updated Settings file
        </description>
        <summary>Cross platform settings for Windows Phone Silverlight 8/8.1, Windows Phone 8.1, Windows Store, Xamarin.Android and Xamarin.iOS with a PCL or in a base project. This is also Xamarin.Forms compatible as well!</summary>
        <tags>xamarin, pcl, xam.pcl, plugin for xamarin, plugin, settings, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios, monoandroid, monodroid, monotouch, mvvmcross</tags>
@@ -74,6 +76,13 @@
      <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.dll" target="lib\Xamarin.iOS10\Refractored.Xam.Settings.Abstractions.dll" />
      <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.xml" target="lib\Xamarin.iOS10\Refractored.Xam.Settings.Abstractions.xml" />
      <file src="core\_SettingsStarted.txt.pp" target="content\Xamarin.iOS10\Properties\_SettingsStarted.txt.pp" />
+
+     <!--Net45-->
+     <file src="..\Refractored.Xam.Settings.Net45\bin\Release\Refractored.Xam.Settings.dll" target="lib\net45\Refractored.Xam.Settings.dll" />
+     <file src="..\Refractored.Xam.Settings.Net45\bin\Release\Refractored.Xam.Settings.xml" target="lib\net45\Refractored.Xam.Settings.xml" />
+     <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.dll" target="lib\net45\Refractored.Xam.Settings.Abstractions.dll" />
+     <file src="..\Refractored.Xam.Settings.Abstractions\bin\Release\Refractored.Xam.Settings.Abstractions.xml" target="lib\net45\Refractored.Xam.Settings.Abstractions.xml" />
+     <file src="core\_SettingsStarted.txt.pp" target="content\net45\Properties\_SettingsStarted.txt.pp" />
 
 
    </files>
