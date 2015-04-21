@@ -82,7 +82,7 @@ You must enable generic type sharing in the settings. It is on by default on new
 * Windows Store 8.0+
 
 
-### Data Type Supported
+### Data Types Supported
 * Boolean
 * Int32 
 * Int64 
