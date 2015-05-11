@@ -100,19 +100,21 @@
     <Reference Include="ExternalMaps.Plugin.Abstractions">
       <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.4\lib\MonoTouch10\ExternalMaps.Plugin.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Geolocator.Plugin">
-      <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.1\lib\MonoTouch10\Geolocator.Plugin.dll</HintPath>
+    <Reference Include="Geolocator.Plugin, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.2\lib\MonoTouch10\Geolocator.Plugin.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Geolocator.Plugin.Abstractions">
-      <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.1\lib\MonoTouch10\Geolocator.Plugin.Abstractions.dll</HintPath>
+    <Reference Include="Geolocator.Plugin.Abstractions, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.2\lib\MonoTouch10\Geolocator.Plugin.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Refractored.Xam.Settings, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xam.Plugins.Settings.1.5.0\lib\MonoTouch10\Refractored.Xam.Settings.dll</HintPath>
+    <Reference Include="Refractored.Xam.Settings, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.1.5.1\lib\MonoTouch10\Refractored.Xam.Settings.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Refractored.Xam.Settings.Abstractions, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Xam.Plugins.Settings.1.5.0\lib\MonoTouch10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+    <Reference Include="Refractored.Xam.Settings.Abstractions, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.1.5.1\lib\MonoTouch10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />

@@ -14,6 +14,19 @@ namespace TestAppForms.Pages
     {
       InitializeComponent();
 
+	  CircleImage pink = null;
+		var button = new Button
+		{
+			Text = "Change Colors"
+		};
+
+		button.Clicked += (sender, args) =>
+			{
+				if (pink.BorderColor == Color.Pink)
+					pink.BorderColor = Color.Maroon;
+				else
+					pink.BorderColor = Color.Pink;
+			};
       Content = new StackLayout
       {
         VerticalOptions = LayoutOptions.Center,
@@ -21,7 +34,8 @@ namespace TestAppForms.Pages
         Padding = 10,
         Children =
         {
-              new CircleImage
+			button,
+              (pink = new CircleImage
               {
                 BorderColor = Color.Pink,
                 BorderThickness = 3,
@@ -30,7 +44,7 @@ namespace TestAppForms.Pages
                 Aspect = Aspect.AspectFill,
                 HorizontalOptions = LayoutOptions.Center,
                 Source = UriImageSource.FromUri(new Uri("http://upload.wikimedia.org/wikipedia/commons/5/55/Tamarin_portrait.JPG"))
-              },
+              }),
               new CircleImage
               {
                 BorderColor = Color.Purple,

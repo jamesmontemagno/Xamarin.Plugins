@@ -10,6 +10,7 @@ using Android.Graphics;
 using ImageCircle.Forms.Plugin.Droid;
 using System;
 using System.Diagnostics;
+using System.ComponentModel;
 
 [assembly: ExportRenderer(typeof(ImageCircle.Forms.Plugin.Abstractions.CircleImage), typeof(ImageCircleRenderer))]
 namespace ImageCircle.Forms.Plugin.Droid
@@ -17,6 +18,7 @@ namespace ImageCircle.Forms.Plugin.Droid
   /// <summary>
   /// ImageCircle Implementation
   /// </summary>
+  [Preserve]
   public class ImageCircleRenderer : ImageRenderer
   {
     /// <summary>
@@ -41,6 +43,16 @@ namespace ImageCircle.Forms.Plugin.Droid
 
       }
     }
+
+	protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+	{
+		base.OnElementPropertyChanged(sender, e);
+		if (e.PropertyName == ImageCircle.Forms.Plugin.Abstractions.CircleImage.BorderColorProperty.PropertyName ||
+		  e.PropertyName == ImageCircle.Forms.Plugin.Abstractions.CircleImage.BorderThicknessProperty.PropertyName)
+		{
+			this.Invalidate();
+		}
+	}
 
     /// <summary>
     /// 

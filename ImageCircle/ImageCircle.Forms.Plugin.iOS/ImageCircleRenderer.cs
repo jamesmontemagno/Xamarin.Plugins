@@ -5,6 +5,11 @@ using ImageCircle.Forms.Plugin.iOS;
 using Xamarin.Forms.Platform.iOS;
 using System.ComponentModel;
 using System.Diagnostics;
+#if __UNIFIED__
+using Foundation;
+#else
+using MonoTouch.Foundation;
+#endif
 
 [assembly: ExportRenderer(typeof(ImageCircle.Forms.Plugin.Abstractions.CircleImage), typeof(ImageCircleRenderer))]
 namespace ImageCircle.Forms.Plugin.iOS
@@ -12,6 +17,7 @@ namespace ImageCircle.Forms.Plugin.iOS
   /// <summary>
   /// ImageCircle Implementation
   /// </summary>
+  [Preserve]
   public class ImageCircleRenderer : ImageRenderer
   {
     /// <summary>

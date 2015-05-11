@@ -30,6 +30,8 @@ namespace TestAppForms.Droid
 			global::Refractored.Xam.TTS.Resource.String.Hello = global::TestAppForms.Droid.Resource.String.Hello;
 			global::Refractored.Xam.Vibrate.Resource.String.ApplicationName = global::TestAppForms.Droid.Resource.String.ApplicationName;
 			global::Refractored.Xam.Vibrate.Resource.String.Hello = global::TestAppForms.Droid.Resource.String.Hello;
+			global::Xamarin.Forms.Platform.Resource.String.ApplicationName = global::TestAppForms.Droid.Resource.String.ApplicationName;
+			global::Xamarin.Forms.Platform.Resource.String.Hello = global::TestAppForms.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
