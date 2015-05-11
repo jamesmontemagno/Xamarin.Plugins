@@ -33,11 +33,11 @@ namespace Contacts.Plugin
     }
 
     private AddressBook addressBook;
-    public IQueryable<Task<Contact>> Contacts
+    public IQueryable<Contact> Contacts
     {
       get 
       {
-        return (IQueryable<Task<Contact>>)AddressBook;   
+        return (IQueryable<Contact>)AddressBook;   
       }
     }
     private AddressBook AddressBook

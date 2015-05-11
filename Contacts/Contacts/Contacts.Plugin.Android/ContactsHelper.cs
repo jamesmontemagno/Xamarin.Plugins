@@ -38,7 +38,7 @@ namespace Contacts.Plugin
 {
   internal static class ContactHelper
   {
-    internal static IEnumerable<Task<Contact>> GetContacts(bool rawContacts, ContentResolver content, Resources resources)
+    internal static IEnumerable<Contact> GetContacts(bool rawContacts, ContentResolver content, Resources resources)
     {
       Uri curi = (rawContacts)
             ? ContactsContract.RawContacts.ContentUri
@@ -50,23 +50,13 @@ namespace Contacts.Plugin
         cursor = content.Query(curi, null, null, null, null);
         if (cursor == null)
           yield break;
-
-        Task.Run(()=>{
-          
-          try
-          {
-            return GetContacts(cursor, rawContacts, content, resources, 256);
-          }
-          finally
-          {
-            if (cursor != null)
-              cursor.Close();
-          }
-        });
+		foreach (Contact contact in GetContacts(cursor, rawContacts, content, resources, 256))
+          yield return contact;
       }
       finally
       {
-        
+        if (cursor != null)
+          cursor.Close();
       }
     }
 
@@ -207,6 +197,9 @@ namespace Contacts.Plugin
 
       try
       {
+		if (string.IsNullOrWhiteSpace(recordId))
+			return;
+
         c = content.Query(ContactsContract.Data.ContentUri, null, column + " = ?", new[] { recordId }, null);
         if (c == null)
           return;

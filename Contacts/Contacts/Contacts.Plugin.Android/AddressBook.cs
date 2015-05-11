@@ -29,7 +29,7 @@ using Contacts.Plugin.Abstractions;
 namespace Contacts.Plugin
 {
   public sealed class AddressBook
-    : IQueryable<Task<Contact>>
+    : IQueryable<Contact>
   {
     public AddressBook(Context context)
     {
@@ -49,7 +49,7 @@ namespace Contacts.Plugin
     }
 
 
-    public IEnumerator<Task<Contact>> GetEnumerator()
+    public IEnumerator<Contact> GetEnumerator()
     {
       return ContactHelper.GetContacts(!PreferContactAggregation, this.content, this.resources).GetEnumerator();
     }
