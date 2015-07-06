@@ -65,9 +65,10 @@ namespace ImageCircle.Forms.Plugin.Droid
     {
       try
       {
-        var radius = Math.Min(Width, Height) / 2;
-        var strokeWidth = 10;
-        radius -= strokeWidth / 2;
+
+				var radius = Math.Min(Width, Height) / 2;
+				var strokeWidth = ((ImageCircle.Forms.Plugin.Abstractions.CircleImage)Element).BorderThickness;
+				radius -= strokeWidth / 2;
 
 
         Path path = new Path();
