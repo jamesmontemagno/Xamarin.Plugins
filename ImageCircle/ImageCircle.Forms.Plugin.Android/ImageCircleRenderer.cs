@@ -18,7 +18,7 @@ namespace ImageCircle.Forms.Plugin.Droid
   /// <summary>
   /// ImageCircle Implementation
   /// </summary>
-  [Preserve]
+	[Preserve(AllMembers = true)]
   public class ImageCircleRenderer : ImageRenderer
   {
     /// <summary>

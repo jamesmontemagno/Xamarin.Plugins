@@ -17,7 +17,7 @@ namespace ImageCircle.Forms.Plugin.iOS
   /// <summary>
   /// ImageCircle Implementation
   /// </summary>
-  [Preserve]
+  [Preserve(AllMembers=true)]
   public class ImageCircleRenderer : ImageRenderer
   {
     /// <summary>
