@@ -66,6 +66,18 @@ Then add the xaml:
 You are able to set the ```BorderColor``` to a Forms.Color to display a border around your image and also ```BorderThickness``` for how thick you want it. This is supported in iOS & Android only.
 
 
+**Final Builds**
+For linking you may need to add:
+
+Android:
+
+ImageCircle.Forms.Plugin.Abstractions;ImageCircle.Forms.Plugin.Android;
+
+iOS:
+
+--linkskip=ImageCircle.Forms.Plugin.iOS --linkskip=ImageCircle.Forms.Plugin.Abstractions
+
+Android:
 
 
 #### Contributors
