@@ -38,7 +38,7 @@ namespace Media.Plugin
         internal MediaPickerController(MediaPickerDelegate mpDelegate)
         {
             base.Delegate = mpDelegate;
-            UIApplication.SharedApplication.SetStatusBarHidden = true;
+            //UIApplication.SharedApplication.SetStatusBarHidden = true;
         }
 
         public override bool PrefersStatusBarHidden()
