@@ -24,36 +24,36 @@ using Media.Plugin.Abstractions;
 
 namespace Media.Plugin
 {
-  /// <summary>
-  /// 
-  /// </summary>
-  [Android.Runtime.Preserve(AllMembers = true)]
-	public static class MediaFileExtensions
-	{
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="self"></param>
-    /// <param name="context"></param>
-    /// <returns></returns>
-		public static Task<MediaFile> GetMediaFileExtraAsync (this Intent self, Context context)
-		{
-			if (self == null)
-				throw new ArgumentNullException ("self");
-			if (context == null)
-				throw new ArgumentNullException ("context");
+    [Android.Runtime.Preserve(AllMembers = true)]
+    public static class MediaFileExtensions
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="self"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public static Task<MediaFile> GetMediaFileExtraAsync(this Intent self, Context context)
+        {
+            if (self == null)
+                throw new ArgumentNullException("self");
+            if (context == null)
+                throw new ArgumentNullException("context");
 
-			string action = self.GetStringExtra ("action");
-			if (action == null)
-				throw new ArgumentException ("Intent was not results from MediaPicker", "self");
+            string action = self.GetStringExtra("action");
+            if (action == null)
+                throw new ArgumentException("Intent was not results from MediaPicker", "self");
 
-      var uri = (Android.Net.Uri)self.GetParcelableExtra("MediaFile");		
-			bool isPhoto = self.GetBooleanExtra ("isPhoto", false);			
-			var path = (Android.Net.Uri)self.GetParcelableExtra ("path");
+            var uri = (Android.Net.Uri)self.GetParcelableExtra("MediaFile");
+            bool isPhoto = self.GetBooleanExtra("isPhoto", false);
+            var path = (Android.Net.Uri)self.GetParcelableExtra("path");
 
-			return MediaPickerActivity.GetMediaFileAsync (context, 0, action, isPhoto, ref path, uri)
-				.ContinueWith (t => t.Result.ToTask()).Unwrap();
-		}
-	}
+            return MediaPickerActivity.GetMediaFileAsync(context, 0, action, isPhoto, ref path, uri)
+                .ContinueWith(t => t.Result.ToTask()).Unwrap();
+        }
+    }
 
 }
