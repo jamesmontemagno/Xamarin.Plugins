@@ -230,7 +230,7 @@ namespace Media.Plugin
         /// <param name="requestCode"></param>
         /// <param name="resultCode"></param>
         /// <param name="data"></param>
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        protected override async void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
 
@@ -239,13 +239,19 @@ namespace Media.Plugin
                 Task<MediaPickedEventArgs> future;
 
                 if (resultCode == Result.Canceled)
+                {
                     future = TaskFromResult(new MediaPickedEventArgs(requestCode, isCanceled: true));
+
+                    Finish();
+
+                    future.ContinueWith(t => OnMediaPicked(t.Result));
+                }
                 else
-                    future = GetMediaFileAsync(this, requestCode, this.action, this.isPhoto, ref this.path, (data != null) ? data.Data : null);
-
-                Finish();
-
-                future.ContinueWith(t => OnMediaPicked(t.Result));
+                {
+                    var e = await GetMediaFileAsync(this, requestCode, this.action, this.isPhoto, ref this.path, (data != null) ? data.Data : null);
+                    OnMediaPicked(e);
+                    Finish();
+                }
             }
             else
             {
