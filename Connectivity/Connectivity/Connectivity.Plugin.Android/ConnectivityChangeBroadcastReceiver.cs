@@ -25,7 +25,47 @@ namespace Connectivity.Plugin
     /// Action to call when connetivity changes
     /// </summary>
     public static Action<ConnectivityChangedEventArgs> ConnectionChanged;
-    
+
+    private bool isConnected;
+    private ConnectivityManager connectivityManager;
+    public ConnectivityChangeBroadcastReceiver()
+    {
+        isConnected = IsConnected;
+    }
+
+    ConnectivityManager ConnectivityManager
+    {
+        get
+        {
+            connectivityManager = connectivityManager ??
+                                   (ConnectivityManager)
+                                   (Application.Context
+                                       .GetSystemService(Context.ConnectivityService));
+            return connectivityManager;
+        }
+    }
+
+    /// <summary>
+    /// Gets if there is an active internet connection
+    /// </summary>
+    bool IsConnected
+    {
+        get
+        {
+            try
+            {
+                var activeConnection = ConnectivityManager.ActiveNetworkInfo;
+
+                return ((activeConnection != null) && activeConnection.IsConnected);
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("Unable to get connected state - do you have ACCESS_NETWORK_STATE permission? - error: {0}", e);
+                return false;
+            }
+        }
+    }
+
     /// <summary>
     /// Received a notification via BR.
     /// </summary>
@@ -36,12 +76,17 @@ namespace Connectivity.Plugin
       if (intent.Action != ConnectivityManager.ConnectivityAction)
         return;
 
-      var noConnectivity = intent.GetBooleanExtra(ConnectivityManager.ExtraNoConnectivity, false);
+      var action = ConnectionChanged;
+      if (action == null)
+          return;
 
-      if (ConnectionChanged == null)
-        return;
+      var newConnection = IsConnected;
+      if (newConnection == isConnected)
+          return;
 
-      ConnectionChanged(new ConnectivityChangedEventArgs { IsConnected = !noConnectivity });
+      isConnected = newConnection;
+
+      action(new ConnectivityChangedEventArgs { IsConnected = isConnected });
     }
   }
 }
