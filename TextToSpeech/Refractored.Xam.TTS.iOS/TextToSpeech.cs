@@ -1,7 +1,9 @@
 ﻿#if __UNIFIED__
 using AVFoundation;
+using UIKit;
 #else
 using MonoTouch.AVFoundation;
+using MonoTouch.UIKit;
 #endif
 using Refractored.Xam.TTS.Abstractions;
 using System;
@@ -55,6 +57,7 @@ namespace Refractored.Xam.TTS
                       crossLocale.Value.Language :
                       AVSpeechSynthesisVoice.CurrentLanguageCode;
 
+        
       pitch = !pitch.HasValue ? 1.0f : pitch;
 
       if (!volume.HasValue)
@@ -64,8 +67,9 @@ namespace Refractored.Xam.TTS
       else if (volume < 0.0f)
         volume = 0.0f;
 
+      var divid = UIDevice.CurrentDevice.CheckSystemVersion(8, 0) ? 8.0f : 4.0f;
       if (!speakRate.HasValue)
-        speakRate = AVSpeechUtterance.MaximumSpeechRate / 4.0f; //normal speech, default is fast
+          speakRate = AVSpeechUtterance.MaximumSpeechRate / divid; //normal speech, default is fast
       else if (speakRate.Value > AVSpeechUtterance.MaximumSpeechRate)
         speakRate = AVSpeechUtterance.MaximumSpeechRate;
       else if (speakRate.Value < AVSpeechUtterance.MinimumSpeechRate)
@@ -77,6 +81,14 @@ namespace Refractored.Xam.TTS
         Console.WriteLine("Locale not found for voice: " + localCode + " is not valid using default.");
         voice = AVSpeechSynthesisVoice.FromLanguage(AVSpeechSynthesisVoice.CurrentLanguageCode);
       }
+
+      if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
+      {
+        var dummyUtterance = new AVSpeechUtterance(" ");
+        dummyUtterance.Voice = voice;
+        speechSynthesizer.SpeakUtterance(dummyUtterance);
+      }
+
       var speechUtterance = new AVSpeechUtterance(text)
       {
         Rate = speakRate.Value,
