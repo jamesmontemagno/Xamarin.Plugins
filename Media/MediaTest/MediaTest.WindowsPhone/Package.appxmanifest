@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="8328adcc-7f55-4224-bae7-5e489612688e" Publisher="CN=Motz" Version="1.0.0.0" />
+  <Identity Name="8328adcc-7f55-4224-bae7-5e489612688e" Publisher="CN=Motz" Version="1.0.1" />
   <mp:PhoneIdentity PhoneProductId="8328adcc-7f55-4224-bae7-5e489612688e" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>MediaTest.WindowsPhone</DisplayName>

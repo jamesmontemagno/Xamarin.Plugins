@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="9895e6e5-6907-4fb9-9491-f6ec1e32706b" Publisher="CN=Motz" Version="1.0.0.0" />
+  <Identity Name="9895e6e5-6907-4fb9-9491-f6ec1e32706b" Publisher="CN=Motz" Version="1.0.1" />
   <Properties>
     <DisplayName>MediaTest.Windows</DisplayName>
     <PublisherDisplayName>Motz</PublisherDisplayName>
