@@ -36,11 +36,11 @@ namespace TestApp.iOSUnified.Helpers
     {
       get
       {
-        return AppSettings.GetValueOrDefault(SettingsKey, SettingsDefault);
+        return AppSettings.GetValueOrDefault<string>(SettingsKey, SettingsDefault);
       }
       set
       {
-        AppSettings.AddOrUpdateValue(SettingsKey, value);
+        AppSettings.AddOrUpdateValue<string>(SettingsKey, value);
       }
     }
 

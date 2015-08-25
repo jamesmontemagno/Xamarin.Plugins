@@ -90,6 +90,8 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
+    <None Include="PluginsHelp\SettingsReadme.txt" />
+    <None Include="PluginsHelp\GeolocatorReadme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RootViewController.designer.cs">
@@ -106,31 +108,25 @@
     <Reference Include="ExternalMaps.Plugin.Abstractions">
       <HintPath>..\packages\Xam.Plugin.ExternalMaps.1.0.4\lib\Xamarin.iOS10\ExternalMaps.Plugin.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Geolocator.Plugin, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.2\lib\Xamarin.iOS10\Geolocator.Plugin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Geolocator.Plugin.Abstractions, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.2\lib\Xamarin.iOS10\Geolocator.Plugin.Abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Refractored.Xam.Settings, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugins.Settings.1.5.1\lib\Xamarin.iOS10\Refractored.Xam.Settings.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Refractored.Xam.Settings.Abstractions, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugins.Settings.1.5.1\lib\Xamarin.iOS10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="Refractored.Xam.Settings">
+      <HintPath>..\packages\Xam.Plugins.Settings.1.5.2\lib\Xamarin.iOS10\Refractored.Xam.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Xam.Settings.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Settings.1.5.2\lib\Xamarin.iOS10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Geolocator.Plugin">
+      <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.3-alpha3\lib\Xamarin.iOS10\Geolocator.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Geolocator.Plugin.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Geolocator.1.0.3-alpha3\lib\Xamarin.iOS10\Geolocator.Plugin.Abstractions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
-    <Content Include="PluginsHelp\GeolocatorReadme.txt" />
-    <Content Include="Properties\_SettingsStarted.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

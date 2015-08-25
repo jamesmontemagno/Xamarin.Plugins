@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.IO;
 
 namespace TestAppForms.Pages
 {
@@ -49,18 +50,17 @@ namespace TestAppForms.Pages
             DisplayAlert("Photos Not Supported", ":( Permission not granted to photos.", "OK");
             return;
           }
-          var file = await CrossMedia.Current.PickPhotoAsync();
+          Stream stream = null;
+          var file = await CrossMedia.Current.PickPhotoAsync().ConfigureAwait(true);
 
 
           if (file == null)
             return;
 
-          image.Source = ImageSource.FromStream(()=>
-            {
-              var stream = file.GetStream();
-              file.Dispose();
-              return stream;
-            }); 
+          stream = file.GetStream();
+          file.Dispose();
+
+          image.Source = ImageSource.FromStream(()=>stream); 
         };
 
       takeVideo.Clicked += async (sender, args) =>

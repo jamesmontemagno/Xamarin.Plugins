@@ -67,7 +67,7 @@ namespace TestAppForms
       var cell = new DataTemplate(typeof(ImageCell));
       cell.SetBinding(ImageCell.TextProperty, "Name");
       cell.SetBinding(ImageCell.DetailProperty, "Description");
-      cell.SetBinding(ImageCell.ImageSourceProperty, new Binding("Image"));
+	  cell.SetBinding(ImageCell.ImageSourceProperty, new Binding("Image"));
       PluginList.ItemTemplate = cell;
 
       var items = new List<PluginItem>

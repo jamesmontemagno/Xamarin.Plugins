@@ -30,6 +30,14 @@ namespace TestAppForms.iOS
     //
     public override bool FinishedLaunching(UIApplication app, NSDictionary options)
     {
+
+            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(43, 132, 211); //bar background
+            UINavigationBar.Appearance.TintColor = UIColor.White; //Tint color of button items
+            UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes()
+                {
+                    Font = UIFont.FromName("HelveticaNeue-Light", (float)20f),
+                    TextColor = UIColor.White
+                });
       Forms.Init();
       //Vibrate.Init();
       ImageCircleRenderer.Init();

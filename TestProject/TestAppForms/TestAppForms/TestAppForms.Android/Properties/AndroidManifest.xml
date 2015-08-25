@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionCode="1" android:versionName="1" package="com.refractored.testappforms">
-	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="21" />
-	<application android:label="TestAppForms" android:theme="@android:style/Theme.Holo.Light" android:icon="@drawable/ic_launcher"></application>
+	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="22" />
+	<application android:label="TestAppForms" android:theme="@android:style/Theme.Holo.Light" android:icon="@drawable/ic_launcher">
+	</application>
 	<uses-permission android:name="android.permission.VIBRATE" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />

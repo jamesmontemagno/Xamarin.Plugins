@@ -19,7 +19,7 @@ namespace TestAppForms.Pages
         locator.DesiredAccuracy = 50;
         labelGPS.Text = "Getting gps";
 
-        var position = await locator.GetPositionAsync(timeout: 10000);
+        var position = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
 
         if (position == null)
         {

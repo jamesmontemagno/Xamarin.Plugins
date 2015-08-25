@@ -4,14 +4,35 @@
              x:Class="TestAppForms.Pages.TextToSpeechPage"
              Title="Text to Speech Plugin">
   <StackLayout Padding="10" Spacing="10">
-    <Label Text="Pitch"/>
+    <Label BindingContext="{x:Reference sliderPitch}"
+          Text="{Binding Value,
+                          StringFormat='Pitch: {0:F2}'}"
+          FontAttributes="Bold"
+          FontSize="Large"
+          HorizontalOptions="Center"
+          VerticalOptions="CenterAndExpand" />
     <Slider x:Name="sliderPitch" Minimum="0" Maximum="2.0" Value="1.0"/>
-    <Label Text="Speak Rate"/>
+
+     <Label BindingContext="{x:Reference sliderRate}"
+          Text="{Binding Value,
+                          StringFormat='Speak Rate: {0:F2}'}"
+          FontAttributes="Bold"
+          FontSize="Large"
+          HorizontalOptions="Center"
+          VerticalOptions="CenterAndExpand" />
+    
     <Slider x:Name="sliderRate" Minimum="0" Maximum="2.0" Value="1.0"/>
-    <Label Text="Volume"/>
+     <Label BindingContext="{x:Reference sliderVolume}"
+          Text="{Binding Value,
+                          StringFormat='Volume: {0:F2}'}"
+          FontAttributes="Bold"
+          FontSize="Large"
+          HorizontalOptions="Center"
+          VerticalOptions="CenterAndExpand" />
+    
     <Slider x:Name="sliderVolume" Minimum="0" Maximum="1.0" Value="1.0"/>
     <Label Text="Use Defaults"/>
-    <Switch x:Name="useDefaults" IsToggled="false"/>
+    <Switch x:Name="useDefaults" IsToggled="true"/>
     <Button x:Name="languageButton" Text="Default Language"/>
     <Button x:Name="speakButton" Text="Speak"/>
   </StackLayout>

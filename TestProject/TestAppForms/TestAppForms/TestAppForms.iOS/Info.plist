@@ -29,7 +29,11 @@
 	<string>1.0</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-  <key>NSLocationWhenInUseUsageDescription</key>
-  <string>Get location!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Get location!</string>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

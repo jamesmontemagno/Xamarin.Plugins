@@ -16,6 +16,7 @@ namespace TestAppForms.Pages
     public TextToSpeechPage()
     {
       InitializeComponent();
+      sliderRate.Value = Device.OS == TargetPlatform.iOS ? .15f : 1.0f;
       speakButton.Clicked += (sender, args) =>
       {
 
