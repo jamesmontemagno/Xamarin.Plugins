@@ -375,7 +375,7 @@ namespace Media.Plugin
                     {
                         string[] proj = null;
                         if((int)Build.VERSION.SdkInt >= 22)
-                         proj = new[] { "MediaStore.MediaColumns.Data" };
+                         proj = new[] { MediaStore.MediaColumns.Data };
 
                         cursor = context.ContentResolver.Query(uri, proj, null, null, null);
                         if (cursor == null || !cursor.MoveToNext())
