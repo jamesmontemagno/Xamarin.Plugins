@@ -45,11 +45,11 @@ namespace Geolocator.Plugin.Abstractions
     /// <summary>
     /// Gets position async with specified parameters
     /// </summary>
-    /// <param name="timeout">Timeout to wait, Default Infinite</param>
+    /// <param name="timeoutMilliseconds">Timeout in milliseconds to wait, Default Infinite</param>
     /// <param name="token">Cancelation token</param>
     /// <param name="includeHeading">If you would like to include heading</param>
     /// <returns>Position</returns>
-    Task<Position> GetPositionAsync(int timeout = Timeout.Infinite, CancellationToken? token = null, bool includeHeading = false);
+    Task<Position> GetPositionAsync(int timeoutMilliseconds = Timeout.Infinite, CancellationToken? token = null, bool includeHeading = false);
 
     /// <summary>
     /// Start lisenting for changes

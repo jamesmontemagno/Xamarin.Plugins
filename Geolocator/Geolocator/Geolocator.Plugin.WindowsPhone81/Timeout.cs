@@ -29,7 +29,7 @@ namespace Geolocator.Plugin
       if (timeout == Infite)
         return; // nothing to do
       if (timeout < 0)
-        throw new ArgumentOutOfRangeException("timeout");
+          throw new ArgumentOutOfRangeException("timeoutMilliseconds");
       if (timesup == null)
         throw new ArgumentNullException("timesup");
       

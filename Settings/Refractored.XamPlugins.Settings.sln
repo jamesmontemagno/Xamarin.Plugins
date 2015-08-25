@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4900279E-8A47-4E5D-B8F0-A6DD8773F351}"
 	ProjectSection(SolutionItems) = preProject
@@ -40,8 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Settings.NU
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3E1F951A-5B27-4BB7-8D11-0150C9B427A4}"
 	ProjectSection(SolutionItems) = preProject
-		Common\core\_SettingsStarted.txt.pp = Common\core\_SettingsStarted.txt.pp
 		Common\core\Settings.cs.pp = Common\core\Settings.cs.pp
+		Common\core\SettingsReadme.txt.pp = Common\core\SettingsReadme.txt.pp
 		Common\Xam.Plugins.Settings.nuspec = Common\Xam.Plugins.Settings.nuspec
 	EndProjectSection
 EndProject

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Geolocator</id>
-       <version>1.0.2</version>
+       <version>1.0.3-alpha3</version>
        <title>Geolocator Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -18,7 +18,7 @@
         var locator = CrossGeolocator.Current;
         locator.DesiredAccuracy = 50;
 
-        var position = await locator.GetPositionAsync (timeout: 10000);
+        var position = await locator.GetPositionAsync (timeoutMilliseconds: 10000);
 
         Console.WriteLine ("Position Status: {0}", position.Timestamp);
         Console.WriteLine ("Position Latitude: {0}", position.Latitude);

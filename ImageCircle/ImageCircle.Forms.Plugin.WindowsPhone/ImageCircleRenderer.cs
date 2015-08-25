@@ -16,7 +16,10 @@ namespace ImageCircle.Forms.Plugin.WindowsPhone
     /// <summary>
     /// Used for registration with dependency service
     /// </summary>
-    public static void Init() { }
+		public async static void Init()
+		{
+			var temp = DateTime.Now;
+		}
 
     /// <summary>
     /// 

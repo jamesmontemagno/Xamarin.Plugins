@@ -71,15 +71,15 @@ namespace Geolocator.Plugin
     }
 
     /// <inheritdoc/>
-    public Task<Position> GetPositionAsync(int timeout = Timeout.Infinite, CancellationToken? cancelToken = null, bool includeHeading = false)
+    public Task<Position> GetPositionAsync(int timeoutMilliseconds = Timeout.Infinite, CancellationToken? cancelToken = null, bool includeHeading = false)
     {
       if (!cancelToken.HasValue)
         cancelToken = CancellationToken.None;
 
-      if (timeout <= 0 && timeout != Timeout.Infinite)
-        throw new ArgumentOutOfRangeException("timeout", "timeout must be greater than or equal to 0");
+      if (timeoutMilliseconds <= 0 && timeoutMilliseconds != Timeout.Infinite)
+          throw new ArgumentOutOfRangeException("timeoutMilliseconds", "timeout must be greater than or equal to 0");
 
-      return new SinglePositionListener(DesiredAccuracy, timeout, cancelToken.Value).Task;
+      return new SinglePositionListener(DesiredAccuracy, timeoutMilliseconds, cancelToken.Value).Task;
     }
     /// <inheritdoc/>
     public void StartListening(int minTime, double minDistance, bool includeHeading = false)
@@ -201,7 +201,7 @@ namespace Geolocator.Plugin
       if (!Double.IsNaN(position.Location.Speed))
         p.Speed = position.Location.Speed;
 
-      p.Timestamp = position.Timestamp;
+      p.Timestamp = position.Timestamp.ToUniversalTime();
 
       return p;
     }

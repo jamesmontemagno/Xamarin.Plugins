@@ -23,9 +23,15 @@ namespace TestAppForms.Pages
 		button.Clicked += (sender, args) =>
 			{
 				if (pink.BorderColor == Color.Pink)
+				{
+					pink.BorderThickness = 20;
 					pink.BorderColor = Color.Maroon;
+				}
 				else
+				{
+					pink.BorderThickness = 3;
 					pink.BorderColor = Color.Pink;
+				}
 			};
       Content = new StackLayout
       {
