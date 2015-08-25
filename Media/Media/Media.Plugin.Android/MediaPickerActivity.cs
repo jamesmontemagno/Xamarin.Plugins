@@ -248,9 +248,20 @@ namespace Media.Plugin
                 }
                 else
                 {
-                    var e = await GetMediaFileAsync(this, requestCode, this.action, this.isPhoto, ref this.path, (data != null) ? data.Data : null);
-                    OnMediaPicked(e);
-                    Finish();
+                    if ((int)Build.VERSION.SdkInt >= 22)
+                    {
+                        var e = await GetMediaFileAsync(this, requestCode, this.action, this.isPhoto, ref this.path, (data != null) ? data.Data : null);
+                        OnMediaPicked(e);
+                        Finish();
+                    }
+                    else
+                    {
+                        future = GetMediaFileAsync(this, requestCode, this.action, this.isPhoto, ref this.path, (data != null) ? data.Data : null);
+
+                        Finish();
+
+                        future.ContinueWith(t => OnMediaPicked(t.Result));
+                    }
                 }
             }
             else
@@ -362,7 +373,10 @@ namespace Media.Plugin
                     ICursor cursor = null;
                     try
                     {
-                        var proj = new[] { "MediaStore.MediaColumns.Data" };
+                        string[] proj = null;
+                        if((int)Build.VERSION.SdkInt >= 22)
+                         proj = new[] { "MediaStore.MediaColumns.Data" };
+
                         cursor = context.ContentResolver.Query(uri, proj, null, null, null);
                         if (cursor == null || !cursor.MoveToNext())
                             tcs.SetResult(new Tuple<string, bool>(null, false));
@@ -398,7 +412,7 @@ namespace Media.Plugin
                                 }
                             }
 
-                            tcs.SetResult(new Tuple<string, bool>(contentPath, copied));
+                            tcs.SetResult(new Tuple<string, bool>(contentPath, false));
                         }
                     }
                     finally
