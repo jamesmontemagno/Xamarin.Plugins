@@ -147,6 +147,7 @@
     </Reference>
     <Reference Include="Refractored.Xam.Settings.Abstractions">
       <HintPath>..\..\packages\Xam.Plugins.Settings.1.5.2\lib\MonoTouch10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="ImageCircle.Forms.Plugin.Abstractions">
       <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.1.1.1\lib\MonoTouch10\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
       <Private>True</Private>
@@ -166,6 +167,7 @@
     </Reference>
     <Reference Include="Refractored.Xam.TTS">
       <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.2\lib\MonoTouch10\Refractored.Xam.TTS.dll</HintPath>
+    </Reference>
     <Reference Include="Refractored.Xam.Settings, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugins.Settings.1.5.2\lib\MonoTouch10\Refractored.Xam.Settings.dll</HintPath>
       <Private>True</Private>
@@ -203,10 +205,7 @@
     </Reference>
     <Reference Include="Geolocator.Plugin.Abstractions">
       <HintPath>..\..\packages\Xam.Plugin.Geolocator.1.0.3-alpha3\lib\MonoTouch10\Geolocator.Plugin.Abstractions.dll</HintPath>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="monotouch" />
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.1.4.4.6387\lib\MonoTouch10\Xamarin.Forms.Core.dll</HintPath>
       <Private>True</Private>
@@ -228,8 +227,8 @@
     <Content Include="DeviceInfoReadme.txt" />
     <BundleResource Include="Resources\Default-568h%402x.png" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
-  <Import Project="..\..\packages\Xamarin.Forms.1.5.0.6401-pre2\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.5.0.6401-pre2\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <ItemGroup>
+    <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
     <Content Include="PluginsHelp\ConnectivityReadme.txt" />
     <Content Include="PluginsHelp\GeolocatorReadme.txt" />
     <Content Include="PluginsHelp\SettingsReadme.txt" />
