@@ -35,23 +35,11 @@ namespace Media.Plugin
     public sealed class MediaPickerController
         : UIImagePickerController
     {
+        
         internal MediaPickerController(MediaPickerDelegate mpDelegate)
         {
             base.Delegate = mpDelegate;
-            //UIApplication.SharedApplication.SetStatusBarHidden = true;
-        }
-
-        public override bool PrefersStatusBarHidden()
-        {
-            return true;
-        }
-
-
-        public override UIViewController ChildViewControllerForStatusBarHidden()
-        {
-            return null;
-        }
-
+         }
 
         /// <summary>
         /// Deleage

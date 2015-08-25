@@ -36,11 +36,13 @@ namespace Media.Plugin
     /// </summary>
     public class MediaImplementation : IMedia
     {
+        public static UIStatusBarStyle StatusBarStyle { get; set; }
         /// <summary>
         /// Implementation
         /// </summary>
         public MediaImplementation()
         {
+            StatusBarStyle = UIApplication.SharedApplication.StatusBarStyle;
             IsCameraAvailable = UIImagePickerController.IsSourceTypeAvailable(UIImagePickerControllerSourceType.Camera);
 
             var availableCameraMedia = UIImagePickerController.AvailableMediaTypes(UIImagePickerControllerSourceType.Camera) ?? new string[0];

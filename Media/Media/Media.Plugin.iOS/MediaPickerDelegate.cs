@@ -72,6 +72,7 @@ namespace Media.Plugin
 
         public override void FinishedPickingMedia(UIImagePickerController picker, NSDictionary info)
         {
+            
             MediaFile mediaFile;
             switch ((NSString)info[UIImagePickerController.MediaType])
             {
@@ -87,12 +88,32 @@ namespace Media.Plugin
                     throw new NotSupportedException();
             }
 
-            Dismiss(picker, () => this.tcs.TrySetResult(mediaFile));
+            if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone)
+            {
+                UIApplication.SharedApplication.SetStatusBarStyle(MediaImplementation.StatusBarStyle, false);
+            }
+
+            Dismiss(picker, () => 
+            {
+                
+
+                this.tcs.TrySetResult(mediaFile);
+            });
         }
 
         public override void Canceled(UIImagePickerController picker)
         {
-            Dismiss(picker, () => this.tcs.SetResult(null));
+            if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone)
+            {
+                UIApplication.SharedApplication.SetStatusBarStyle(MediaImplementation.StatusBarStyle, false);
+            }
+
+            Dismiss(picker, () => 
+            {
+                
+
+                this.tcs.SetResult(null);
+            });
         }
 
         public void DisplayPopover(bool hideFirst = false)
