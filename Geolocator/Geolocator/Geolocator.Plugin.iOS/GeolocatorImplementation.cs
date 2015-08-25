@@ -110,10 +110,10 @@ namespace Geolocator.Plugin
 
 
     /// <inheritdoc/>
-		public Task<Position> GetPositionAsync (int timeout = Timeout.Infinite, CancellationToken? cancelToken = null, bool includeHeading = false)
+        public Task<Position> GetPositionAsync(int timeoutMilliseconds = Timeout.Infinite, CancellationToken? cancelToken = null, bool includeHeading = false)
 		{
-			if (timeout <= 0 && timeout != Timeout.Infinite)
-				throw new ArgumentOutOfRangeException ("timeout", "Timeout must be positive or Timeout.Infinite");
+            if (timeoutMilliseconds <= 0 && timeoutMilliseconds != Timeout.Infinite)
+                throw new ArgumentOutOfRangeException("timeoutMilliseconds", "Timeout must be positive or Timeout.Infinite");
 
       if (!cancelToken.HasValue)
         cancelToken = CancellationToken.None; ;
@@ -124,7 +124,7 @@ namespace Geolocator.Plugin
 				var m = GetManager();
 
 				tcs = new TaskCompletionSource<Position> (m);
-				var singleListener = new GeolocationSingleUpdateDelegate (m, DesiredAccuracy, includeHeading, timeout, cancelToken.Value);
+                var singleListener = new GeolocationSingleUpdateDelegate(m, DesiredAccuracy, includeHeading, timeoutMilliseconds, cancelToken.Value);
 				m.Delegate = singleListener;
 
 				m.StartUpdatingLocation ();
@@ -250,8 +250,8 @@ namespace Geolocator.Plugin
 			if (location.Speed > -1)
 				p.Speed = location.Speed;
 
-      var dateTime = DateTime.SpecifyKind(location.Timestamp.ToDateTime(), DateTimeKind.Unspecified);
-      p.Timestamp = new DateTimeOffset (dateTime);
+            var dateTime = location.Timestamp.ToDateTime().ToUniversalTime();
+            p.Timestamp = new DateTimeOffset (dateTime);
 			
 			this.position = p;
 			

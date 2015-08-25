@@ -105,7 +105,7 @@ namespace Geolocator.Plugin
       this.position.Latitude = newLocation.Coordinate.Latitude;
       this.position.Longitude = newLocation.Coordinate.Longitude;
       this.position.Speed = newLocation.Speed;
-      this.position.Timestamp = new DateTimeOffset(newLocation.Timestamp.ToDateTime());
+      this.position.Timestamp = new DateTimeOffset(newLocation.Timestamp.ToDateTime().ToUniversalTime());
 
       this.haveLocation = true;
 
