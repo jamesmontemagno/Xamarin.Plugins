@@ -362,7 +362,8 @@ namespace Media.Plugin
                     ICursor cursor = null;
                     try
                     {
-                        cursor = context.ContentResolver.Query(uri, null, null, null, null);
+                        var proj = new[] { "MediaStore.MediaColumns.Data" };
+                        cursor = context.ContentResolver.Query(uri, proj, null, null, null);
                         if (cursor == null || !cursor.MoveToNext())
                             tcs.SetResult(new Tuple<string, bool>(null, false));
                         else
