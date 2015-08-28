@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Media</id>
-       <version>1.0.1-alpha9</version>
+       <version>1.0.1</version>
        <title>Media Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -14,6 +14,11 @@
        <description>
          Take or pick photos and videos from a cross platform API.
        </description>
+     <releaseNotes>
+       [1.0.1]
+       -Fixes issue on Android 5.1.1 photo picker
+       -Reset status bar color after photo picker
+     </releaseNotes>
        <summary>Take or pick photos and videos from a cross platform API.</summary>
        <tags>xamarin, pcl, xam.pcl, media, photo, video, plugin, plugin for xamarin, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
        <dependencies>

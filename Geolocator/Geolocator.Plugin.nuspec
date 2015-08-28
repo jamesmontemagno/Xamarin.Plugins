@@ -27,6 +27,11 @@
        </description>
        <summary>Easly access geolocation across Xamarin.iOS, Xamarin.Android and Windows. View full project page for README
        </summary>
+     <releaseNotes>
+       [1.0.3]
+       -Fix date time stamps so they are all UTC
+       -Fix for Windows where default timeout could cause eception
+     </releaseNotes>
        <tags>xamarin, geolocator, geolocation, gps, pcl, xam.pcl, plugin, plugin for xamarin, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
        <dependencies>
        </dependencies>
