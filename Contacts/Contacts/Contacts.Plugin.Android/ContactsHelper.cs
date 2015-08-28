@@ -161,7 +161,11 @@ namespace Contacts.Plugin
           map.Add(currentContact.Id, currentContact);
 
         for (; x < ids.Length; x++)
-          yield return map[ids[x]];
+        {
+            Contact tContact = null;
+            if(map.TryGetValue(ids[x], out tContact))
+                yield return tContact;
+        }
       }
       finally
       {

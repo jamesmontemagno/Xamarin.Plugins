@@ -594,8 +594,12 @@ namespace Contacts.Plugin
       Table = presult.Table;
 
       if (presult.MimeType != null)
-        this.queryBuilder.Append(String.Format("({0} = ?)", ContactsContract.DataColumns.Mimetype));
+      {
+          if (this.queryBuilder.Length > 0)
+              this.queryBuilder.Append(" AND ");
 
+          this.queryBuilder.Append(String.Format("({0} = ?)", ContactsContract.DataColumns.Mimetype));
+      }
       this.arguments.Add(presult.MimeType);
 
       return true;
@@ -611,7 +615,12 @@ namespace Contacts.Plugin
 
       TableFindResult result = this.tableFinder.Find(me);
       if (result.MimeType != null)
-        this.queryBuilder.Append(String.Format("({0} = ?)", ContactsContract.DataColumns.Mimetype));
+      {
+          if (queryBuilder.Length > 0)
+              this.queryBuilder.Append(" AND ");
+
+          this.queryBuilder.Append(String.Format("({0} = ?)", ContactsContract.DataColumns.Mimetype));
+      }
 
       this.arguments.Add(result.MimeType);
 
