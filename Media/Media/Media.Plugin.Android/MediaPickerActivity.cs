@@ -23,10 +23,14 @@ using Android.Content;
 using Android.Database;
 using Android.OS;
 using Android.Provider;
+using Java.Lang;
+using Java.Util.Regex;
 using Environment = Android.OS.Environment;
 using Path = System.IO.Path;
 using Uri = Android.Net.Uri;
 using Media.Plugin.Abstractions;
+using Exception = System.Exception;
+using String = System.String;
 
 namespace Media.Plugin
 {
@@ -195,28 +199,28 @@ namespace Media.Plugin
                 if (resultPath != null && File.Exists(t.Result.Item1))
                 {
                     var mf = new MediaFile(resultPath, () =>
-                      {
-                          return File.OpenRead(resultPath);
-                      }, deletePathOnDispose: t.Result.Item2, dispose: (dis) =>
-                      {
-                          if (t.Result.Item2)
-                          {
-                              try
-                              {
-                                  File.Delete(t.Result.Item1);
-                                  // We don't really care if this explodes for a normal IO reason.
-                              }
-                              catch (UnauthorizedAccessException)
-                              {
-                              }
-                              catch (DirectoryNotFoundException)
-                              {
-                              }
-                              catch (IOException)
-                              {
-                              }
-                          }
-                      });
+                    {
+                        return File.OpenRead(resultPath);
+                    }, deletePathOnDispose: t.Result.Item2, dispose: (dis) =>
+                    {
+                        if (t.Result.Item2)
+                        {
+                            try
+                            {
+                                File.Delete(t.Result.Item1);
+                                // We don't really care if this explodes for a normal IO reason.
+                            }
+                            catch (UnauthorizedAccessException)
+                            {
+                            }
+                            catch (DirectoryNotFoundException)
+                            {
+                            }
+                            catch (IOException)
+                            {
+                            }
+                        }
+                    });
                     return new MediaPickedEventArgs(requestCode, false, mf);
                 }
                 else
@@ -360,9 +364,45 @@ namespace Media.Plugin
             }
         }
 
+
+
+
+
+        /// <summary>
+        /// FIx uripath for 5.0.2 new Gallery Picker Error 
+        /// see https://forums.xamarin.com/discussion/43908/issue-with-xlabs-mediapicker-selectpicture-and-selectvideo
+        /// </summary>
+        /// <param name="uriPath"></param>
+        /// <returns>if result != null uri is fixed</returns>
+        private static Uri FixUri(string uriPath)
+        {
+            //remove /ACTUAL
+            if (uriPath.Contains("/ACTUAL"))
+                uriPath = uriPath.Substring(0, uriPath.IndexOf("/ACTUAL", StringComparison.Ordinal));
+
+            Java.Util.Regex.Pattern pattern = Java.Util.Regex.Pattern.Compile("(content://media/.*\\d)");
+
+            if (uriPath.Contains("content"))
+            {
+                Matcher matcher = pattern.Matcher(uriPath);
+
+                if (matcher.Find())
+                    return Uri.Parse(matcher.Group(1));
+                else
+                    throw new IllegalArgumentException("Cannot handle this URI");
+            }
+            else
+                return null;
+        }
+
         internal static Task<Tuple<string, bool>> GetFileForUriAsync(Context context, Uri uri, bool isPhoto)
         {
             var tcs = new TaskCompletionSource<Tuple<string, bool>>();
+
+            var fixedUri = FixUri(uri.Path);
+
+            if (fixedUri != null)
+                uri = fixedUri;
 
             if (uri.Scheme == "file")
                 tcs.SetResult(new Tuple<string, bool>(new System.Uri(uri.ToString()).LocalPath, false));
@@ -374,8 +414,9 @@ namespace Media.Plugin
                     try
                     {
                         string[] proj = null;
-                        if((int)Build.VERSION.SdkInt >= 22)
-                         proj = new[] { "MediaStore.MediaColumns.Data" };
+                        if ((int)Build.VERSION.SdkInt >= 22)
+                            proj = new[] { "MediaStore.MediaColumns.Data" };
+
 
                         cursor = context.ContentResolver.Query(uri, proj, null, null, null);
                         if (cursor == null || !cursor.MoveToNext())
@@ -414,6 +455,10 @@ namespace Media.Plugin
 
                             tcs.SetResult(new Tuple<string, bool>(contentPath, false));
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.Write(ex.Message);
                     }
                     finally
                     {
