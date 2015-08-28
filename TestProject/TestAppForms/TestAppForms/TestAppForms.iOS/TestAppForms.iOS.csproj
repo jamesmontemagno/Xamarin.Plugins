@@ -22,13 +22,11 @@
     <ConsolePause>false</ConsolePause>
     <MtouchLink>Full</MtouchLink>
     <MtouchDebug>True</MtouchDebug>
-    <MtouchSdkVersion>8.1</MtouchSdkVersion>
-    <MtouchExtraArgs>
-    </MtouchExtraArgs>
     <MtouchArch>i386</MtouchArch>
     <MtouchOptimizePNGs>False</MtouchOptimizePNGs>
     <MtouchI18n>
     </MtouchI18n>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -60,6 +58,8 @@
     </CodesignProvision>
     <CodesignExtraArgs>
     </CodesignExtraArgs>
+    <IpaPackageName>
+    </IpaPackageName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
