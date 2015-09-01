@@ -80,7 +80,13 @@ namespace Battery.Plugin
               var chargePlug = battery.GetIntExtra(BatteryManager.ExtraPlugged, -1);
               var usbCharge = chargePlug == (int)BatteryPlugged.Usb;
               var acCharge = chargePlug == (int)BatteryPlugged.Ac;
-              var wirelessCharge = chargePlug == (int)BatteryPlugged.Wireless;
+              bool wirelessCharge = false;
+#if __ANDROID_17__
+              if ((int)Build.VERSION.SdkInt >= 17)
+              {
+                  wirelessCharge = chargePlug == (int)BatteryPlugged.Wireless;
+              }
+#endif
 
               isCharging = (usbCharge || acCharge || wirelessCharge);
               if (isCharging)
@@ -129,8 +135,15 @@ namespace Battery.Plugin
               var chargePlug = battery.GetIntExtra(BatteryManager.ExtraPlugged, -1);
               var usbCharge = chargePlug == (int)BatteryPlugged.Usb;
               var acCharge = chargePlug == (int)BatteryPlugged.Ac;
-              var wirelessCharge = chargePlug == (int)BatteryPlugged.Wireless;
 
+              bool wirelessCharge = false;
+#if __ANDROID_17__
+        if ((int)Build.VERSION.SdkInt >= 17)
+        {
+            wirelessCharge = chargePlug == (int)BatteryPlugged.Wireless;
+        }
+#endif
+              
               isCharging = (usbCharge || acCharge || wirelessCharge);
 
               if (!isCharging)

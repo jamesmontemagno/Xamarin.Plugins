@@ -17,10 +17,10 @@ samples:
 publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
 is_shell: true
 packages:
-  ios: Xam.Plugins.TextToSpeech, Version=1.0.1
-  ios-unified: Xam.Plugins.TextToSpeech, Version=1.0.1
-  android: Xam.Plugins.TextToSpeech, Version=1.0.1
-  winphone-8.0: Xam.Plugins.TextToSpeech, Version=1.0.1
-  winphone-8.1: Xam.Plugins.TextToSpeech, Version=1.0.1
-version: 1.0.1
+  ios: Xam.Plugins.TextToSpeech, Version=1.0.2
+  ios-unified: Xam.Plugins.TextToSpeech, Version=1.0.2
+  android: Xam.Plugins.TextToSpeech, Version=1.0.2
+  winphone-8.0: Xam.Plugins.TextToSpeech, Version=1.0.2
+  winphone-8.1: Xam.Plugins.TextToSpeech, Version=1.0.2
+version: 1.0.2
 ...

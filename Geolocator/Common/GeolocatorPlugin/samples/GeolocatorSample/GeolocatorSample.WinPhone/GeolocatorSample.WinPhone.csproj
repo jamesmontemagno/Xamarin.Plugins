@@ -165,13 +165,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Geolocator.Plugin, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugin.Geolocator.1.0.1\lib\wp8\Geolocator.Plugin.dll</HintPath>
+    <Reference Include="Geolocator.Plugin, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.1.0.3\lib\wp8\Geolocator.Plugin.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Geolocator.Plugin.Abstractions, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugin.Geolocator.1.0.1\lib\wp8\Geolocator.Plugin.Abstractions.dll</HintPath>
+    <Reference Include="Geolocator.Plugin.Abstractions, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.1.0.3\lib\wp8\Geolocator.Plugin.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>

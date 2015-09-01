@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Geolocator</id>
-       <version>1.0.3</version>
+       <version>1.0.4</version>
        <title>Geolocator Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -28,7 +28,8 @@
        <summary>Easly access geolocation across Xamarin.iOS, Xamarin.Android and Windows. View full project page for README
        </summary>
      <releaseNotes>
-       [1.0.3]
+       [1.0.4]
+       -Build against Android API 15 for better compat
        -Fix date time stamps so they are all UTC
        -Fix for Windows where default timeout could cause eception
      </releaseNotes>

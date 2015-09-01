@@ -17,10 +17,10 @@ samples:
 publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
 is_shell: true
 packages:
-  ios: Xam.Plugin.Geolocator, Version=1.0.1
-  ios-unified: Xam.Plugin.Geolocator, Version=1.0.1
-  android: Xam.Plugin.Geolocator, Version=1.0.1
-  winphone-8.0: Xam.Plugin.Geolocator, Version=1.0.1
-  winphone-8.1: Xam.Plugin.Geolocator, Version=1.0.1
-version: 1.0.1
+  ios: Xam.Plugin.Geolocator, Version=1.0.3
+  ios-unified: Xam.Plugin.Geolocator, Version=1.0.3
+  android: Xam.Plugin.Geolocator, Version=1.0.3
+  winphone-8.0: Xam.Plugin.Geolocator, Version=1.0.3
+  winphone-8.1: Xam.Plugin.Geolocator, Version=1.0.3
+version: 1.0.3
 ...

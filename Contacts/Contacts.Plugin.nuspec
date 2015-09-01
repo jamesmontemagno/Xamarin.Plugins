@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Contacts</id>
-       <version>1.0.0-alpha4</version>
+       <version>1.0.0-alpha5</version>
        <title>Contacts Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -16,6 +16,10 @@
        <summary>
          Gather and query contacts across Xamarin.iOS, Xamarin.Android, and Windows Phone
        </summary>
+     <releaseNotes>
+       [1.0.0-alpha5]
+       -Build against Android API 15 for better compat
+     </releaseNotes>
        <tags>xamarin, pcl, xam.pcl, contacts, windows phone, winphone, wp8, android, xamarin.forms, ios, plugins, plugins for xamarin</tags>
        <dependencies>
        </dependencies>

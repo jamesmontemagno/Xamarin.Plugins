@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Battery</id>
-       <version>1.0.0.0</version>
+       <version>1.0.1</version>
        <title>Battery Status Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -16,7 +16,11 @@
          Ability to gather current battery level, charging status, and charging type.
        </description>
        <summary>Get battery level, charging status, and events on battery change.</summary>
-       <tags>xamarin, pcl, xam.pcl, battery, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
+     <releaseNotes>
+       [1.0.1]
+       -Build against API 17 for better compat
+     </releaseNotes>
+     <tags>xamarin, pcl, xam.pcl, battery, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
        <dependencies>
        </dependencies>
    </metadata>

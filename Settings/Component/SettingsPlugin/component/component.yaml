@@ -17,10 +17,10 @@ samples:
 publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
 is_shell: true
 packages:
-  ios: Xam.Plugins.Settings, Version=1.5.0
-  ios-unified: Xam.Plugins.Settings, Version=1.5.0
-  android: Xam.Plugins.Settings, Version=1.5.0
-  winphone-8.0: Xam.Plugins.Settings, Version=1.5.0
-  winphone-8.1: Xam.Plugins.Settings, Version=1.5.0
-version: 1.5.0
+  ios: Xam.Plugins.Settings, Version=1.5.2
+  ios-unified: Xam.Plugins.Settings, Version=1.5.2
+  android: Xam.Plugins.Settings, Version=1.5.2
+  winphone-8.0: Xam.Plugins.Settings, Version=1.5.2
+  winphone-8.1: Xam.Plugins.Settings, Version=1.5.2
+version: 1.5.2
 ...

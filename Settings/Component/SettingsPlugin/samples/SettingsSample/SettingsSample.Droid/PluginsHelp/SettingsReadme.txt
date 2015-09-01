@@ -7,7 +7,7 @@ If you are installing this in a normal project and not using a pcl create a new 
 using Refractored.Xam.Settings;
 using Refractored.Xam.Settings.Abstractions;
 
-namespace SettingsSample.iOS.Helpers
+namespace SettingsSample.Droid.Helpers
 {
   /// <summary>
   /// This is the Settings static class that can be used in your Core solution or in any
@@ -36,11 +36,11 @@ namespace SettingsSample.iOS.Helpers
     {
       get
       {
-        return AppSettings.GetValueOrDefault(SettingsKey, SettingsDefault);
+        return AppSettings.GetValueOrDefault<string>(SettingsKey, SettingsDefault);
       }
       set
       {
-        AppSettings.AddOrUpdateValue(SettingsKey, value);
+        AppSettings.AddOrUpdateValue<string>(SettingsKey, value);
       }
     }
 

@@ -1,21 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Vibrate.Abstractions", "Refractored.Xam.Vibrate.Abstractions\Refractored.Xam.Vibrate.Abstractions.csproj", "{E0A73AEB-607F-443E-9529-4173FE690A16}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Forms", "Forms", "{14491004-EEA0-4AC8-AB07-B561F5ECA1B3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Forms.Vibrate.WinPhone", "Refractored.Xam.Forms.Vibrate.WinPhone\Refractored.Xam.Forms.Vibrate.WinPhone.csproj", "{9577DA7B-5D02-4954-95E1-10D8971B211F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Forms.Vibrate.Android", "Refractored.Xam.Forms.Vibrate.Android\Refractored.Xam.Forms.Vibrate.Android.csproj", "{42037341-40B3-4CE0-8837-A52FFA8FC017}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Forms.Vibrate.iOS", "Refractored.Xam.Forms.Vibrate.iOS\Refractored.Xam.Forms.Vibrate.iOS.csproj", "{B93028F3-6167-41AD-BDD1-75047FF2D6AD}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{A3A9DD8D-9E91-47BD-8ADD-E950BC0EE506}"
 	ProjectSection(SolutionItems) = preProject
-		Common\Xam.Plugins.Forms.Vibrate.nuspec = Common\Xam.Plugins.Forms.Vibrate.nuspec
 		Common\Xam.Plugins.Vibrate.nuspec = Common\Xam.Plugins.Vibrate.nuspec
 	EndProjectSection
 EndProject
@@ -34,8 +25,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Vibrate.Android", "Refractored.Xam.Vibrate.Android\Refractored.Xam.Vibrate.Android.csproj", "{3C98C724-1797-4991-9AF2-969A337465DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Vibrate.WinStore", "Refractored.Xam.Vibrate.WinStore\Refractored.Xam.Vibrate.WinStore.csproj", "{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Forms.Vibrate.iOSUnified", "Refractored.Xam.Forms.Vibrate.iOSUnified\Refractored.Xam.Forms.Vibrate.iOSUnified.csproj", "{043E831D-3E25-4AA7-9419-36EF34596D21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,40 +48,6 @@ Global
 		{E0A73AEB-607F-443E-9529-4173FE690A16}.Release|ARM.ActiveCfg = Release|Any CPU
 		{E0A73AEB-607F-443E-9529-4173FE690A16}.Release|x64.ActiveCfg = Release|Any CPU
 		{E0A73AEB-607F-443E-9529-4173FE690A16}.Release|x86.ActiveCfg = Release|Any CPU
-		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Debug|ARM.ActiveCfg = Debug|ARM
-		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Debug|ARM.Build.0 = Debug|ARM
-		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Debug|x86.ActiveCfg = Debug|x86
-		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Debug|x86.Build.0 = Debug|x86
-		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Release|ARM.ActiveCfg = Release|ARM
-		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Release|ARM.Build.0 = Release|ARM
-		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Release|x64.ActiveCfg = Release|Any CPU
-		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Release|x86.ActiveCfg = Release|x86
-		{9577DA7B-5D02-4954-95E1-10D8971B211F}.Release|x86.Build.0 = Release|x86
-		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Release|Any CPU.Build.0 = Release|Any CPU
-		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Release|ARM.ActiveCfg = Release|Any CPU
-		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Release|x64.ActiveCfg = Release|Any CPU
-		{42037341-40B3-4CE0-8837-A52FFA8FC017}.Release|x86.ActiveCfg = Release|Any CPU
-		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Release|ARM.ActiveCfg = Release|Any CPU
-		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Release|x64.ActiveCfg = Release|Any CPU
-		{B93028F3-6167-41AD-BDD1-75047FF2D6AD}.Release|x86.ActiveCfg = Release|Any CPU
 		{B79FF39A-5930-4F5C-9138-FD081D438D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B79FF39A-5930-4F5C-9138-FD081D438D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B79FF39A-5930-4F5C-9138-FD081D438D28}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -177,24 +132,11 @@ Global
 		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Release|x64.Build.0 = Release|x64
 		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Release|x86.ActiveCfg = Release|x86
 		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Release|x86.Build.0 = Release|x86
-		{043E831D-3E25-4AA7-9419-36EF34596D21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{043E831D-3E25-4AA7-9419-36EF34596D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{043E831D-3E25-4AA7-9419-36EF34596D21}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{043E831D-3E25-4AA7-9419-36EF34596D21}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{043E831D-3E25-4AA7-9419-36EF34596D21}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{043E831D-3E25-4AA7-9419-36EF34596D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{043E831D-3E25-4AA7-9419-36EF34596D21}.Release|Any CPU.Build.0 = Release|Any CPU
-		{043E831D-3E25-4AA7-9419-36EF34596D21}.Release|ARM.ActiveCfg = Release|Any CPU
-		{043E831D-3E25-4AA7-9419-36EF34596D21}.Release|x64.ActiveCfg = Release|Any CPU
-		{043E831D-3E25-4AA7-9419-36EF34596D21}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9577DA7B-5D02-4954-95E1-10D8971B211F} = {14491004-EEA0-4AC8-AB07-B561F5ECA1B3}
-		{42037341-40B3-4CE0-8837-A52FFA8FC017} = {14491004-EEA0-4AC8-AB07-B561F5ECA1B3}
-		{B93028F3-6167-41AD-BDD1-75047FF2D6AD} = {14491004-EEA0-4AC8-AB07-B561F5ECA1B3}
 		{B79FF39A-5930-4F5C-9138-FD081D438D28} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
 		{A6B81057-0668-4931-A605-84F7AC1CA937} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
 		{E88F2DC0-AFCB-4D34-8F5D-E0B6BA54282B} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
@@ -202,6 +144,5 @@ Global
 		{E018DEDF-8FB8-4D46-A04B-97C9447965F5} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
 		{3C98C724-1797-4991-9AF2-969A337465DE} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
 		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
-		{043E831D-3E25-4AA7-9419-36EF34596D21} = {14491004-EEA0-4AC8-AB07-B561F5ECA1B3}
 	EndGlobalSection
 EndGlobal

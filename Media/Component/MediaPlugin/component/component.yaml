@@ -17,10 +17,10 @@ samples:
 publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
 is_shell: true
 packages:
-  ios: Xam.Plugin.Media, Version=1.0.0
-  ios-unified: Xam.Plugin.Media, Version=1.0.0
-  android: Xam.Plugin.Media, Version=1.0.0
-  winphone-8.0: Xam.Plugin.Media, Version=1.0.0
-  winphone-8.1: Xam.Plugin.Media, Version=1.0.0
-version: 1.0.0
+  ios: Xam.Plugin.Media, Version=1.0.1
+  ios-unified: Xam.Plugin.Media, Version=1.0.1
+  android: Xam.Plugin.Media, Version=1.0.1
+  winphone-8.0: Xam.Plugin.Media, Version=1.0.1
+  winphone-8.1: Xam.Plugin.Media, Version=1.0.1
+version: 1.0.1
 ...

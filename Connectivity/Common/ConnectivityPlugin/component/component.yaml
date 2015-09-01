@@ -17,10 +17,10 @@ samples:
 publisher-url: https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Connectivity
 is_shell: true
 packages:
-  ios: Xam.Plugin.Connectivity, Version=1.0.2
-  ios-unified: Xam.Plugin.Connectivity, Version=1.0.2
-  android: Xam.Plugin.Connectivity, Version=1.0.2
-  winphone-8.0: Xam.Plugin.Connectivity, Version=1.0.2
-  winphone-8.1: Xam.Plugin.Connectivity, Version=1.0.2
-version: 1.0.2
+  ios: Xam.Plugin.Connectivity, Version=1.0.3
+  ios-unified: Xam.Plugin.Connectivity, Version=1.0.3
+  android: Xam.Plugin.Connectivity, Version=1.0.3
+  winphone-8.0: Xam.Plugin.Connectivity, Version=1.0.3
+  winphone-8.1: Xam.Plugin.Connectivity, Version=1.0.3
+version: 1.0.3
 ...

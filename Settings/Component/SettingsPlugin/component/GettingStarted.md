@@ -46,14 +46,14 @@ Now it is time to setup your actual setting that can be accessed from **ANY** pr
 ```
 public static string UserName
 {
-  get { return AppSettings.GetValueOrDefault(UserNameKey, UserNameDefault); }
-  set { AppSettings.AddOrUpdateValue(UserNameKey, value); }
+  get { return AppSettings.GetValueOrDefault<string>(UserNameKey, UserNameDefault); }
+  set { AppSettings.AddOrUpdateValue<string>(UserNameKey, value); }
 }
 
 public static int SomeInt
 {
-  get { return AppSettings.GetValueOrDefault(SomeIntKey, SomeIntDefault); }
-  set { AppSettings.AddOrUpdateValue(SomeIntKey, value); }
+  get { return AppSettings.GetValueOrDefault<int>(SomeIntKey, SomeIntDefault); }
+  set { AppSettings.AddOrUpdateValue<int>(SomeIntKey, value); }
 }
 ```
 

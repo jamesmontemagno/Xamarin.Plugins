@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugins.Vibrate</id>
-       <version>1.0.0.6</version>
+       <version>1.0.1</version>
        <title>Vibrate Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -13,6 +13,11 @@
          Xamarin and Windows plugin to vibrate your devices. 
          Read the full documenation on the projects page.
        </description>
+     <releaseNotes>
+       [1.0.1]
+       -Build against Android API 15 for better compat
+       -Fix bug in Android API less than 11
+     </releaseNotes>
        <summary>
          Xamarin and Windows plugin to vibrate your device.
        </summary>

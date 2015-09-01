@@ -105,10 +105,21 @@ namespace Refractored.Xam.TTS
     {
       //disable warning because we are checking ahead of time.
 #pragma warning disable 0618
+        if ((int)Build.VERSION.SdkInt >= 18)
+        {
+#if __ANDROID_18__
+        
       if (textToSpeech.DefaultLanguage == null && textToSpeech.Language != null)
         textToSpeech.SetLanguage(textToSpeech.Language);
       else if (textToSpeech.DefaultLanguage != null)
         textToSpeech.SetLanguage(textToSpeech.DefaultLanguage);
+#endif
+        }
+        else
+        {
+            if(textToSpeech.Language != null)
+                textToSpeech.SetLanguage(textToSpeech.Language);
+        }
 #pragma warning restore 0618
     }
 
@@ -229,9 +240,13 @@ namespace Refractored.Xam.TTS
     /// <returns></returns>
     private IEnumerable<CrossLocale> GetInstalledLanguagesLollipop()
     {
+        if ((int)Build.VERSION.SdkInt < 21)
+            return new List<CrossLocale>();
+
+#if __ANDROID_21__
       return textToSpeech.AvailableLanguages
         .Select(a => new CrossLocale { Country = a.Country, Language = a.Language, DisplayName = a.DisplayName });
-
+#endif
     }
 
     void IDisposable.Dispose()

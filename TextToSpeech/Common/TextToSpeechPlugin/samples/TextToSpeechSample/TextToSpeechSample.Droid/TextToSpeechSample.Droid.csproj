@@ -63,13 +63,13 @@
     </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
-    <Reference Include="Refractored.Xam.TTS, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.1\lib\MonoAndroid10\Refractored.Xam.TTS.dll</HintPath>
+    <Reference Include="Refractored.Xam.TTS, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.2\lib\MonoAndroid10\Refractored.Xam.TTS.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Refractored.Xam.TTS.Abstractions, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.1\lib\MonoAndroid10\Refractored.Xam.TTS.Abstractions.dll</HintPath>
+    <Reference Include="Refractored.Xam.TTS.Abstractions, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.TextToSpeech.1.0.2\lib\MonoAndroid10\Refractored.Xam.TTS.Abstractions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

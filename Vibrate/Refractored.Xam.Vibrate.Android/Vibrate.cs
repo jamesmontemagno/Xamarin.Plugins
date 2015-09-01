@@ -19,12 +19,16 @@ namespace Refractored.Xam.Vibrate
     {
       using (var v = (Vibrator)Android.App.Application.Context.GetSystemService(Context.VibratorService))
       {
-
-        if (!v.HasVibrator)
-        {
-          Console.WriteLine("Android device does not have vibrator.");
-          return;
-        }
+          if ((int)Build.VERSION.SdkInt >= 11)
+          {
+#if __ANDROID_11__
+            if (!v.HasVibrator)
+            {
+              Console.WriteLine("Android device does not have vibrator.");
+              return;
+            }
+#endif
+          }
 
         if (milliseconds < 0)
           milliseconds = 0;
