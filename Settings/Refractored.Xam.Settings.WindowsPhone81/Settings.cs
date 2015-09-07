@@ -61,7 +61,7 @@ namespace Refractored.Xam.Settings
           if (ticks == -1)
             value = defaultValue;
           else
-            value = new DateTime(ticks);
+            value = new DateTime(ticks, DateTimeKind.Utc);
 
           return null != value ? (T)value : defaultValue;
         }
@@ -122,7 +122,7 @@ namespace Refractored.Xam.Settings
         }
         else if (value is DateTime)
         {
-          return AddOrUpdateValue(key, Convert.ToString((Convert.ToDateTime(value)).Ticks, System.Globalization.CultureInfo.InvariantCulture));
+          return AddOrUpdateValue(key, Convert.ToString((Convert.ToDateTime(value)).ToUniversalTime().Ticks, System.Globalization.CultureInfo.InvariantCulture));
         }
 
 

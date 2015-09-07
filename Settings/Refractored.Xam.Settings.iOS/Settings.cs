@@ -80,7 +80,7 @@ namespace Refractored.Xam.Settings
             if (ticks == -1)
               value = defaultValue;
             else
-              value = new DateTime(ticks);
+              value = new DateTime(ticks, DateTimeKind.Utc);
             break;
           default:
 
@@ -176,7 +176,7 @@ namespace Refractored.Xam.Settings
             defaults.SetFloat(Convert.ToSingle(value, System.Globalization.CultureInfo.InvariantCulture), key);
             break;
           case TypeCode.DateTime:
-            defaults.SetString(Convert.ToString((Convert.ToDateTime(value)).Ticks), key);
+            defaults.SetString(Convert.ToString((Convert.ToDateTime(value)).ToUniversalTime().Ticks), key);
             break;
           default:
             if (value is Guid)
