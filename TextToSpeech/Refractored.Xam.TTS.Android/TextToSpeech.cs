@@ -105,14 +105,15 @@ namespace Refractored.Xam.TTS
     {
       //disable warning because we are checking ahead of time.
 #pragma warning disable 0618
-        if ((int)Build.VERSION.SdkInt >= 18)
+        var sdk = (int)global::Android.OS.Build.VERSION.SdkInt;
+        if (sdk >= 18)
         {
 #if __ANDROID_18__
         
-      if (textToSpeech.DefaultLanguage == null && textToSpeech.Language != null)
-        textToSpeech.SetLanguage(textToSpeech.Language);
-      else if (textToSpeech.DefaultLanguage != null)
-        textToSpeech.SetLanguage(textToSpeech.DefaultLanguage);
+          if (textToSpeech.DefaultLanguage == null && textToSpeech.Language != null)
+            textToSpeech.SetLanguage(textToSpeech.Language);
+          else if (textToSpeech.DefaultLanguage != null)
+            textToSpeech.SetLanguage(textToSpeech.DefaultLanguage);
 #endif
         }
         else
@@ -240,7 +241,8 @@ namespace Refractored.Xam.TTS
     /// <returns></returns>
     private IEnumerable<CrossLocale> GetInstalledLanguagesLollipop()
     {
-        if ((int)Build.VERSION.SdkInt < 21)
+        var sdk = (int)global::Android.OS.Build.VERSION.SdkInt;
+        if (sdk < 21)
             return new List<CrossLocale>();
 
 #if __ANDROID_21__

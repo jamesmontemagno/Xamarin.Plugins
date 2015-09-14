@@ -9,7 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
 using Xamarin.Forms;
-using ImageCircle.Forms.Plugin.WindowsPhone;
+//using ImageCircle.Forms.Plugin.WindowsPhone;
 //using Refractored.Xam.Forms.Vibrate.WinPhone;
 
 
@@ -23,7 +23,7 @@ namespace TestAppForms.WinPhone
 
       Forms.Init();
       //Vibrate.Init();
-      ImageCircleRenderer.Init();
+      //ImageCircleRenderer.Init();
       Content = TestAppForms.App.GetMainPage().ConvertPageToUIElement(this);
     }
   }

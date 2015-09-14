@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugins.TextToSpeech</id>
-       <version>1.0.3</version>
+       <version>1.0.4-alpha1</version>
        <title>Text to Speech Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -14,7 +14,7 @@
           Cross platform Text to Speech for Xamarin and Windows.
        </summary>
      <releaseNotes>
-       [1.0.3]
+       [1.0.4]
        -Fixed Android backwards compat on pre-21 and 18 devices
      </releaseNotes>
        <description>
