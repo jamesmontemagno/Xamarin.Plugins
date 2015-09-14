@@ -11,11 +11,13 @@ using Xamarin.Forms.Platform.Android;
 //using Refractored.Xam.Forms.Vibrate.Droid;
 using Refractored.Xam.TTS;
 using ImageCircle.Forms.Plugin.Droid;
+using Android.Graphics.Drawables;
 
 namespace TestAppForms.Droid
 {
-  [Activity(Label = "Plugins for Xamarin", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-  public class MainActivity : AndroidActivity
+    [Activity(Label = "Plugins for Xamarin", MainLauncher = true,
+        ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+  public class MainActivity : FormsApplicationActivity
   {
     protected override void OnCreate(Bundle bundle)
     {
@@ -25,7 +27,15 @@ namespace TestAppForms.Droid
       //Vibrate.Init();
       CrossTextToSpeech.Current.Init();
       ImageCircleRenderer.Init();
-      SetPage(App.GetMainPage());
+            Xamarin.Insights.Initialize(TestAppForms.Helpers.Settings.InsightsKey, this);
+            Xamarin.Insights.ForceDataTransmission = true;
+            LoadApplication(new App2());
+
+            if ((int)Android.OS.Build.VERSION.SdkInt >= 21)
+            {
+                ActionBar.SetIcon(
+                    new ColorDrawable(Resources.GetColor(Android.Resource.Color.Transparent)));
+            }
     }
   }
 }

@@ -57,6 +57,12 @@ namespace TestAppForms
             case "Vibrate":
               Navigation.PushAsync(new VibratePage());
               break;
+                        case "Learn more":
+                            Device.OpenUri(new Uri("http://github.com/xamarin/plugins"));
+                            break;
+                        case "James on Twitter":
+                            Device.OpenUri(new Uri("http://mobile.twitter.com/jamesmontemagno"));
+                            break;
           }
 
           PluginList.SelectedItem = null;
@@ -149,6 +155,20 @@ namespace TestAppForms
           Image = "http://www.refractored.com/images/vibrate_icon_large.png",
           Description ="Vibrate the device easily.",
           Id = count++
+        },
+        new PluginItem
+        {
+            Name = "Learn more",
+                        Image = "https://raw.githubusercontent.com/jamesmontemagno/Xamarin-Templates/master/Plugins-Templates/icons/plugin_icon.png",
+            Description ="github.com/xamarin/plugins",
+            Id = count++
+        },
+        new PluginItem
+        {
+            Name = "James on Twitter",
+                        Image = "https://s.gravatar.com/avatar/5df4d86308e585c879c19e5f909d8bfe?s=80",
+            Description ="@JamesMontemagno",
+            Id = count++
         },
 
       };

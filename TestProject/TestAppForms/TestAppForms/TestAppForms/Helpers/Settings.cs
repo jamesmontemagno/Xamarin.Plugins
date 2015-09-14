@@ -27,6 +27,11 @@ namespace TestAppForms.Helpers
     #endregion
 
 
+        public static string InsightsKey
+        {
+            get { return "0d146df0686f2586838e7071e5916b5cd6e63a95"; }
+        }
+
     public static string GeneralSettings
     {
       get
