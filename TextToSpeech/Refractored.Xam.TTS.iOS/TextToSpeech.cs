@@ -67,7 +67,14 @@ namespace Refractored.Xam.TTS
       else if (volume < 0.0f)
         volume = 0.0f;
 
-      var divid = UIDevice.CurrentDevice.CheckSystemVersion(8, 0) ? 8.0f : 4.0f;
+      var divid = 4.0f;
+      if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))//use default .5f
+          divid = 2.0f;
+      else if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))//use .125f
+          divid = 8.0f;
+      else
+          divid = 4.0f; //use .25f
+
       if (!speakRate.HasValue)
           speakRate = AVSpeechUtterance.MaximumSpeechRate / divid; //normal speech, default is fast
       else if (speakRate.Value > AVSpeechUtterance.MaximumSpeechRate)

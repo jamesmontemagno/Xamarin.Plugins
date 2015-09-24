@@ -1,4 +1,5 @@
-﻿using Refractored.Xam.TTS;
+﻿using DeviceInfo.Plugin;
+using Refractored.Xam.TTS;
 using Refractored.Xam.TTS.Abstractions;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,19 @@ namespace TestAppForms.Pages
     public TextToSpeechPage()
     {
       InitializeComponent();
-      sliderRate.Value = Device.OS == TargetPlatform.iOS ? .15f : 1.0f;
+
+      var defaultRate = 1.0f;
+        if(Device.OS == TargetPlatform.iOS)
+        {
+            if (CrossDeviceInfo.Current.Version.StartsWith("8."))
+                defaultRate = .125f;
+            else if (CrossDeviceInfo.Current.Version.StartsWith("7."))
+                defaultRate = .25f;
+            else
+                defaultRate = .5f;
+
+        }
+        sliderRate.Value = defaultRate;
       speakButton.Clicked += (sender, args) =>
       {
 

@@ -53,6 +53,14 @@ namespace DeviceInfo.Plugin.Abstractions
     /// </summary>
     string Version { get; }
 
+      /// <summary>
+      /// Gets the version number of the operating system
+      /// </summary>
+    Version VersionNumber
+    {
+        get;
+    }
+
 
     /// <summary>
     /// Get the platform of the device

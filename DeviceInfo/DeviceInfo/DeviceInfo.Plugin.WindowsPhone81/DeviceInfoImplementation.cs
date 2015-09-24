@@ -42,7 +42,7 @@ namespace DeviceInfo.Plugin
     {
       deviceInfo = new EasClientDeviceInformation();
     }
-
+    /// <inheritdoc/>
     public string GenerateAppId(bool usingPhoneId = false, string prefix = null, string suffix = null)
     {
       var appId = "";
@@ -60,7 +60,7 @@ namespace DeviceInfo.Plugin
 
       return appId;
     }
-
+    /// <inheritdoc/>
     public string Id
     {
       get
@@ -75,12 +75,12 @@ namespace DeviceInfo.Plugin
         return Convert.ToBase64String(bytes);
       }
     }
-
+    /// <inheritdoc/>
     public string Model
     {
       get { return deviceInfo.SystemProductName; }
     }
-
+    /// <inheritdoc/>
     public string Version
     {
       get 
@@ -88,7 +88,7 @@ namespace DeviceInfo.Plugin
         return "8.1";//Fix in future, not real great way to get this info in 8.1 
       }
     }
-
+    /// <inheritdoc/>
     public Platform Platform
     {
       get 
@@ -99,6 +99,22 @@ namespace DeviceInfo.Plugin
         return Platform.WindowsPhone; 
 #endif
       }
+    }
+
+    /// <inheritdoc/>
+    public Version VersionNumber
+    {
+        get
+        {
+            try
+            {
+                return new Version(Version);
+            }
+            catch
+            {
+                return new Version(8, 1);
+            }
+        }
     }
   }
 }
