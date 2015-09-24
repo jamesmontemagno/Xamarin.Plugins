@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Geolocator</id>
-       <version>1.0.4</version>
+       <version>1.1.0</version>
        <title>Geolocator Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -16,7 +16,7 @@
 
         Example:
         var locator = CrossGeolocator.Current;
-        locator.DesiredAccuracy = 50;
+        locator.DesiredAccuracy = 100; //100 is new default
 
         var position = await locator.GetPositionAsync (timeoutMilliseconds: 10000);
 
@@ -28,6 +28,10 @@
        <summary>Easly access geolocation across Xamarin.iOS, Xamarin.Android and Windows. View full project page for README
        </summary>
      <releaseNotes>
+       [1.1.0]
+        -Introduced AllowsBackgroundUpdates flag for iOS 9
+        -Set default accuracy to 100
+        
        [1.0.4]
        -Build against Android API 15 for better compat
        -Fix date time stamps so they are all UTC

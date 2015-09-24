@@ -35,7 +35,7 @@ namespace Geolocator.Plugin
     {
         public GeolocatorImplementation()
         {
-            DesiredAccuracy = 50;
+            DesiredAccuracy = 100;
             this.manager = (LocationManager)Android.App.Application.Context.GetSystemService(Context.LocationService);
             this.providers = manager.GetProviders(enabledOnly: false).Where(s => s != LocationManager.PassiveProvider).ToArray();
         }
@@ -54,6 +54,14 @@ namespace Geolocator.Plugin
             get;
             set;
         }
+
+        /// <inheritdoc/>
+        public bool AllowsBackgroundUpdates
+        {
+            get;
+            set;
+        }
+
         /// <inheritdoc/>
         public bool SupportsHeading
         {
