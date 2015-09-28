@@ -1,105 +1,135 @@
 ﻿using Media.Plugin;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.IO;
 
 namespace TestAppForms.Pages
 {
-  public partial class MediaPage : ContentPage
-  {
-    public MediaPage()
+    public partial class MediaPage : ContentPage
     {
-      InitializeComponent();
-      takePhoto.Clicked += async (sender, args) =>
+        public MediaPage()
         {
-
-          if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-          {
-            DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
-            return;
-          }
-
-          var file = await CrossMedia.Current.TakePhotoAsync(new Media.Plugin.Abstractions.StoreCameraMediaOptions
+            InitializeComponent();
+            takePhoto.Clicked += async (sender, args) =>
             {
 
-              Directory = "Sample",
-              Name = "test.jpg"
-            });
+                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+                {
+                    await DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
+                    return;
+                }
+                try
+                {
+                    var file = await CrossMedia.Current.TakePhotoAsync(new Media.Plugin.Abstractions.StoreCameraMediaOptions
+                        {
 
-          if (file == null)
-            return;
+                            Directory = "Sample",
+                            Name = "test.jpg"
+                        });
 
-          DisplayAlert("File Location", file.Path, "OK");
+                    if (file == null)
+                        return;
 
-          image.Source = ImageSource.FromStream(() =>
-          {
-            var stream = file.GetStream();
-            file.Dispose();
-            return stream;
-          }); 
-        };
+                    await DisplayAlert("File Location", file.Path, "OK");
 
-      pickPhoto.Clicked += async (sender, args) =>
-        {
-          if (!CrossMedia.Current.IsPickPhotoSupported)
-          {
-            DisplayAlert("Photos Not Supported", ":( Permission not granted to photos.", "OK");
-            return;
-          }
-          Stream stream = null;
-          var file = await CrossMedia.Current.PickPhotoAsync().ConfigureAwait(true);
+                    image.Source = ImageSource.FromStream(() =>
+                        {
+                            var stream = file.GetStream();
+                            file.Dispose();
+                            return stream;
+                        }); 
+                }
+                catch (Exception ex)
+                {
+                    Xamarin.Insights.Report(ex);
+                    await DisplayAlert("Uh oh", "Something went wrong, but don't worry we captured it in Xamarin Insights! Thanks.", "OK");
+                }
+            };
 
-
-          if (file == null)
-            return;
-
-          stream = file.GetStream();
-          file.Dispose();
-
-          image.Source = ImageSource.FromStream(()=>stream); 
-        };
-
-      takeVideo.Clicked += async (sender, args) =>
-        {
-          if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakeVideoSupported)
-          {
-            DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
-            return;
-          }
-
-          var file = await CrossMedia.Current.TakeVideoAsync(new Media.Plugin.Abstractions.StoreVideoOptions
+            pickPhoto.Clicked += async (sender, args) =>
             {
-              Name = "video.mp4",
-              Directory = "DefaultVideos", 
-            });
+                if (!CrossMedia.Current.IsPickPhotoSupported)
+                {
+                    await DisplayAlert("Photos Not Supported", ":( Permission not granted to photos.", "OK");
+                    return;
+                }
+                try
+                {
+                    Stream stream = null;
+                    var file = await CrossMedia.Current.PickPhotoAsync().ConfigureAwait(true);
 
-          if (file == null)
-            return;
 
-          DisplayAlert("Video Recorded", "Location: " + file.Path, "OK");
+                    if (file == null)
+                        return;
 
-          file.Dispose();
-        };
+                    stream = file.GetStream();
+                    file.Dispose();
 
-      pickVideo.Clicked += async (sender, args) =>
-        {
-          if (!CrossMedia.Current.IsPickVideoSupported)
-          {
-            DisplayAlert("Videos Not Supported", ":( Permission not granted to videos.", "OK");
-            return;
-          }
-          var file = await CrossMedia.Current.PickVideoAsync();
+                    image.Source = ImageSource.FromStream(() => stream); 
 
-          if (file == null)
-            return;
+                }
+                catch (Exception ex)
+                {
+                    Xamarin.Insights.Report(ex);
+                    await DisplayAlert("Uh oh", "Something went wrong, but don't worry we captured it in Xamarin Insights! Thanks.", "OK");
+                }
+            };
 
-          DisplayAlert("Video Selected", "Location: " + file.Path, "OK");
-          file.Dispose();
-        };
+            takeVideo.Clicked += async (sender, args) =>
+            {
+                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakeVideoSupported)
+                {
+                    await DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
+                    return;
+                }
+
+                try
+                {
+                    var file = await CrossMedia.Current.TakeVideoAsync(new Media.Plugin.Abstractions.StoreVideoOptions
+                        {
+                            Name = "video.mp4",
+                            Directory = "DefaultVideos", 
+                        });
+
+                    if (file == null)
+                        return;
+
+                    await DisplayAlert("Video Recorded", "Location: " + file.Path, "OK");
+
+                    file.Dispose();
+
+                }
+                catch (Exception ex)
+                {
+                    Xamarin.Insights.Report(ex);
+                    await DisplayAlert("Uh oh", "Something went wrong, but don't worry we captured it in Xamarin Insights! Thanks.", "OK");
+                }
+            };
+
+            pickVideo.Clicked += async (sender, args) =>
+            {
+                if (!CrossMedia.Current.IsPickVideoSupported)
+                {
+                    await DisplayAlert("Videos Not Supported", ":( Permission not granted to videos.", "OK");
+                    return;
+                }
+                try
+                {
+                    var file = await CrossMedia.Current.PickVideoAsync();
+
+                    if (file == null)
+                        return;
+
+                    await DisplayAlert("Video Selected", "Location: " + file.Path, "OK");
+                    file.Dispose();
+
+                }
+                catch (Exception ex)
+                {
+                    Xamarin.Insights.Report(ex);
+                    await DisplayAlert("Uh oh", "Something went wrong, but don't worry we captured it in Xamarin Insights! Thanks.", "OK");
+                }
+            };
+        }
     }
-  }
 }

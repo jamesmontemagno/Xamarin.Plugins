@@ -48,9 +48,9 @@ namespace TestAppForms.Pages
         Settings.GeneralSettings = editField.Text;
       };
 
-      buttonGet.Clicked += (sender, args) =>
+      buttonGet.Clicked += async (sender, args) =>
       {
-        DisplayAlert("Current Value:", Helpers.Settings.GeneralSettings, "OK");
+        await DisplayAlert("Current Value:", Helpers.Settings.GeneralSettings, "OK");
       };
     }
   }

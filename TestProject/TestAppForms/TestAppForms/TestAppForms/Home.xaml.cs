@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TestAppForms.Models;
 using TestAppForms.Pages;
 using Xamarin.Forms;
+using TestAppForms.Helpers;
 
 namespace TestAppForms
 {
@@ -177,6 +178,19 @@ namespace TestAppForms
       PluginList.ItemsSource = items;
       BindingContext = items;
 
+           
+
     }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            if (Settings.FirstRun)
+            {
+                Settings.FirstRun = false;
+
+                await DisplayAlert("Welcome", "Welcome to the Plugins for Xamarin sample! All of these pages highlight a different cross-platform plugin for Xamarin. In fact I just used the settings plugin to see if it was your first run or not! How cool! Check it out and leave feedback on the GitHub page or tweet @JamesMontemagno", "OK");
+            }
+        }
   }
 }

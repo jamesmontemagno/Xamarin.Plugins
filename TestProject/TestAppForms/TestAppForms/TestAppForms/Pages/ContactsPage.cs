@@ -60,10 +60,12 @@ namespace TestAppForms
                 CrossContacts.Current.PreferContactAggregation = false;
                 long ms1 = 0;
                 long ms2 = 0;
-                var contactList = new List<Contact>();
-                await Task.Run(() =>
+                //var contactList = new List<Contact>();
+                await Task.Run(async () =>
                     {
                         var watch = Stopwatch.StartNew();
+                        try
+                        {
                         if (CrossContacts.Current.Contacts == null)
                             return;
 
@@ -71,13 +73,20 @@ namespace TestAppForms
                             .Where(c => !string.IsNullOrWhiteSpace(c.LastName) && (c.Emails.Count > 0 || c.Phones.Count > 0))
                             .OrderBy(c => c.LastName);
 
+                        }
+                        catch (Exception ex)
+                        {
+                            Xamarin.Insights.Report(ex);
+                            await DisplayAlert("Uh oh", "Something went wrong, but don't worry we captured it in Xamarin Insights! Thanks. Contacts are still in Alpha.", "OK");
+                        }
+
                         watch.Stop();
                         ms1 = watch.ElapsedMilliseconds;
                         //This is very fast (around 35 MS)
 
                         watch = Stopwatch.StartNew();
-                        foreach (var contact in contacts)
-                            contactList.Add(contact);
+                        //foreach (var contact in contacts)
+                         //   contactList.Add(contact);
                         watch.Stop();
                         ms2 = watch.ElapsedMilliseconds;
                         //Slower, around 6s for 1400 items
@@ -85,9 +94,12 @@ namespace TestAppForms
                     });
                 
 
-                contactsList.ItemsSource = contactList;
+                contactsList.ItemsSource = contacts;
 
-                this.Title = "Contacts: " + contactList.Count + " in " + ms1 + " MS" + " & " + ms2 + " Ms";
+                if (contacts != null)
+                    this.Title = "Contacts: " + contacts.Count() + " in " + ms1 + " MS" + " & " + ms2 + " Ms";
+                else
+                    this.Title = "Error";
                 this.IsBusy = false;
             }
         }
