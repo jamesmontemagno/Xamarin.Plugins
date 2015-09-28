@@ -9,7 +9,7 @@
     <RootNamespace>TestAppForms.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>FormsTemplateiOS</AssemblyName>
-    <NuGetPackageImportStamp>e69faa94</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>06be17ff</NuGetPackageImportStamp>
     <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
