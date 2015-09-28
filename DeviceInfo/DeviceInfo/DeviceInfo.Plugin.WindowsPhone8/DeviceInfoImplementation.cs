@@ -29,6 +29,7 @@ namespace DeviceInfo.Plugin
   /// </summary>
   public class DeviceInfoImplementation : IDeviceInfo
   {
+      /// <inheritdoc/>
     public string GenerateAppId(bool usingPhoneId = false, string prefix = null, string suffix = null)
     {
       var appId = "";
@@ -47,6 +48,7 @@ namespace DeviceInfo.Plugin
       return appId;
     }
 
+    /// <inheritdoc/>
     public string Id
     {
       get
@@ -59,6 +61,7 @@ namespace DeviceInfo.Plugin
       }
     }
 
+    /// <inheritdoc/>
     public string Model
     {
       get
@@ -70,14 +73,32 @@ namespace DeviceInfo.Plugin
       }
     }
 
+    /// <inheritdoc/>
     public string Version
     {
       get { return Environment.OSVersion.Version.ToString(); }
     }
 
+    /// <inheritdoc/>
     public Platform Platform
     {
       get { return Platform.WindowsPhone; }
+    }
+
+    /// <inheritdoc/>
+    public Version VersionNumber
+    {
+        get
+        {
+            try
+            {
+                return new Version(Version);
+            }
+            catch
+            {
+                return new Version(8, 0);
+            }
+        }
     }
   }
 }

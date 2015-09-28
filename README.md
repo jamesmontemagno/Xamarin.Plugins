@@ -9,6 +9,13 @@ This is my main repo for all all Xamarin Plugins that I have or will be publishi
 
 Read more on my blog: http://motzcod.es/post/104507063997/what-exactly-is-a-plugin-for-xamarin
 
+# Sample App
+Download the sample app today:
+* Google Play: https://play.google.com/store/apps/details?id=com.refractored.testappforms
+* iOS: Coming Soon
+* Windows: Coming Soon
+* A sample is located in the TestProject folder
+
 # Current Plugins for Xamarin
 
 Each plugin has a README with more information on what they contain.

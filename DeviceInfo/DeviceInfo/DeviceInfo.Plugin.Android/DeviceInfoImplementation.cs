@@ -29,6 +29,7 @@ namespace DeviceInfo.Plugin
   /// </summary>
   public class DeviceInfoImplementation : IDeviceInfo
   {
+      /// <inheritdoc/>
     public string GenerateAppId(bool usingPhoneId = false, string prefix = null, string suffix = null)
     {
       var appId = "";
@@ -46,26 +47,42 @@ namespace DeviceInfo.Plugin
 
       return appId;
     }
-
+    /// <inheritdoc/>
     public string Id
     {
       get { return Build.Serial; }
     }
-
+    /// <inheritdoc/>
     public string Model
     {
       get { return Build.Model; }
     }
-
+    /// <inheritdoc/>
     public string Version
     {
       get { return Build.VERSION.Release; }
     }
 
-
+    /// <inheritdoc/>
     public Platform Platform
     {
       get { return Platform.Android; }
+    }
+
+    /// <inheritdoc/>
+    public Version VersionNumber
+    {
+        get 
+        {
+            try
+            {
+                return new Version(Version);
+            }
+            catch
+            {
+                return new Version();
+            }
+        }
     }
   }
 }

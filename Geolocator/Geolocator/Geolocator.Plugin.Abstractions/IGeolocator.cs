@@ -33,6 +33,11 @@ namespace Geolocator.Plugin.Abstractions
     bool SupportsHeading { get; }
 
     /// <summary>
+    /// Gets or sets if background updates should be allowed on the geolocator.
+    /// </summary>
+    bool AllowsBackgroundUpdates { get; set; }
+
+    /// <summary>
     /// Gets if geolocation is available on device
     /// </summary>
     bool IsGeolocationAvailable { get; }

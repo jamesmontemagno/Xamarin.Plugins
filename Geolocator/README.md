@@ -39,8 +39,20 @@ You must request ACCESS_COARSE_LOCATION & ACCESS_FINE_LOCATION permission
 
 iOS:
 
+iOS:
 In iOS 8 you now have to call either RequestWhenInUseAuthorization or RequestAlwaysAuthorization on the location manager. Additionally you need to add either the concisely named NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription to your Info.plist. 
 See:  http://motzcod.es/post/97662738237/scanning-for-ibeacons-in-ios-8
+
+You will need to add a new string entry called NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription.
+
+iOS Background Updates (for background agents, not background tasks):
+
+New in iOS 9 allowsBackgroundLocationUpdates must be set if you are running a background agent to track location. I have exposed this on the Geolocator via:
+
+var locator = CrossGeolocator.Current;
+locator.AllowsBackgroundUpdates = true;
+
+The presence of the UIBackgroundModes key with the location value is required for background updates; you use this property to enable and disable the behavior based on your app’s behavior.
 
 Windows Phone:
 
