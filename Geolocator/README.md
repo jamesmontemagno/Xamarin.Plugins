@@ -45,8 +45,9 @@ See:  http://motzcod.es/post/97662738237/scanning-for-ibeacons-in-ios-8
 
 You will need to add a new string entry called NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription.
 
-iOS Background updates:
-New in iOS 9 allowsBackgroundLocationUpdates must be set. I have exposed this on the Geolocator via:
+iOS Background Updates (for background agents, not background tasks):
+
+New in iOS 9 allowsBackgroundLocationUpdates must be set if you are running a background agent to track location. I have exposed this on the Geolocator via:
 
 var locator = CrossGeolocator.Current;
 locator.AllowsBackgroundUpdates = true;
