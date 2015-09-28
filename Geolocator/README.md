@@ -33,19 +33,24 @@ Console.WriteLine ("Position Longitude: {0}", position.Longitude);
 ```
 
 ### **IMPORTANT**
-Android:
+#### Android:
 
 You must request ACCESS_COARSE_LOCATION & ACCESS_FINE_LOCATION permission
 
-iOS:
 
-iOS:
-In iOS 8 you now have to call either RequestWhenInUseAuthorization or RequestAlwaysAuthorization on the location manager. Additionally you need to add either the concisely named NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription to your Info.plist. 
-See:  http://motzcod.es/post/97662738237/scanning-for-ibeacons-in-ios-8
+#### iOS:
+In iOS 8 you now have to call either RequestWhenInUseAuthorization or RequestAlwaysAuthorization on the location manager (the plugin does this automatically for you, however, need to add either the concisely named NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription to your Info.plist. 
 
-You will need to add a new string entry called NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription.
+You will need to add a new string entry called NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription. 
 
-iOS Background Updates (for background agents, not background tasks):
+Go to your info.plist and under source add one of these flags: http://screencast.com/t/YEeuAYMBBJ
+
+For more information:  http://motzcod.es/post/97662738237/scanning-for-ibeacons-in-ios-8
+
+**iOS 9 Simulator**
+Getting location via the simulator doesn't seem to be supported, you will need to test on a device.
+
+**iOS 9 Special Case: Background Updates (for background agents, not background tasks):**
 
 New in iOS 9 allowsBackgroundLocationUpdates must be set if you are running a background agent to track location. I have exposed this on the Geolocator via:
 
@@ -54,7 +59,7 @@ locator.AllowsBackgroundUpdates = true;
 
 The presence of the UIBackgroundModes key with the location value is required for background updates; you use this property to enable and disable the behavior based on your app’s behavior.
 
-Windows Phone:
+#### Windows Phone:
 
 You must set the ID_CAP_LOCATION permission.
 
