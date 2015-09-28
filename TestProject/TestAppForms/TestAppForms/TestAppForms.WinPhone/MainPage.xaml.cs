@@ -22,6 +22,8 @@ namespace TestAppForms.WinPhone
       InitializeComponent();
 
       Forms.Init();
+      Xamarin.Insights.Initialize(TestAppForms.Helpers.Settings.InsightsKey, this);
+      Xamarin.Insights.ForceDataTransmission = true;
       //Vibrate.Init();
       //ImageCircleRenderer.Init();
       Content = TestAppForms.App.GetMainPage().ConvertPageToUIElement(this);

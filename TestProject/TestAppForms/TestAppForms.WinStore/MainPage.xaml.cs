@@ -27,6 +27,8 @@ namespace TestAppForms.WinStore
             this.InitializeComponent();
 						LoadApplication(new TestAppForms.App2());
 						ImageCircle.Forms.Plugin.WindowsStore.ImageCircleRenderer.Init();
+                        Xamarin.Insights.Initialize(TestAppForms.Helpers.Settings.InsightsKey, this);
+                        Xamarin.Insights.ForceDataTransmission = true;
         }
     }
 }
