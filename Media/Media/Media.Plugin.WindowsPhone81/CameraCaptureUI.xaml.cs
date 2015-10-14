@@ -66,7 +66,7 @@ namespace DMX.Helper
 
         /// <summary>
         /// Navigates to the CameraCaptureUIPage in a new Frame and show the control
-        /// </summary
+        /// </summary>
         public CameraCaptureUI()
         {
             this.InitializeComponent();

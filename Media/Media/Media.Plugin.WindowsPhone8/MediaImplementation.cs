@@ -54,7 +54,7 @@ namespace Media.Plugin
       {
         IsCameraAvailable = Camera.IsCameraTypeSupported(CameraType.Primary) || Camera.IsCameraTypeSupported(CameraType.FrontFacing);
       }
-      catch(Exception ex)
+      catch
       {
         Console.WriteLine("You must set the ID_CAP_ISV_CAMERA permission.");
       }
@@ -127,7 +127,7 @@ namespace Media.Plugin
     /// Picks a video from the default gallery
     /// </summary>
     /// <returns>Media file of video or null if canceled</returns>
-    public async Task<MediaFile> PickVideoAsync()
+    public Task<MediaFile> PickVideoAsync()
     {
       throw new NotSupportedException();
 

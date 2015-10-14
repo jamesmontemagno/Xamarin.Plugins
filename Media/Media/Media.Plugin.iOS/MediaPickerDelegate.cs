@@ -157,7 +157,7 @@ namespace Media.Plugin
         private NSObject observer;
         private readonly UIViewController viewController;
         private readonly UIImagePickerControllerSourceType source;
-        private readonly TaskCompletionSource<MediaFile> tcs = new TaskCompletionSource<MediaFile>();
+        private TaskCompletionSource<MediaFile> tcs = new TaskCompletionSource<MediaFile>();
         private readonly StoreCameraMediaOptions options;
 
         private bool IsCaptured
@@ -168,7 +168,10 @@ namespace Media.Plugin
         private void Dismiss(UIImagePickerController picker, NSAction onDismiss)
         {
             if (this.viewController == null)
+            {
                 onDismiss();
+                tcs = new TaskCompletionSource<MediaFile>();
+            }
             else
             {
                 NSNotificationCenter.DefaultCenter.RemoveObserver(this.observer);

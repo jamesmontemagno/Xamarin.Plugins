@@ -47,7 +47,13 @@ namespace Media.Plugin
         public override NSObject Delegate
         {
             get { return base.Delegate; }
-            set { throw new NotSupportedException(); }
+            set 
+            {
+                if (value == null)
+                    base.Delegate = value;
+                else
+                    throw new NotSupportedException();
+            }
         }
 
         /// <summary>
