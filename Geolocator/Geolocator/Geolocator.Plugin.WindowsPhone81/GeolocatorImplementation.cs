@@ -144,7 +144,7 @@ namespace Geolocator.Plugin
         {
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");
-            if (minTime < minDistance)
+            if (minDistance < 0)
                 throw new ArgumentOutOfRangeException("minDistance");
             if (this.isListening)
                 throw new InvalidOperationException();
