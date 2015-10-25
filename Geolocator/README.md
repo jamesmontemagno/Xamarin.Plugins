@@ -37,6 +37,12 @@ Console.WriteLine ("Position Longitude: {0}", position.Longitude);
 
 You must request ACCESS_COARSE_LOCATION & ACCESS_FINE_LOCATION permission
 
+**Android 6.0 Marshmallow**
+You will have to ask for Fine&Course Location permissions via the new runtime permissions.
+https://blog.xamarin.com/requesting-runtime-permissions-in-android-marshmallow/
+
+See this example: https://github.com/jamesmontemagno/MarshmallowSamples/blob/master/RuntimePermissions/MarshmallowPermission/MainActivity.cs
+
 
 #### iOS:
 In iOS 8 you now have to call either RequestWhenInUseAuthorization or RequestAlwaysAuthorization on the location manager (the plugin does this automatically for you, however, need to add either the concisely named NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription to your Info.plist. 
