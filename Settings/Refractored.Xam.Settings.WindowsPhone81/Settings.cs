@@ -57,13 +57,26 @@ namespace Refractored.Xam.Settings
             savedTime = Convert.ToString(AppSettings.Values[key]);
           }
 
-          var ticks = string.IsNullOrWhiteSpace(savedTime) ? -1 : Convert.ToInt64(savedTime, System.Globalization.CultureInfo.InvariantCulture);
-          if (ticks == -1)
-            value = defaultValue;
+          if (string.IsNullOrWhiteSpace(savedTime))
+          {
+              value = defaultValue;
+          }
           else
-            value = new DateTime(ticks, DateTimeKind.Utc);
+          {
+              var ticks = Convert.ToInt64(savedTime, System.Globalization.CultureInfo.InvariantCulture);
+              if (ticks >= 0)
+              {
+                  //Old value, stored before update to UTC values
+                  value = new DateTime(ticks);
+              }
+              else
+              {
+                  //New value, UTC
+                  value = new DateTime(-ticks, DateTimeKind.Utc);
+              }
+          }
 
-          return null != value ? (T)value : defaultValue;
+          return (T)value;
         }
        
         // If the key exists, retrieve the value.
@@ -122,7 +135,7 @@ namespace Refractored.Xam.Settings
         }
         else if (value is DateTime)
         {
-          return AddOrUpdateValue(key, Convert.ToString((Convert.ToDateTime(value)).ToUniversalTime().Ticks, System.Globalization.CultureInfo.InvariantCulture));
+          return AddOrUpdateValue(key, Convert.ToString(-(Convert.ToDateTime(value)).ToUniversalTime().Ticks, System.Globalization.CultureInfo.InvariantCulture));
         }
 
 
