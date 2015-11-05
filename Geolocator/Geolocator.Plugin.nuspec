@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Geolocator</id>
-       <version>1.1.0</version>
+       <version>1.1.1</version>
        <title>Geolocator Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -28,6 +28,9 @@
        <summary>Easly access geolocation across Xamarin.iOS, Xamarin.Android and Windows. View full project page for README
        </summary>
      <releaseNotes>
+       [1.1.1]
+        -Fix timeout for unknown location on iOS
+        -Add PausesLocationUpdatesAutomatically for iOS
        [1.1.0]
         -Introduced AllowsBackgroundUpdates flag for iOS 9
         -Set default accuracy to 100

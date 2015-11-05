@@ -37,6 +37,11 @@ namespace Geolocator.Plugin.Abstractions
     /// </summary>
     bool AllowsBackgroundUpdates { get; set; }
 
+      /// <summary>
+      /// Gets or sets if the location updates should be paused automatically (iOS)
+      /// </summary>
+    bool PausesLocationUpdatesAutomatically { get; set; }
+
     /// <summary>
     /// Gets if geolocation is available on device
     /// </summary>

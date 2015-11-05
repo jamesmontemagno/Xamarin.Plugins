@@ -89,6 +89,25 @@ namespace Geolocator.Plugin
 			get { return CLLocationManager.HeadingAvailable; }
 		}
 
+        bool pausesLocationUpdatesAutomatically;
+        /// <inheritdoc/>
+        public bool PausesLocationUpdatesAutomatically
+        {
+            get
+            {
+                return pausesLocationUpdatesAutomatically;
+            }
+            set
+            {
+                pausesLocationUpdatesAutomatically = value;
+                if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
+                {
+                    if (this.manager != null)
+                        this.manager.PausesLocationUpdatesAutomatically = value;
+                }
+            }
+        }
+
       bool allowsBackgroundUpdates;
 
         /// <inheritdoc/>
@@ -147,6 +166,11 @@ namespace Geolocator.Plugin
                 if (UIDevice.CurrentDevice.CheckSystemVersion (9, 0))
                 {
                     m.AllowsBackgroundLocationUpdates = AllowsBackgroundUpdates;
+                }
+
+                if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
+                {
+                    m.PausesLocationUpdatesAutomatically = PausesLocationUpdatesAutomatically;   
                 }
 
 				tcs = new TaskCompletionSource<Position> (m);

@@ -51,6 +51,10 @@ namespace Geolocator.Plugin
         }
 
         /// <inheritdoc/>
+        public bool PausesLocationUpdatesAutomatically
+        { get; set; }
+
+        /// <inheritdoc/>
         public bool IsGeolocationAvailable
         {
             get
