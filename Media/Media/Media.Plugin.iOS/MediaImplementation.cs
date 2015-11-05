@@ -36,6 +36,9 @@ namespace Media.Plugin
     /// </summary>
     public class MediaImplementation : IMedia
     {
+        /// <summary>
+        /// Color of the status bar
+        /// </summary>
         public static UIStatusBarStyle StatusBarStyle { get; set; }
         /// <summary>
         /// Implementation

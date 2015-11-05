@@ -27,7 +27,9 @@ namespace TestAppForms.WinPhoneRT
             this.InitializeComponent();
 						LoadApplication(new TestAppForms.App2());
 						ImageCircle.Forms.Plugin.WindowsPhoneRT.ImageCircleRenderer.Init();
-            this.NavigationCacheMode = NavigationCacheMode.Required;
+                        Xamarin.Insights.Initialize(TestAppForms.Helpers.Settings.InsightsKey, this);
+                        Xamarin.Insights.ForceDataTransmission = true;
+                        this.NavigationCacheMode = NavigationCacheMode.Required;
         }
 
         /// <summary>

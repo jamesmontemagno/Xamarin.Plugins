@@ -31,7 +31,7 @@ namespace Geolocator.Plugin
     {
         public GeolocatorImplementation()
         {
-            DesiredAccuracy = 50;
+            DesiredAccuracy = 100;
         }
         /// <inheritdoc/>
         public event EventHandler<PositionEventArgs> PositionChanged;
@@ -42,6 +42,18 @@ namespace Geolocator.Plugin
         {
             get { return false; }
         }
+
+        /// <inheritdoc/>
+        public bool AllowsBackgroundUpdates
+        {
+            get;
+            set;
+        }
+
+        /// <inheritdoc/>
+        public bool PausesLocationUpdatesAutomatically
+        { get; set; }
+
         /// <inheritdoc/>
         public bool IsGeolocationAvailable
         {
@@ -136,7 +148,7 @@ namespace Geolocator.Plugin
         {
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");
-            if (minTime < minDistance)
+            if (minDistance < 0)
                 throw new ArgumentOutOfRangeException("minDistance");
             if (this.isListening)
                 throw new InvalidOperationException();

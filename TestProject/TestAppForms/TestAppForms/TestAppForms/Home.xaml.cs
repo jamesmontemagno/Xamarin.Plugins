@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TestAppForms.Models;
 using TestAppForms.Pages;
 using Xamarin.Forms;
+using TestAppForms.Helpers;
 
 namespace TestAppForms
 {
@@ -57,6 +58,12 @@ namespace TestAppForms
             case "Vibrate":
               Navigation.PushAsync(new VibratePage());
               break;
+                        case "Learn more":
+                            Device.OpenUri(new Uri("http://github.com/xamarin/plugins"));
+                            break;
+                        case "James on Twitter":
+                            Device.OpenUri(new Uri("http://mobile.twitter.com/jamesmontemagno"));
+                            break;
           }
 
           PluginList.SelectedItem = null;
@@ -150,6 +157,20 @@ namespace TestAppForms
           Description ="Vibrate the device easily.",
           Id = count++
         },
+        new PluginItem
+        {
+            Name = "Learn more",
+                        Image = "https://raw.githubusercontent.com/jamesmontemagno/Xamarin-Templates/master/Plugins-Templates/icons/plugin_icon.png",
+            Description ="github.com/xamarin/plugins",
+            Id = count++
+        },
+        new PluginItem
+        {
+            Name = "James on Twitter",
+                        Image = "https://s.gravatar.com/avatar/5df4d86308e585c879c19e5f909d8bfe?s=80",
+            Description ="@JamesMontemagno",
+            Id = count++
+        },
 
       };
 
@@ -157,6 +178,19 @@ namespace TestAppForms
       PluginList.ItemsSource = items;
       BindingContext = items;
 
+           
+
     }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            if (Settings.FirstRun)
+            {
+                Settings.FirstRun = false;
+
+                await DisplayAlert("Welcome", "Welcome to the Plugins for Xamarin sample! All of these pages highlight a different cross-platform plugin for Xamarin. In fact I just used the settings plugin to see if it was your first run or not! How cool! Check it out and leave feedback on the GitHub page or tweet @JamesMontemagno", "OK");
+            }
+        }
   }
 }

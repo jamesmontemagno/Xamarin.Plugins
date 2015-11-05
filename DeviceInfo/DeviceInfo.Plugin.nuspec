@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.DeviceInfo</id>
-       <version>1.0.1</version>
+       <version>1.0.2</version>
        <title>Device Info Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -14,6 +14,8 @@
          Receive information about the device that you are using. Properties such as Model, Operatin System, Version, Id, and even the ability to generate a unique Id for your application based off of these properties.
        </description>
      <releaseNotes>
+       [1.0.2]
+       -Add new VersionNumber for easy access
        [1.0.1]
        -Build against Android API 15 for better compat
      </releaseNotes>

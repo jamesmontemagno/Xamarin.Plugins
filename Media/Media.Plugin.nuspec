@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Media</id>
-       <version>1.0.2</version>
+       <version>1.0.3</version>
        <title>Media Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -15,6 +15,11 @@
          Take or pick photos and videos from a cross platform API.
        </description>
      <releaseNotes>
+       [1.0.3]
+       -iOS: Do not throw exception when delegate set to null
+       -iOS: Reset the TCS for on Dismiss to the picker instance
+       -Android Better support for non-standard ContentProviders
+       
        [1.0.2]
        -Build against API 15
        -Fixes issue on Android 5.1.1 photo picker

@@ -30,10 +30,21 @@ namespace Geolocator.Plugin
   {
     public GeolocatorImplementation()
     {
-      DesiredAccuracy = 50;
+      DesiredAccuracy = 100;
     }
     public event EventHandler<PositionErrorEventArgs> PositionError;
     public event EventHandler<PositionEventArgs> PositionChanged;
+    
+      /// <inheritdoc/>
+    public bool AllowsBackgroundUpdates
+    {
+        get;
+        set;
+    }
+
+    /// <inheritdoc/>
+    public bool PausesLocationUpdatesAutomatically
+    { get; set; }
 
     /// <inheritdoc/>
     public bool IsGeolocationAvailable

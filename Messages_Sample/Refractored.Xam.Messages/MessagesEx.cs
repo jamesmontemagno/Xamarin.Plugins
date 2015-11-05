@@ -1,8 +1,11 @@
-﻿using System;
+using System;
+
+
 #if __ANDROID__
 using Android.App;
+using Android.Content;
 #elif __IOS__
-using MonoTouch.UIKit;
+using UIKit;
 #elif WINDOWS_PHONE
 using System.Windows;
 #elif NETFX_CORE
@@ -14,10 +17,10 @@ namespace Refractored.Xam.Messages
 {
   public class MessagesEx
   {
-    public void ShowMessage(string title, string message)
+    public void ShowMessage(string title, string message, object context)
     {
 #if __ANDROID__
-      new AlertDialog.Builder(Application.Context)
+    new AlertDialog.Builder((Context)context)
         .SetTitle(title)
         .SetMessage(message)
         .SetPositiveButton("OK", delegate { })

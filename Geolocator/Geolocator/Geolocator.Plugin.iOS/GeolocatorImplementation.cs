@@ -39,8 +39,8 @@ namespace Geolocator.Plugin
   public class GeolocatorImplementation : IGeolocator
   {
     public GeolocatorImplementation()
-		{
-      DesiredAccuracy = 50;
+	{
+            DesiredAccuracy = 100;
 			this.manager = GetManager();
 			this.manager.AuthorizationChanged += OnAuthorizationChanged;
 			this.manager.Failed += OnFailed;
@@ -51,7 +51,7 @@ namespace Geolocator.Plugin
 				this.manager.UpdatedLocation += OnUpdatedLocation;
 
 			this.manager.UpdatedHeading += OnUpdatedHeading;
-      RequestAuthorization();
+            RequestAuthorization();
     }
 
     private void RequestAuthorization()
@@ -88,6 +88,46 @@ namespace Geolocator.Plugin
 		{
 			get { return CLLocationManager.HeadingAvailable; }
 		}
+
+        bool pausesLocationUpdatesAutomatically;
+        /// <inheritdoc/>
+        public bool PausesLocationUpdatesAutomatically
+        {
+            get
+            {
+                return pausesLocationUpdatesAutomatically;
+            }
+            set
+            {
+                pausesLocationUpdatesAutomatically = value;
+                if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
+                {
+                    if (this.manager != null)
+                        this.manager.PausesLocationUpdatesAutomatically = value;
+                }
+            }
+        }
+
+      bool allowsBackgroundUpdates;
+
+        /// <inheritdoc/>
+        public bool AllowsBackgroundUpdates
+        {
+            get
+            {
+              return allowsBackgroundUpdates;
+            }
+            set
+            {
+                allowsBackgroundUpdates = value;
+                if (UIDevice.CurrentDevice.CheckSystemVersion (9, 0))
+                {
+                    if(this.manager != null)
+                        this.manager.AllowsBackgroundLocationUpdates = value;
+                }
+            }
+        }
+
     /// <inheritdoc/>
 		public bool IsGeolocationAvailable
 		{
@@ -116,12 +156,22 @@ namespace Geolocator.Plugin
                 throw new ArgumentOutOfRangeException("timeoutMilliseconds", "Timeout must be positive or Timeout.Infinite");
 
       if (!cancelToken.HasValue)
-        cancelToken = CancellationToken.None; ;
+        cancelToken = CancellationToken.None;
 
 			TaskCompletionSource<Position> tcs;
 			if (!IsListening)
 			{
 				var m = GetManager();
+
+                if (UIDevice.CurrentDevice.CheckSystemVersion (9, 0))
+                {
+                    m.AllowsBackgroundLocationUpdates = AllowsBackgroundUpdates;
+                }
+
+                if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
+                {
+                    m.PausesLocationUpdatesAutomatically = PausesLocationUpdatesAutomatically;   
+                }
 
 				tcs = new TaskCompletionSource<Position> (m);
                 var singleListener = new GeolocationSingleUpdateDelegate(m, DesiredAccuracy, includeHeading, timeoutMilliseconds, cancelToken.Value);

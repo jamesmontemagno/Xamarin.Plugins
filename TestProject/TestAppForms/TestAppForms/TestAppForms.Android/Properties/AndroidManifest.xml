@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionCode="1" android:versionName="1" package="com.refractored.testappforms">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.refractored.testappforms" android:versionName="2" android:versionCode="2">
 	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="22" />
-	<application android:label="TestAppForms" android:theme="@android:style/Theme.Holo.Light" android:icon="@drawable/ic_launcher">
+	<application android:theme="@style/MyTheme" android:icon="@drawable/ic_launcher" android:label="Plugins for Xamarin">
 	</application>
 	<uses-permission android:name="android.permission.VIBRATE" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

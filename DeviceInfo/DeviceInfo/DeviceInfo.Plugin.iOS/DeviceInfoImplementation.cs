@@ -33,6 +33,7 @@ namespace DeviceInfo.Plugin
   /// </summary>
   public class DeviceInfoImplementation : IDeviceInfo
   {
+      /// <inheritdoc/>
     public string GenerateAppId(bool usingPhoneId = false, string prefix = null, string suffix = null)
     {
       var appId = "";
@@ -50,7 +51,7 @@ namespace DeviceInfo.Plugin
 
       return appId;
     }
-
+    /// <inheritdoc/>
     public string Id
     {
       get
@@ -59,21 +60,37 @@ namespace DeviceInfo.Plugin
         return UIDevice.CurrentDevice.IdentifierForVendor.AsString();
       }
     }
-
+    /// <inheritdoc/>
     public string Model
     {
       get { return UIDevice.CurrentDevice.Model; }
     }
-
+    /// <inheritdoc/>
     public string Version
     {
       get { return UIDevice.CurrentDevice.SystemVersion; }
     }
 
-
+    /// <inheritdoc/>
     public Platform Platform
     {
       get { return Platform.iOS; }
+    }
+
+    /// <inheritdoc/>
+    public Version VersionNumber
+    {
+        get
+        {
+            try
+            {
+                return new Version(Version);
+            }
+            catch
+            {
+                return new Version();
+            }
+        }
     }
   }
 }

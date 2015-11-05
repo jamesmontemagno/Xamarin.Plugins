@@ -388,12 +388,12 @@ namespace Media.Plugin
                             if (column != -1)
                                 contentPath = cursor.GetString(column);
 
-                            bool copied = false;
+                        
 
                             // If they don't follow the "rules", try to copy the file locally
                             if (contentPath == null || !contentPath.StartsWith("file"))
                             {
-                                copied = true;
+                               
                                 Uri outputPath = GetOutputMediaFile(context, "temp", null, isPhoto);
 
                                 try

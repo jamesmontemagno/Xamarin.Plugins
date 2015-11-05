@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
 
 using Xamarin.Forms;
 using ImageCircle.Forms.Plugin.iOS;
-using MonoTouch.MessageUI;
+using MessageUI;
 //using Refractored.Xam.Forms.Vibrate.iOS;
+using Xamarin.Forms.Platform.iOS;
 
 namespace TestAppForms.iOS
 {
@@ -16,10 +17,9 @@ namespace TestAppForms.iOS
   // User Interface of the application, as well as listening (and optionally responding) to 
   // application events from iOS.
   [Register("AppDelegate")]
-  public partial class AppDelegate : UIApplicationDelegate
+    public partial class AppDelegate : FormsApplicationDelegate
   {
-    // class-level declarations
-    UIWindow window;
+
 
     //
     // This method is invoked when the application has loaded and is ready to run. In this 
@@ -41,13 +41,12 @@ namespace TestAppForms.iOS
       Forms.Init();
       //Vibrate.Init();
       ImageCircleRenderer.Init();
-      window = new UIWindow(UIScreen.MainScreen.Bounds);
+            Xamarin.Insights.Initialize(TestAppForms.Helpers.Settings.InsightsKey);
+            Xamarin.Insights.ForceDataTransmission = true;
+     
+            LoadApplication(new App2());
 
-      window.RootViewController = App.GetMainPage().CreateViewController();
-
-      window.MakeKeyAndVisible();
-
-      return true;
+            return base.FinishedLaunching(app, options);
     }
   }
 }
