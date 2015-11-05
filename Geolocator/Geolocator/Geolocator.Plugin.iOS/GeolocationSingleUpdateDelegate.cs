@@ -83,6 +83,10 @@ namespace Geolocator.Plugin
           StopListening();
           this.tcs.SetException(new GeolocationException(GeolocationError.PositionUnavailable));
           break;
+        case CLError.LocationUnknown:
+            StopListening();
+            this.tcs.TrySetException(new GeolocationException(GeolocationError.PositionUnavailable));
+            break;
       }
     }
 
