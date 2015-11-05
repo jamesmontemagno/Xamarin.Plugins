@@ -1,5 +1,5 @@
-﻿
-using MonoTouch.UIKit;
+
+using UIKit;
 
 namespace Refractored.Xam.Messages
 {
