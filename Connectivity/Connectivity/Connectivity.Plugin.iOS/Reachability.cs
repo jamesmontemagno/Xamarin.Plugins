@@ -157,7 +157,7 @@ namespace Connectivity.Plugin
       {
         adHocWiFiNetworkReachability = new NetworkReachability(new IPAddress(new byte[] { 169, 254, 0, 0 }));
         adHocWiFiNetworkReachability.SetNotification(OnChange);
-        adHocWiFiNetworkReachability.Schedule(CFRunLoop.Current, CFRunLoop.ModeDefault);
+        adHocWiFiNetworkReachability.Schedule(CFRunLoop.Main, CFRunLoop.ModeDefault);
       }
 
       if (!adHocWiFiNetworkReachability.TryGetFlags(out flags))
@@ -174,7 +174,7 @@ namespace Connectivity.Plugin
       {
         defaultRouteReachability = new NetworkReachability(new IPAddress(0));
         defaultRouteReachability.SetNotification(OnChange);
-        defaultRouteReachability.Schedule(CFRunLoop.Current, CFRunLoop.ModeDefault);
+        defaultRouteReachability.Schedule(CFRunLoop.Main, CFRunLoop.ModeDefault);
       }
       if (!defaultRouteReachability.TryGetFlags(out flags))
         return false;
@@ -200,7 +200,7 @@ namespace Connectivity.Plugin
         reachable = remoteHostReachability.TryGetFlags(out flags);
 
         remoteHostReachability.SetNotification(OnChange);
-        remoteHostReachability.Schedule(CFRunLoop.Current, CFRunLoop.ModeDefault);
+        remoteHostReachability.Schedule(CFRunLoop.Main, CFRunLoop.ModeDefault);
       }
       else
         reachable = remoteHostReachability.TryGetFlags(out flags);
