@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+   <metadata minClientVersion="2.8.1">
+       <id>Plugin.CurrentActivity</id>
+       <version>1.0.0</version>
+       <title>CurrentActivity Plugin for Xamarin and Windows</title>
+       <authors>Your Name</authors>
+       <owners>Your Name</owners>
+       <licenseUrl></licenseUrl>
+       <projectUrl></projectUrl>
+     <!--Default Icon, a template can be found:  https://raw.githubusercontent.com/jamesmontemagno/Xamarin-Templates/master/Plugins-Templates/icons/plugin_icon.png-->  
+     <iconUrl>https://raw.githubusercontent.com/jamesmontemagno/Xamarin-Templates/master/Plugins-Templates/icons/plugin_icon_nuget.png</iconUrl>
+     
+       <requireLicenseAcceptance>false</requireLicenseAcceptance>
+       <description>
+         Long description for your plugin.
+       </description>
+       <summary>Short description for your plugin.</summary>
+       <tags>xamarin, pcl, xam.pcl, plugin, plugin for xamarin, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
+       <dependencies>
+       </dependencies>
+   </metadata>
+   <files>
+
+
+     <!--Xamarin.Android-->
+     <file src="Plugin.CurrentActivity\bin\Release\Plugin.CurrentActivity.dll" target="lib\MonoAndroid10\Plugin.CurrentActivity.dll" />
+     <file src="Plugin.CurrentActivity\bin\Release\Plugin.CurrentActivity.xml" target="lib\MonoAndroid10\Plugin.CurrentActivity.xml" />
+     <file src="Plugin.CurrentActivity\bin\Release\Plugin.CurrentActivity.pdb" target="lib\MonoAndroid10\Plugin.CurrentActivity.pdb" />
+   
+   </files>
+</package>
