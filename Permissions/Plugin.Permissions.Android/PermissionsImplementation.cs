@@ -16,8 +16,14 @@ namespace Plugin.Permissions
     /// <summary>
     /// Implementation for Feature
     /// </summary>
-    public class PermissionsImplementation : Java.Lang.Object, IPermissions, ActivityCompat.IOnRequestPermissionsResultCallback
+    public class PermissionsImplementation : IPermissions
     {
+
+        object locker = new object();
+        TaskCompletionSource<Dictionary<Permission, bool>> tcs;
+        Dictionary<Permission, bool> results;
+        IList<string> requestedPermissions;
+
         public static PermissionsImplementation Current
         {
             get {  return (PermissionsImplementation)CrossPermissions.Current; }
@@ -25,7 +31,8 @@ namespace Plugin.Permissions
 
         public Task<bool> ShouldShowRequestPermissionRationale(Permission permission)
         {
-            if(CrossCurrentActivity.Current.Activity == null)
+            var activity = CrossCurrentActivity.Current.Activity;
+            if(activity == null)
             {
                 Debug.WriteLine("Unable to detect current Activity. Please ensure Plugin.CurrentActivity is installed in your Android project and your Application class is registering with Application.IActivityLifecycleCallbacks.");
                 return Task.FromResult(false);
@@ -34,15 +41,21 @@ namespace Plugin.Permissions
              var names = GetManifestNames(permission);
 
             //if isn't an android specific group then go ahead and return false;
-            if(names == null)
+            if (names == null)
+            {
+                Debug.WriteLine("No android specific permissions needed for: " + permission);
                 return Task.FromResult(false);
+            }
 
-            if(names.Count == 0)
+            if (names.Count == 0)
+            {
+                Debug.WriteLine("No permissions found in manifest for: " + permission + " no need to show request rationale");
                 return Task.FromResult(false);
+            }
 
             foreach(var name in names)
             {
-                if(ActivityCompat.ShouldShowRequestPermissionRationale(CrossCurrentActivity.Current.Activity, name))
+                if(ActivityCompat.ShouldShowRequestPermissionRationale(activity, name))
                     return Task.FromResult(true); 
             }
 
@@ -52,7 +65,8 @@ namespace Plugin.Permissions
 
         public Task<bool> CheckPermission(Permission permission)
         {
-            if(CrossCurrentActivity.Current.Activity == null)
+            var activity = CrossCurrentActivity.Current.Activity;
+            if(activity == null)
             {
                 Debug.WriteLine("Unable to detect current Activity. Please ensure Plugin.CurrentActivity is installed in your Android project and your Application class is registering with Application.IActivityLifecycleCallbacks.");
                 return Task.FromResult(false);
@@ -61,23 +75,27 @@ namespace Plugin.Permissions
             var names = GetManifestNames(permission);
 
             //if isn't an android specific group then go ahead and return true;
-            if(names == null)
+            if (names == null)
+            {
+                Debug.WriteLine("No android specific permissions needed for: " + permission);
                 return Task.FromResult(true);
+            }
 
-            if(names.Count == 0)
+            //if no permissions were found then there is an issue and persmission is not set in Android manifest
+            if (names.Count == 0)
+            {
+                Debug.WriteLine("No permissions found in manifest for: " + permission);
                 return Task.FromResult(false);
+            }
 
             foreach(var name in names)
             {
-                if (ContextCompat.CheckSelfPermission(CrossCurrentActivity.Current.Activity, name) == Android.Content.PM.Permission.Denied)
+                if (ContextCompat.CheckSelfPermission(activity, name) == Android.Content.PM.Permission.Denied)
                     return Task.FromResult(false);
             }
             return Task.FromResult(true);
         }
 
-        object locker = new object();
-        TaskCompletionSource<Dictionary<Permission, bool>> tcs;
-        Dictionary<Permission, bool> results;
         public async Task<Dictionary<Permission, bool>> RequestPermissions(IEnumerable<Permission> permissions)
         {
             if (tcs != null && !tcs.Task.IsCompleted)
@@ -89,7 +107,8 @@ namespace Plugin.Permissions
             {
                 results = new Dictionary<Permission, bool>();
             }
-            if(CrossCurrentActivity.Current.Activity == null)
+            var activity = CrossCurrentActivity.Current.Activity;
+            if(activity == null)
             {
                 Debug.WriteLine("Unable to detect current Activity. Please ensure Plugin.CurrentActivity is installed in your Android project and your Application class is registering with Application.IActivityLifecycleCallbacks.");
                 return results;
@@ -113,7 +132,7 @@ namespace Plugin.Permissions
 
             tcs = new TaskCompletionSource<Dictionary<Permission, bool>>();
 
-            ActivityCompat.RequestPermissions(CrossCurrentActivity.Current.Activity, permissionsToRequest.ToArray(), PermissionCode);
+            ActivityCompat.RequestPermissions(activity, permissionsToRequest.ToArray(), PermissionCode);
 
             return await tcs.Task;
         }
@@ -145,7 +164,7 @@ namespace Plugin.Permissions
             tcs.SetResult(results);
         }
 
-        private static Permission GetPermissionForManifestName(string permission)
+        static Permission GetPermissionForManifestName(string permission)
         {
             switch (permission)
             {
@@ -187,7 +206,7 @@ namespace Plugin.Permissions
             return Permission.Unknown;
         }
 
-        private List<string> GetManifestNames(Permission permission)
+        List<string> GetManifestNames(Permission permission)
         {
             var permissionNames = new List<string>();
             switch(permission)
@@ -299,15 +318,15 @@ namespace Plugin.Permissions
             return permissionNames;
         }
 
-        IList<string> requestedPermissions = null;
-        private bool HasPermissionInManifest(string permission)
+        bool HasPermissionInManifest(string permission)
         {
             try
             {
                 if(requestedPermissions != null)
                     return requestedPermissions.Any(r => r.Equals(permission, StringComparison.InvariantCultureIgnoreCase));
 
-                var info = CurrentActivity.PackageManager.GetPackageInfo(CurrentActivity.PackageName, Android.Content.PM.PackageInfoFlags.Permissions);
+                var activity = CrossCurrentActivity.Current.Activity;
+                var info = activity.PackageManager.GetPackageInfo(activity.PackageName, Android.Content.PM.PackageInfoFlags.Permissions);
                 requestedPermissions = info.RequestedPermissions;
                 
                 if(requestedPermissions == null)

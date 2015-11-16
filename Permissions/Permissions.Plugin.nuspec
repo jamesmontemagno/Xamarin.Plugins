@@ -18,7 +18,7 @@
        <summary>Short description for your plugin.</summary>
        <tags>xamarin, pcl, xam.pcl, plugin, plugin for xamarin, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
        <dependencies>
-         <group targetFramework="MonoDroid10">
+         <group targetFramework="MonoAndroid10">
            <dependency id="Xamarin.Android.Support.v4" version="22.3.0.1"/>
            <dependency id="Plugin.CurrentActivity" version="1.0.0"/>
          </group>
