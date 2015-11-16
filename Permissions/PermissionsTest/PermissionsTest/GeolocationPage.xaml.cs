@@ -23,8 +23,8 @@ namespace PermissionsTest
 
             try
             {
-                var hasPermission = await CrossPermissions.Current.CheckPermission(Permission.Location);
-                if (!hasPermission)
+                var status = await CrossPermissions.Current.HasPermission(Permission.Location);
+                if (status != PermissionStatus.Granted)
                 {
                     if(await CrossPermissions.Current.ShouldShowRequestPermissionRationale(Permission.Location))
                     {
@@ -32,10 +32,10 @@ namespace PermissionsTest
                     }
 
                     var results = await CrossPermissions.Current.RequestPermissions(new[] {Permission.Location});
-                    hasPermission = results[Permission.Location];
+                    status = results[Permission.Location];
                 }
 
-                if (hasPermission)
+                if (status == PermissionStatus.Granted)
                 {
                     var results = await CrossGeolocator.Current.GetPositionAsync(10000);
                     LabelGeolocation.Text = "Lat: " + results.Latitude + " Long: " + results.Longitude;

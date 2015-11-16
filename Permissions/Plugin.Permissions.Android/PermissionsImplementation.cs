@@ -20,8 +20,8 @@ namespace Plugin.Permissions
     {
 
         object locker = new object();
-        TaskCompletionSource<Dictionary<Permission, bool>> tcs;
-        Dictionary<Permission, bool> results;
+        TaskCompletionSource<Dictionary<Permission, PermissionStatus>> tcs;
+        Dictionary<Permission, PermissionStatus> results;
         IList<string> requestedPermissions;
 
         public static PermissionsImplementation Current
@@ -63,13 +63,13 @@ namespace Plugin.Permissions
         
         }
 
-        public Task<bool> CheckPermission(Permission permission)
+        public Task<PermissionStatus> HasPermission(Permission permission)
         {
             var activity = CrossCurrentActivity.Current.Activity;
             if(activity == null)
             {
                 Debug.WriteLine("Unable to detect current Activity. Please ensure Plugin.CurrentActivity is installed in your Android project and your Application class is registering with Application.IActivityLifecycleCallbacks.");
-                return Task.FromResult(false);
+                return Task.FromResult(PermissionStatus.UnDetermined);
             }
             
             var names = GetManifestNames(permission);
@@ -78,25 +78,25 @@ namespace Plugin.Permissions
             if (names == null)
             {
                 Debug.WriteLine("No android specific permissions needed for: " + permission);
-                return Task.FromResult(true);
+                return Task.FromResult(PermissionStatus.Granted);
             }
 
             //if no permissions were found then there is an issue and persmission is not set in Android manifest
             if (names.Count == 0)
             {
                 Debug.WriteLine("No permissions found in manifest for: " + permission);
-                return Task.FromResult(false);
+                return Task.FromResult(PermissionStatus.UnDetermined);
             }
 
             foreach(var name in names)
             {
                 if (ContextCompat.CheckSelfPermission(activity, name) == Android.Content.PM.Permission.Denied)
-                    return Task.FromResult(false);
+                    return Task.FromResult(PermissionStatus.Denied);
             }
-            return Task.FromResult(true);
+            return Task.FromResult(PermissionStatus.Granted);
         }
 
-        public async Task<Dictionary<Permission, bool>> RequestPermissions(IEnumerable<Permission> permissions)
+        public async Task<Dictionary<Permission, PermissionStatus>> RequestPermissions(IEnumerable<Permission> permissions)
         {
             if (tcs != null && !tcs.Task.IsCompleted)
             {
@@ -105,7 +105,7 @@ namespace Plugin.Permissions
             }
             lock (locker)
             {
-                results = new Dictionary<Permission, bool>();
+                results = new Dictionary<Permission, PermissionStatus>();
             }
             var activity = CrossCurrentActivity.Current.Activity;
             if(activity == null)
@@ -116,13 +116,13 @@ namespace Plugin.Permissions
             var permissionsToRequest = new List<string>();
             foreach (var permission in permissions)
             {
-                if (!await CheckPermission(permission))
+                if (await HasPermission(permission) != PermissionStatus.Granted)
                     permissionsToRequest.AddRange(GetManifestNames(permission));
                 else
                 {
                     lock (locker)
                     {
-                        results.Add(permission, true);
+                        results.Add(permission, PermissionStatus.Granted);
                     }
                 }
             }
@@ -130,7 +130,7 @@ namespace Plugin.Permissions
             if (permissionsToRequest.Count == 0)
                 return results;
 
-            tcs = new TaskCompletionSource<Dictionary<Permission, bool>>();
+            tcs = new TaskCompletionSource<Dictionary<Permission, PermissionStatus>>();
 
             ActivityCompat.RequestPermissions(activity, permissionsToRequest.ToArray(), PermissionCode);
 
@@ -158,7 +158,7 @@ namespace Plugin.Permissions
                 lock (locker)
                 {
                     if (!results.ContainsKey(permission))
-                       results.Add(permission, grantResults[i] == Android.Content.PM.Permission.Granted);
+                        results.Add(permission, grantResults[i] == Android.Content.PM.Permission.Granted ? PermissionStatus.Granted : PermissionStatus.Denied);
                 }
             }
             tcs.SetResult(results);

@@ -18,14 +18,14 @@ namespace Plugin.Permissions
             return Task.FromResult(false);
         }
 
-        public Task<bool> CheckPermission(Permission permission)
+        public Task<PermissionStatus> HasPermission(Permission permission)
         {
             return Task.FromResult(true);
         }
 
-        public Task<Dictionary<Permission, bool>> RequestPermissions(IEnumerable<Permission> permissions)
+        public Task<Dictionary<Permission, PermissionStatus>> RequestPermissions(IEnumerable<Permission> permissions)
         {
-            var results = permissions.ToDictionary(permission => permission, permission => true);
+            var results = permissions.ToDictionary(permission => permission, permission => PermissionStatus.Granted);
             return Task.FromResult(results);
         }
     }

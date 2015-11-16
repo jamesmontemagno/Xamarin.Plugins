@@ -12,20 +12,50 @@ namespace Plugin.Permissions
     /// </summary>
     public class PermissionsImplementation : IPermissions
     {
-
+        /// <summary>
+        /// Shoulds the show request permission rationale.
+        /// iOS never needs to.
+        /// </summary>
+        /// <returns>The show request permission rationale.</returns>
+        /// <param name="permission">Permission.</param>
         public Task<bool> ShouldShowRequestPermissionRationale(Permission permission)
         {
+              
             return Task.FromResult(false);
         }
 
-        public Task<bool> CheckPermission(Permission permission)
+        /// <summary>
+        /// Checks the permission.
+        /// </summary>
+        /// <returns>If permission is granted</returns>
+        /// <param name="permission">Permission.</param>
+        public Task<PermissionStatus> HasPermission(Permission permission)
         {
-            return Task.FromResult(true);
+            switch (permission)
+            {
+                case Permission.Calendar:
+                    break;
+                case Permission.Camera:
+                    break;
+                case Permission.Contacts:
+                    break;
+                case Permission.Location:
+                    break;
+                case Permission.Microphone:
+                    break;
+                case Permission.Notifications:
+                    break;
+                case Permission.Sensors:
+                    break;
+                case Permission.Social:
+                    break;
+            }
+            return Task.FromResult(PermissionStatus.Granted);
         }
 
-        public Task<Dictionary<Permission, bool>> RequestPermissions(IEnumerable<Permission> permissions)
+        public Task<Dictionary<Permission, PermissionStatus>> RequestPermissions(IEnumerable<Permission> permissions)
         {
-            var results = permissions.ToDictionary(permission => permission, permission => true);
+            var results = permissions.ToDictionary(permission => permission, permission => PermissionStatus.Granted);
             return Task.FromResult(results);
         }
     }

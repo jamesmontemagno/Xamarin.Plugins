@@ -9,7 +9,7 @@ namespace Plugin.Permissions.Abstractions
     public interface IPermissions
     {
         Task<bool> ShouldShowRequestPermissionRationale(Permission permission);
-        Task<bool> CheckPermission(Permission permission);
-        Task<Dictionary<Permission, bool>> RequestPermissions(IEnumerable<Permission> permissions);
+        Task<PermissionStatus> HasPermission(Permission permission);
+        Task<Dictionary<Permission, PermissionStatus>> RequestPermissions(IEnumerable<Permission> permissions);
     }
 }
