@@ -34,14 +34,21 @@ namespace Plugin.Permissions
 
              var names = GetManifestNames(permission);
 
-            //if isn't an android specific group then go ahead and return true;
+            //if isn't an android specific group then go ahead and return false;
             if(names == null)
-                return Task.FromResult(true);
+                return Task.FromResult(false);
 
             if(names.Count == 0)
                 return Task.FromResult(false);
 
-            return Task.FromResult(names.Any(name => ActivityCompat.ShouldShowRequestPermissionRationale(CurrentActivity, name)));
+            foreach(var name in names)
+            {
+                if(ActivityCompat.ShouldShowRequestPermissionRationale(CurrentActivity, name))
+                    return Task.FromResult(true); 
+            }
+
+            return Task.FromResult(false);
+        
         }
 
         public Task<bool> CheckPermission(Permission permission)
@@ -61,7 +68,12 @@ namespace Plugin.Permissions
             if(names.Count == 0)
                 return Task.FromResult(false);
 
-            return Task.FromResult(names.Any(name => ContextCompat.CheckSelfPermission(CurrentActivity, name) == Android.Content.PM.Permission.Denied));
+            foreach(var name in names)
+            {
+                if (ContextCompat.CheckSelfPermission(CurrentActivity, name) == Android.Content.PM.Permission.Denied)
+                    return Task.FromResult(false);
+            }
+            return Task.FromResult(true);
         }
 
         object locker = new object();
