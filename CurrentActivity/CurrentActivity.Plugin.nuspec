@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+   <metadata minClientVersion="2.8.1">
+       <id>Plugin.CurrentActivity</id>
+       <version>1.0.0</version>
+       <title>CurrentActivity Plugin for Xamarin.Android</title>
+       <authors>James Montemagno</authors>
+       <owners>James Montemagno</owners>
+       <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
+       <projectUrl>http://www.github.com/jamesmontemagno/Xamarin.Plugins</projectUrl>
+    	<iconUrl>http://refractored.com/images/plugin_current_activity.png</iconUrl>
+       <requireLicenseAcceptance>false</requireLicenseAcceptance>
+       <description>
+         Provides a simple solution for getting access to the current Activity of the application when developing a Plugin for Xamarin.
+         This will lay down a base "application" class for developers in their Android application with boilerplate code to get them started. 
+         Can be used with Android API 14+
+       </description>
+       <summary>Easily gain access to the active Activity.</summary>
+       <tags>xamarin, pcl, xam.pcl, plugin, plugin for xamarin, android</tags>
+       <dependencies>
+       </dependencies>
+   </metadata>
+   <files>
+     <!--Xamarin.Android-->
+     <file src="Plugin.CurrentActivity/bin/Release/Plugin.CurrentActivity.dll" target="lib\MonoAndroid10\Plugin.CurrentActivity.dll" />
+     <file src="Plugin.CurrentActivity/bin/Release/Plugin.CurrentActivity.xml" target="lib\MonoAndroid10\Plugin.CurrentActivity.xml" />
+     <!--Files for current activity plugin-->
+     <file src="CurrentActivityReadme.txt.pp" target="content\MonoAndroid10\PluginsHelp\CrossActivityReadme.txt.pp" />
+	 <file src="MainApplication.cs.pp" target="content\MonoAndroid10\MainApplication.cs.pp" />
+   </files>
+</package>
