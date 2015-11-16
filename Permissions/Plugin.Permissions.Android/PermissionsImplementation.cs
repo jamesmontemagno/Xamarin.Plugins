@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Plugin.CurrentActivity;
 
 
 namespace Plugin.Permissions
@@ -17,8 +18,6 @@ namespace Plugin.Permissions
     /// </summary>
     public class PermissionsImplementation : Java.Lang.Object, IPermissions, ActivityCompat.IOnRequestPermissionsResultCallback
     {
-        public Activity CurrentActivity { get; set; }
-
         public static PermissionsImplementation Current
         {
             get {  return (PermissionsImplementation)CrossPermissions.Current; }
@@ -26,9 +25,9 @@ namespace Plugin.Permissions
 
         public Task<bool> ShouldShowRequestPermissionRationale(Permission permission)
         {
-            if(CurrentActivity == null)
+            if(CrossCurrentActivity.Current.Activity == null)
             {
-                Debug.WriteLine("Unable to detect current CurrentActivity, please call PermissionsImplementation.Init with current Application from your MainActivity.");
+                Debug.WriteLine("Unable to detect current Activity. Please ensure Plugin.CurrentActivity is installed in your Android project and your Application class is registering with Application.IActivityLifecycleCallbacks.");
                 return Task.FromResult(false);
             }
 
@@ -43,7 +42,7 @@ namespace Plugin.Permissions
 
             foreach(var name in names)
             {
-                if(ActivityCompat.ShouldShowRequestPermissionRationale(CurrentActivity, name))
+                if(ActivityCompat.ShouldShowRequestPermissionRationale(CrossCurrentActivity.Current.Activity, name))
                     return Task.FromResult(true); 
             }
 
@@ -53,9 +52,9 @@ namespace Plugin.Permissions
 
         public Task<bool> CheckPermission(Permission permission)
         {
-            if(CurrentActivity == null)
+            if(CrossCurrentActivity.Current.Activity == null)
             {
-                Debug.WriteLine("Unable to detect current Activity, please call PermissionsImplementation.Init with current Application from your MainActivity.");
+                Debug.WriteLine("Unable to detect current Activity. Please ensure Plugin.CurrentActivity is installed in your Android project and your Application class is registering with Application.IActivityLifecycleCallbacks.");
                 return Task.FromResult(false);
             }
             
@@ -70,7 +69,7 @@ namespace Plugin.Permissions
 
             foreach(var name in names)
             {
-                if (ContextCompat.CheckSelfPermission(CurrentActivity, name) == Android.Content.PM.Permission.Denied)
+                if (ContextCompat.CheckSelfPermission(CrossCurrentActivity.Current.Activity, name) == Android.Content.PM.Permission.Denied)
                     return Task.FromResult(false);
             }
             return Task.FromResult(true);
@@ -90,9 +89,9 @@ namespace Plugin.Permissions
             {
                 results = new Dictionary<Permission, bool>();
             }
-            if(CurrentActivity == null)
+            if(CrossCurrentActivity.Current.Activity == null)
             {
-                Debug.WriteLine("Unable to detect current CurrentActivity, please call PermissionsImplementation.Init with current Application from your MainActivity.");
+                Debug.WriteLine("Unable to detect current Activity. Please ensure Plugin.CurrentActivity is installed in your Android project and your Application class is registering with Application.IActivityLifecycleCallbacks.");
                 return results;
             }
             var permissionsToRequest = new List<string>();
@@ -114,7 +113,7 @@ namespace Plugin.Permissions
 
             tcs = new TaskCompletionSource<Dictionary<Permission, bool>>();
 
-            ActivityCompat.RequestPermissions(CurrentActivity, permissionsToRequest.ToArray(), PermissionCode);
+            ActivityCompat.RequestPermissions(CrossCurrentActivity.Current.Activity, permissionsToRequest.ToArray(), PermissionCode);
 
             return await tcs.Task;
         }

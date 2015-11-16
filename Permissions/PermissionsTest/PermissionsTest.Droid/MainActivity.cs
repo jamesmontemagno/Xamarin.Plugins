@@ -25,13 +25,11 @@ namespace PermissionsTest.Droid
             ToolbarResource = Resource.Layout.toolbar;
 
             LoadApplication(new App());
-
-            PermissionsImplementation.Current.CurrentActivity = this;
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
-            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

@@ -6,9 +6,9 @@ namespace Plugin.Permissions
     /// <summary>
     /// Cross platform Permissions implemenations
     /// </summary>
-    public class CrossPermissions
+    public static class CrossPermissions
     {
-        static Lazy<IPermissions> Implementation = new Lazy<IPermissions>(() => CreatePermissions(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
+        static Lazy<IPermissions> Implementation = new Lazy<IPermissions>(CreatePermissions, System.Threading.LazyThreadSafetyMode.PublicationOnly);
 
         /// <summary>
         /// Current settings to use

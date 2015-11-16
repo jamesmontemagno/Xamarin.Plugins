@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{24C09130-BDE2-4E54-A761-860B0F0EF662}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
@@ -93,22 +91,23 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <ITunesArtwork Include="iTunesArtwork" />
-    <ITunesArtwork Include="iTunesArtwork@2x" />
     <None Include="packages.config" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Plugin.Permissions.Abstractions\Plugin.Permissions.Abstractions.csproj">
-      <Project>{6edb0588-ffc5-4ef5-8a99-9e241d0f878d}</Project>
+      <Project>{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}</Project>
       <Name>Plugin.Permissions.Abstractions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugin.Permissions.iOSUnified\Plugin.Permissions.iOSUnified.csproj">
-      <Project>{2882aeeb-d4cd-4eb9-8a6c-6653b33681f0}</Project>
+      <Project>{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}</Project>
       <Name>Plugin.Permissions.iOSUnified</Name>
-      <IsAppExtension>false</IsAppExtension>
-      <IsWatchApp>false</IsWatchApp>
+      <IsAppExtension>False</IsAppExtension>
+      <IsWatchApp>False</IsWatchApp>
     </ProjectReference>
     <ProjectReference Include="..\PermissionsTest\PermissionsTest.csproj">
       <Name>PermissionsTest</Name>
+      <Project>{6B9FD358-774A-4B06-BA02-D78B5FAA9F85}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
