@@ -1,19 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 
 namespace Plugin.CurrentActivity
 {
+    /// <summary>
+    /// Current Activity Interface
+    /// </summary>
     public interface ICurrentActivity
     {
+        /// <summary>
+        /// Gets or sets the activity.
+        /// </summary>
+        /// <value>The activity.</value>
         Activity Activity { get; set; }
     }
 }

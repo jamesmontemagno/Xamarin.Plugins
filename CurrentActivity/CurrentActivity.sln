@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
+# Visual Studio 2012
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.CurrentActivity.Android", "Plugin.CurrentActivity\Plugin.CurrentActivity.Android.csproj", "{56A56F17-7DE1-4CA1-9617-BF32E971AC84}"
@@ -12,47 +12,31 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{11D3B029-067B-4F71-B111-C2F05C68D02F}"
 	ProjectSection(SolutionItems) = preProject
 		CurrentActivity.Plugin.nuspec = CurrentActivity.Plugin.nuspec
+		CurrentActivityReadme.txt.pp = CurrentActivityReadme.txt.pp
+		MainApplication.cs.pp = MainApplication.cs.pp
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Debug|ARM = Debug|ARM
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-		Release|ARM = Release|ARM
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{56A56F17-7DE1-4CA1-9617-BF32E971AC84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{56A56F17-7DE1-4CA1-9617-BF32E971AC84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56A56F17-7DE1-4CA1-9617-BF32E971AC84}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{56A56F17-7DE1-4CA1-9617-BF32E971AC84}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{56A56F17-7DE1-4CA1-9617-BF32E971AC84}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{56A56F17-7DE1-4CA1-9617-BF32E971AC84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56A56F17-7DE1-4CA1-9617-BF32E971AC84}.Release|Any CPU.Build.0 = Release|Any CPU
-		{56A56F17-7DE1-4CA1-9617-BF32E971AC84}.Release|ARM.ActiveCfg = Release|Any CPU
-		{56A56F17-7DE1-4CA1-9617-BF32E971AC84}.Release|x64.ActiveCfg = Release|Any CPU
-		{56A56F17-7DE1-4CA1-9617-BF32E971AC84}.Release|x86.ActiveCfg = Release|Any CPU
 		{58F00AAA-CE77-4394-9CEE-8F758DCFC286}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{58F00AAA-CE77-4394-9CEE-8F758DCFC286}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58F00AAA-CE77-4394-9CEE-8F758DCFC286}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{58F00AAA-CE77-4394-9CEE-8F758DCFC286}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{58F00AAA-CE77-4394-9CEE-8F758DCFC286}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{58F00AAA-CE77-4394-9CEE-8F758DCFC286}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{58F00AAA-CE77-4394-9CEE-8F758DCFC286}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58F00AAA-CE77-4394-9CEE-8F758DCFC286}.Release|Any CPU.Build.0 = Release|Any CPU
 		{58F00AAA-CE77-4394-9CEE-8F758DCFC286}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{58F00AAA-CE77-4394-9CEE-8F758DCFC286}.Release|ARM.ActiveCfg = Release|Any CPU
-		{58F00AAA-CE77-4394-9CEE-8F758DCFC286}.Release|x64.ActiveCfg = Release|Any CPU
-		{58F00AAA-CE77-4394-9CEE-8F758DCFC286}.Release|x86.ActiveCfg = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{58F00AAA-CE77-4394-9CEE-8F758DCFC286} = {A6C21B40-C9F3-4EA7-94A2-C8DE2C221403}
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

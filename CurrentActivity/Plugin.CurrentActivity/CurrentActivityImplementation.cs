@@ -1,5 +1,4 @@
 using Android.App;
-using Plugin.CurrentActivity.Abstractions;
 using System;
 
 
@@ -10,6 +9,10 @@ namespace Plugin.CurrentActivity
     /// </summary>
     public class CurrentActivityImplementation : ICurrentActivity
     {
+        /// <summary>
+        /// Gets or sets the activity.
+        /// </summary>
+        /// <value>The activity.</value>
         public Activity Activity
         {
             get;

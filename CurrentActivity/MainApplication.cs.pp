@@ -5,8 +5,9 @@ using Android.OS;
 using Android.Runtime;
 using Plugin.CurrentActivity;
 
-namespace CurrentActivityTest
+namespace $rootnamespace$
 {
+	//You can specify additional application information in this attribute
     [Application]
     public class MainApplication : Application, Application.IActivityLifecycleCallbacks
     {
