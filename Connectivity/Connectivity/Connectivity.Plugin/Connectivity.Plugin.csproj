@@ -8,8 +8,8 @@
     <ProjectGuid>{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Connectivity.Plugin</RootNamespace>
-    <AssemblyName>Connectivity.Plugin</AssemblyName>
+    <RootNamespace>Plugin.Connectivity</RootNamespace>
+    <AssemblyName>Plugin.Connectivity</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE;PORTABLE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Connectivity.Plugin.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.Connectivity.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->

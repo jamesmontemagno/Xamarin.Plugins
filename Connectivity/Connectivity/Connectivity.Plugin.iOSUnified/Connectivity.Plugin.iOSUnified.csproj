@@ -8,9 +8,9 @@
     <ProjectGuid>{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>Connectivity.Plugin</RootNamespace>
+    <RootNamespace>Plugin.Connectivity</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Connectivity.Plugin</AssemblyName>
+    <AssemblyName>Plugin.Connectivity</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <DocumentationFile>bin\iPhone\Release\Connectivity.Plugin.XML</DocumentationFile>
+    <DocumentationFile>bin\iPhone\Release\Plugin.Connectivity.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\Connectivity.Plugin.iOS\ConnectivityImplementation.cs">
