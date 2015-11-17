@@ -6,7 +6,7 @@ This is a sample plugin of how to use the application context to start a new act
 **Android**
 Use the ApplicationContext with special flags
 
-```
+```csharp
 //these flags are required when using application context
 smsIntent.SetFlags(ActivityFlags.ClearTop);
 smsIntent.SetFlags(ActivityFlags.NewTask);
@@ -17,7 +17,7 @@ Android.App.Application.Context.StartActivity(smsIntent);
 **iOS**
 Use the SharedApplication to gain access:
 
-```
+```csharp
 UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewControllerAsync(smsController, true);
 ```
 
