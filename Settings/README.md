@@ -17,7 +17,7 @@ Create and access settings from shared code across all of your mobile apps!
 #### Create a new static class
 You will want to create a new `static` class called "Settings" in your shared code project or PCL that will house all of your settings.
 
-```
+```csharp
 public static class Settings
 {
  // code here...
@@ -27,7 +27,7 @@ public static class Settings
 #### Gain Access to ISettings
 When you want to read/write setting you want to gain access via the ISettings API. I automatically have a singleton setup for you so you just need access:
 
-```
+```csharp
 private static ISettings AppSettings
 {
   get
@@ -40,7 +40,7 @@ private static ISettings AppSettings
 #### Create your Key and Default Values
 Each setting consists of a `const string` key and a default value. I HIGHLY recommend declaring these ahead of time such as:
 
-```
+```csharp
 private const string UserNameKey = "username_key";
 private static readonly string UserNameDefault = string.Empty;
 
@@ -51,7 +51,7 @@ private static readonly int SomeIntDefault = 6251986;
 #### Create Getters and Setters for your Setting
 Now it is time to setup your actual setting that can be accessed from **ANY** project, whether it be a PCL, Shared Code, or a platform specific project. We do this by usign the two methods in the ISettings API: `GetValueOrDefault` and `AddOrUpdateValue`:
 
-```
+```csharp
 public static string UserName
 {
   get { return AppSettings.GetValueOrDefault<string>(UserNameKey, UserNameDefault); }
