@@ -30,34 +30,34 @@ namespace PermissionsTest
             switch (((Button)sender).StyleId)
             {
                 case "Calendar":
-                    status = await CrossPermissions.Current.HasPermission(Permission.Calendar);
+                    status = await CrossPermissions.Current.CheckPermissionStatus(Permission.Calendar);
                     break;
                 case "Camera":
-                    status = await CrossPermissions.Current.HasPermission(Permission.Camera);
+                    status = await CrossPermissions.Current.CheckPermissionStatus(Permission.Camera);
                     break;
                 case "Contacts":
-                    status = await CrossPermissions.Current.HasPermission(Permission.Contacts);
+                    status = await CrossPermissions.Current.CheckPermissionStatus(Permission.Contacts);
                     break;
                 case "Microphone":
-                    status = await CrossPermissions.Current.HasPermission(Permission.Microphone);
+                    status = await CrossPermissions.Current.CheckPermissionStatus(Permission.Microphone);
                     break;
                 case "Phone":
-                    status = await CrossPermissions.Current.HasPermission(Permission.Phone);
+                    status = await CrossPermissions.Current.CheckPermissionStatus(Permission.Phone);
                     break;
                 case "Photos":
-                    status = await CrossPermissions.Current.HasPermission(Permission.Photos);
+                    status = await CrossPermissions.Current.CheckPermissionStatus(Permission.Photos);
                     break;
                 case "Reminders":
-                    status = await CrossPermissions.Current.HasPermission(Permission.Reminders);
+                    status = await CrossPermissions.Current.CheckPermissionStatus(Permission.Reminders);
                     break;
                 case "Sensors":
-                    status = await CrossPermissions.Current.HasPermission(Permission.Sensors);
+                    status = await CrossPermissions.Current.CheckPermissionStatus(Permission.Sensors);
                     break;
                 case "Sms":
-                    status = await CrossPermissions.Current.HasPermission(Permission.Sms);
+                    status = await CrossPermissions.Current.CheckPermissionStatus(Permission.Sms);
                     break;
                 case "Storage":
-                    status = await CrossPermissions.Current.HasPermission(Permission.Storage);
+                    status = await CrossPermissions.Current.CheckPermissionStatus(Permission.Storage);
                     break;
             }
 
@@ -117,7 +117,7 @@ namespace PermissionsTest
 
             try
             {
-                var status = await CrossPermissions.Current.HasPermission(Permission.Location);
+                var status = await CrossPermissions.Current.CheckPermissionStatus(Permission.Location);
                 if (status != PermissionStatus.Granted)
                 {
                     if(await CrossPermissions.Current.ShouldShowRequestPermissionRationale(Permission.Location))

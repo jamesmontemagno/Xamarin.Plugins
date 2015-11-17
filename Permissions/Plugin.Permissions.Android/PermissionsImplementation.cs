@@ -29,6 +29,12 @@ namespace Plugin.Permissions
             get {  return (PermissionsImplementation)CrossPermissions.Current; }
         }
 
+        /// <summary>
+        /// Request to see if you should show a rationale for requesting permission
+        /// Only on Android
+        /// </summary>
+        /// <returns>True or false to show rationale</returns>
+        /// <param name="permission">Permission to check.</param>
         public Task<bool> ShouldShowRequestPermissionRationale(Permission permission)
         {
             var activity = CrossCurrentActivity.Current.Activity;
@@ -63,7 +69,12 @@ namespace Plugin.Permissions
         
         }
 
-        public Task<PermissionStatus> HasPermission(Permission permission)
+        /// <summary>
+        /// Determines whether this instance has permission the specified permission.
+        /// </summary>
+        /// <returns><c>true</c> if this instance has permission the specified permission; otherwise, <c>false</c>.</returns>
+        /// <param name="permission">Permission to check.</param>
+        public Task<PermissionStatus> CheckPermissionStatus(Permission permission)
         {
             var activity = CrossCurrentActivity.Current.Activity;
             if(activity == null)
@@ -96,6 +107,11 @@ namespace Plugin.Permissions
             return Task.FromResult(PermissionStatus.Granted);
         }
 
+        /// <summary>
+        /// Requests the permissions from the users
+        /// </summary>
+        /// <returns>The permissions and their status.</returns>
+        /// <param name="permissions">Permissions to request.</param>
         public async Task<Dictionary<Permission, PermissionStatus>> RequestPermissions(IEnumerable<Permission> permissions)
         {
             if (tcs != null && !tcs.Task.IsCompleted)
@@ -116,7 +132,7 @@ namespace Plugin.Permissions
             var permissionsToRequest = new List<string>();
             foreach (var permission in permissions)
             {
-                if (await HasPermission(permission) != PermissionStatus.Granted)
+                if (await CheckPermissionStatus(permission) != PermissionStatus.Granted)
                     permissionsToRequest.AddRange(GetManifestNames(permission));
                 else
                 {

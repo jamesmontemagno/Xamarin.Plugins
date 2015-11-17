@@ -25,7 +25,6 @@ namespace Plugin.Permissions
         ABAddressBook addressBook;
         EKEventStore eventStore;
         CMMotionActivityManager activityManager;
-        UIUserNotificationSettings notificationLocalSettings;
 
         /// <summary>
         /// Gets the current permissions implementation
@@ -36,28 +35,24 @@ namespace Plugin.Permissions
             get {  return (PermissionsImplementation)CrossPermissions.Current; }
         }
 
-        public PermissionsImplementation()
-        {
-            notificationLocalSettings = UIUserNotificationSettings.GetSettingsForTypes(UIUserNotificationType.Alert, null);
-        }
 
         /// <summary>
-        /// Shoulds the show request permission rationale.
-        /// iOS never needs to.
+        /// Request to see if you should show a rationale for requesting permission
+        /// Only on Android
         /// </summary>
-        /// <returns>The show request permission rationale.</returns>
-        /// <param name="permission">Permission.</param>
+        /// <returns>True or false to show rationale</returns>
+        /// <param name="permission">Permission to check.</param>
         public Task<bool> ShouldShowRequestPermissionRationale(Permission permission)
         {
             return Task.FromResult(false);
         }
 
         /// <summary>
-        /// Checks the permission.
+        /// Determines whether this instance has permission the specified permission.
         /// </summary>
-        /// <returns>If permission is granted</returns>
-        /// <param name="permission">Permission.</param>
-        public Task<PermissionStatus> HasPermission(Permission permission)
+        /// <returns><c>true</c> if this instance has permission the specified permission; otherwise, <c>false</c>.</returns>
+        /// <param name="permission">Permission to check.</param>
+        public Task<PermissionStatus> CheckPermissionStatus(Permission permission)
         {
             switch (permission)
             {
@@ -83,6 +78,11 @@ namespace Plugin.Permissions
             return Task.FromResult(PermissionStatus.Granted);
         }
 
+        /// <summary>
+        /// Requests the permissions from the users
+        /// </summary>
+        /// <returns>The permissions and their status.</returns>
+        /// <param name="permissions">Permissions to request.</param>
         public async Task<Dictionary<Permission, PermissionStatus>> RequestPermissions(IEnumerable<Permission> permissions)
         {
             var results = new Dictionary<Permission, PermissionStatus>();
