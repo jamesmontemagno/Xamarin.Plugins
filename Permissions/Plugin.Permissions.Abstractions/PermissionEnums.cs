@@ -58,16 +58,6 @@
         /// </summary>
         Microphone,
         /// <summary>
-        /// Android: Nothing
-        /// iOS: Notifications (local)
-        /// </summary>
-        //NotificationsLocal,
-        /// <summary>
-        /// Android: Nothing
-        /// iOS: Notifications (remote)
-        /// </summary>
-        //NotificationsRemote,
-        /// <summary>
         /// Android: Phone
         /// iOS: Nothing
         /// </summary>
