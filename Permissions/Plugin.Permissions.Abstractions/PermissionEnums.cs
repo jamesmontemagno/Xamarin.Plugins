@@ -20,7 +20,7 @@
         /// <summary>
         /// Permission is in an unknown state
         /// </summary>
-        UnDetermined
+        Unknown
     }
 
     /// <summary>
@@ -34,7 +34,7 @@
         Unknown,
         /// <summary>
         /// Android: Calendar
-        /// iOS: Calendar (Events and Reminders)
+        /// iOS: Calendar (Events)
         /// </summary>
         Calendar,
         /// <summary>
@@ -59,14 +59,29 @@
         Microphone,
         /// <summary>
         /// Android: Nothing
-        /// iOS: Notifications (local and remote)
+        /// iOS: Notifications (local)
         /// </summary>
-        Notifications,
+        //NotificationsLocal,
+        /// <summary>
+        /// Android: Nothing
+        /// iOS: Notifications (remote)
+        /// </summary>
+        //NotificationsRemote,
         /// <summary>
         /// Android: Phone
         /// iOS: Nothing
         /// </summary>
         Phone,
+        /// <summary>
+        /// Android: Nothing
+        /// iOS: Photos
+        /// </summary>
+        Photos,
+        /// <summary>
+        /// Android: Nothing
+        /// iOS: Reminders
+        /// </summary>
+        Reminders,
         /// <summary>
         /// Android: Body Sensors
         /// iOS: CoreMotion
@@ -76,12 +91,7 @@
         /// Android: Sms
         /// iOS: Nothing
         /// </summary>
-        Sms,//iOS: Nothing
-        /// <summary>
-        /// Android: Nothing
-        /// iOS: Social Frameworks
-        /// </summary>
-        Social,
+        Sms,
         /// <summary>
         /// Android: External Storage
         /// iOS: Nothing

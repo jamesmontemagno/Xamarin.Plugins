@@ -69,7 +69,7 @@ namespace Plugin.Permissions
             if(activity == null)
             {
                 Debug.WriteLine("Unable to detect current Activity. Please ensure Plugin.CurrentActivity is installed in your Android project and your Application class is registering with Application.IActivityLifecycleCallbacks.");
-                return Task.FromResult(PermissionStatus.UnDetermined);
+                return Task.FromResult(PermissionStatus.Unknown);
             }
             
             var names = GetManifestNames(permission);
@@ -85,7 +85,7 @@ namespace Plugin.Permissions
             if (names.Count == 0)
             {
                 Debug.WriteLine("No permissions found in manifest for: " + permission);
-                return Task.FromResult(PermissionStatus.UnDetermined);
+                return Task.FromResult(PermissionStatus.Unknown);
             }
 
             foreach(var name in names)

@@ -17,8 +17,102 @@ namespace PermissionsTest
             InitializeComponent();
         }
 
-        private async void Button_OnClicked(object sender, EventArgs e)
+        bool busy;
+        async void ButtonPermission_OnClicked(object sender, EventArgs e)
         {
+            if (busy)
+                return;
+            
+            busy = true;
+            ((Button) sender).IsEnabled = false;
+
+            var status = PermissionStatus.Unknown;
+            switch (((Button)sender).StyleId)
+            {
+                case "Calendar":
+                    status = await CrossPermissions.Current.HasPermission(Permission.Calendar);
+                    break;
+                case "Camera":
+                    status = await CrossPermissions.Current.HasPermission(Permission.Camera);
+                    break;
+                case "Contacts":
+                    status = await CrossPermissions.Current.HasPermission(Permission.Contacts);
+                    break;
+                case "Microphone":
+                    status = await CrossPermissions.Current.HasPermission(Permission.Microphone);
+                    break;
+                case "Phone":
+                    status = await CrossPermissions.Current.HasPermission(Permission.Phone);
+                    break;
+                case "Photos":
+                    status = await CrossPermissions.Current.HasPermission(Permission.Photos);
+                    break;
+                case "Reminders":
+                    status = await CrossPermissions.Current.HasPermission(Permission.Reminders);
+                    break;
+                case "Sensors":
+                    status = await CrossPermissions.Current.HasPermission(Permission.Sensors);
+                    break;
+                case "Sms":
+                    status = await CrossPermissions.Current.HasPermission(Permission.Sms);
+                    break;
+                case "Storage":
+                    status = await CrossPermissions.Current.HasPermission(Permission.Storage);
+                    break;
+            }
+
+            await DisplayAlert("Results", status.ToString(), "OK");
+
+            if (status != PermissionStatus.Granted)
+            {
+                switch (((Button)sender).StyleId)
+                {
+                    case "Calendar":
+                        status = (await CrossPermissions.Current.RequestPermissions(new []{Permission.Calendar}))[Permission.Calendar];
+                        break;
+                    case "Camera":
+                        status = (await CrossPermissions.Current.RequestPermissions(new []{Permission.Camera}))[Permission.Camera];
+                        break;
+                    case "Contacts":
+                        status = (await CrossPermissions.Current.RequestPermissions(new []{Permission.Contacts}))[Permission.Contacts];
+                        break;
+                    case "Microphone":
+                        status = (await CrossPermissions.Current.RequestPermissions(new []{Permission.Microphone}))[Permission.Microphone];
+                        break;
+                    case "Phone":
+                        status = (await CrossPermissions.Current.RequestPermissions(new []{Permission.Phone}))[Permission.Phone];
+                        break;
+                    case "Photos":
+                        status = (await CrossPermissions.Current.RequestPermissions(new []{Permission.Photos}))[Permission.Photos];
+                        break;
+                    case "Reminders":
+                        status = (await CrossPermissions.Current.RequestPermissions(new []{Permission.Reminders}))[Permission.Reminders];
+                        break;
+                    case "Sensors":
+                        status = (await CrossPermissions.Current.RequestPermissions(new []{Permission.Sensors}))[Permission.Sensors];
+                        break;
+                    case "Sms":
+                        status = (await CrossPermissions.Current.RequestPermissions(new []{Permission.Sms}))[Permission.Sms];
+                        break;
+                    case "Storage":
+                        status = (await CrossPermissions.Current.RequestPermissions(new []{Permission.Storage}))[Permission.Storage];
+                        break;
+                }
+
+                await DisplayAlert("Results", status.ToString(), "OK");
+
+            }
+
+            busy = false;
+            ((Button) sender).IsEnabled = true;
+        }
+
+        async void Button_OnClicked(object sender, EventArgs e)
+        {
+            if (busy)
+                return;
+
+            busy = true;
             ((Button) sender).IsEnabled = false;
 
             try
@@ -40,7 +134,7 @@ namespace PermissionsTest
                     var results = await CrossGeolocator.Current.GetPositionAsync(10000);
                     LabelGeolocation.Text = "Lat: " + results.Latitude + " Long: " + results.Longitude;
                 }
-                else
+                else if(status != PermissionStatus.Unknown)
                 {
                     await DisplayAlert("Location Denied", "Can not continue, try again.", "OK");
                 }
@@ -52,6 +146,7 @@ namespace PermissionsTest
             }
 
             ((Button)sender).IsEnabled = true;
+            busy = false;
         }
     }
 }
