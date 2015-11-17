@@ -3,7 +3,7 @@
    <metadata minClientVersion="2.8.1">
        <id>Plugin.Permissions</id>
        <version>1.0.0-alpha1</version>
-       <title>Permissions Plugin for Xamarin and Windows</title>
+       <title>Permissions Plugin for Xamarin</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
        <licenseUrl>https://raw.githubusercontent.com/jamesmontemagno/Xamarin.Plugins/master/LICENSE.md</licenseUrl>
