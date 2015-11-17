@@ -20,7 +20,7 @@ Simple cross platform plugin to check connection status of mobile device, gather
 
 Call **CrossPermissions.Current** from any project or PCL to gain access to APIs.
 
-***Should show request rationale**
+**Should show request rationale**
 ```
 /// <summary>
 /// Request to see if you should show a rationale for requesting permission
