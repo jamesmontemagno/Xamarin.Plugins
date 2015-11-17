@@ -20,99 +20,76 @@ Simple cross platform plugin to check connection status of mobile device, gather
 
 Call **CrossPermissions.Current** from any project or PCL to gain access to APIs.
 
-
-**IsConnected**
+***Should show request rationale**
 ```
 /// <summary>
-/// Gets if there is an active internet connection
+/// Request to see if you should show a rationale for requesting permission
+/// Only on Android
 /// </summary>
-bool IsConnected { get; }
+/// <returns>True or false to show rationale</returns>
+/// <param name="permission">Permission to check.</param>
+Task<bool> ShouldShowRequestPermissionRationale(Permission permission);
 ```
 
-**ConnectionTypes**
+**CheckPermissiontStatus**
 ```
 /// <summary>
-/// Gets the list of all active connection types.
+/// Determines whether this instance has permission the specified permission.
 /// </summary>
-IEnumerable<ConnectionType> ConnectionTypes { get; }
+/// <returns><c>true</c> if this instance has permission the specified permission; otherwise, <c>false</c>.</returns>
+/// <param name="permission">Permission to check.</param>
+Task<PermissionStatus> CheckPermissionStatus(Permission permission);
 ```
 
-**Bandwidths**
+**RequestPermissions**
 ```
 /// <summary>
-/// Retrieves a list of available bandwidths for the platform.
-/// Only active connections.
+/// Requests the permissions from the users
 /// </summary>
-IEnumerable<UInt64> Bandwidths { get; }
+/// <returns>The permissions and their status.</returns>
+/// <param name="permissions">Permissions to request.</param>
+Task<Dictionary<Permission, PermissionStatus>> RequestPermissions(IEnumerable<Permission> permissions);
 ```
 
-#### Pinging Hosts
+### In Action
+Here is how you may use it with the Geolocator Plugin:
 
-**IsReachable**
 ```
-/// <summary>
-/// Tests if a host name is pingable
-/// </summary>
-/// <param name="host">The host name can either be a machine name, such as "java.sun.com", or a textual representation of its IP address (127.0.0.1)</param>
-/// <param name="msTimeout">Timeout in milliseconds</param>
-/// <returns></returns>
-Task<bool> IsReachable(string host, int msTimeout = 5000);
-```
-
-**IsRemoteReachable**
-```
-/// <summary>
-/// Tests if a remote host name is reachable (no http:// or www.)
-/// </summary>
-/// <param name="host">Host name can be a remote IP or URL of website</param>
-/// <param name="port">Port to attempt to check is reachable.</param>
-/// <param name="msTimeout">Timeout in milliseconds.</param>
-/// <returns></returns>
-Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000);
-```
-
-#### Changes in Connectivity
-When any network connectiivty is gained, changed, or loss you can register for an event to fire:
-```
-/// <summary>
-/// Event handler when connection changes
-/// </summary>
-event ConnectivityChangedEventHandler ConnectivityChanged; 
-```
-
-You will get a ConnectivityChangeEventArgs with the status if you are connected or not:
-```
-public class ConnectivityChangedEventArgs : EventArgs
+try
 {
-  public bool IsConnected { get; set; }
+    var status = await CrossPermissions.Current.CheckPermissionStatus(Permission.Location);
+    if (status != PermissionStatus.Granted)
+    {
+        if(await CrossPermissions.Current.ShouldShowRequestPermissionRationale(Permission.Location))
+        {
+            await DisplayAlert("Need location", "Gunna need that location", "OK");
+        }
+
+        var results = await CrossPermissions.Current.RequestPermissions(new[] {Permission.Location});
+        status = results[Permission.Location];
+    }
+
+    if (status == PermissionStatus.Granted)
+    {
+        var results = await CrossGeolocator.Current.GetPositionAsync(10000);
+        LabelGeolocation.Text = "Lat: " + results.Latitude + " Long: " + results.Longitude;
+    }
+    else if(status != PermissionStatus.Unknown)
+    {
+        await DisplayAlert("Location Denied", "Can not continue, try again.", "OK");
+    }
 }
+catch (Exception ex)
+{
 
-public delegate void ConnectivityChangedEventHandler(object sender, ConnectivityChangedEventArgs e);
-```
-
-Usage sample from Xamarin.Forms:
-```
-CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
-  {
-    page.DisplayAlert("Connectivity Changed", "IsConnected: " + args.IsConnected.ToString(), "OK");
-  };
+    LabelGeolocation.Text = "Error: " + ex;
+}
 ```
 
 
 ### **IMPORTANT**
 Android:
-You must request ACCESS_NETWORK_STATE permission to get the network state
-You must request ACCESS_WIFI_STATE to get speeds
-
-iOS:
-Bandwidths is not supported and will always return an empty list.
-
-Windows 8.1 & Windows Phone 8.1 RT:
-RT apps can not perform loopback, so you can not use IsReachable to query the states of a local IP.
-
-Permissions to think about:
-The Private Networks (Client & Server) capability is represented by the Capability name = "privateNetworkClientServer" tag in the app manifest. 
-The Internet (Client & Server) capability is represented by the Capability name = "internetClientServer" tag in the app manifest.
+You still need to request the permissions in your AndroidManifest.xml. Also ensure your MainApplication.cs was setup correctly from the CurrentActivity Plugin.
 
 
 #### Contributors
