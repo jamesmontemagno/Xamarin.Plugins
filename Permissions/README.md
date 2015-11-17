@@ -21,7 +21,7 @@ Simple cross platform plugin to check connection status of mobile device, gather
 Call **CrossPermissions.Current** from any project or PCL to gain access to APIs.
 
 **Should show request rationale**
-```
+```csharp
 /// <summary>
 /// Request to see if you should show a rationale for requesting permission
 /// Only on Android
@@ -32,7 +32,7 @@ Task<bool> ShouldShowRequestPermissionRationale(Permission permission);
 ```
 
 **CheckPermissiontStatus**
-```
+```csharp
 /// <summary>
 /// Determines whether this instance has permission the specified permission.
 /// </summary>
@@ -42,7 +42,7 @@ Task<PermissionStatus> CheckPermissionStatus(Permission permission);
 ```
 
 **RequestPermissions**
-```
+```csharp
 /// <summary>
 /// Requests the permissions from the users
 /// </summary>
@@ -54,7 +54,7 @@ Task<Dictionary<Permission, PermissionStatus>> RequestPermissions(IEnumerable<Pe
 ### In Action
 Here is how you may use it with the Geolocator Plugin:
 
-```
+```csharp
 try
 {
     var status = await CrossPermissions.Current.CheckPermissionStatus(Permission.Location);
@@ -87,7 +87,7 @@ catch (Exception ex)
 ```
 
 ### Available Permissions
-```
+```csharp
 /// <summary>
 /// Permission group that can be requested
 /// </summary>
