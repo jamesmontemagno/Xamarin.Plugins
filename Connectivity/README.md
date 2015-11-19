@@ -21,7 +21,7 @@ Call **CrossConnectivity.Current** from any project or PCL to gain access to API
 
 
 **IsConnected**
-```
+```csharp
 /// <summary>
 /// Gets if there is an active internet connection
 /// </summary>
@@ -29,7 +29,7 @@ bool IsConnected { get; }
 ```
 
 **ConnectionTypes**
-```
+```csharp
 /// <summary>
 /// Gets the list of all active connection types.
 /// </summary>
@@ -37,7 +37,7 @@ IEnumerable<ConnectionType> ConnectionTypes { get; }
 ```
 
 **Bandwidths**
-```
+```csharp
 /// <summary>
 /// Retrieves a list of available bandwidths for the platform.
 /// Only active connections.
@@ -48,7 +48,7 @@ IEnumerable<UInt64> Bandwidths { get; }
 #### Pinging Hosts
 
 **IsReachable**
-```
+```csharp
 /// <summary>
 /// Tests if a host name is pingable
 /// </summary>
@@ -59,7 +59,7 @@ Task<bool> IsReachable(string host, int msTimeout = 5000);
 ```
 
 **IsRemoteReachable**
-```
+```csharp
 /// <summary>
 /// Tests if a remote host name is reachable (no http:// or www.)
 /// </summary>
@@ -72,7 +72,7 @@ Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000);
 
 #### Changes in Connectivity
 When any network connectiivty is gained, changed, or loss you can register for an event to fire:
-```
+```csharp
 /// <summary>
 /// Event handler when connection changes
 /// </summary>
@@ -80,7 +80,7 @@ event ConnectivityChangedEventHandler ConnectivityChanged;
 ```
 
 You will get a ConnectivityChangeEventArgs with the status if you are connected or not:
-```
+```csharp
 public class ConnectivityChangedEventArgs : EventArgs
 {
   public bool IsConnected { get; set; }
@@ -90,7 +90,7 @@ public delegate void ConnectivityChangedEventHandler(object sender, Connectivity
 ```
 
 Usage sample from Xamarin.Forms:
-```
+```csharp
 CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
   {
     page.DisplayAlert("Connectivity Changed", "IsConnected: " + args.IsConnected.ToString(), "OK");

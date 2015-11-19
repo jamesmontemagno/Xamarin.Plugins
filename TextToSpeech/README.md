@@ -30,12 +30,12 @@ Preview: http://screencast.com/t/voW1P48Ka
 ### Usage
 
 **Simple Text**
-```
+```csharp
 CrossTextToSpeech.Current.Speak("Text to speak");
 ```
 
 **Advanced speech API**
-```
+```csharp
 /// <summary>
 /// Speack back text
 /// </summary>
@@ -53,7 +53,7 @@ I developed the CrossLocale struct mostly to support Android, but is nice becaus
 
 You can query a list of current support CrossLocales on the device:
 
-```
+```csharp
 /// <summary>
 /// Get all installed and valide lanaguages
 /// </summary>
@@ -68,6 +68,10 @@ Each local has the Language and Display Name. The Country code is only used in A
 * iOS: AVSpeechSynthesizer
 * Android: Android.Speech.Tts.TextToSpeech
 * Windows Phone: SpeechSynthesizer + Ssml support for advanced playback
+
+
+**Windows Phone**
+You must add ID_CAP_SPEECH_RECOGNITION permission
 
 #### Contributors
 * [jamesmontemagno](https://github.com/jamesmontemagno)

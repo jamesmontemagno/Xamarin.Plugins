@@ -23,7 +23,7 @@ Call **CrossBattery.Current** from any project or PCL to gain access to APIs.
 
 
 **RemainingChargePercent**
-```
+```csharp
 /// <summary>
 /// Current battery level 0 - 100
 /// </summary>
@@ -31,7 +31,7 @@ int RemainingChargePercent { get; }
 ```
 
 **Status**
-```
+```csharp
 /// <summary>
 /// Current status of the battery
 /// </summary>
@@ -40,7 +40,7 @@ BatteryStatus Status { get; }
 
 This returns an enum with the current status of the battery. If charging or not:
 
-```
+```csharp
 /// <summary>
 /// Current status of battery
 /// </summary>
@@ -77,7 +77,7 @@ Important:
 
 
 **PowerSource**
-```
+```csharp
 /// <summary>
 /// Currently how the battery is being charged.
 /// </summary>
@@ -91,7 +91,7 @@ Returns how the phone is being charged
 You can subscribe to BatteryChanged, which will return BatteryChangedEventArgs with all information you need.
 This occurs when plugged, unplugged, or battery change.
 
-```
+```csharp
 /// <summary>
 /// Event handler when battery changes
 /// </summary>

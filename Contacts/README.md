@@ -16,6 +16,7 @@ Ported from [Xamarin.Mobile](http://www.github.com/xamarin/xamarin.mobile) to a 
 * Windows Phone 8 (Silverlight)
 
 ### API Usage Example
+```csharp
 if(await CrossContacts.Current.RequestPermission())
       {
      
@@ -34,7 +35,7 @@ if(await CrossContacts.Current.RequestPermission())
           contacts = contacts.OrderBy(c => c.LastName).ToList();
         });
       }
-
+```
 
 
 
