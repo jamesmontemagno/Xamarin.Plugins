@@ -35,7 +35,7 @@ namespace Plugin.Permissions
         /// </summary>
         /// <returns>True or false to show rationale</returns>
         /// <param name="permission">Permission to check.</param>
-        public Task<bool> ShouldShowRequestPermissionRationale(Permission permission)
+        public Task<bool> ShouldShowRequestPermissionRationaleAsync(Permission permission)
         {
             var activity = CrossCurrentActivity.Current.Activity;
             if(activity == null)
@@ -74,7 +74,7 @@ namespace Plugin.Permissions
         /// </summary>
         /// <returns><c>true</c> if this instance has permission the specified permission; otherwise, <c>false</c>.</returns>
         /// <param name="permission">Permission to check.</param>
-        public Task<PermissionStatus> CheckPermissionStatus(Permission permission)
+        public Task<PermissionStatus> CheckPermissionStatusAsync(Permission permission)
         {
             var activity = CrossCurrentActivity.Current.Activity;
             if(activity == null)
@@ -112,7 +112,7 @@ namespace Plugin.Permissions
         /// </summary>
         /// <returns>The permissions and their status.</returns>
         /// <param name="permissions">Permissions to request.</param>
-        public async Task<Dictionary<Permission, PermissionStatus>> RequestPermissions(IEnumerable<Permission> permissions)
+        public async Task<Dictionary<Permission, PermissionStatus>> RequestPermissionsAsync(IEnumerable<Permission> permissions)
         {
             if (tcs != null && !tcs.Task.IsCompleted)
             {
@@ -132,7 +132,8 @@ namespace Plugin.Permissions
             var permissionsToRequest = new List<string>();
             foreach (var permission in permissions)
             {
-                if (await CheckPermissionStatus(permission) != PermissionStatus.Granted)
+                var result = await CheckPermissionStatusAsync(permission).ConfigureAwait(false);
+                if (result != PermissionStatus.Granted)
                     permissionsToRequest.AddRange(GetManifestNames(permission));
                 else
                 {
@@ -150,11 +151,11 @@ namespace Plugin.Permissions
 
             ActivityCompat.RequestPermissions(activity, permissionsToRequest.ToArray(), PermissionCode);
 
-            return await tcs.Task;
+            return await tcs.Task.ConfigureAwait(false);
         }
 
         const int PermissionCode = 25;
-        public void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
+        public void OnRequestPermissionsAsyncResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
         {
             if (requestCode != PermissionCode)
                 return;
