@@ -42,7 +42,7 @@ namespace Plugin.Permissions
         /// </summary>
         /// <returns>True or false to show rationale</returns>
         /// <param name="permission">Permission to check.</param>
-        public Task<bool> ShouldShowRequestPermissionRationale(Permission permission)
+        public Task<bool> ShouldShowRequestPermissionRationaleAsync(Permission permission)
         {
             return Task.FromResult(false);
         }
@@ -52,7 +52,7 @@ namespace Plugin.Permissions
         /// </summary>
         /// <returns><c>true</c> if this instance has permission the specified permission; otherwise, <c>false</c>.</returns>
         /// <param name="permission">Permission to check.</param>
-        public Task<PermissionStatus> CheckPermissionStatus(Permission permission)
+        public Task<PermissionStatus> CheckPermissionStatusAsync(Permission permission)
         {
             switch (permission)
             {
@@ -83,7 +83,7 @@ namespace Plugin.Permissions
         /// </summary>
         /// <returns>The permissions and their status.</returns>
         /// <param name="permissions">Permissions to request.</param>
-        public async Task<Dictionary<Permission, PermissionStatus>> RequestPermissions(IEnumerable<Permission> permissions)
+        public async Task<Dictionary<Permission, PermissionStatus>> RequestPermissionsAsync(IEnumerable<Permission> permissions)
         {
             var results = new Dictionary<Permission, PermissionStatus>();
             foreach (var permission in permissions)
@@ -94,12 +94,12 @@ namespace Plugin.Permissions
                 switch (permission)
                 {
                     case Permission.Calendar:
-                        results.Add(permission, await RequestEventPermission(EKEntityType.Event));
+                        results.Add(permission, await RequestEventPermission(EKEntityType.Event).ConfigureAwait(false));
                         break;
                     case Permission.Camera:
                         try
                         {
-                            var authCamera = await AVCaptureDevice.RequestAccessForMediaTypeAsync(AVMediaType.Video);
+                            var authCamera = await AVCaptureDevice.RequestAccessForMediaTypeAsync(AVMediaType.Video).ConfigureAwait(false);
                             results.Add(permission, (authCamera ? PermissionStatus.Granted : PermissionStatus.Denied));
                         }
                         catch(Exception ex)
@@ -109,15 +109,15 @@ namespace Plugin.Permissions
                         }
                         break;
                     case Permission.Contacts:
-                        results.Add(permission, await RequestContactsPermission());
+                        results.Add(permission, await RequestContactsPermission().ConfigureAwait(false));
                         break;
                     case Permission.Location:
-                        results.Add(permission, await RequestLocationPermission());
+                        results.Add(permission, await RequestLocationPermission().ConfigureAwait(false));
                         break;
                     case Permission.Microphone:
                         try
                         {
-                            var authMic = await AVCaptureDevice.RequestAccessForMediaTypeAsync(AVMediaType.Audio);
+                            var authMic = await AVCaptureDevice.RequestAccessForMediaTypeAsync(AVMediaType.Audio).ConfigureAwait(false);
                             results.Add(permission, (authMic ? PermissionStatus.Granted : PermissionStatus.Denied));
                         }
                         catch(Exception ex)
@@ -126,18 +126,14 @@ namespace Plugin.Permissions
                             results.Add(permission, PermissionStatus.Unknown);
                         }
                         break;
-                    //case Permission.NotificationsLocal:
-                    //   break;
-                    //case Permission.NotificationsRemote:
-                    //    break;
                     case Permission.Photos:
-                        results.Add(permission, await RequestPhotosPermission());
+                        results.Add(permission, await RequestPhotosPermission().ConfigureAwait(false));
                         break;
                     case Permission.Reminders:
-                        results.Add(permission, await RequestEventPermission(EKEntityType.Reminder));
+                        results.Add(permission, await RequestEventPermission(EKEntityType.Reminder).ConfigureAwait(false));
                         break;
                     case Permission.Sensors:
-                        results.Add(permission, await RequestSensorsPermission());
+                        results.Add(permission, await RequestSensorsPermission().ConfigureAwait(false));
                         break;
                 }
 
@@ -203,15 +199,6 @@ namespace Plugin.Permissions
             addressBook.RequestAccess((success, error) => 
                 {
                     tcs.SetResult((success ? PermissionStatus.Granted : PermissionStatus.Denied));
-                    try
-                    {
-                        addressBook.Dispose();
-                        addressBook = null;
-                    }
-                    catch(Exception ex)
-                    {
-                        Debug.WriteLine("Unable to dispose of Location Manager: " + ex);
-                    }
                 });
 
             return tcs.Task;
@@ -245,17 +232,7 @@ namespace Plugin.Permissions
             if (eventStore == null)
                 eventStore = new EKEventStore();
 
-            var results = await eventStore.RequestAccessAsync(eventType);
-
-            try
-            {
-                eventStore.Dispose();
-                eventStore = null;
-            }
-            catch(Exception ex)
-            {
-                Debug.WriteLine("Unable to dispose of Location Manager: " + ex);
-            }
+            var results = await eventStore.RequestAccessAsync(eventType).ConfigureAwait(false);
 
             return results.Item1 ? PermissionStatus.Granted : PermissionStatus.Denied;
         }
@@ -308,6 +285,9 @@ namespace Plugin.Permissions
         {
             get
             {
+                if (!CLLocationManager.LocationServicesEnabled)
+                    return PermissionStatus.Disabled;
+
                 var status = CLLocationManager.Status;
 
                 if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
@@ -318,10 +298,7 @@ namespace Plugin.Permissions
                         case CLAuthorizationStatus.AuthorizedWhenInUse:
                             return PermissionStatus.Granted;
                         case CLAuthorizationStatus.Denied:
-                            //if (CLLocationManager.LocationServicesEnabled)
                                 return PermissionStatus.Denied;
-                            //else
-                              //  return PermissionStatus.Unknown;
                         case CLAuthorizationStatus.Restricted:
                             return PermissionStatus.Restricted;
                         default:
@@ -434,18 +411,14 @@ namespace Plugin.Permissions
 
             try
             {
-                var results = await activityManager.QueryActivityAsync(NSDate.DistantPast, NSDate.DistantFuture, NSOperationQueue.MainQueue);
+                var results = await activityManager.QueryActivityAsync(NSDate.DistantPast, NSDate.DistantFuture, NSOperationQueue.MainQueue).ConfigureAwait(false);
                 if(results != null)
                     return PermissionStatus.Granted;
             }
             catch(Exception ex)
             {
+                Console.WriteLine("Unable to query activity manager: " + ex.Message);
                 return PermissionStatus.Denied;
-            }
-            finally
-            {
-                activityManager.Dispose();
-                activityManager = null;
             }
 
             return PermissionStatus.Unknown;

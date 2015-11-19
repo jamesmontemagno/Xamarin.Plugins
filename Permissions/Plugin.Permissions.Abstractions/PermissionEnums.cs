@@ -10,6 +10,10 @@
         /// </summary>
         Denied,
         /// <summary>
+        /// Feature is disabled on device
+        /// </summary>
+        Disabled,
+        /// <summary>
         /// Granted by user
         /// </summary>
         Granted,
