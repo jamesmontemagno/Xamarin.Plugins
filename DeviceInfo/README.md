@@ -22,7 +22,7 @@ Call **CrossDeviceInfo.Current** from any project or PCL to gain access to APIs.
 **GenerateAppId**
 Used to generate a unique Id for your app.
 
-```
+```csharp
 /// <summary>
 /// Generates a an AppId optionally using the PhoneId a prefix and a suffix and a Guid to ensure uniqueness
 /// 
@@ -36,7 +36,7 @@ string GenerateAppId(bool usingPhoneId = false, string prefix = null, string suf
 ```
 
 **Id**
-```
+```csharp
 /// <summary>
 /// This is the device specific Id (remember the correct permissions in your app to use this)
 /// </summary>
@@ -49,7 +49,7 @@ Permissions to add:
 ID_CAP_IDENTITY_DEVICE
 
 **Device Model**
-```
+```csharp
 /// <summary>
 /// Get the model of the device
 /// </summary>
@@ -58,7 +58,7 @@ string Model { get; }
 
 
 **Version**
-```
+```csharp
 /// <summary>
 /// Get the version of the Operating System
 /// </summary>
@@ -72,7 +72,7 @@ Returns the specific version number of the OS such as:
 * WinRT: always 8.1 until there is a work around
 
 **Platform**
-```
+```csharp
 /// <summary>
 /// Get the platform of the device
 /// </summary>
@@ -80,7 +80,7 @@ Platform Platform { get; }
 ```
 
 Returns the Platform Enum of:
-```
+```csharp
 public enum Platform
 {
   Android,

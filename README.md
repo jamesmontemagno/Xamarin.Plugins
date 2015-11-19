@@ -4,6 +4,10 @@
 
 See a full list of community built plugins at: https://github.com/xamarin/plugins
 
+## Follow Me
+* Twitter: [@JamesMontemagno](http://twitter.com/jamesmontemagno)
+* Blog: [MotzCod.es](http://motzcod.es)
+
 ## What is this?
 This is my main repo for all all Xamarin Plugins that I have or will be publishing. It is also example and documentation on how to create your very own PCL Plugin. These PCL plugins will allow you to add rich cross platform functionality to Xamarin, Xamarin.Forms and Windows Projects that use a PCLs or Shared Project.
 
@@ -16,7 +20,7 @@ Download the sample app today:
 * Windows: Coming Soon
 * A sample is located in the TestProject folder
 
-# Current Plugins for Xamarin
+# My Current Plugins for Xamarin
 
 Each plugin has a README with more information on what they contain.
 * **[Battery Status](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Battery)**: Get battery level, how it is getting charge, and events.
@@ -27,14 +31,12 @@ Each plugin has a README with more information on what they contain.
 * **[Geolocator](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Geolocator)**: Easy way of querying GPS location
 * **[Media](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Media)**: Take or pick photos/videos
 * **[Settings](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Settings)**: Fully cross platform settings for your application.
+* **[Share](https://github.com/jguertl/SharePlugin)**: Easily share text or open a browser
 * **[Text To Speech](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/TextToSpeech)**: Turn your text into a vocal symphony on mobile devices.
 * **[Vibrate](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Vibrate)**: Make that device rumble!
 
 Controls:
 * **[Circle Image](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/ImageCircle)** for Xamarin.Forms
-
-Coming soon:
-* **Messages_Production**: In the works
 
 Other:
 * **Messages_Sample**: This is a simple test PCL NuGet to show anyone how easy it is to get a NuGet up and running. It uses an example of a stubbed out class and also a linked file class with #if's throughout it.
@@ -88,14 +90,6 @@ PCL:
 
 * Ensure namespaces are the same
 * Ensure that Assembly Names are the same. You will see all of mine are called Refractored.Xam.Messages.dll in all projects!
-
-
-#### Get a hold of that Context and UIViewController
-* Android you can use: Android.App.Application.Context
-* iOS you can use: UIApplication.SharedApplication.KeyWindow.RootViewController.View
-
-#### Upcoming PCL Plugins
-* A real Messages/Dialogs PCL
 
 #### Contributors
 * [jamesmontemagno](https://github.com/jamesmontemagno)

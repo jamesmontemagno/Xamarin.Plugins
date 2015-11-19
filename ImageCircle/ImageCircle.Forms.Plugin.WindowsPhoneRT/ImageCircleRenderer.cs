@@ -1,4 +1,10 @@
-﻿using ImageCircle.Forms.Plugin.WindowsPhoneRT;
+﻿#if WINDOWS_UWP
+using ImageCircle.Forms.Plugin.UWP;
+using Xamarin.Forms.Platform.UWP;
+#else
+using ImageCircle.Forms.Plugin.WindowsPhoneRT;
+using Xamarin.Forms.Platform.WinRT;
+#endif
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,10 +17,13 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Shapes;
 using Xamarin.Forms;
-using Xamarin.Forms.Platform.WinRT;
 
 [assembly: ExportRenderer(typeof(ImageCircle.Forms.Plugin.Abstractions.CircleImage), typeof(ImageCircleRenderer))]
+#if WINDOWS_UWP
+namespace ImageCircle.Forms.Plugin.UWP
+#else
 namespace ImageCircle.Forms.Plugin.WindowsPhoneRT
+#endif
 {
 	/// <summary>
 	/// ImageCircle Implementation

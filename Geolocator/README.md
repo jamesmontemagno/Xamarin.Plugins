@@ -21,7 +21,7 @@ Ported from [Xamarin.Mobile](http://www.github.com/xamarin/xamarin.mobile) to a 
 
 Call **CrossGeolocator.Current** from any project or PCL to gain access to APIs.
 
-```
+```csharp
 var locator = CrossGeolocator.Current;
 locator.DesiredAccuracy = 50;
 

@@ -11,7 +11,7 @@
 #### Usage
 There are two methods that you can call to navigate either with the geolocation lat/long or with a full address to go to.
 
-```
+```csharp
     /// <summary>
     /// Navigate to specific latitude and longitude.
     /// </summary>
@@ -37,7 +37,7 @@ There are two methods that you can call to navigate either with the geolocation 
 
 Examples:
 
-```
+```csharp
 CrossExternalMaps.Current.NavigateTo("Xamarin", "394 pacific ave.", "San Francisco", "CA", "94111", "USA", "USA");
 CrossExternalMaps.Current.NavigateTo("Space Needle", 47.6204, -122.3491);
 ```     
