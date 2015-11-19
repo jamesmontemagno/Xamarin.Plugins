@@ -30,7 +30,7 @@ namespace Plugin.Permissions
         /// <param name="permission">Permission to check.</param>
         public Task<PermissionStatus> CheckPermissionStatus(Permission permission)
         {
-            return Task.FromResult(true);
+            return Task.FromResult(PermissionStatus.Granted);
         }
 
         /// <summary>
