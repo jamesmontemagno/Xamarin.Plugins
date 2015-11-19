@@ -27,9 +27,9 @@ namespace PermissionsTest.Droid
             LoadApplication(new App());
         }
 
-        public override void OnRequestPermissionsAsyncResult(int requestCode, string[] permissions, Permission[] grantResults)
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
-            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsAsyncResult(requestCode, permissions, grantResults);
+            PermissionsImplementation.Current.OnRequestPermissionsAsyncResult(requestCode, permissions, grantResults);
         }
     }
 }
