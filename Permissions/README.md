@@ -5,6 +5,15 @@ Simple cross platform plugin to check connection status of mobile device, gather
 ### Setup
 * Available on NuGet: http://www.nuget.org/packages/Plugin.Permissions
 * Install into your PCL project and Client projects.
+*
+
+### Android specific in your BaseActivity or MainActivity (for Xamarin.Forms) add this code:
+```csharp
+public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+{
+    PermissionsImplementation.Current.OnRequestPermissionsAsyncResult(requestCode, permissions, grantResults);
+}
+```
 
 **Supports**
 * Xamarin.iOS (x64 Unified) (iOS 7+)
