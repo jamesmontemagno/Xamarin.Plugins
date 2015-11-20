@@ -139,11 +139,24 @@ namespace Refractored.Xam.Settings
               Convert.ToSingle(defaultValue, System.Globalization.CultureInfo.InvariantCulture));
           break;
         case TypeCode.DateTime:
-          var ticks = sharedPreferences.GetLong(key, -1);
-          if (ticks == -1)
-            value = defaultValue;
+          if(sharedPreferences.Contains(key))
+          {
+            var ticks = sharedPreferences.GetLong(key, 0);
+            if(ticks >= 0)
+            {
+              //Old value, stored before update to UTC values
+              value = new DateTime(ticks);
+            }
+            else
+            {
+              //New value, UTC
+              value = new DateTime(-ticks, DateTimeKind.Utc);
+            }
+          }
           else
-            value = new DateTime(ticks);
+          {
+            return defaultValue;
+          }
           break;
         default:
 
@@ -238,7 +251,7 @@ namespace Refractored.Xam.Settings
                     Convert.ToSingle(value, System.Globalization.CultureInfo.InvariantCulture));
                 break;
               case TypeCode.DateTime:
-                sharedPreferencesEditor.PutLong(key, (Convert.ToDateTime(value)).Ticks);
+                sharedPreferencesEditor.PutLong(key, -(Convert.ToDateTime(value)).ToUniversalTime().Ticks);
                 break;
               default:
                 if (value is Guid)

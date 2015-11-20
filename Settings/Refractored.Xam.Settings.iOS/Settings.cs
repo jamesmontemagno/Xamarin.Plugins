@@ -76,11 +76,24 @@ namespace Refractored.Xam.Settings
 
           case TypeCode.DateTime:
             var savedTime = defaults.StringForKey(key);
-            var ticks = string.IsNullOrWhiteSpace(savedTime) ? -1 : Convert.ToInt64(savedTime, System.Globalization.CultureInfo.InvariantCulture);
-            if (ticks == -1)
-              value = defaultValue;
+            if (string.IsNullOrWhiteSpace(savedTime))
+            {
+                value = defaultValue;
+            }
             else
-              value = new DateTime(ticks);
+            {
+                var ticks = Convert.ToInt64(savedTime, System.Globalization.CultureInfo.InvariantCulture);
+                if (ticks >= 0)
+                {
+                    //Old value, stored before update to UTC values
+                    value = new DateTime(ticks);
+                }
+                else
+                {
+                    //New value, UTC
+                    value = new DateTime(-ticks, DateTimeKind.Utc);
+                }
+            }
             break;
           default:
 
@@ -176,7 +189,7 @@ namespace Refractored.Xam.Settings
             defaults.SetFloat(Convert.ToSingle(value, System.Globalization.CultureInfo.InvariantCulture), key);
             break;
           case TypeCode.DateTime:
-            defaults.SetString(Convert.ToString((Convert.ToDateTime(value)).Ticks), key);
+            defaults.SetString(Convert.ToString(-(Convert.ToDateTime(value)).ToUniversalTime().Ticks), key);
             break;
           default:
             if (value is Guid)
