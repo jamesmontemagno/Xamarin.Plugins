@@ -17,12 +17,12 @@
 // See the Apache 2 License for the specific language governing 
 // permissions and limitations under the License.
 //---------------------------------------------------------------------------------
-using DeviceInfo.Plugin.Abstractions;
+using Plugin.DeviceInfo.Abstractions;
 using Microsoft.Phone.Info;
 using System;
 
 
-namespace DeviceInfo.Plugin
+namespace Plugin.DeviceInfo
 {
   /// <summary>
   /// Implementation for DeviceInfo

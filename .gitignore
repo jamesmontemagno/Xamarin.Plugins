@@ -23,6 +23,7 @@ bld/
 [Cc]omponents/
 data/
 .nuget/
+.vs/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/

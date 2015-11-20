@@ -20,7 +20,7 @@
 // permissions and limitations under the License.
 //---------------------------------------------------------------------------------
 
-namespace DeviceInfo.Plugin.Abstractions
+namespace Plugin.DeviceInfo.Abstractions
 {
   /// <summary>
   /// Interface for DeviceInfo

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceInfo.Plugin", "DeviceInfo\DeviceInfo.Plugin\DeviceInfo.Plugin.csproj", "{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}"
 EndProject
@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		DeviceInfoReadme.txt.pp = DeviceInfoReadme.txt.pp
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceInfo.Plugin.UWP", "DeviceInfo\DeviceInfo.Plugin.UWP\DeviceInfo.Plugin.UWP.csproj", "{329549EB-C0DA-451D-B661-2ADED69082D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -132,6 +134,22 @@ Global
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x64.Build.0 = Release|x64
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x86.ActiveCfg = Release|x86
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x86.Build.0 = Release|x86
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Debug|ARM.ActiveCfg = Debug|ARM
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Debug|ARM.Build.0 = Debug|ARM
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Debug|x64.ActiveCfg = Debug|x64
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Debug|x64.Build.0 = Debug|x64
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Debug|x86.ActiveCfg = Debug|x86
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Debug|x86.Build.0 = Debug|x86
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Release|ARM.ActiveCfg = Release|ARM
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Release|ARM.Build.0 = Release|ARM
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Release|x64.ActiveCfg = Release|x64
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Release|x64.Build.0 = Release|x64
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Release|x86.ActiveCfg = Release|x86
+		{329549EB-C0DA-451D-B661-2ADED69082D2}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
