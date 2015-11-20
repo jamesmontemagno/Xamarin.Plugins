@@ -20,6 +20,7 @@
        [2.0.0]
        -Breaking Change: New Namespace - Plugin.Battery
        -UWP Support
+       -Automatically add Android Permissions
      </releaseNotes>
      <tags>xamarin, pcl, xam.pcl, battery, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
        <dependencies>
