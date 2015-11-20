@@ -1,10 +1,10 @@
 using System;
 
-using Refractored.Xam.Vibrate.Abstractions;
+using Plugin.Vibrate.Abstractions;
 using Android.OS;
 using Android.Content;
 
-namespace Refractored.Xam.Vibrate
+namespace Plugin.Vibrate
 {
   /// <summary>
   /// Vibration Implentation on Android 

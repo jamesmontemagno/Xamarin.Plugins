@@ -1,17 +1,12 @@
-﻿using Refractored.Xam.Vibrate.Abstractions;
-using System;
-using System.Collections.Generic;
+﻿using Plugin.Vibrate.Abstractions;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Refractored.Xam.Vibrate
+namespace Plugin.Vibrate
 {
-  /// <summary>
-  /// Vibration implemenation on Windows Store
-  /// </summary>
-  public class Vibrate : IVibrate
+    /// <summary>
+    /// Vibration implemenation on Windows Store
+    /// </summary>
+    public class Vibrate : IVibrate
   {
     /// <summary>
     /// Vibration (no effect windows store)

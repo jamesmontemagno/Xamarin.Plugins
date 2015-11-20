@@ -1,12 +1,12 @@
-﻿using Refractored.Xam.Vibrate.Abstractions;
+﻿using Plugin.Vibrate.Abstractions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Refractored.Xam.Vibrate
+namespace Plugin.Vibrate
 {
-    public class CrossVibrate
+    /// <summary>
+    /// 
+    /// </summary>
+    public static class CrossVibrate
     {
       static Lazy<IVibrate> TTS = new Lazy<IVibrate>(() => CreateVibrate(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
 

@@ -1,6 +1,6 @@
 using System;
 
-using Refractored.Xam.Vibrate.Abstractions;
+using Plugin.Vibrate.Abstractions;
 #if NETFX_CORE
 using Windows.Phone.Devices.Notification;
 #else
@@ -8,7 +8,7 @@ using Microsoft.Devices;
 #endif
 
 
-namespace Refractored.Xam.Vibrate
+namespace Plugin.Vibrate
 {
   /// <summary>
   /// Windows Phone implemenation of Vibrate

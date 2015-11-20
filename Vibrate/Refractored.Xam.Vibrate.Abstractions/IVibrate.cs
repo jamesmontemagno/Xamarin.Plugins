@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Refractored.Xam.Vibrate.Abstractions
+﻿namespace Plugin.Vibrate.Abstractions
 {
   /// <summary>
   /// Vibration interface

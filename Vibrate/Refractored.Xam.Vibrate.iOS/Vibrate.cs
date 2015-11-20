@@ -1,13 +1,13 @@
 using System;
 
-using Refractored.Xam.Vibrate.Abstractions;
+using Plugin.Vibrate.Abstractions;
 #if __UNIFIED__
 using AudioToolbox;
 #else
 using MonoTouch.AudioToolbox;
 #endif
 
-namespace Refractored.Xam.Vibrate
+namespace Plugin.Vibrate
 {
   /// <summary>
   /// iOS implementation to vibrate device
