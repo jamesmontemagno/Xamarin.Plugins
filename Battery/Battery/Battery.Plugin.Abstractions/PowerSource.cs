@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Battery.Plugin.Abstractions
+namespace Plugin.Battery.Abstractions
 {
   /// <summary>
   /// Currently how battery is being charged.

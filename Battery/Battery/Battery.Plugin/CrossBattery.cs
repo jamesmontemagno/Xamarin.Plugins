@@ -1,7 +1,7 @@
-﻿using Battery.Plugin.Abstractions;
+﻿using Plugin.Battery.Abstractions;
 using System;
 
-namespace Battery.Plugin
+namespace Plugin.Battery
 {
   /// <summary>
   /// Cross platform Battery implemenations

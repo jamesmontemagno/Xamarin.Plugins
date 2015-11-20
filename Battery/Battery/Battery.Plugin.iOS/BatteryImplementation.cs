@@ -1,4 +1,4 @@
-using Battery.Plugin.Abstractions;
+using Plugin.Battery.Abstractions;
 #if __UNIFIED__
 using UIKit;
 using Foundation;
@@ -9,7 +9,7 @@ using MonoTouch.Foundation;
 using System;
 
 
-namespace Battery.Plugin
+namespace Plugin.Battery
 {
   /// <summary>
   /// Implementation for Battery

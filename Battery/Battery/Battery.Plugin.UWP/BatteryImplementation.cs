@@ -17,32 +17,25 @@ namespace Plugin.Battery
         /// </summary>
         public BatteryImplementation()
         {
-            last = DefaultBattery.RemainingChargePercent;
-            DefaultBattery.RemainingChargePercentChanged += RemainingChargePercentChanged;
+            DefaultBattery.ReportUpdated += RemainingChargePercentChanged;
         }
 
         async void RemainingChargePercentChanged(object sender, object e)
         {
-            if (DefaultBattery.RemainingChargePercent == 100)
-                status = BatteryStatus.Full;
-            else if (last > DefaultBattery.RemainingChargePercent)
-                status = BatteryStatus.Discharging;
-            else if (last < DefaultBattery.RemainingChargePercent)
-                status = BatteryStatus.Charging;
-            else
-                status = BatteryStatus.Unknown;
-
-            last = DefaultBattery.RemainingChargePercent; ;
-
+            
             var dispatcher = CoreApplication.MainView.CoreWindow.Dispatcher;
+           
+
             if (dispatcher != null)
             {
                 await dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
+                    
                     OnBatteryChanged(new BatteryChangedEventArgs
                     {
-                        RemainingChargePercent = DefaultBattery.RemainingChargePercent,
-                        IsLow = DefaultBattery.RemainingChargePercent <= 15,
+
+                        RemainingChargePercent = RemainingChargePercent,
+                        IsLow = RemainingChargePercent <= 15,
                         PowerSource = PowerSource,
                         Status = Status
                     });
@@ -52,28 +45,19 @@ namespace Plugin.Battery
             {
                 OnBatteryChanged(new BatteryChangedEventArgs
                 {
-                    RemainingChargePercent = DefaultBattery.RemainingChargePercent,
-                    IsLow = DefaultBattery.RemainingChargePercent <= 15,
+                    RemainingChargePercent = RemainingChargePercent,
+                    IsLow = RemainingChargePercent <= 15,
                     PowerSource = PowerSource,
                     Status = Status
                 });
             }
 
         }
-
-#if WINDOWS_APP
-        Windows.Devices.Power.Battery battery;
-        private Windows.Phone.Devices.Power.Battery DefaultBattery
+        
+        private Windows.Devices.Power.Battery DefaultBattery
         {
-            get { return battery ?? (battery = Windows.Phone.Devices.Power.Battery.GetDefault()); }
+            get { return Windows.Devices.Power.Battery.AggregateBattery; }
         }
-#else
-        Windows.Phone.Devices.Power.Battery battery;
-        private Windows.Phone.Devices.Power.Battery DefaultBattery
-        {
-            get { return battery ?? (battery = Windows.Phone.Devices.Power.Battery.GetDefault()); }
-        } 
-#endif
         /// <summary>
         /// Gets current level of battery
         /// </summary>
@@ -81,7 +65,15 @@ namespace Plugin.Battery
         {
             get
             {
-                return DefaultBattery.RemainingChargePercent;
+                var finalReport = DefaultBattery.GetReport();
+                var finalPercent = -1;
+
+                if (finalReport.RemainingCapacityInMilliwattHours.HasValue && finalReport.FullChargeCapacityInMilliwattHours.HasValue)
+                {
+                    finalPercent = (int)((finalReport.RemainingCapacityInMilliwattHours.Value /
+                                     (double)finalReport.FullChargeCapacityInMilliwattHours.Value) * 100);
+                }
+                return finalPercent;
             }
         }
 
@@ -92,6 +84,33 @@ namespace Plugin.Battery
         {
             get
             {
+                var report = DefaultBattery.GetReport();
+
+
+                var percentage = RemainingChargePercent;
+
+                if (percentage >= 1.0)
+                    status = BatteryStatus.Full;
+                else if (percentage < 0)
+                    status = BatteryStatus.Unknown;
+                else
+                {
+                    switch (report.Status)
+                    {
+                        case Windows.System.Power.BatteryStatus.Charging:
+                            status = BatteryStatus.Charging;
+                            break;
+                        case Windows.System.Power.BatteryStatus.Discharging:
+                            status = BatteryStatus.Discharging;
+                            break;
+                        case Windows.System.Power.BatteryStatus.Idle:
+                            status = BatteryStatus.NotCharging;
+                            break;
+                        case Windows.System.Power.BatteryStatus.NotPresent:
+                            status = BatteryStatus.Unknown;
+                            break;
+                    }
+                }
                 return status;
             }
         }
@@ -124,7 +143,7 @@ namespace Plugin.Battery
             {
                 if (disposing)
                 {
-                    DefaultBattery.RemainingChargePercentChanged -= RemainingChargePercentChanged;
+                    DefaultBattery.ReportUpdated -= RemainingChargePercentChanged;
                 }
 
                 disposed = true;
