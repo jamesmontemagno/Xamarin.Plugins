@@ -24,7 +24,7 @@ using Foundation;
 #endif
 using System.Runtime.InteropServices;
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     class NSDataStream : Stream
     {

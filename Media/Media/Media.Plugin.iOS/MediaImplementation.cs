@@ -1,4 +1,4 @@
-using Media.Plugin.Abstractions;
+using Plugin.Media.Abstractions;
 //
 //  Copyright 2011-2013, Xamarin Inc.
 //
@@ -29,7 +29,7 @@ using MonoTouch.UIKit;
 using CGRect = global::System.Drawing.RectangleF;
 #endif
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     /// <summary>
     /// Implementation for Media

@@ -26,9 +26,9 @@ using Android.Provider;
 using Environment = Android.OS.Environment;
 using Path = System.IO.Path;
 using Uri = Android.Net.Uri;
-using Media.Plugin.Abstractions;
+using Plugin.Media.Abstractions;
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     /// <summary>
     /// Picker

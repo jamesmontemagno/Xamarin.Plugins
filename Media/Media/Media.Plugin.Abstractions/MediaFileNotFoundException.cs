@@ -16,7 +16,7 @@
 
 using System;
 
-namespace Media.Plugin.Abstractions
+namespace Plugin.Media.Abstractions
 {
   public class MediaFileNotFoundException
     : Exception

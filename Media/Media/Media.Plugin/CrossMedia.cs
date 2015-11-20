@@ -1,7 +1,7 @@
-﻿using Media.Plugin.Abstractions;
+﻿using Plugin.Media.Abstractions;
 using System;
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     /// <summary>
     /// Cross platform Media implemenations

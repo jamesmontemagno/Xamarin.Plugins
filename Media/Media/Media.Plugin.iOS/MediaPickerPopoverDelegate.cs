@@ -22,7 +22,7 @@ using UIKit;
 using MonoTouch.UIKit;
 #endif
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     internal class MediaPickerPopoverDelegate
         : UIPopoverControllerDelegate

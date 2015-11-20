@@ -17,7 +17,7 @@
 using System;
 using System.Threading.Tasks;
 
-using Media.Plugin.Abstractions;
+using Plugin.Media.Abstractions;
 
 #if __UNIFIED__
 using UIKit;
@@ -27,7 +27,7 @@ using MonoTouch.UIKit;
 using MonoTouch.Foundation;
 #endif
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     /// <summary>
     /// Media Picker Controller

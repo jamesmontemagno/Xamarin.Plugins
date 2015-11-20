@@ -27,8 +27,8 @@ namespace MediaAndroidTest
       var image = FindViewById<ImageView>(Resource.Id.imageView1);
       button.Click += async delegate 
       {
-        var media = new Media.Plugin.MediaImplementation();
-        var file = await Media.Plugin.CrossMedia.Current.TakePhotoAsync(new Media.Plugin.Abstractions.StoreCameraMediaOptions
+        var media = new Plugin.Media.MediaImplementation();
+        var file = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
           {
             Directory = "Sample",
             Name = "test.jpg"
@@ -43,7 +43,7 @@ namespace MediaAndroidTest
       var pick = FindViewById<Button>(Resource.Id.button1);
       pick.Click += async (sender, args) =>
         {
-          var file = await Media.Plugin.CrossMedia.Current.PickPhotoAsync();
+          var file = await Plugin.Media.CrossMedia.Current.PickPhotoAsync();
           if (file == null)
             return;
           image.SetImageBitmap(BitmapFactory.DecodeFile(file.Path));
@@ -51,8 +51,8 @@ namespace MediaAndroidTest
 
       FindViewById<Button>(Resource.Id.button2).Click += async (sender, args) =>
         {
-          var media = new Media.Plugin.MediaImplementation();
-          var file = await Media.Plugin.CrossMedia.Current.TakeVideoAsync(new Media.Plugin.Abstractions.StoreVideoOptions
+          var media = new Plugin.Media.MediaImplementation();
+          var file = await Plugin.Media.CrossMedia.Current.TakeVideoAsync(new Plugin.Media.Abstractions.StoreVideoOptions
           {
             Directory = "Sample",
             Name = "test.jpg"
@@ -64,8 +64,8 @@ namespace MediaAndroidTest
 
       FindViewById<Button>(Resource.Id.button3).Click += async (sender, args) =>
       {
-        var media = new Media.Plugin.MediaImplementation();
-        var file = await Media.Plugin.CrossMedia.Current.PickVideoAsync();
+        var media = new Plugin.Media.MediaImplementation();
+        var file = await Plugin.Media.CrossMedia.Current.PickVideoAsync();
         if (file == null)
           return;
       };

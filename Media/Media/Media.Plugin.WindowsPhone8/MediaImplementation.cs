@@ -23,14 +23,14 @@ using System.Threading.Tasks;
 using Microsoft.Devices;
 using Microsoft.Phone.Tasks;
 
-using Media.Plugin.Abstractions;
+using Plugin.Media.Abstractions;
 using Windows.Storage.Pickers;
 using System.Collections.Generic;
 using Windows.Storage;
 using Windows.ApplicationModel.Activation;
 
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
   /// <summary>
   /// Implementation for Media

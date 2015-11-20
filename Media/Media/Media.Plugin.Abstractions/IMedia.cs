@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Media.Plugin.Abstractions
+namespace Plugin.Media.Abstractions
 {
   /// <summary>
   /// Interface for Media

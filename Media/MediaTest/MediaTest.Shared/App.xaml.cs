@@ -42,7 +42,7 @@ namespace MediaTest
         protected override void OnActivated(IActivatedEventArgs args)
         {
 #if WINDOWS_PHONE_APP
-          Media.Plugin.MediaImplementation.OnFilesPicked(args);
+          Plugin.Media.MediaImplementation.OnFilesPicked(args);
 #endif
 
           base.OnActivated(args);

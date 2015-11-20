@@ -23,7 +23,7 @@ using Windows.Media.Capture;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 
-using Media.Plugin.Abstractions;
+using Plugin.Media.Abstractions;
 using Windows.UI.Xaml.Controls;
 using Windows.Media.MediaProperties;
 using Windows.UI.Xaml;
@@ -33,7 +33,7 @@ using Windows.ApplicationModel.Activation;
 using DMX.Helper;
 
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
   /// <summary>
   /// Implementation for Media

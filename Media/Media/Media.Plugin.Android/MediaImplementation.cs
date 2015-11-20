@@ -22,10 +22,10 @@ using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Provider;
-using Media.Plugin.Abstractions;
+using Plugin.Media.Abstractions;
 
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     /// <summary>
     /// Implementation for Feature
@@ -123,7 +123,7 @@ namespace Media.Plugin
         /// Picks a photo from the default gallery
         /// </summary>
         /// <returns>Media file or null if canceled</returns>
-        public Task<Media.Plugin.Abstractions.MediaFile> PickPhotoAsync()
+        public Task<Plugin.Media.Abstractions.MediaFile> PickPhotoAsync()
         {
             return TakeMediaAsync("image/*", Intent.ActionPick, null);
         }
@@ -133,7 +133,7 @@ namespace Media.Plugin
         /// </summary>
         /// <param name="options">Camera Media Options</param>
         /// <returns>Media file of photo or null if canceled</returns>
-        public Task<Media.Plugin.Abstractions.MediaFile> TakePhotoAsync(StoreCameraMediaOptions options)
+        public Task<Plugin.Media.Abstractions.MediaFile> TakePhotoAsync(StoreCameraMediaOptions options)
         {
             if (!IsCameraAvailable)
                 throw new NotSupportedException();
@@ -147,7 +147,7 @@ namespace Media.Plugin
         /// Picks a video from the default gallery
         /// </summary>
         /// <returns>Media file of video or null if canceled</returns>
-        public Task<Media.Plugin.Abstractions.MediaFile> PickVideoAsync()
+        public Task<Plugin.Media.Abstractions.MediaFile> PickVideoAsync()
         {
             return TakeMediaAsync("video/*", Intent.ActionPick, null);
         }
@@ -157,7 +157,7 @@ namespace Media.Plugin
         /// </summary>
         /// <param name="options">Video Media Options</param>
         /// <returns>Media file of new video or null if canceled</returns>
-        public Task<Media.Plugin.Abstractions.MediaFile> TakeVideoAsync(StoreVideoOptions options)
+        public Task<Plugin.Media.Abstractions.MediaFile> TakeVideoAsync(StoreVideoOptions options)
         {
             if (!IsCameraAvailable)
                 throw new NotSupportedException();
@@ -169,7 +169,7 @@ namespace Media.Plugin
 
         private readonly Context context;
         private int requestId;
-        private TaskCompletionSource<Media.Plugin.Abstractions.MediaFile> completionSource;
+        private TaskCompletionSource<Plugin.Media.Abstractions.MediaFile> completionSource;
 
         private void VerifyOptions(StoreMediaOptions options)
         {
@@ -215,11 +215,11 @@ namespace Media.Plugin
             return id;
         }
 
-        private Task<Media.Plugin.Abstractions.MediaFile> TakeMediaAsync(string type, string action, StoreMediaOptions options)
+        private Task<Plugin.Media.Abstractions.MediaFile> TakeMediaAsync(string type, string action, StoreMediaOptions options)
         {
             int id = GetRequestId();
 
-            var ntcs = new TaskCompletionSource<Media.Plugin.Abstractions.MediaFile>(id);
+            var ntcs = new TaskCompletionSource<Plugin.Media.Abstractions.MediaFile>(id);
             if (Interlocked.CompareExchange(ref this.completionSource, ntcs, null) != null)
                 throw new InvalidOperationException("Only one operation can be active at a time");
 

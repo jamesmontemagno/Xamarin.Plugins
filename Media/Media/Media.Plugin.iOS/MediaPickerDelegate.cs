@@ -19,7 +19,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-using Media.Plugin.Abstractions;
+using Plugin.Media.Abstractions;
 
 #if __UNIFIED__
 using CoreGraphics;
@@ -36,7 +36,7 @@ using CGRect = global::System.Drawing.RectangleF;
 using nfloat = global::System.Single;
 #endif
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     internal class MediaPickerDelegate
         : UIImagePickerControllerDelegate
