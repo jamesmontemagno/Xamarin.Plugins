@@ -4,7 +4,6 @@ using System.Linq;
 using Plugin.Connectivity.Abstractions;
 using Windows.Networking.Connectivity;
 using System.Threading.Tasks;
-using System.Threading;
 using System.Net.NetworkInformation;
 using Windows.Networking.Sockets;
 using Windows.Networking;
