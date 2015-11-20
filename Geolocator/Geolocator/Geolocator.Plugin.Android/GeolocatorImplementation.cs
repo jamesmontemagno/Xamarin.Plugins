@@ -13,12 +13,11 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 //
-using Geolocator.Plugin.Abstractions;
+using Plugin.Geolocator.Abstractions;
 using System;
 using System.Threading.Tasks;
 using Android.Locations;
 using System.Threading;
-using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using System.Linq;
@@ -26,18 +25,21 @@ using Android.Content;
 using Android.Content.PM;
 
 
-namespace Geolocator.Plugin
+namespace Plugin.Geolocator
 {
     /// <summary>
     /// Implementation for Feature
     /// </summary>
     public class GeolocatorImplementation : IGeolocator
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public GeolocatorImplementation()
         {
             DesiredAccuracy = 100;
-            this.manager = (LocationManager)Android.App.Application.Context.GetSystemService(Context.LocationService);
-            this.providers = manager.GetProviders(enabledOnly: false).Where(s => s != LocationManager.PassiveProvider).ToArray();
+            manager = (LocationManager)Application.Context.GetSystemService(Context.LocationService);
+            providers = manager.GetProviders(enabledOnly: false).Where(s => s != LocationManager.PassiveProvider).ToArray();
         }
         /// <inheritdoc/>
         public event EventHandler<PositionErrorEventArgs> PositionError;
@@ -46,7 +48,7 @@ namespace Geolocator.Plugin
         /// <inheritdoc/>
         public bool IsListening
         {
-            get { return this.listener != null; }
+            get { return listener != null; }
         }
         /// <inheritdoc/>
         public double DesiredAccuracy
@@ -63,7 +65,10 @@ namespace Geolocator.Plugin
         }
         /// <inheritdoc/>
         public bool PausesLocationUpdatesAutomatically
-        { get; set; }
+        {
+            get;
+            set;
+        }
 
         /// <inheritdoc/>
         public bool SupportsHeading
@@ -71,21 +76,21 @@ namespace Geolocator.Plugin
             get
             {
                 return false;
-                //				if (this.headingProvider == null || !this.manager.IsProviderEnabled (this.headingProvider))
+                //				if (headingProvider == null || !manager.IsProviderEnabled (headingProvider))
                 //				{
                 //					Criteria c = new Criteria { BearingRequired = true };
-                //					string providerName = this.manager.GetBestProvider (c, enabledOnly: false);
+                //					string providerName = manager.GetBestProvider (c, enabledOnly: false);
                 //
-                //					LocationProvider provider = this.manager.GetProvider (providerName);
+                //					LocationProvider provider = manager.GetProvider (providerName);
                 //
                 //					if (provider.SupportsBearing())
                 //					{
-                //						this.headingProvider = providerName;
+                //						headingProvider = providerName;
                 //						return true;
                 //					}
                 //					else
                 //					{
-                //						this.headingProvider = null;
+                //						headingProvider = null;
                 //						return false;
                 //					}
                 //				}
@@ -96,17 +101,17 @@ namespace Geolocator.Plugin
         /// <inheritdoc/>
         public bool IsGeolocationAvailable
         {
-            get { return this.providers.Length > 0; }
+            get { return providers.Length > 0; }
         }
         /// <inheritdoc/>
         public bool IsGeolocationEnabled
         {
-            get { return this.providers.Any(this.manager.IsProviderEnabled); }
+            get { return providers.Any(manager.IsProviderEnabled); }
         }
 
         private bool CheckPermission(string permission)
         {
-            var res = Android.App.Application.Context.CheckCallingOrSelfPermission(permission);
+            var res = Application.Context.CheckCallingOrSelfPermission(permission);
             return (res == Permission.Granted);
         }
         /// <inheritdoc/>
@@ -138,11 +143,11 @@ namespace Geolocator.Plugin
             if (!IsListening)
             {
                 GeolocationSingleListener singleListener = null;
-                singleListener = new GeolocationSingleListener((float)DesiredAccuracy, timeoutMilliseconds, this.providers.Where(this.manager.IsProviderEnabled),
+                singleListener = new GeolocationSingleListener((float)DesiredAccuracy, timeoutMilliseconds, providers.Where(manager.IsProviderEnabled),
                     finishedCallback: () =>
                 {
-                    for (int i = 0; i < this.providers.Length; ++i)
-                        this.manager.RemoveUpdates(singleListener);
+                    for (int i = 0; i < providers.Length; ++i)
+                        manager.RemoveUpdates(singleListener);
                 });
 
                 if (cancelToken != CancellationToken.None)
@@ -151,8 +156,8 @@ namespace Geolocator.Plugin
                     {
                         singleListener.Cancel();
 
-                        for (int i = 0; i < this.providers.Length; ++i)
-                            this.manager.RemoveUpdates(singleListener);
+                        for (int i = 0; i < providers.Length; ++i)
+                            manager.RemoveUpdates(singleListener);
                     }, true);
                 }
 
@@ -161,18 +166,18 @@ namespace Geolocator.Plugin
                     Looper looper = Looper.MyLooper() ?? Looper.MainLooper;
 
                     int enabled = 0;
-                    for (int i = 0; i < this.providers.Length; ++i)
+                    for (int i = 0; i < providers.Length; ++i)
                     {
-                        if (this.manager.IsProviderEnabled(this.providers[i]))
+                        if (manager.IsProviderEnabled(providers[i]))
                             enabled++;
 
-                        this.manager.RequestLocationUpdates(this.providers[i], 0, 0, singleListener, looper);
+                        manager.RequestLocationUpdates(providers[i], 0, 0, singleListener, looper);
                     }
 
                     if (enabled == 0)
                     {
-                        for (int i = 0; i < this.providers.Length; ++i)
-                            this.manager.RemoveUpdates(singleListener);
+                        for (int i = 0; i < providers.Length; ++i)
+                            manager.RemoveUpdates(singleListener);
 
                         tcs.SetException(new GeolocationException(GeolocationError.PositionUnavailable));
                         return tcs.Task;
@@ -188,9 +193,9 @@ namespace Geolocator.Plugin
             }
 
             // If we're already listening, just use the current listener
-            lock (this.positionSync)
+            lock (positionSync)
             {
-                if (this.lastPosition == null)
+                if (lastPosition == null)
                 {
                     if (cancelToken != CancellationToken.None)
                     {
@@ -208,7 +213,7 @@ namespace Geolocator.Plugin
                 }
                 else
                 {
-                    tcs.SetResult(this.lastPosition);
+                    tcs.SetResult(lastPosition);
                 }
             }
 
@@ -225,27 +230,27 @@ namespace Geolocator.Plugin
             if (IsListening)
                 throw new InvalidOperationException("This Geolocator is already listening");
 
-            this.listener = new GeolocationContinuousListener(this.manager, TimeSpan.FromMilliseconds(minTime), this.providers);
-            this.listener.PositionChanged += OnListenerPositionChanged;
-            this.listener.PositionError += OnListenerPositionError;
+            listener = new GeolocationContinuousListener(manager, TimeSpan.FromMilliseconds(minTime), providers);
+            listener.PositionChanged += OnListenerPositionChanged;
+            listener.PositionError += OnListenerPositionError;
 
             Looper looper = Looper.MyLooper() ?? Looper.MainLooper;
-            for (int i = 0; i < this.providers.Length; ++i)
-                this.manager.RequestLocationUpdates(providers[i], minTime, (float)minDistance, listener, looper);
+            for (int i = 0; i < providers.Length; ++i)
+                manager.RequestLocationUpdates(providers[i], minTime, (float)minDistance, listener, looper);
         }
         /// <inheritdoc/>
         public void StopListening()
         {
-            if (this.listener == null)
+            if (listener == null)
                 return;
 
-            this.listener.PositionChanged -= OnListenerPositionChanged;
-            this.listener.PositionError -= OnListenerPositionError;
+            listener.PositionChanged -= OnListenerPositionChanged;
+            listener.PositionError -= OnListenerPositionError;
 
-            for (int i = 0; i < this.providers.Length; ++i)
-                this.manager.RemoveUpdates(this.listener);
+            for (int i = 0; i < providers.Length; ++i)
+                manager.RemoveUpdates(listener);
 
-            this.listener = null;
+            listener = null;
         }
 
         private readonly string[] providers;
@@ -262,9 +267,9 @@ namespace Geolocator.Plugin
             if (!IsListening) // ignore anything that might come in afterwards
                 return;
 
-            lock (this.positionSync)
+            lock (positionSync)
             {
-                this.lastPosition = e.Position;
+                lastPosition = e.Position;
 
                 var changed = PositionChanged;
                 if (changed != null)

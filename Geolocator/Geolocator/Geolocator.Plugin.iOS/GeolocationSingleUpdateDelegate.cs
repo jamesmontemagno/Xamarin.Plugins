@@ -24,9 +24,9 @@ using MonoTouch.Foundation;
 #endif
 using System.Threading.Tasks;
 using System.Threading;
-using Geolocator.Plugin.Abstractions;
+using Plugin.Geolocator.Abstractions;
 
-namespace Geolocator.Plugin
+namespace Plugin.Geolocator
 {
   internal class GeolocationSingleUpdateDelegate
     : CLLocationManagerDelegate

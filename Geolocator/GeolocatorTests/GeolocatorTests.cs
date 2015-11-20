@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Xamarin.Forms;
-using Geolocator.Plugin;
+using Plugin.Geolocator;
 
 namespace GeolocatorTests
 {

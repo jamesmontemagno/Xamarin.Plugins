@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geolocator.Plugin", "Geolocator\Geolocator.Plugin\Geolocator.Plugin.csproj", "{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}"
 EndProject
@@ -32,6 +32,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeolocatorTests.iOS", "iOS\GeolocatorTests.iOS.csproj", "{5F010020-BEE6-47EE-A4CE-6A8C42B9CB29}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeolocatorTests.Droid", "Droid\GeolocatorTests.Droid.csproj", "{E9C12CE5-7691-47AE-8D1E-C0598F6C5518}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geolocator.Plugin.UWP", "Geolocator\Geolocator.Plugin.UWP\Geolocator.Plugin.UWP.csproj", "{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -276,6 +278,30 @@ Global
 		{E9C12CE5-7691-47AE-8D1E-C0598F6C5518}.Release|x64.Build.0 = Release|Any CPU
 		{E9C12CE5-7691-47AE-8D1E-C0598F6C5518}.Release|x86.ActiveCfg = Release|Any CPU
 		{E9C12CE5-7691-47AE-8D1E-C0598F6C5518}.Release|x86.Build.0 = Release|Any CPU
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Debug|ARM.ActiveCfg = Debug|ARM
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Debug|ARM.Build.0 = Debug|ARM
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Debug|x64.ActiveCfg = Debug|x64
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Debug|x64.Build.0 = Debug|x64
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Debug|x86.ActiveCfg = Debug|x86
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Debug|x86.Build.0 = Debug|x86
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Release|ARM.ActiveCfg = Release|ARM
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Release|ARM.Build.0 = Release|ARM
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Release|iPhone.Build.0 = Release|Any CPU
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Release|x64.ActiveCfg = Release|x64
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Release|x64.Build.0 = Release|x64
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Release|x86.ActiveCfg = Release|x86
+		{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

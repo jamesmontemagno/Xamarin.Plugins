@@ -18,11 +18,10 @@ using System;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
-using Geolocator.Plugin.Abstractions;
-using Timeout = Geolocator.Plugin.Timeout;
+using Plugin.Geolocator.Abstractions;
 using System.Threading;
 
-namespace Geolocator.Plugin
+namespace Plugin.Geolocator
 {
     /// <summary>
     /// Implementation for Geolocator
@@ -89,17 +88,17 @@ namespace Geolocator.Plugin
         /// <inheritdoc/>
         public double DesiredAccuracy
         {
-            get { return this.desiredAccuracy; }
+            get { return desiredAccuracy; }
             set
             {
-                this.desiredAccuracy = value;
+                desiredAccuracy = value;
                 GetGeolocator().DesiredAccuracy = (value < 100) ? PositionAccuracy.High : PositionAccuracy.Default;
             }
         }
         /// <inheritdoc/>
         public bool IsListening
         {
-            get { return this.isListening; }
+            get { return isListening; }
         }
 
         /// <inheritdoc/>
@@ -150,10 +149,10 @@ namespace Geolocator.Plugin
                 throw new ArgumentOutOfRangeException("minTime");
             if (minDistance < 0)
                 throw new ArgumentOutOfRangeException("minDistance");
-            if (this.isListening)
+            if (isListening)
                 throw new InvalidOperationException();
 
-            this.isListening = true;
+            isListening = true;
 
             var loc = GetGeolocator();
             loc.ReportInterval = (uint)minTime;
@@ -164,11 +163,11 @@ namespace Geolocator.Plugin
         /// <inheritdoc/>
         public void StopListening()
         {
-            if (!this.isListening)
+            if (!isListening)
                 return;
 
-            this.locator.PositionChanged -= OnLocatorPositionChanged;
-            this.isListening = false;
+            locator.PositionChanged -= OnLocatorPositionChanged;
+            isListening = false;
         }
 
         private bool isListening;
@@ -192,13 +191,13 @@ namespace Geolocator.Plugin
                     return;
             }
 
-            if (this.isListening)
+            if (isListening)
             {
                 StopListening();
                 OnPositionError(new PositionErrorEventArgs(error));
             }
 
-            this.locator = null;
+            locator = null;
         }
 
         private void OnLocatorPositionChanged(Windows.Devices.Geolocation.Geolocator sender, PositionChangedEventArgs e)
@@ -208,26 +207,26 @@ namespace Geolocator.Plugin
 
         private void OnPositionChanged(PositionEventArgs e)
         {
-            var handler = this.PositionChanged;
+            var handler = PositionChanged;
             if (handler != null)
                 handler(this, e);
         }
 
         private void OnPositionError(PositionErrorEventArgs e)
         {
-            var handler = this.PositionError;
+            var handler = PositionError;
             if (handler != null)
                 handler(this, e);
         }
 
         private Windows.Devices.Geolocation.Geolocator GetGeolocator()
         {
-            var loc = this.locator;
+            var loc = locator;
             if (loc == null)
             {
-                this.locator = new Windows.Devices.Geolocation.Geolocator();
-                this.locator.StatusChanged += OnLocatorStatusChanged;
-                loc = this.locator;
+                locator = new Windows.Devices.Geolocation.Geolocator();
+                locator.StatusChanged += OnLocatorStatusChanged;
+                loc = locator;
             }
 
             return loc;

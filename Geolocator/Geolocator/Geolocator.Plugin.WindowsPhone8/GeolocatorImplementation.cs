@@ -18,10 +18,10 @@ using System;
 using System.Device.Location;
 using System.Threading;
 using System.Threading.Tasks;
-using Geolocator.Plugin.Abstractions;
+using Plugin.Geolocator.Abstractions;
 
 
-namespace Geolocator.Plugin
+namespace Plugin.Geolocator
 {
   /// <summary>
   /// Implementation for Geolocator
