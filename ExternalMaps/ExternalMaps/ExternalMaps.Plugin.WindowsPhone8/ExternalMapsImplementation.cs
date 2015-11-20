@@ -1,11 +1,11 @@
-using ExternalMaps.Plugin.Abstractions;
+using Plugin.ExternalMaps.Abstractions;
 using Microsoft.Phone.Tasks;
 using System;
 using System.Device.Location;
 using System.Globalization;
 
 
-namespace ExternalMaps.Plugin
+namespace Plugin.ExternalMaps
 {
   /// <summary>
   /// Implementation for ExternalMaps

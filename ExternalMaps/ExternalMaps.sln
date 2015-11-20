@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalMaps.Plugin", "ExternalMaps\ExternalMaps.Plugin\ExternalMaps.Plugin.csproj", "{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}"
 EndProject
@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		ExternalMaps.Plugin.nuspec = ExternalMaps.Plugin.nuspec
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalMaps.Plugin.UWP", "ExternalMaps\ExternalMaps.Plugin.UWP\ExternalMaps.Plugin.UWP.csproj", "{80C1A1D7-C26F-473E-B90D-CA697189B4C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -130,6 +132,22 @@ Global
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x64.Build.0 = Release|x64
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x86.ActiveCfg = Release|x86
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x86.Build.0 = Release|x86
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Debug|ARM.ActiveCfg = Debug|ARM
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Debug|ARM.Build.0 = Debug|ARM
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Debug|x64.ActiveCfg = Debug|x64
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Debug|x64.Build.0 = Debug|x64
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Debug|x86.ActiveCfg = Debug|x86
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Debug|x86.Build.0 = Debug|x86
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Release|ARM.ActiveCfg = Release|ARM
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Release|ARM.Build.0 = Release|ARM
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Release|x64.ActiveCfg = Release|x64
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Release|x64.Build.0 = Release|x64
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Release|x86.ActiveCfg = Release|x86
+		{80C1A1D7-C26F-473E-B90D-CA697189B4C1}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

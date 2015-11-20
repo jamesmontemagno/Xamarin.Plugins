@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.ExternalMaps</id>
-       <version>1.0.5</version>
+       <version>2.0.0</version>
        <title>External Maps Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -14,8 +14,9 @@
          Open external maps to navigate to a specific geolocation or address. Option to launch with navigation option on iOS as well.
        </description>
      <releaseNotes>
-       [1.0.5]
-       -Build against Android API 15 for better compat
+       [2.0.0]
+       -Breaking changes: New namespace: Plugin.ExternalMaps
+       -UWP support!
      </releaseNotes>
        <summary>Open external maps to navigate to a specific geolocation or address.</summary>
        <tags>xamarin, pcl, xam.pcl, maps, navigation, external maps, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
@@ -24,58 +25,66 @@
    </metadata>
    <files>
 <!--Core-->
-     <file src="ExternalMaps\ExternalMaps.Plugin\bin\Release\ExternalMaps.Plugin.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\ExternalMaps.Plugin.dll" />
-     <file src="ExternalMaps\ExternalMaps.Plugin\bin\Release\ExternalMaps.Plugin.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\ExternalMaps.Plugin.xml" />
-     <file src="ExternalMaps\ExternalMaps.Plugin\bin\Release\ExternalMaps.Plugin.pdb" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\ExternalMaps.Plugin.pdb" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\ExternalMaps.Plugin.Abstractions.dll" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\ExternalMaps.Plugin.Abstractions.xml" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.pdb" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\ExternalMaps.Plugin.Abstractions.pdb" />
+     <file src="ExternalMaps\ExternalMaps\bin\Release\Plugin.ExternalMaps.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.ExternalMaps.dll" />
+     <file src="ExternalMaps\ExternalMaps\bin\Release\Plugin.ExternalMaps.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.ExternalMaps.xml" />
+     <file src="ExternalMaps\ExternalMaps\bin\Release\Plugin.ExternalMaps.pdb" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.ExternalMaps.pdb" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.ExternalMaps.Abstractions.dll" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.ExternalMaps.Abstractions.xml" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.pdb" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.ExternalMaps.Abstractions.pdb" />
 
      <!--Win Phone Silverlight-->
-     <file src="ExternalMaps\ExternalMaps.Plugin.WindowsPhone8\bin\Release\ExternalMaps.Plugin.dll" target="lib\wp8\ExternalMaps.Plugin.dll" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.WindowsPhone8\bin\Release\ExternalMaps.Plugin.xml" target="lib\wp8\ExternalMaps.Plugin.xml" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.WindowsPhone8\bin\Release\ExternalMaps.Plugin.pdb" target="lib\wp8\ExternalMaps.Plugin.pdb" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.dll" target="lib\wp8\ExternalMaps.Plugin.Abstractions.dll" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.xml" target="lib\wp8\ExternalMaps.Plugin.Abstractions.xml" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.pdb" target="lib\wp8\ExternalMaps.Plugin.Abstractions.pdb" />
+     <file src="ExternalMaps\ExternalMaps.WindowsPhone8\bin\Release\Plugin.ExternalMaps.dll" target="lib\wp8\Plugin.ExternalMaps.dll" />
+     <file src="ExternalMaps\ExternalMaps.WindowsPhone8\bin\Release\Plugin.ExternalMaps.xml" target="lib\wp8\Plugin.ExternalMaps.xml" />
+     <file src="ExternalMaps\ExternalMaps.WindowsPhone8\bin\Release\Plugin.ExternalMaps.pdb" target="lib\wp8\Plugin.ExternalMaps.pdb" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.dll" target="lib\wp8\Plugin.ExternalMaps.Abstractions.dll" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.xml" target="lib\wp8\Plugin.ExternalMaps.Abstractions.xml" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.pdb" target="lib\wp8\Plugin.ExternalMaps.Abstractions.pdb" />
 
      <!--Win Phone 81-->
-     <file src="ExternalMaps\ExternalMaps.Plugin.WindowsPhone81\bin\Release\ExternalMaps.Plugin.dll" target="lib\wpa81\ExternalMaps.Plugin.dll" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.WindowsPhone81\bin\Release\ExternalMaps.Plugin.xml" target="lib\wpa81\ExternalMaps.Plugin.xml" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.WindowsPhone81\bin\Release\ExternalMaps.Plugin.pdb" target="lib\wpa81\ExternalMaps.Plugin.pdb" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.dll" target="lib\wpa81\ExternalMaps.Plugin.Abstractions.dll" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.xml" target="lib\wpa81\ExternalMaps.Plugin.Abstractions.xml" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.pdb" target="lib\wpa81\ExternalMaps.Plugin.Abstractions.pdb" />
+     <file src="ExternalMaps\ExternalMaps.WindowsPhone81\bin\Release\Plugin.ExternalMaps.dll" target="lib\wpa81\Plugin.ExternalMaps.dll" />
+     <file src="ExternalMaps\ExternalMaps.WindowsPhone81\bin\Release\Plugin.ExternalMaps.xml" target="lib\wpa81\Plugin.ExternalMaps.xml" />
+     <file src="ExternalMaps\ExternalMaps.WindowsPhone81\bin\Release\Plugin.ExternalMaps.pdb" target="lib\wpa81\Plugin.ExternalMaps.pdb" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.dll" target="lib\wpa81\Plugin.ExternalMaps.Abstractions.dll" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.xml" target="lib\wpa81\Plugin.ExternalMaps.Abstractions.xml" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.pdb" target="lib\wpa81\Plugin.ExternalMaps.Abstractions.pdb" />
 
 
      <!--WinStore-->
-     <file src="ExternalMaps\ExternalMaps.Plugin.WindowsStore\bin\Release\ExternalMaps.Plugin.dll" target="lib\win8\ExternalMaps.Plugin.dll" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.WindowsStore\bin\Release\ExternalMaps.Plugin.xml" target="lib\win8\ExternalMaps.Plugin.xml" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.WindowsStore\bin\Release\ExternalMaps.Plugin.pdb" target="lib\win8\ExternalMaps.Plugin.pdb" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.dll" target="lib\win8\ExternalMaps.Plugin.Abstractions.dll" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.xml" target="lib\win8\ExternalMaps.Plugin.Abstractions.xml" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.pdb" target="lib\win8\ExternalMaps.Plugin.Abstractions.pdb" />
+     <file src="ExternalMaps\ExternalMaps.WindowsStore\bin\Release\Plugin.ExternalMaps.dll" target="lib\win8\Plugin.ExternalMaps.dll" />
+     <file src="ExternalMaps\ExternalMaps.WindowsStore\bin\Release\Plugin.ExternalMaps.xml" target="lib\win8\Plugin.ExternalMaps.xml" />
+     <file src="ExternalMaps\ExternalMaps.WindowsStore\bin\Release\Plugin.ExternalMaps.pdb" target="lib\win8\Plugin.ExternalMaps.pdb" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.dll" target="lib\win8\Plugin.ExternalMaps.Abstractions.dll" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.xml" target="lib\win8\Plugin.ExternalMaps.Abstractions.xml" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.pdb" target="lib\win8\Plugin.ExternalMaps.Abstractions.pdb" />
 
 
      <!--Xamarin.Android-->
-     <file src="ExternalMaps\ExternalMaps.Plugin.Android\bin\Release\ExternalMaps.Plugin.dll" target="lib\MonoAndroid10\ExternalMaps.Plugin.dll" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Android\bin\Release\ExternalMaps.Plugin.xml" target="lib\MonoAndroid10\ExternalMaps.Plugin.xml" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Android\bin\Release\ExternalMaps.Plugin.pdb" target="lib\MonoAndroid10\ExternalMaps.Plugin.pdb" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.dll" target="lib\MonoAndroid10\ExternalMaps.Plugin.Abstractions.dll" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.xml" target="lib\MonoAndroid10\ExternalMaps.Plugin.Abstractions.xml" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.pdb" target="lib\MonoAndroid10\ExternalMaps.Plugin.Abstractions.pdb" />
+     <file src="ExternalMaps\ExternalMaps.Android\bin\Release\Plugin.ExternalMaps.dll" target="lib\MonoAndroid10\Plugin.ExternalMaps.dll" />
+     <file src="ExternalMaps\ExternalMaps.Android\bin\Release\Plugin.ExternalMaps.xml" target="lib\MonoAndroid10\Plugin.ExternalMaps.xml" />
+     <file src="ExternalMaps\ExternalMaps.Android\bin\Release\Plugin.ExternalMaps.pdb" target="lib\MonoAndroid10\Plugin.ExternalMaps.pdb" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.dll" target="lib\MonoAndroid10\Plugin.ExternalMaps.Abstractions.dll" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.xml" target="lib\MonoAndroid10\Plugin.ExternalMaps.Abstractions.xml" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.pdb" target="lib\MonoAndroid10\Plugin.ExternalMaps.Abstractions.pdb" />
 
      <!--Xamarin.iOS-->
-     <file src="ExternalMaps\ExternalMaps.Plugin.iOS\bin\iPhone\Release\ExternalMaps.Plugin.dll" target="lib\MonoTouch10\ExternalMaps.Plugin.dll" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.iOS\bin\iPhone\Release\ExternalMaps.Plugin.xml" target="lib\MonoTouch10\ExternalMaps.Plugin.xml" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.dll" target="lib\MonoTouch10\ExternalMaps.Plugin.Abstractions.dll" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.xml" target="lib\MonoTouch10\ExternalMaps.Plugin.Abstractions.xml" />
+     <file src="ExternalMaps\ExternalMaps.iOS\bin\iPhone\Release\Plugin.ExternalMaps.dll" target="lib\MonoTouch10\Plugin.ExternalMaps.dll" />
+     <file src="ExternalMaps\ExternalMaps.iOS\bin\iPhone\Release\Plugin.ExternalMaps.xml" target="lib\MonoTouch10\Plugin.ExternalMaps.xml" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.dll" target="lib\MonoTouch10\Plugin.ExternalMaps.Abstractions.dll" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.xml" target="lib\MonoTouch10\Plugin.ExternalMaps.Abstractions.xml" />
      
      <!--Xamarin.iOS Unified-->
-     <file src="ExternalMaps\ExternalMaps.Plugin.iOSUnified\bin\iPhone\Release\ExternalMaps.Plugin.dll" target="lib\Xamarin.iOS10\ExternalMaps.Plugin.dll" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.iOSUnified\bin\iPhone\Release\ExternalMaps.Plugin.xml" target="lib\Xamarin.iOS10\ExternalMaps.Plugin.xml" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.dll" target="lib\Xamarin.iOS10\ExternalMaps.Plugin.Abstractions.dll" />
-     <file src="ExternalMaps\ExternalMaps.Plugin.Abstractions\bin\Release\ExternalMaps.Plugin.Abstractions.xml" target="lib\Xamarin.iOS10\ExternalMaps.Plugin.Abstractions.xml" />
+     <file src="ExternalMaps\ExternalMaps.iOSUnified\bin\iPhone\Release\Plugin.ExternalMaps.dll" target="lib\Xamarin.iOS10\Plugin.ExternalMaps.dll" />
+     <file src="ExternalMaps\ExternalMaps.iOSUnified\bin\iPhone\Release\Plugin.ExternalMaps.xml" target="lib\Xamarin.iOS10\Plugin.ExternalMaps.xml" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.dll" target="lib\Xamarin.iOS10\Plugin.ExternalMaps.Abstractions.dll" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.xml" target="lib\Xamarin.iOS10\Plugin.ExternalMaps.Abstractions.xml" />
+
+ <!--WinStore-->
+     <file src="ExternalMaps\ExternalMaps.UWP\bin\Release\Plugin.ExternalMaps.dll" target="lib\UAP10\Plugin.ExternalMaps.dll" />
+     <file src="ExternalMaps\ExternalMaps.UWP\bin\Release\Plugin.ExternalMaps.xml" target="lib\UAP10\Plugin.ExternalMaps.xml" />
+     <file src="ExternalMaps\ExternalMaps.UWP\bin\Release\Plugin.ExternalMaps.pdb" target="lib\UAP10\Plugin.ExternalMaps.pdb" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.dll" target="lib\UAP10\Plugin.ExternalMaps.Abstractions.dll" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.xml" target="lib\UAP10\Plugin.ExternalMaps.Abstractions.xml" />
+     <file src="ExternalMaps\ExternalMaps.Abstractions\bin\Release\Plugin.ExternalMaps.Abstractions.pdb" target="lib\UAP10\Plugin.ExternalMaps.Abstractions.pdb" />
 
 
 

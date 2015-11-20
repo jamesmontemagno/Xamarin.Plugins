@@ -1,11 +1,11 @@
 using Android.Content;
 using Android.Widget;
-using ExternalMaps.Plugin.Abstractions;
+using Plugin.ExternalMaps.Abstractions;
 using System;
 using System.Globalization;
 
 
-namespace ExternalMaps.Plugin
+namespace Plugin.ExternalMaps
 {
   /// <summary>
   /// Implementation for Feature
