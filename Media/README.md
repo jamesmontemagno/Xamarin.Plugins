@@ -21,23 +21,33 @@ Ported from [Xamarin.Mobile](http://www.github.com/xamarin/xamarin.mobile) to a 
 
 Call **CrossMedia.Current** from any project or PCL to gain access to APIs.
 
-Before taking photos or videos you should check to see if a camera exists and if photos and videos are supported on the device. There are three properties that you can check:
+Before taking photos or videos you should check to see if a camera exists and if photos and videos are supported on the device. There are five properties that you can check:
 
 ```csharp
 /// <summary>
 /// Gets if a camera is available on the device
 /// </summary>
 bool IsCameraAvailable { get; }
-    
+
 /// <summary>
-/// Gets if Photos are supported on the device
+/// Gets if ability to take photos supported on the device
 /// </summary>
-bool PhotosSupported { get; }
-    
+bool IsTakePhotoSupported { get; }
+
 /// <summary>
-/// Gets if Videos are supported on the device
+/// Gets if the ability to pick photo is supported on the device
 /// </summary>
-bool VideosSupported { get; }
+bool IsPickPhotoSupported { get; }
+
+/// <summary>
+/// Gets if ability to take video is supported on the device
+/// </summary>
+bool IsTakeVideoSupported { get; }
+
+/// <summary>
+/// Gets if the ability to pick a video is supported on the device
+/// </summary>
+bool IsPickVideoSupported { get; }
 ```
 
 ### Photos
@@ -76,34 +86,33 @@ Task<MediaFile> TakeVideoAsync(StoreVideoOptions options);
 Via a Xamarin.Forms project with a Button and Image to take a photo:
 
 ```csharp
-      takePhoto.Clicked += async (sender, args) =>
-        {
+takePhoto.Clicked += async (sender, args) =>
+{
 
-          if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.PhotosSupported)
-          {
-            DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
-            return;
-          }
+    if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+    {
+        DisplayAlert("No Camera", ":( No camera available.", "OK");
+        return;
+    }
 
-          var file = await CrossMedia.Current.TakePhotoAsync(new Media.Plugin.Abstractions.StoreCameraMediaOptions
-            {
+    var file = await CrossMedia.Current.TakePhotoAsync(new Media.Plugin.Abstractions.StoreCameraMediaOptions
+    {
+        Directory = "Sample",
+        Name = "test.jpg"
+    });
 
-              Directory = "Sample",
-              Name = "test.jpg"
-            });
+    if (file == null)
+        return;
 
-          if (file == null)
-            return;
+    DisplayAlert("File Location", file.Path, "OK");
 
-          DisplayAlert("File Location", file.Path, "OK");
-
-          image.Source = ImageSource.FromStream(() =>
-          {
-            var stream = file.GetStream();
-            file.Dispose();
-            return stream;
-          }); 
-        };
+    image.Source = ImageSource.FromStream(() =>
+    {
+        var stream = file.GetStream();
+        file.Dispose();
+        return stream;
+    }); 
+};
 ```
 
 
