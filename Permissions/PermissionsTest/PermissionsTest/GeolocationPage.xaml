@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PermissionsTest.GeolocationPage"
+             Title="Permissions Test">
+  <ScrollView>
+      <StackLayout Padding="30" Spacing="10">
+        <Button Text="Get Location" Clicked="Button_OnClicked"></Button>
+        <Label x:Name="LabelGeolocation"></Label>
+        <Button Text="Calendar" StyleId="Calendar" Clicked="ButtonPermission_OnClicked"></Button>
+        <Button Text="Camera" StyleId="Camera" Clicked="ButtonPermission_OnClicked"></Button>
+        <Button Text="Contacts" StyleId="Contacts" Clicked="ButtonPermission_OnClicked"></Button>
+        <Button Text="Microphone" StyleId="Microphone" Clicked="ButtonPermission_OnClicked"></Button>
+        <Button Text="Phone" StyleId="Phone" Clicked="ButtonPermission_OnClicked"></Button>
+        <Button Text="Photos" StyleId="Photos" Clicked="ButtonPermission_OnClicked"></Button>
+        <Button Text="Reminders" StyleId="Reminders" Clicked="ButtonPermission_OnClicked"></Button>
+        <Button Text="Sensors" StyleId="Sensors" Clicked="ButtonPermission_OnClicked"></Button>
+        <Button Text="Sms" StyleId="Sms" Clicked="ButtonPermission_OnClicked"></Button>
+        <Button Text="Storage" StyleId="Storage" Clicked="ButtonPermission_OnClicked"></Button>
+      </StackLayout>
+  </ScrollView>
+</ContentPage>
