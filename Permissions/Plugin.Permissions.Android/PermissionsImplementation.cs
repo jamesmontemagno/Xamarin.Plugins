@@ -9,7 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Plugin.CurrentActivity;
-
+using Android.Content;
 
 namespace Plugin.Permissions
 {
@@ -76,13 +76,6 @@ namespace Plugin.Permissions
         /// <param name="permission">Permission to check.</param>
         public Task<PermissionStatus> CheckPermissionStatusAsync(Permission permission)
         {
-            var activity = CrossCurrentActivity.Current.Activity;
-            if(activity == null)
-            {
-                Debug.WriteLine("Unable to detect current Activity. Please ensure Plugin.CurrentActivity is installed in your Android project and your Application class is registering with Application.IActivityLifecycleCallbacks.");
-                return Task.FromResult(PermissionStatus.Unknown);
-            }
-            
             var names = GetManifestNames(permission);
 
             //if isn't an android specific group then go ahead and return true;
@@ -99,9 +92,16 @@ namespace Plugin.Permissions
                 return Task.FromResult(PermissionStatus.Unknown);
             }
 
-            foreach(var name in names)
+            Context context = CrossCurrentActivity.Current.Activity ?? Application.Context;
+            if (context == null)
             {
-                if (ContextCompat.CheckSelfPermission(activity, name) == Android.Content.PM.Permission.Denied)
+                Debug.WriteLine("Unable to detect current Activity or App Context. Please ensure Plugin.CurrentActivity is installed in your Android project and your Application class is registering with Application.IActivityLifecycleCallbacks.");
+                return Task.FromResult(PermissionStatus.Unknown);  
+            }
+
+            foreach (var name in names)
+            {
+                if (ContextCompat.CheckSelfPermission(context, name) == Android.Content.PM.Permission.Denied)
                     return Task.FromResult(PermissionStatus.Denied);
             }
             return Task.FromResult(PermissionStatus.Granted);
@@ -176,7 +176,7 @@ namespace Plugin.Permissions
         /// <param name="requestCode"></param>
         /// <param name="permissions"></param>
         /// <param name="grantResults"></param>
-        public void OnRequestPermissionsAsyncResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
+        public void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
         {
             if (requestCode != PermissionCode)
                 return;

@@ -29,7 +29,7 @@ namespace Plugin.Permissions
         static IPermissions CreatePermissions()
         {
 #if PORTABLE
-        return null;
+            return null;
 #else
             return new PermissionsImplementation();
 #endif
