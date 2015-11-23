@@ -40,7 +40,7 @@
        <tags>xamarin, geolocator, geolocation, gps, pcl, xam.pcl, plugin, plugin for xamarin, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
        <dependencies>
            <group targetFramework="MonoAndroid10">
-               <dependency id="Plugin.Permissions" version="1.1.0"/>
+               <dependency id="Plugin.Permissions" version="1.1.1"/>
            </group>
        </dependencies>
    </metadata>
