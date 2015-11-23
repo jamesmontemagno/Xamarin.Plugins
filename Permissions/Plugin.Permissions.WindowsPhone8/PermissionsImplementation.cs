@@ -38,7 +38,7 @@ namespace Plugin.Permissions
         /// </summary>
         /// <returns>The permissions and their status.</returns>
         /// <param name="permissions">Permissions to request.</param>
-        public Task<Dictionary<Permission, PermissionStatus>> RequestPermissionsAsync(IEnumerable<Permission> permissions)
+        public Task<Dictionary<Permission, PermissionStatus>> RequestPermissionsAsync(params Permission[] permissions)
         {
             var results = permissions.ToDictionary(permission => permission, permission => PermissionStatus.Granted);
             return Task.FromResult(results);

@@ -28,6 +28,6 @@ namespace Plugin.Permissions.Abstractions
         /// </summary>
         /// <returns>The permissions and their status.</returns>
         /// <param name="permissions">Permissions to request.</param>
-        Task<Dictionary<Permission, PermissionStatus>> RequestPermissionsAsync(IEnumerable<Permission> permissions);
+        Task<Dictionary<Permission, PermissionStatus>> RequestPermissionsAsync(params Permission[] permissions);
     }
 }

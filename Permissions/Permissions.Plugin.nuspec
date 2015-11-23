@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Plugin.Permissions</id>
-       <version>1.0.1</version>
+       <version>1.1.0</version>
        <title>Permissions Plugin for Xamarin</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -22,6 +22,11 @@
            <dependency id="Plugin.CurrentActivity" version="1.0.0"/>
          </group>
        </dependencies>
+    <releaseNotes>
+       [1.1.0]
+       -Fix odd edgecase in Android
+       -Change to params of permissions when requesting permissions
+     </releaseNotes>
    </metadata>
    <files>
   <!--Core-->
