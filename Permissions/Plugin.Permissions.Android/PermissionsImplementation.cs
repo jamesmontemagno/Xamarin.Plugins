@@ -112,7 +112,7 @@ namespace Plugin.Permissions
         /// </summary>
         /// <returns>The permissions and their status.</returns>
         /// <param name="permissions">Permissions to request.</param>
-        public async Task<Dictionary<Permission, PermissionStatus>> RequestPermissionsAsync(IEnumerable<Permission> permissions)
+        public async Task<Dictionary<Permission, PermissionStatus>> RequestPermissionsAsync(params Permission[] permissions)
         {
             if (tcs != null && !tcs.Task.IsCompleted)
             {
@@ -134,9 +134,24 @@ namespace Plugin.Permissions
             {
                 var result = await CheckPermissionStatusAsync(permission).ConfigureAwait(false);
                 if (result != PermissionStatus.Granted)
-                    permissionsToRequest.AddRange(GetManifestNames(permission));
+                {
+                    var names = GetManifestNames(permission);
+                    //check to see if we can find manifest names
+                    //if we can't add as unknown and continue
+                    if ((names?.Count ?? 0) == 0)
+                    {
+                        lock (locker)
+                        {
+                            results.Add(permission, PermissionStatus.Unknown);
+                        }
+                        continue;
+                    }
+
+                    permissionsToRequest.AddRange(names);
+                }
                 else
                 {
+                    //if we are granted you are good!
                     lock (locker)
                     {
                         results.Add(permission, PermissionStatus.Granted);
@@ -155,6 +170,12 @@ namespace Plugin.Permissions
         }
 
         const int PermissionCode = 25;
+        /// <summary>
+        /// Callback that must be set when request permissions has finished
+        /// </summary>
+        /// <param name="requestCode"></param>
+        /// <param name="permissions"></param>
+        /// <param name="grantResults"></param>
         public void OnRequestPermissionsAsyncResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
         {
             if (requestCode != PermissionCode)

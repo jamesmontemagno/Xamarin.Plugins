@@ -57,7 +57,7 @@ Task<PermissionStatus> CheckPermissionStatus(Permission permission);
 /// </summary>
 /// <returns>The permissions and their status.</returns>
 /// <param name="permissions">Permissions to request.</param>
-Task<Dictionary<Permission, PermissionStatus>> RequestPermissions(IEnumerable<Permission> permissions);
+Task<Dictionary<Permission, PermissionStatus>> RequestPermissions(params Permission[] permissions);
 ```
 
 ### In Action
