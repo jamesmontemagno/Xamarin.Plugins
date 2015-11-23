@@ -23,7 +23,7 @@ using Android.OS;
 using System.Linq;
 using Android.Content;
 using Android.Content.PM;
-
+using Plugin.Permissions;
 
 namespace Plugin.Geolocator
 {
@@ -109,27 +109,24 @@ namespace Plugin.Geolocator
             get { return providers.Any(manager.IsProviderEnabled); }
         }
 
-        private bool CheckPermission(string permission)
-        {
-            var res = Application.Context.CheckCallingOrSelfPermission(permission);
-            return (res == Permission.Granted);
-        }
+        
         /// <inheritdoc/>
-        public Task<Position> GetPositionAsync(int timeoutMilliseconds = Timeout.Infinite, CancellationToken? cancelToken = null, bool includeHeading = false)
+        public async Task<Position> GetPositionAsync(int timeoutMilliseconds = Timeout.Infinite, CancellationToken? cancelToken = null, bool includeHeading = false)
         {
-
-            if (!CheckPermission("android.permission.ACCESS_COARSE_LOCATION"))
+            var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permissions.Abstractions.Permission.Location).ConfigureAwait(false);
+            if (status != Permissions.Abstractions.PermissionStatus.Granted)
             {
-                Console.WriteLine("Unable to get location, ACCESS_COARSE_LOCATION not set.");
-                return null;
+                Console.WriteLine("Currently does not have Location permissions, requesting permissions");
+
+                var request = await CrossPermissions.Current.RequestPermissionsAsync(Permissions.Abstractions.Permission.Location);
+
+                if(request[Permissions.Abstractions.Permission.Location] != Permissions.Abstractions.PermissionStatus.Granted)
+                {
+                    Console.WriteLine("Location permission denied, can not get positions async.");
+                    return null;
+                }
             }
 
-
-            if (!CheckPermission("android.permission.ACCESS_FINE_LOCATION"))
-            {
-                Console.WriteLine("Unable to get location, ACCESS_FINE_LOCATION not set.");
-                return null;
-            }
 
             if (timeoutMilliseconds <= 0 && timeoutMilliseconds != Timeout.Infinite)
                 throw new ArgumentOutOfRangeException("timeoutMilliseconds", "timeout must be greater than or equal to 0");
@@ -180,16 +177,16 @@ namespace Plugin.Geolocator
                             manager.RemoveUpdates(singleListener);
 
                         tcs.SetException(new GeolocationException(GeolocationError.PositionUnavailable));
-                        return tcs.Task;
+                        return await tcs.Task.ConfigureAwait(false);
                     }
                 }
                 catch (Java.Lang.SecurityException ex)
                 {
                     tcs.SetException(new GeolocationException(GeolocationError.Unauthorized, ex));
-                    return tcs.Task;
+                    return await tcs.Task.ConfigureAwait(false);
                 }
 
-                return singleListener.Task;
+                return await singleListener.Task.ConfigureAwait(false);
             }
 
             // If we're already listening, just use the current listener
@@ -217,7 +214,7 @@ namespace Plugin.Geolocator
                 }
             }
 
-            return tcs.Task;
+            return await tcs.Task.ConfigureAwait(false);
         }
 
         /// <inheritdoc/>
