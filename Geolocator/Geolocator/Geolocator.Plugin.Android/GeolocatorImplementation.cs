@@ -125,6 +125,7 @@ namespace Plugin.Geolocator
                     Console.WriteLine("Location permission denied, can not get positions async.");
                     return null;
                 }
+                providers = manager.GetProviders(enabledOnly: false).Where(s => s != LocationManager.PassiveProvider).ToArray();
             }
 
 
@@ -250,7 +251,7 @@ namespace Plugin.Geolocator
             listener = null;
         }
 
-        private readonly string[] providers;
+        private string[] providers;
         private readonly LocationManager manager;
         private string headingProvider;
 
