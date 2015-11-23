@@ -23,7 +23,7 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Provider;
 using Plugin.Media.Abstractions;
-
+using Plugin.Permissions;
 
 namespace Plugin.Media
 {
@@ -71,6 +71,9 @@ namespace Plugin.Media
         {
             get { return true; }
         }
+
+        public Task CrossPermission { get; private set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -123,33 +126,88 @@ namespace Plugin.Media
         /// Picks a photo from the default gallery
         /// </summary>
         /// <returns>Media file or null if canceled</returns>
-        public Task<Plugin.Media.Abstractions.MediaFile> PickPhotoAsync()
+        public async Task<MediaFile> PickPhotoAsync()
         {
-            return TakeMediaAsync("image/*", Intent.ActionPick, null);
+            if (!(await RequestStoragePermission().ConfigureAwait(false)))
+            {
+                return null;
+            }
+            return await TakeMediaAsync("image/*", Intent.ActionPick, null);
         }
+
+
+        async Task<bool> RequestCameraPermission()
+        {
+            var status1 = await CrossPermissions.Current.CheckPermissionStatusAsync(Permissions.Abstractions.Permission.Storage);
+            var status2 = await CrossPermissions.Current.CheckPermissionStatusAsync(Permissions.Abstractions.Permission.Camera);
+            if (status1 != Permissions.Abstractions.PermissionStatus.Granted ||
+                status2 != Permissions.Abstractions.PermissionStatus.Granted)
+            {
+                Console.WriteLine("Does not have storage or camera permissions granted, requesting.");
+                var results = await CrossPermissions.Current.RequestPermissionsAsync(Permissions.Abstractions.Permission.Camera, Permissions.Abstractions.Permission.Storage);
+                if (results[Permissions.Abstractions.Permission.Storage] != Permissions.Abstractions.PermissionStatus.Granted ||
+                    results[Permissions.Abstractions.Permission.Camera] != Permissions.Abstractions.PermissionStatus.Granted)
+                {
+                    Console.WriteLine("Storage or Camera permission Denied.");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        async Task<bool> RequestStoragePermission()
+        {
+            var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permissions.Abstractions.Permission.Storage);
+            if (status != Permissions.Abstractions.PermissionStatus.Granted)
+            {
+                Console.WriteLine("Does not have storage permissions granted, requesting.");
+                var results = await CrossPermissions.Current.RequestPermissionsAsync(Permissions.Abstractions.Permission.Storage);
+                if (results[Permissions.Abstractions.Permission.Storage] != Permissions.Abstractions.PermissionStatus.Granted)
+                {
+                    Console.WriteLine("Storage permission Denied.");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        
 
         /// <summary>
         /// Take a photo async with specified options
         /// </summary>
         /// <param name="options">Camera Media Options</param>
         /// <returns>Media file of photo or null if canceled</returns>
-        public Task<Plugin.Media.Abstractions.MediaFile> TakePhotoAsync(StoreCameraMediaOptions options)
+        public async Task<MediaFile> TakePhotoAsync(StoreCameraMediaOptions options)
         {
             if (!IsCameraAvailable)
                 throw new NotSupportedException();
 
+            if(!(await RequestCameraPermission().ConfigureAwait(false)))
+            {
+                return null;
+            }
+
+
             VerifyOptions(options);
 
-            return TakeMediaAsync("image/*", MediaStore.ActionImageCapture, options);
+            return await TakeMediaAsync("image/*", MediaStore.ActionImageCapture, options);
         }
 
         /// <summary>
         /// Picks a video from the default gallery
         /// </summary>
         /// <returns>Media file of video or null if canceled</returns>
-        public Task<Plugin.Media.Abstractions.MediaFile> PickVideoAsync()
+        public async Task<MediaFile> PickVideoAsync()
         {
-            return TakeMediaAsync("video/*", Intent.ActionPick, null);
+
+            if (!(await RequestStoragePermission().ConfigureAwait(false)))
+            {
+                return null;
+            }
+
+            return await TakeMediaAsync("video/*", Intent.ActionPick, null);
         }
 
         /// <summary>
@@ -157,14 +215,19 @@ namespace Plugin.Media
         /// </summary>
         /// <param name="options">Video Media Options</param>
         /// <returns>Media file of new video or null if canceled</returns>
-        public Task<Plugin.Media.Abstractions.MediaFile> TakeVideoAsync(StoreVideoOptions options)
+        public async Task<MediaFile> TakeVideoAsync(StoreVideoOptions options)
         {
             if (!IsCameraAvailable)
                 throw new NotSupportedException();
 
+            if (!(await RequestCameraPermission().ConfigureAwait(false)))
+            {
+                return null;
+            }
+
             VerifyOptions(options);
 
-            return TakeMediaAsync("video/*", MediaStore.ActionVideoCapture, options);
+            return await TakeMediaAsync("video/*", MediaStore.ActionVideoCapture, options);
         }
 
         private readonly Context context;
