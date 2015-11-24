@@ -1,8 +1,8 @@
 // Helpers/Settings.cs
-using Refractored.Xam.Settings.Abstractions;
+using Plugin.Settings.Abstractions;
 using System;
 
-namespace Refractored.Xam.Settings.Tests.Portable.Helpers
+namespace Plugin.Settings.Tests.Portable.Helpers
 {
   /// <summary>
   /// This is the Settings static class that can be used in your Core solution or in any

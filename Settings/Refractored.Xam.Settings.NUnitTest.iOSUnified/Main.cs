@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace Refractored.Xam.Settings.NUnitTest.iOSUnified
+namespace Plugin.Settings.NUnitTest.iOSUnified
 {
   public class Application
   {

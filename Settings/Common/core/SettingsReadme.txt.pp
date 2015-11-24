@@ -4,8 +4,8 @@ If you are installing this in a normal project and not using a pcl create a new 
 
 
 // Helpers/Settings.cs
-using Refractored.Xam.Settings;
-using Refractored.Xam.Settings.Abstractions;
+using Plugin.Settings;
+using Plugin.Settings.Abstractions;
 
 namespace $rootnamespace$.Helpers
 {

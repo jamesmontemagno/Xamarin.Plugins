@@ -5,7 +5,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace Refractored.Xam.Settings.NUnitTest.iOS
+namespace Plugin.Settings.NUnitTest.iOS
 {
   public class Application
   {

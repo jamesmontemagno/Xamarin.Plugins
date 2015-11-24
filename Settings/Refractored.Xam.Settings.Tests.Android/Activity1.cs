@@ -6,10 +6,11 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Refractored.Xam.Settings.Tests.Android;
 
-namespace Refractored.Xam.Settings.Tests.Android
+namespace Plugin.Settings.Tests.Android
 {
-  [Activity(Label = "Refractored.Xam.Settings.Tests.Android", MainLauncher = true, Icon = "@drawable/icon")]
+  [Activity(Label = "Plugin.Settings.Tests.Android", MainLauncher = true, Icon = "@drawable/icon")]
   public class Activity1 : Activity
   {
     int count = 1;

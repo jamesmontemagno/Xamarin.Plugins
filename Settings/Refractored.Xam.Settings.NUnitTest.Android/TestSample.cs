@@ -1,9 +1,9 @@
 ﻿using System;
 using NUnit.Framework;
-using Refractored.Xam.Settings.Tests.Portable.Helpers;
+using Plugin.Settings.Tests.Portable.Helpers;
 
 
-namespace Refractored.Xam.Settings.NUnitTest
+namespace Plugin.Settings.NUnitTest
 {
   [TestFixture]
   public class TestsSample
