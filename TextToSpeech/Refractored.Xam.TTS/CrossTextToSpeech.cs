@@ -1,10 +1,10 @@
-﻿using Refractored.Xam.TTS.Abstractions;
+﻿using Plugin.TextToSpeech.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Refractored.Xam.TTS
+namespace Plugin.TextToSpeech
 {
   /// <summary>
   /// Cross platform TTS implemenations

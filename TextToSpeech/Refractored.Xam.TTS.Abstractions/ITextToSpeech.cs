@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Refractored.Xam.TTS.Abstractions
+namespace Plugin.TextToSpeech.Abstractions
 {
   /// <summary>
   /// Interface for TTS
