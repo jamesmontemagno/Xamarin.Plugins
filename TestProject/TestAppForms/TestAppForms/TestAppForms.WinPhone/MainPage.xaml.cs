@@ -22,7 +22,7 @@ namespace TestAppForms.WinPhone
       InitializeComponent();
 
       Forms.Init();
-      Xamarin.Insights.Initialize(TestAppForms.Helpers.Settings.InsightsKey, this);
+      Xamarin.Insights.Initialize(Helpers.Settings.InsightsKey);
       Xamarin.Insights.ForceDataTransmission = true;
       //Vibrate.Init();
       //ImageCircleRenderer.Init();

@@ -36,7 +36,7 @@ namespace TestAppForms.Droid
             TabLayoutResource = Resource.Layout.tabs;
             LoadApplication(new App2());
             
-
+            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_navigation_arrow_back);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)

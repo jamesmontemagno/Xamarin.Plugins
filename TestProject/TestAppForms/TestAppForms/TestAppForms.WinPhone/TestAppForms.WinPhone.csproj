@@ -194,11 +194,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.Connectivity, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.2.0.0-alpha1\lib\wp8\Plugin.Connectivity.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.2.0.0-alpha2\lib\wp8\Plugin.Connectivity.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.Connectivity.Abstractions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.2.0.0-alpha1\lib\wp8\Plugin.Connectivity.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.2.0.0-alpha2\lib\wp8\Plugin.Connectivity.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.DeviceInfo, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -226,11 +226,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.LocalNotifications, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugins.Notifier.2.0.0-alpha1\lib\wp8\Plugin.LocalNotifications.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugins.Notifier.2.0.0-alpha2\lib\wp8\Plugin.LocalNotifications.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.LocalNotifications.Abstractions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugins.Notifier.2.0.0-alpha1\lib\wp8\Plugin.LocalNotifications.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\Xam.Plugins.Notifier.2.0.0-alpha2\lib\wp8\Plugin.LocalNotifications.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.Media, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
