@@ -79,12 +79,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="Connectivity.Plugin">
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.4\lib\Xamarin.iOS10\Connectivity.Plugin.dll</HintPath>
-    </Reference>
-    <Reference Include="Connectivity.Plugin.Abstractions">
-      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.4\lib\Xamarin.iOS10\Connectivity.Plugin.Abstractions.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
@@ -97,7 +91,6 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="PluginsHelp\ConnectivityReadme.txt" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -108,4 +101,14 @@
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Connectivity\Connectivity.Plugin.Abstractions\Connectivity.Plugin.Abstractions.csproj">
+      <Project>{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}</Project>
+      <Name>Connectivity.Plugin.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Connectivity\Connectivity.Plugin.iOSUnified\Connectivity.Plugin.iOSUnified.csproj">
+      <Project>{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}</Project>
+      <Name>Connectivity.Plugin.iOSUnified</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
