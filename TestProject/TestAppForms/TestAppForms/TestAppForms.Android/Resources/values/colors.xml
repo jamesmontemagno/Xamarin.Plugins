@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
-  <color name="material_blue_500">#2196F3</color>
-  <color name="material_blue_700">#1976D2</color>
-  <color name="accent">#FFC107</color>
+    <color name="primary">#2196F3</color>
+    <color name="primaryDark">#1976D2</color>
+    <color name="accent">#FFC107</color>
+    <color name="window_background">#F5F5F5</color>
+    <color name="up_arrow_color">#FFFFFF</color>
 </resources>

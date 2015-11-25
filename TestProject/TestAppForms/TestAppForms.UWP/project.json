@@ -1,0 +1,32 @@
+﻿{
+  "dependencies": {
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
+    "Plugin.Permissions": "1.1.1",
+    "Plugin.Share": "3.0.1",
+    "Xam.Plugin.Battery": "2.0.0-alpha1",
+    "Xam.Plugin.Connectivity": "2.0.0-alpha1",
+    "Xam.Plugin.Contacts": "1.0.0-alpha5",
+    "Xam.Plugin.DeviceInfo": "2.0.0-alpha1",
+    "Xam.Plugin.ExternalMaps": "2.0.0-alpha1",
+    "Xam.Plugin.Geolocator": "2.0.0-alpha1",
+    "Xam.Plugin.Media": "2.0.0-alpha1",
+    "Xam.Plugins.Forms.ImageCircle": "1.2.0",
+    "Xam.Plugins.Notifier": "2.0.0-alpha1",
+    "Xam.Plugins.Settings": "2.0.0-alpha1",
+    "Xam.Plugins.TextToSpeech": "2.0.0-alpha1",
+    "Xam.Plugins.Vibrate": "2.0.0-alpha1",
+    "Xamarin.Forms": "2.0.0.6484",
+    "Xamarin.Insights": "1.11.2"
+  },
+  "frameworks": {
+    "uap10.0": {}
+  },
+  "runtimes": {
+    "win10-arm": {},
+    "win10-arm-aot": {},
+    "win10-x86": {},
+    "win10-x86-aot": {},
+    "win10-x64": {},
+    "win10-x64-aot": {}
+  }
+}

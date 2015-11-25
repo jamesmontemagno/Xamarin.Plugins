@@ -113,7 +113,7 @@
     </Compile>
     <Compile Include="BatteryImplementation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Properties\Battery.Plugin.UWP.rd.xml" />
+    <Content Include="Properties\Plugin.Battery.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Battery.Plugin.Abstractions\Battery.Plugin.Abstractions.csproj">

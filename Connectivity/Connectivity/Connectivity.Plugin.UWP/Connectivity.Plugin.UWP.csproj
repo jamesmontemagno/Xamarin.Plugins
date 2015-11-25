@@ -7,8 +7,8 @@
     <ProjectGuid>{25A7B55B-93ED-4631-8587-276054F4A321}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Connectivity.Plugin.UWP</RootNamespace>
-    <AssemblyName>Connectivity.Plugin.UWP</AssemblyName>
+    <RootNamespace>Plugin.Connectivity</RootNamespace>
+    <AssemblyName>Plugin.Connectivity</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
@@ -35,6 +35,7 @@
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Plugin.Connectivity.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <PlatformTarget>ARM</PlatformTarget>
@@ -114,7 +115,7 @@
       <Link>CrossConnectivity.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Properties\Connectivity.Plugin.UWP.rd.xml" />
+    <Content Include="Properties\Plugin.Connectivity.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Connectivity.Plugin.Abstractions\Connectivity.Plugin.Abstractions.csproj">

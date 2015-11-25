@@ -1,11 +1,8 @@
-﻿using DeviceInfo.Plugin;
-using Refractored.Xam.TTS;
-using Refractored.Xam.TTS.Abstractions;
+﻿using Plugin.DeviceInfo;
+using Plugin.TextToSpeech;
+using Plugin.TextToSpeech.Abstractions;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace TestAppForms.Pages

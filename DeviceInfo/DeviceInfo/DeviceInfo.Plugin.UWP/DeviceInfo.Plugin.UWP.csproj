@@ -113,7 +113,7 @@
     </Compile>
     <Compile Include="DeviceInfoImplementation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Properties\DeviceInfo.Plugin.UWP.rd.xml" />
+    <Content Include="Properties\Plugin.DeviceInfo.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DeviceInfo.Plugin.Abstractions\DeviceInfo.Plugin.Abstractions.csproj">

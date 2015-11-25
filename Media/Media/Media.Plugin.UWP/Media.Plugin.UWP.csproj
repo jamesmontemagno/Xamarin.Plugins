@@ -115,7 +115,7 @@
       <Link>CrossMedia.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Properties\Media.Plugin.UWP.rd.xml" />
+    <Content Include="Properties\Plugin.Media.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Media.Plugin.Abstractions\Media.Plugin.Abstractions.csproj">

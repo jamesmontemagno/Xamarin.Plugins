@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
-       <id>Xam.Battery.Plugin</id>
-       <version>2.0.0</version>
+       <id>Xam.Plugin.Battery</id>
+       <version>2.0.0-alpha1</version>
        <title>Battery Status Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>

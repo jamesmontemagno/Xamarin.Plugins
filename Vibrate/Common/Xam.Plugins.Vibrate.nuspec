@@ -2,12 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugins.Vibrate</id>
-       <version>2.0.0</version>
+       <version>2.0.0-alpha1</version>
        <title>Vibrate Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
        <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
        <projectUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/Vibrate</projectUrl>
+       <iconUrl>http://refractored.com/images/vibrate_icon_large.png</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
          Xamarin and Windows plugin to vibrate your devices. 
@@ -15,8 +16,8 @@
        </description>
      <releaseNotes>
        [2.0.0]
-       -Build against Android API 15 for better compat
-       -Fix bug in Android API less than 11
+       -Breaking Changes: new namespace
+       -Automatically add Android permissions
      </releaseNotes>
        <summary>
          Xamarin and Windows plugin to vibrate your device.

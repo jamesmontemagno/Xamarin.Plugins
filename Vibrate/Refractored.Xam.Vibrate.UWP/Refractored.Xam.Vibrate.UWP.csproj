@@ -35,6 +35,7 @@
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Plugin.Vibrate.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <PlatformTarget>ARM</PlatformTarget>
@@ -112,7 +113,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vibrate.cs" />
-    <Content Include="Properties\Refractored.Xam.Vibrate.UWP.rd.xml" />
+    <Content Include="Properties\Plugin.Vibrate.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Refractored.Xam.Vibrate.Abstractions\Refractored.Xam.Vibrate.Abstractions.csproj">

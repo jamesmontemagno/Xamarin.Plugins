@@ -121,7 +121,7 @@
       <Link>CrossGeolocator.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Properties\Geolocator.Plugin.UWP.rd.xml" />
+    <Content Include="Properties\Plugin.Geolocator.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Geolocator.Plugin.Abstractions\Geolocator.Plugin.Abstractions.csproj">

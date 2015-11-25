@@ -35,6 +35,7 @@
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Plugin.ExternalMaps.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <PlatformTarget>ARM</PlatformTarget>
@@ -114,7 +115,7 @@
       <Link>CrossExternalMaps.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Properties\ExternalMaps.Plugin.UWP.rd.xml" />
+    <Content Include="Properties\Plugin.ExternalMaps.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExternalMaps.Plugin.Abstractions\ExternalMaps.Plugin.Abstractions.csproj">

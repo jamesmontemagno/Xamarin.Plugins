@@ -35,7 +35,7 @@ namespace TestAppForms.Pages
         VerticalOptions = LayoutOptions.Center,
         Children = {
 						new Label {
-							XAlign = TextAlignment.Center,
+							VerticalTextAlignment = TextAlignment.Center,
 							Text = "Enter value to save to settings:"
 						}, editField,
             buttonSave,

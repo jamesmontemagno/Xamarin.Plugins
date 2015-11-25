@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestAppForms.Home"
              Title="Plugins">
-  <ListView x:Name="PluginList">
+  <ListView x:Name="PluginList" CachingStrategy="RecycleElement">
     <!--<ListView.ItemTemplate>
       <DataTemplate>
         <ImageCell 

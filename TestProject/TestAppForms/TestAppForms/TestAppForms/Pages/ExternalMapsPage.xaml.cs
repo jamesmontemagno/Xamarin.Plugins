@@ -1,4 +1,4 @@
-﻿using ExternalMaps.Plugin;
+﻿using Plugin.ExternalMaps;
 using System;
 using System.Collections.Generic;
 using System.Linq;
