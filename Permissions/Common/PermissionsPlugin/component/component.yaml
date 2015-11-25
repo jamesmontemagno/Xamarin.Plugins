@@ -1,0 +1,25 @@
+%YAML 1.2
+---
+summary: Check and Request Permissions from shared code.
+getting-started: GettingStarted.md
+details: Details.md
+license: License.md
+icons: 
+  - PermissionsPlugin_128x128.png
+
+publisher: James Montemagno
+name: Permissions Plugin
+id: PermissionsPlugin
+samples: 
+  iOS Sample: ../samples/PermissionsSample.sln
+  Android Sample: ../samples/PermissionsSample.sln
+publisher-url: http://www.github.com/jamesmontemagno/Xamarin.Plugins
+is_shell: true
+packages:
+  ios: Plugin.Permissions, Version=1.1.1
+  ios-unified: Plugin.Permissions, Version=1.1.1
+  android: Plugin.Permissions, Version=1.1.1
+  winphone-8.0: Plugin.Permissions, Version=1.1.1
+  winphone-8.1: Plugin.Permissions, Version=1.1.1
+version: 1.1.1
+...
