@@ -8,6 +8,7 @@ using System.Net.NetworkInformation;
 using Windows.Networking.Sockets;
 using Windows.Networking;
 using System.Diagnostics;
+using Windows.ApplicationModel.Core;
 
 namespace Plugin.Connectivity
 {
@@ -24,20 +25,30 @@ namespace Plugin.Connectivity
             NetworkInformation.NetworkStatusChanged += NetworkStatusChanged;
         }
 
-        void NetworkStatusChanged(object sender)
+        async void NetworkStatusChanged(object sender)
         {
-            OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = IsConnected });
+
+                    var dispatcher = CoreApplication.MainView.CoreWindow.Dispatcher;
+            if (dispatcher != null)
+            {
+                await dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = IsConnected });
+
+                });
+            }
+            else
+            {
+                OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = IsConnected });
+            }
         }
+
         /// <summary>
         /// Gets if there is an active internet connection
         /// </summary>
-        public override bool IsConnected
-        {
-            get
-            {
-                return NetworkInterface.GetIsNetworkAvailable();
-            }
-        }
+        public override bool IsConnected =>
+                NetworkInformation.GetInternetConnectionProfile()?.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
+               
 
         /// <summary>
         /// Checks if remote is reachable. RT apps cannot do loopback so this will alway return false.

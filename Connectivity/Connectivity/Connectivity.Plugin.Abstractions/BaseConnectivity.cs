@@ -55,13 +55,9 @@ namespace Plugin.Connectivity.Abstractions
         /// When connectivity changes
         /// </summary>
         /// <param name="e"></param>
-        protected virtual void OnConnectivityChanged(ConnectivityChangedEventArgs e)
-        {
-            if (ConnectivityChanged == null)
-                return;
-
-            ConnectivityChanged(this, e);
-        }
+        protected virtual void OnConnectivityChanged(ConnectivityChangedEventArgs e) =>
+            ConnectivityChanged?.Invoke(this, e);
+        
 
         /// <summary>
         /// Connectivity event

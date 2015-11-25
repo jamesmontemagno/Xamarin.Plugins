@@ -9,6 +9,8 @@ using Microsoft.Phone.Net.NetworkInformation;
 using Plugin.Connectivity.Abstractions;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
+using Windows.Networking.Connectivity;
+using System.Windows;
 
 namespace Plugin.Connectivity
 {
@@ -43,19 +45,19 @@ namespace Plugin.Connectivity
         {
             bool previous = isConnected;
             if (previous != IsConnected)
-                OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = IsConnected });
+            {
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                {
+                    OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = IsConnected });
+                });
+            }
         }
+
         /// <summary>
         /// Gets if there is an active internet connection
         /// </summary>
-        public override bool IsConnected
-        {
-            get
-            {
-                isConnected = DeviceNetworkInformation.IsNetworkAvailable;
-                return isConnected;
-            }
-        }
+        public override bool IsConnected =>
+               NetworkInformation.GetInternetConnectionProfile()?.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
 
         /// <summary>
         /// Tests if a host name is pingable
