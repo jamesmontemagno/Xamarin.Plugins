@@ -173,8 +173,9 @@ You still need to request the permissions in your AndroidManifest.xml. Also ensu
 
 #### Contributors
 * [jamesmontemagno](https://github.com/jamesmontemagno)
+* Icon thanks to [Jérémie Laval](https://github.com/garuma)
 
 Thanks!
 
 #### License
-Licensed under main repo license
+Licensed under main repo license(MIT)
