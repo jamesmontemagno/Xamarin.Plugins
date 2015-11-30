@@ -2,6 +2,9 @@
 
 This plugin gives developers and library creators easy access to an Android Application’s current Activity that is being displayed.
 
+Want to read about the creation, checkout my [in-depth blog post](http://motzcod.es/post/133609925342/access-the-current-android-activity-from-anywhere).
+
+
 ### Setup
 * Available on NuGet: http://www.nuget.org/packages/Plugin.CurrentActivity
 * Install into your Xamarin.Android Client project.

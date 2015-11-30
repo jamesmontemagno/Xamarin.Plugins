@@ -11,7 +11,7 @@ Simple cross platform plugin to check connection status of mobile device, gather
 * Xamarin.iOS (x64 Unified)
 * Xamarin.Android
 * Windows Phone 8 (Silverlight)
-* Windows Ptone 8.1 RT
+* Windows Phone 8.1 RT
 * Windows Store 8.1
 
 
