@@ -24,6 +24,7 @@ Download the sample app today:
 
 Each plugin has a README with more information on what they contain.
 * **[Battery Status](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Battery)**: Get battery level, how it is getting charge, and events.
+* **[Compass](https://github.com/JarleySoft/Xamarin.Plugins/tree/master/Compass)**: Easily access compass heading
 * **[Connectivity](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Connectivity)**: See if device is connected to the internet and through what connection type.
 * **[Contacts](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Contacts)**: Currently in Alpha to gather and query contacts
 * **[Device Information](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/DeviceInfo)**: Base information about each device such as OS and version.
@@ -71,20 +72,18 @@ Platform specific:
 
 * MonoTouch10
 * MonoAndroid10
+* Xamarin.iOS10 
 * win8
 * wpa81
 * wp8
+* wp81
 * net45
 * MonoMac10
-
-New Unified APIs 
-
-* Xamarin.iOS10 
 * Xamarin.Mac20
+* UAP10
 
 PCL:
-
-* portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10 
+* portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10
 
 #### Important
 
