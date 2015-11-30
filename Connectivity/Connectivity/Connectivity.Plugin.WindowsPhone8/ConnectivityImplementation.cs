@@ -43,21 +43,24 @@ namespace Plugin.Connectivity
 
         private void UpdateStatus()
         {
-            bool previous = isConnected;
-            if (previous != IsConnected)
+            var previous = isConnected;
+            var newConnected = IsConnected;
+
+            if (previous == newConnected)
+                return;
+            
+            Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
-                Deployment.Current.Dispatcher.BeginInvoke(() =>
-                {
-                    OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = IsConnected });
-                });
-            }
+                OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = newConnected });
+            });
+        
         }
 
         /// <summary>
         /// Gets if there is an active internet connection
         /// </summary>
         public override bool IsConnected =>
-               NetworkInformation.GetInternetConnectionProfile()?.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
+               (isConnected = NetworkInformation.GetInternetConnectionProfile()?.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess);
 
         /// <summary>
         /// Tests if a host name is pingable

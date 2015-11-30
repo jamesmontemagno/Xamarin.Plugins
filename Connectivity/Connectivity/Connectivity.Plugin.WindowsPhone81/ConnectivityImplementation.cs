@@ -4,7 +4,6 @@ using System.Linq;
 using Plugin.Connectivity.Abstractions;
 using Windows.Networking.Connectivity;
 using System.Threading.Tasks;
-using System.Net.NetworkInformation;
 using Windows.Networking.Sockets;
 using Windows.Networking;
 using System.Diagnostics;
@@ -17,29 +16,36 @@ namespace Plugin.Connectivity
     /// </summary>
     public class ConnectivityImplementation : BaseConnectivity
     {
+        bool isConnected;
         /// <summary>
         /// Default constructor
         /// </summary>
         public ConnectivityImplementation()
         {
+            isConnected = IsConnected;
             NetworkInformation.NetworkStatusChanged += NetworkStatusChanged;
         }
 
         async void NetworkStatusChanged(object sender)
         {
+            var previous = isConnected;
+            var newConnected = IsConnected;
+            if (previous == newConnected)
+                return;
 
-                    var dispatcher = CoreApplication.MainView.CoreWindow.Dispatcher;
+
+            var dispatcher = CoreApplication.MainView.CoreWindow.Dispatcher;
             if (dispatcher != null)
             {
                 await dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
-                    OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = IsConnected });
+                    OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = newConnected });
 
                 });
             }
             else
             {
-                OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = IsConnected });
+                OnConnectivityChanged(new ConnectivityChangedEventArgs { IsConnected = newConnected });
             }
         }
 
@@ -47,7 +53,7 @@ namespace Plugin.Connectivity
         /// Gets if there is an active internet connection
         /// </summary>
         public override bool IsConnected =>
-                NetworkInformation.GetInternetConnectionProfile()?.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
+                (isConnected = NetworkInformation.GetInternetConnectionProfile()?.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess);
                
 
         /// <summary>
@@ -64,8 +70,6 @@ namespace Plugin.Connectivity
 
             if (!IsConnected)
                 return false;
-
-
 
             try
             {
