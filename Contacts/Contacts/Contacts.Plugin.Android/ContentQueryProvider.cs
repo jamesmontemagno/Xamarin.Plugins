@@ -23,7 +23,7 @@ using Android.Content;
 using Android.Content.Res;
 using Android.Database;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal abstract class ContentQueryProvider
     : IQueryProvider

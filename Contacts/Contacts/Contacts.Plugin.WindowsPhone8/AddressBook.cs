@@ -21,9 +21,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Threading;
-using Contacts.Plugin.Abstractions;
+using Plugin.Contacts.Abstractions;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   public sealed class AddressBook
     : IQueryable<Contact>

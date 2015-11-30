@@ -1,7 +1,7 @@
-﻿using Contacts.Plugin.Abstractions;
+﻿using Plugin.Contacts.Abstractions;
 using System;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   /// <summary>
   /// Cross platform Contacts implemenations

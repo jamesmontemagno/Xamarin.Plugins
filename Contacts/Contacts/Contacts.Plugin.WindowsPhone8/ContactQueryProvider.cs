@@ -23,10 +23,10 @@ using Microsoft.Phone.UserData;
 using Expression = System.Linq.Expressions.Expression;
 using WindowsContacts = Microsoft.Phone.UserData.Contacts;
 using System.Threading;
-using Contacts.Plugin.Abstractions;
-using Contact = Contacts.Plugin.Abstractions.Contact;
+using Plugin.Contacts.Abstractions;
+using Contact = Plugin.Contacts.Abstractions.Contact;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal class ContactQueryProvider
     : IQueryProvider

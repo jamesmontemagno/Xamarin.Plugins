@@ -18,9 +18,9 @@ using System;
 using System.Collections;
 using Android.Content;
 using Android.Content.Res;
-using Contacts.Plugin.Abstractions;
+using Plugin.Contacts.Abstractions;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal class ContactQueryProvider
     : ContentQueryProvider

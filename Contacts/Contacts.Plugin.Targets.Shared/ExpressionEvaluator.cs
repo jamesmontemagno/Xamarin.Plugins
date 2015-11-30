@@ -18,7 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal static class ExpressionEvaluator
   {

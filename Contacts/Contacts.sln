@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.Plugin", "Contacts\Contacts.Plugin\Contacts.Plugin.csproj", "{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}"
 EndProject
@@ -28,6 +28,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Contacts.Plugin.Targets.Sha
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Contacts.Plugin.Shared", "Contacts.Plugin.Shared\Contacts.Plugin.Shared.shproj", "{DD23087A-2D1F-4D58-9D79-CFB9E9D5B6B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.Plugin.UWP", "Contacts\Contacts.Plugin.UWP\Contacts.Plugin.UWP.csproj", "{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{d7f3aa16-8ef1-4924-9e0a-dad4ab46b2eb}*SharedItemsImports = 4
@@ -39,8 +41,14 @@ Global
 		Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{5876144b-47dd-4c4e-b421-bc03f191b996}*SharedItemsImports = 4
 		Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems*{5876144b-47dd-4c4e-b421-bc03f191b996}*SharedItemsImports = 4
 		Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems*{f56d67d9-7cc0-49b0-bbb1-3878bf1cd49f}*SharedItemsImports = 13
+		Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
+		Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
 		Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{dd23087a-2d1f-4d58-9d79-cfb9e9d5b6b2}*SharedItemsImports = 13
+		Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
+		Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
 		Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}*SharedItemsImports = 4
+		Contacts.Plugin.Shared\Contatcs.Plugin.Shared.projitems*{40972f57-9d5d-46aa-a3aa-a8ed0cd88bb5}*SharedItemsImports = 4
+		Contacts.Plugin.Targets.Shared\Contacts.Plugin.Shared.projitems*{40972f57-9d5d-46aa-a3aa-a8ed0cd88bb5}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +155,22 @@ Global
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x64.Build.0 = Release|x64
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x86.ActiveCfg = Release|x86
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x86.Build.0 = Release|x86
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Debug|ARM.ActiveCfg = Debug|ARM
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Debug|ARM.Build.0 = Debug|ARM
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Debug|x64.ActiveCfg = Debug|x64
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Debug|x64.Build.0 = Debug|x64
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Debug|x86.ActiveCfg = Debug|x86
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Debug|x86.Build.0 = Debug|x86
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Release|ARM.ActiveCfg = Release|ARM
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Release|ARM.Build.0 = Release|ARM
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Release|x64.ActiveCfg = Release|x64
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Release|x64.Build.0 = Release|x64
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Release|x86.ActiveCfg = Release|x86
+		{40972F57-9D5D-46AA-A3AA-A8ED0CD88BB5}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,8 +8,8 @@
     <ProjectGuid>{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Contacts.Plugin.Abstractions</RootNamespace>
-    <AssemblyName>Contacts.Plugin.Abstractions</AssemblyName>
+    <RootNamespace>Plugin.Contacts.Abstractions</RootNamespace>
+    <AssemblyName>Plugin.Contacts.Abstractions</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Contacts.Plugin.Abstractions.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.Contacts.Abstractions.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->

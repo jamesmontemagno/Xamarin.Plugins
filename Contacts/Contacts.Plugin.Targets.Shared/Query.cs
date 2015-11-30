@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal class Query<T>
     : IOrderedQueryable<T>

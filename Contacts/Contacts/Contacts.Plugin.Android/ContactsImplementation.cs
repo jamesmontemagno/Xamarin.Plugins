@@ -1,35 +1,36 @@
 using Android.Database;
 using Android.Provider;
-using Contacts.Plugin.Abstractions;
+using Plugin.Contacts.Abstractions;
+using Plugin.Permissions;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   /// <summary>
   /// Implementation for Feature
   /// </summary>
   public class ContactsImplementation : IContacts
   {
-    public Task<bool> RequestPermission()
+    public async Task<bool> RequestPermission()
     {
-      return Task.Factory.StartNew(() =>
-      {
-        try
+        var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permissions.Abstractions.Permission.Contacts).ConfigureAwait(false);
+        if (status != Permissions.Abstractions.PermissionStatus.Granted)
         {
-          var cursor = Android.App.Application.Context.ContentResolver.Query(ContactsContract.Data.ContentUri, null, null, null, null);
-          cursor.Close();
-          cursor.Dispose();
+            Console.WriteLine("Currently does not have Contacts permissions, requesting permissions");
 
-          return true;
+            var request = await CrossPermissions.Current.RequestPermissionsAsync(Permissions.Abstractions.Permission.Contacts);
+
+            if (request[Permissions.Abstractions.Permission.Contacts] != Permissions.Abstractions.PermissionStatus.Granted)
+            {
+                Console.WriteLine("Contacts permission denied, can not get positions async.");
+                return false;
+            }
         }
-        catch (Java.Lang.SecurityException)
-        {
-          return false;
-        }
-      });
+
+        return true;
     }
 
     private AddressBook addressBook;

@@ -23,9 +23,9 @@ using AddressBook;
 using MonoTouch.AddressBook;
 #endif
 using System.Collections.Generic;
-using Contacts.Plugin.Abstractions;
+using Plugin.Contacts.Abstractions;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal class ContactQueryProvider
     : IQueryProvider
