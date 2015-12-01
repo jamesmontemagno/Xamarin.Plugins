@@ -20,80 +20,80 @@ using System.IO;
 
 namespace Plugin.Media.Abstractions
 {
-  /// <summary>
-  /// Media file representations
-  /// </summary>
-  public sealed class MediaFile
-    : IDisposable
-  {
     /// <summary>
-    /// Constructor
+    /// Media file representations
     /// </summary>
-    /// <param name="path"></param>
-    /// <param name="streamGetter"></param>
-    /// <param name="deletePathOnDispose"></param>
-    /// <param name="dispose"></param>
-    public MediaFile(string path, Func<Stream> streamGetter, bool deletePathOnDispose = false, Action<bool> dispose = null)
+    public sealed class MediaFile
+      : IDisposable
     {
-      this.dispose = dispose;
-      this.streamGetter = streamGetter;
-      this.path = path;
-      this.deletePathOnDispose =  deletePathOnDispose;
-    }
-    /// <summary>
-    /// Path to file
-    /// </summary>
-    public string Path
-    {
-      get
-      {
-        if (this.isDisposed)
-          throw new ObjectDisposedException(null);
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="streamGetter"></param>
+        /// <param name="deletePathOnDispose"></param>
+        /// <param name="dispose"></param>
+        public MediaFile(string path, Func<Stream> streamGetter, bool deletePathOnDispose = false, Action<bool> dispose = null)
+        {
+            dispose = dispose;
+            streamGetter = streamGetter;
+            path = path;
+            deletePathOnDispose = deletePathOnDispose;
+        }
+        /// <summary>
+        /// Path to file
+        /// </summary>
+        public string Path
+        {
+            get
+            {
+                if (isDisposed)
+                    throw new ObjectDisposedException(null);
 
-        return this.path;
-      }
-    }
-    /// <summary>
-    /// Get stream if available
-    /// </summary>
-    /// <returns></returns>
-    public Stream GetStream()
-    {
-      if (this.isDisposed)
-        throw new ObjectDisposedException(null);
+                return path;
+            }
+        }
+        /// <summary>
+        /// Get stream if available
+        /// </summary>
+        /// <returns></returns>
+        public Stream GetStream()
+        {
+            if (isDisposed)
+                throw new ObjectDisposedException(null);
 
-      return this.streamGetter();
-    }
-    /// <summary>
-    /// 
-    /// </summary>
-    public void Dispose()
-    {
-      Dispose(true);
-      GC.SuppressFinalize(this);
-    }
+            return streamGetter();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
-    private bool isDisposed;
-    private readonly Action<bool> dispose;
-    private readonly Func<Stream> streamGetter;
-    private readonly string path;
-    private readonly bool deletePathOnDispose;
+        private bool isDisposed;
+        private readonly Action<bool> dispose;
+        private readonly Func<Stream> streamGetter;
+        private readonly string path;
+        private readonly bool deletePathOnDispose;
 
-    private void Dispose(bool disposing)
-    {
-      if (this.isDisposed)
-        return;
+        private void Dispose(bool disposing)
+        {
+            if (isDisposed)
+                return;
 
-      this.isDisposed = true;
-      if (this.dispose != null)
-        this.dispose(disposing);
+            isDisposed = true;
+            if (dispose != null)
+                dispose(disposing);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        ~MediaFile()
+        {
+            Dispose(false);
+        }
     }
-    /// <summary>
-    /// 
-    /// </summary>
-    ~MediaFile()
-    {
-      Dispose(false);
-    }
-  }
 }

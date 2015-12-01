@@ -29,8 +29,8 @@ namespace Plugin.Media
     {
         internal MediaPickerPopoverDelegate(MediaPickerDelegate pickerDelegate, UIImagePickerController picker)
         {
-            this.pickerDelegate = pickerDelegate;
-            this.picker = picker;
+            pickerDelegate = pickerDelegate;
+            picker = picker;
         }
 
         public override bool ShouldDismiss(UIPopoverController popoverController)
@@ -40,7 +40,7 @@ namespace Plugin.Media
 
         public override void DidDismiss(UIPopoverController popoverController)
         {
-            this.pickerDelegate.Canceled(this.picker);
+            pickerDelegate.Canceled(picker);
         }
 
         private readonly MediaPickerDelegate pickerDelegate;

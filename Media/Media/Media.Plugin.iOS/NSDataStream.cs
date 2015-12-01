@@ -33,7 +33,7 @@ namespace Plugin.Media
 
         public NSDataStream(NSData data)
         {
-            this.data = data;
+            data = data;
         }
 
         protected override void Dispose(bool disposing)

@@ -45,6 +45,13 @@ namespace Plugin.Media
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Gingerbread)
                 IsCameraAvailable |= context.PackageManager.HasSystemFeature(PackageManager.FeatureCameraFront);
         }
+
+        ///<inheritdoc/>
+        public Task<bool> Initialize()
+        {
+            return Task.FromResult(true);
+        }
+
         /// <inheritdoc/>
         public bool IsCameraAvailable
         {
@@ -172,7 +179,7 @@ namespace Plugin.Media
 
             return true;
         }
-        
+
 
         /// <summary>
         /// Take a photo async with specified options
@@ -184,7 +191,7 @@ namespace Plugin.Media
             if (!IsCameraAvailable)
                 throw new NotSupportedException();
 
-            if(!(await RequestCameraPermission().ConfigureAwait(false)))
+            if (!(await RequestCameraPermission().ConfigureAwait(false)))
             {
                 return null;
             }

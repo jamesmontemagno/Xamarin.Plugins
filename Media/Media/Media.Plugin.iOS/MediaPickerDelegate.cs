@@ -72,7 +72,7 @@ namespace Plugin.Media
 
         public override void FinishedPickingMedia(UIImagePickerController picker, NSDictionary info)
         {
-            
+
             MediaFile mediaFile;
             switch ((NSString)info[UIImagePickerController.MediaType])
             {
@@ -93,9 +93,9 @@ namespace Plugin.Media
                 UIApplication.SharedApplication.SetStatusBarStyle(MediaImplementation.StatusBarStyle, false);
             }
 
-            Dismiss(picker, () => 
+            Dismiss(picker, () =>
             {
-                
+
 
                 this.tcs.TrySetResult(mediaFile);
             });
@@ -108,9 +108,9 @@ namespace Plugin.Media
                 UIApplication.SharedApplication.SetStatusBarStyle(MediaImplementation.StatusBarStyle, false);
             }
 
-            Dismiss(picker, () => 
+            Dismiss(picker, () =>
             {
-                
+
 
                 this.tcs.SetResult(null);
             });

@@ -24,40 +24,46 @@ namespace Plugin.Media
         /// </summary>
         public MediaImplementation()
         {
-
             watcher = DeviceInformation.CreateWatcher(DeviceClass.VideoCapture);
             watcher.Added += OnDeviceAdded;
             watcher.Updated += OnDeviceUpdated;
             watcher.Removed += OnDeviceRemoved;
             watcher.Start();
-
-            init = DeviceInformation.FindAllAsync(DeviceClass.VideoCapture).AsTask()
-                                         .ContinueWith(t =>
-                                         {
-                                             if (t.IsFaulted || t.IsCanceled)
-                                                 return;
-
-                                             lock (devices)
-                                             {
-                                                 foreach (DeviceInformation device in t.Result)
-                                                 {
-                                                     if (device.IsEnabled)
-                                                         devices.Add(device.Id);
-                                                 }
-
-                                                 isCameraAvailable = (devices.Count > 0);
-                                             }
-
-                                             init = null;
-                                         });
         }
+
+        bool initialized = false;
+        public async Task<bool> Initialize()
+        {
+            try
+            {
+                var info = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture).AsTask().ConfigureAwait(false);
+                lock (devices)
+                {
+                    foreach (var device in info)
+                    {
+                        if (device.IsEnabled)
+                            devices.Add(device.Id);
+                    }
+
+                    isCameraAvailable = (devices.Count > 0);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Unable to detect cameras: " + ex);
+            }
+
+            initialized = true;
+            return true;
+        }
+
         /// <inheritdoc/>
         public bool IsCameraAvailable
         {
             get
             {
-                if (init != null)
-                    init.Wait();
+                if (!initialized)
+                    Initialize().Wait();
 
                 return isCameraAvailable;
             }
@@ -90,11 +96,14 @@ namespace Plugin.Media
         /// <returns>Media file of photo or null if canceled</returns>
         public async Task<MediaFile> TakePhotoAsync(StoreCameraMediaOptions options)
         {
+            if (!initialized)
+                await Initialize();
+
             if (!IsCameraAvailable)
                 throw new NotSupportedException();
 
             options.VerifyOptions();
-            
+
             var capture = new CameraCaptureUI();
             capture.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
             capture.PhotoSettings.MaxResolution = CameraCaptureUIMaxPhotoResolution.HighestAvailable;
@@ -145,6 +154,9 @@ namespace Plugin.Media
         /// <returns>Media file of new video or null if canceled</returns>
         public async Task<MediaFile> TakeVideoAsync(StoreVideoOptions options)
         {
+            if (!initialized)
+                await Initialize();
+
             if (!IsCameraAvailable)
                 throw new NotSupportedException();
 
@@ -181,7 +193,6 @@ namespace Plugin.Media
             return new MediaFile(result.Path, () => result.OpenStreamForReadAsync().Result);
         }
 
-        private Task init;
         private readonly HashSet<string> devices = new HashSet<string>();
         private readonly DeviceWatcher watcher;
         private bool isCameraAvailable;

@@ -35,11 +35,11 @@ namespace Plugin.Media
     public sealed class MediaPickerController
         : UIImagePickerController
     {
-        
+
         internal MediaPickerController(MediaPickerDelegate mpDelegate)
         {
             base.Delegate = mpDelegate;
-         }
+        }
 
         /// <summary>
         /// Deleage
@@ -47,7 +47,7 @@ namespace Plugin.Media
         public override NSObject Delegate
         {
             get { return base.Delegate; }
-            set 
+            set
             {
                 if (value == null)
                     base.Delegate = value;
