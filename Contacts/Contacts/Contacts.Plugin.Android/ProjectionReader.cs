@@ -21,7 +21,7 @@ using System.Linq;
 using Android.Content;
 using Android.Database;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal class ProjectionReader<T>
     : IEnumerable<T>

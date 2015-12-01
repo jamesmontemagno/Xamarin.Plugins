@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Refractored.Xam.Settings.NUnitTest.iOSUnified")]
+[assembly: AssemblyTitle("Plugin.Settings.NUnitTest.iOSUnified")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Refractored.Xam.Settings.NUnitTest.iOSUnified")]
+[assembly: AssemblyProduct("Plugin.Settings.NUnitTest.iOSUnified")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

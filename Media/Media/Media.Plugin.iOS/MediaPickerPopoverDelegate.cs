@@ -22,15 +22,15 @@ using UIKit;
 using MonoTouch.UIKit;
 #endif
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     internal class MediaPickerPopoverDelegate
         : UIPopoverControllerDelegate
     {
         internal MediaPickerPopoverDelegate(MediaPickerDelegate pickerDelegate, UIImagePickerController picker)
         {
-            this.pickerDelegate = pickerDelegate;
-            this.picker = picker;
+            pickerDelegate = pickerDelegate;
+            picker = picker;
         }
 
         public override bool ShouldDismiss(UIPopoverController popoverController)
@@ -40,7 +40,7 @@ namespace Media.Plugin
 
         public override void DidDismiss(UIPopoverController popoverController)
         {
-            this.pickerDelegate.Canceled(this.picker);
+            pickerDelegate.Canceled(picker);
         }
 
         private readonly MediaPickerDelegate pickerDelegate;

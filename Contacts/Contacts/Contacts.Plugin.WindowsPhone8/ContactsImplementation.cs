@@ -1,73 +1,73 @@
-using Contacts.Plugin.Abstractions;
+using Plugin.Contacts.Abstractions;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
 
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
-  /// <summary>
-  /// Implementation for Contacts
-  /// </summary>
-  public class ContactsImplementation : IContacts
-  {
-    public Task<bool> RequestPermission()
+    /// <summary>
+    /// Implementation for Contacts
+    /// </summary>
+    public class ContactsImplementation : IContacts
     {
-      return Task<bool>.Factory.StartNew(() =>
-      {
-        try
+        public Task<bool> RequestPermission()
         {
-          var contacts = new Microsoft.Phone.UserData.Contacts();
-          contacts.Accounts.ToArray(); // Will trigger exception if manifest doesn't specify ID_CAP_CONTACTS
-          return true;
+            return Task<bool>.Factory.StartNew(() =>
+            {
+                try
+                {
+                    var contacts = new Microsoft.Phone.UserData.Contacts();
+                    contacts.Accounts.ToArray(); // Will trigger exception if manifest doesn't specify ID_CAP_CONTACTS
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default);
         }
-        catch (Exception)
+
+        private AddressBook addressBook;
+        private AddressBook AddressBook
         {
-          return false;
+            get { return addressBook ?? (addressBook = new AddressBook()); }
         }
-      }, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default);
-    }
+        public System.Linq.IQueryable<Contact> Contacts
+        {
+            get { return (IQueryable<Contact>)AddressBook; }
+        }
 
-    private AddressBook addressBook;
-    private AddressBook AddressBook
-    {
-      get { return addressBook ?? (addressBook = new AddressBook()); }
-    }
-    public System.Linq.IQueryable<Contact> Contacts
-    {
-      get { return (IQueryable<Contact>)AddressBook; }
-    }
+        public Contact LoadContact(string id)
+        {
+            return AddressBook.Load(id);
+        }
 
-    public Contact LoadContact(string id)
-    {
-      return AddressBook.Load(id);
-    }
+        public bool LoadSupported
+        {
+            get { return false; }
+        }
 
-    public bool LoadSupported
-    {
-      get { return false; }
-    }
+        public bool PreferContactAggregation
+        {
+            get;
+            set;
+        }
 
-    public bool PreferContactAggregation
-    {
-      get;
-      set;
-    }
+        public bool AggregateContactsSupported
+        {
+            get { return true; }
+        }
 
-    public bool AggregateContactsSupported
-    {
-      get { return true; }
-    }
+        public bool SingleContactsSupported
+        {
+            get { return false; }
+        }
 
-    public bool SingleContactsSupported
-    {
-      get { return false; }
+        public bool IsReadOnly
+        {
+            get { return true; }
+        }
     }
-
-    public bool IsReadOnly
-    {
-      get { return true; }
-    }
-  }
 }

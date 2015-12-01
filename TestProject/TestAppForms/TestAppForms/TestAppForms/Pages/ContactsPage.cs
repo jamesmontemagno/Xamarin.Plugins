@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Diagnostics;
+using Plugin.Permissions;
 
 namespace TestAppForms
 {
@@ -51,6 +52,12 @@ namespace TestAppForms
                 return;
 
             loaded = true;
+
+            var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Plugin.Permissions.Abstractions.Permission.Contacts);
+            if(status != Plugin.Permissions.Abstractions.PermissionStatus.Granted)
+            {
+                await CrossPermissions.Current.RequestPermissionsAsync(Plugin.Permissions.Abstractions.Permission.Contacts);
+            }
 
             if (await CrossContacts.Current.RequestPermission())
             {

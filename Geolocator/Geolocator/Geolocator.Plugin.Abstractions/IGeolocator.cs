@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Geolocator.Plugin.Abstractions
+namespace Plugin.Geolocator.Abstractions
 {
   /// <summary>
   /// Interface for Geolocator

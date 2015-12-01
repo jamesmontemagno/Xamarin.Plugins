@@ -24,7 +24,7 @@ using Foundation;
 #endif
 using System.Runtime.InteropServices;
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     class NSDataStream : Stream
     {
@@ -33,7 +33,7 @@ namespace Media.Plugin
 
         public NSDataStream(NSData data)
         {
-            this.data = data;
+            data = data;
         }
 
         protected override void Dispose(bool disposing)

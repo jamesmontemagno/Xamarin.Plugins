@@ -1,13 +1,13 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Battery.Plugin.Abstractions;
+using Plugin.Battery.Abstractions;
 using System;
 using Debug = System.Diagnostics.Debug;
 using BatteryStatus = Android.OS.BatteryStatus;
 
 
-namespace Battery.Plugin
+namespace Plugin.Battery
 {
   /// <summary>
   /// Implementation for Feature

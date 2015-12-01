@@ -1,4 +1,4 @@
-﻿using Refractored.Xam.TTS.Abstractions;
+﻿using Plugin.TextToSpeech.Abstractions;
 using System;
 using System.Linq;
 using System.Net;
@@ -10,7 +10,7 @@ using System.Diagnostics;
 using Windows.Phone.Speech.Synthesis;
 #endif
 
-namespace Refractored.Xam.TTS
+namespace Plugin.TextToSpeech
 {
   /// <summary>
   /// Text To Speech Impelemenatation Windows

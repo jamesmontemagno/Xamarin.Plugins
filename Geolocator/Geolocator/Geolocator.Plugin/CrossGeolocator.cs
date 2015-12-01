@@ -1,7 +1,7 @@
-﻿using Geolocator.Plugin.Abstractions;
+﻿using Plugin.Geolocator.Abstractions;
 using System;
 
-namespace Geolocator.Plugin
+namespace Plugin.Geolocator
 {
   /// <summary>
   /// Cross platform Geolocator implemenations

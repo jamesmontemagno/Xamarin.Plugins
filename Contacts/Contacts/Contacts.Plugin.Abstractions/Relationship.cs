@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contacts.Plugin.Abstractions
+namespace Plugin.Contacts.Abstractions
 {
   public enum RelationshipType
   {

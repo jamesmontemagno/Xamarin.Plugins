@@ -23,9 +23,9 @@ using Android.Content;
 using Android.Content.Res;
 using Android.Database;
 using Android.Provider;
-using Contacts.Plugin.Abstractions;
+using Plugin.Contacts.Abstractions;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal class ContactReader
     : IEnumerable<Contact>

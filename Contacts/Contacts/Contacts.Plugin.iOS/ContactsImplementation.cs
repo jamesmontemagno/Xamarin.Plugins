@@ -1,4 +1,4 @@
-using Contacts.Plugin.Abstractions;
+using Plugin.Contacts.Abstractions;
 #if __UNIFIED__
 using AddressBook;
 using UIKit;
@@ -10,7 +10,7 @@ using System;
 using System.Threading.Tasks;
 using System.Linq;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   /// <summary>
   /// Implementation for Contacts

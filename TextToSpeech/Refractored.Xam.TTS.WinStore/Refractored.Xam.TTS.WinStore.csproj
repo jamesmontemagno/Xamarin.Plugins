@@ -9,8 +9,8 @@
     <ProjectGuid>{4B11EBD1-C6F9-4CB7-BCD0-3A7D75B90702}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Refractored.Xam.TTS</RootNamespace>
-    <AssemblyName>Refractored.Xam.TTS</AssemblyName>
+    <RootNamespace>Plugin.TextToSpeech</RootNamespace>
+    <AssemblyName>Plugin.TextToSpeech</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
@@ -33,7 +33,7 @@
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Refractored.Xam.TTS.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.TextToSpeech.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>

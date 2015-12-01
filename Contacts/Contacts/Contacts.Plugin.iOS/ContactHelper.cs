@@ -24,10 +24,10 @@ using MonoTouch.AddressBook;
 using MonoTouch.Foundation;
 #endif
 using System.Globalization;
-using Contacts.Plugin.Abstractions;
+using Plugin.Contacts.Abstractions;
 using System.Collections.Generic;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal static class ContactHelper
   {

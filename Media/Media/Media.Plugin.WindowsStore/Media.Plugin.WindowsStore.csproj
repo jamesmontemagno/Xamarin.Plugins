@@ -9,8 +9,8 @@
     <ProjectGuid>{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Media.Plugin</RootNamespace>
-    <AssemblyName>Media.Plugin</AssemblyName>
+    <RootNamespace>Plugin.Media</RootNamespace>
+    <AssemblyName>Plugin.Media</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
@@ -33,7 +33,7 @@
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Media.Plugin.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.Media.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>

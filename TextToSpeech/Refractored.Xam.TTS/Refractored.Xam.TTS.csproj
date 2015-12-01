@@ -8,8 +8,8 @@
     <ProjectGuid>{331ED33C-4327-4712-833A-828AB084EA97}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Refractored.Xam.TTS</RootNamespace>
-    <AssemblyName>Refractored.Xam.TTS</AssemblyName>
+    <RootNamespace>Plugin.TextToSpeech</RootNamespace>
+    <AssemblyName>Plugin.TextToSpeech</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE;PORTABLE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Refractored.Xam.TTS.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.TextToSpeech.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->

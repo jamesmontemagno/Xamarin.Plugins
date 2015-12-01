@@ -1,4 +1,4 @@
-using ExternalMaps.Plugin.Abstractions;
+using Plugin.ExternalMaps.Abstractions;
 #if __UNIFIED__
 using CoreLocation;
 using Foundation;
@@ -12,7 +12,7 @@ using System;
 using System.Diagnostics;
 
 
-namespace ExternalMaps.Plugin
+namespace Plugin.ExternalMaps
 {
   /// <summary>
   /// Implementation for ExternalMaps

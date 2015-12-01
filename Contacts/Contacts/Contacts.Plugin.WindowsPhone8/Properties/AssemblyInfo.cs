@@ -6,11 +6,11 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Contacts.Plugin.WindowsPhone8")]
+[assembly: AssemblyTitle("Plugin.Contacts")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Contacts.Plugin.WindowsPhone8")]
+[assembly: AssemblyProduct("Plugin.Contacts")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,7 +32,7 @@ using System.Resources;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.0")]
-[assembly: AssemblyFileVersion("1.0.0")]
-[assembly: AssemblyInformationalVersion("1.0.0-alpha3")]
+[assembly: AssemblyVersion("2.0.0")]
+[assembly: AssemblyFileVersion("2.0.0")]
+
 [assembly: NeutralResourcesLanguageAttribute("en-US")]

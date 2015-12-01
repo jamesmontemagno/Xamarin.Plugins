@@ -8,8 +8,8 @@
     <ProjectGuid>{6D8696FC-961B-4321-8294-4AD3CBB05615}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Refractored.Xam.TTS.Abstractions</RootNamespace>
-    <AssemblyName>Refractored.Xam.TTS.Abstractions</AssemblyName>
+    <RootNamespace>Plugin.TextToSpeech.Abstractions</RootNamespace>
+    <AssemblyName>Plugin.TextToSpeech.Abstractions</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Refractored.Xam.TTS.Abstractions.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.TextToSpeech.Abstractions.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->

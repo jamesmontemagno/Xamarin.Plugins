@@ -26,9 +26,9 @@ using Android.Provider;
 using Environment = Android.OS.Environment;
 using Path = System.IO.Path;
 using Uri = Android.Net.Uri;
-using Media.Plugin.Abstractions;
+using Plugin.Media.Abstractions;
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     /// <summary>
     /// Picker
@@ -374,8 +374,8 @@ namespace Media.Plugin
                     try
                     {
                         string[] proj = null;
-                        if((int)Build.VERSION.SdkInt >= 22)
-                         proj = new[] { MediaStore.MediaColumns.Data };
+                        if ((int)Build.VERSION.SdkInt >= 22)
+                            proj = new[] { MediaStore.MediaColumns.Data };
 
                         cursor = context.ContentResolver.Query(uri, proj, null, null, null);
                         if (cursor == null || !cursor.MoveToNext())
@@ -388,12 +388,12 @@ namespace Media.Plugin
                             if (column != -1)
                                 contentPath = cursor.GetString(column);
 
-                        
+
 
                             // If they don't follow the "rules", try to copy the file locally
                             if (contentPath == null || !contentPath.StartsWith("file"))
                             {
-                               
+
                                 Uri outputPath = GetOutputMediaFile(context, "temp", null, isPhoto);
 
                                 try

@@ -14,14 +14,14 @@
 //    limitations under the License.
 //
 
-using Geolocator.Plugin.Abstractions;
+using Plugin.Geolocator.Abstractions;
 using System;
 using System.Device.Location;
 using System.Threading;
 using System.Threading.Tasks;
 
 
-namespace Geolocator.Plugin
+namespace Plugin.Geolocator
 {
   internal class SinglePositionListener
   {

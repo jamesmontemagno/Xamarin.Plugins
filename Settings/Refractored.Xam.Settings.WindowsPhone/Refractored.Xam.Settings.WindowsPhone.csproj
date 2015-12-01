@@ -9,8 +9,8 @@
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Refractored.Xam.Settings</RootNamespace>
-    <AssemblyName>Refractored.Xam.Settings</AssemblyName>
+    <RootNamespace>Plugin.Settings</RootNamespace>
+    <AssemblyName>Plugin.Settings</AssemblyName>
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>
     </SilverlightVersion>
@@ -64,7 +64,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Refractored.Xam.Settings.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.Settings.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget />

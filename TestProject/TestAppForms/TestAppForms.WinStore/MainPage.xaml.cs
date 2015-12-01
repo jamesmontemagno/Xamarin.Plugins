@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using Xamarin.Forms;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace TestAppForms.WinStore
@@ -25,10 +25,10 @@ namespace TestAppForms.WinStore
         public MainPage()
         {
             this.InitializeComponent();
-						LoadApplication(new TestAppForms.App2());
-						ImageCircle.Forms.Plugin.WindowsStore.ImageCircleRenderer.Init();
-                        Xamarin.Insights.Initialize(TestAppForms.Helpers.Settings.InsightsKey, this);
-                        Xamarin.Insights.ForceDataTransmission = true;
+			LoadApplication(new TestAppForms.App2());
+			ImageCircle.Forms.Plugin.WindowsStore.ImageCircleRenderer.Init();
+            Xamarin.Insights.Initialize(TestAppForms.Helpers.Settings.InsightsKey, false);
+            Xamarin.Insights.ForceDataTransmission = true;
         }
     }
 }

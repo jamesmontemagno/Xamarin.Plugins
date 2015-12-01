@@ -16,7 +16,7 @@
 
 using System;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal class ContentResolverColumnMapping
   {

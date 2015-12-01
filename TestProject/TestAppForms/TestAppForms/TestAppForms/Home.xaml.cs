@@ -10,74 +10,83 @@ using TestAppForms.Helpers;
 
 namespace TestAppForms
 {
-  public partial class Home : ContentPage
-  {
-  
-    public Home()
+    public partial class Home : ContentPage
     {
-      InitializeComponent();
 
-      PluginList.ItemSelected += (sender, args) =>
+        public Home()
         {
+            InitializeComponent();
 
-          if(PluginList.SelectedItem == null)
-            return;
+            PluginList.ItemSelected += (sender, args) =>
+              {
 
-          switch(((PluginItem)PluginList.SelectedItem).Name)
-          {
-            case "Battery":
-              Navigation.PushAsync(new BatteryPage());
-              break;
-            case "Connectivity":
-              Navigation.PushAsync(new ConnectivityPage());
-              break;
-            case "Contacts":
-              Navigation.PushAsync(new ContactsPage());
-              break;
-            case "Device Info":
-              Navigation.PushAsync(new DeviceInfoPage());
-              break;
-            case "External Maps":
-              Navigation.PushAsync(new ExternalMapsPage());
-              break;
-            case "Geolocator":
-              Navigation.PushAsync(new GeolocatorPage());
-              break;
-            case "ImageView Circle":
-              Navigation.PushAsync(new ImageCirclePage());
-              break;
-            case "Media":
-              Navigation.PushAsync(new MediaPage());
-              break;
-            case "Settings":
-              Navigation.PushAsync(new SettingsPage());
-              break;
-            case "Text to Speech":
-              Navigation.PushAsync(new TextToSpeechPage());
-              break;
-            case "Vibrate":
-              Navigation.PushAsync(new VibratePage());
-              break;
-                        case "Learn more":
-                            Device.OpenUri(new Uri("http://github.com/xamarin/plugins"));
-                            break;
-                        case "James on Twitter":
-                            Device.OpenUri(new Uri("http://mobile.twitter.com/jamesmontemagno"));
-                            break;
-          }
+                  if (PluginList.SelectedItem == null)
+                      return;
 
-          PluginList.SelectedItem = null;
-        };
+                  switch (((PluginItem)PluginList.SelectedItem).Name)
+                  {
+                      case "Battery":
+                          Navigation.PushAsync(new BatteryPage());
+                          break;
+                      case "Connectivity":
+                          Navigation.PushAsync(new ConnectivityPage());
+                          break;
+                      case "Contacts":
+                          Navigation.PushAsync(new ContactsPage());
+                          break;
+                      case "Device Info":
+                          Navigation.PushAsync(new DeviceInfoPage());
+                          break;
+                      case "External Maps":
+                          Navigation.PushAsync(new ExternalMapsPage());
+                          break;
+                      case "Geolocator":
+                          Navigation.PushAsync(new GeolocatorPage());
+                          break;
+                      case "ImageView Circle":
+                          Navigation.PushAsync(new ImageCirclePage());
+                          break;
+                      case "Local Notifications":
+                          Navigation.PushAsync(new LocalNotificationsPage());
+                          break;
+                      case "Media":
+                          Navigation.PushAsync(new MediaPage());
+                          break;
+                      case "Permissions":
+                          Navigation.PushAsync(new PermissionsPage());
+                          break;
+                      case "Settings":
+                          Navigation.PushAsync(new SettingsPage());
+                          break;
+                      case "Share":
+                          Navigation.PushAsync(new SharePage());
+                          break;
+                      case "Text to Speech":
+                          Navigation.PushAsync(new TextToSpeechPage());
+                          break;
+                      case "Vibrate":
+                          Navigation.PushAsync(new VibratePage());
+                          break;
+                      case "Learn more":
+                          Device.OpenUri(new Uri("http://github.com/xamarin/plugins"));
+                          break;
+                      case "James on Twitter":
+                          Device.OpenUri(new Uri("http://mobile.twitter.com/jamesmontemagno"));
+                          break;
+                  }
 
-      int count = 0;
+                  PluginList.SelectedItem = null;
+              };
 
-      var cell = new DataTemplate(typeof(ImageCell));
-      cell.SetBinding(ImageCell.TextProperty, "Name");
-      cell.SetBinding(ImageCell.DetailProperty, "Description");
-	  cell.SetBinding(ImageCell.ImageSourceProperty, new Binding("Image"));
-      PluginList.ItemTemplate = cell;
+            int count = 0;
 
-      var items = new List<PluginItem>
+            var cell = new DataTemplate(typeof(ImageCell));
+            cell.SetBinding(ImageCell.TextProperty, "Name");
+            cell.SetBinding(ImageCell.DetailProperty, "Description");
+            cell.SetBinding(ImageCell.ImageSourceProperty, new Binding("Image"));
+            PluginList.ItemTemplate = cell;
+
+            var items = new List<PluginItem>
       {
         new PluginItem
         {
@@ -131,6 +140,13 @@ namespace TestAppForms
         },
         new PluginItem
         {
+          Name = "Local Notifications",
+          Image = "https://raw.githubusercontent.com/edsnider/Xamarin.Plugins/master/Notifier/NuGet/Xam.Plugins.Notifier.icon.png",
+          Description ="Display notifications to the system.",
+          Id = count++
+        },
+        new PluginItem
+        {
           Name = "Media",
           Image = "http://www.refractored.com/images/plugin_icon_media.png",
           Description ="Take or pick photos and videos.",
@@ -138,9 +154,23 @@ namespace TestAppForms
         },
         new PluginItem
         {
+          Name = "Permissions",
+          Image = "http://refractored.com/images/plugin_permissions.png",
+          Description ="Request permissions from shared code.",
+          Id = count++
+        },
+        new PluginItem
+        {
           Name = "Settings",
           Image = "http://www.refractored.com/images/pcl_settings_icon.png",
           Description ="Cross platform settings (string, int, double, etc.)",
+          Id = count++
+        },
+        new PluginItem
+        {
+          Name = "Share",
+          Image = "http://refractored.com/images/plugin_share.png",
+          Description ="Share text, links, or open the browser.",
           Id = count++
         },
         new PluginItem
@@ -175,12 +205,12 @@ namespace TestAppForms
       };
 
 
-      PluginList.ItemsSource = items;
-      BindingContext = items;
+            PluginList.ItemsSource = items;
+            BindingContext = items;
 
-           
 
-    }
+
+        }
 
         protected override async void OnAppearing()
         {
@@ -192,5 +222,5 @@ namespace TestAppForms
                 await DisplayAlert("Welcome", "Welcome to the Plugins for Xamarin sample! All of these pages highlight a different cross-platform plugin for Xamarin. In fact I just used the settings plugin to see if it was your first run or not! How cool! Check it out and leave feedback on the GitHub page or tweet @JamesMontemagno", "OK");
             }
         }
-  }
+    }
 }

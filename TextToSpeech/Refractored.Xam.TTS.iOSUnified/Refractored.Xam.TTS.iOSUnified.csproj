@@ -8,9 +8,9 @@
     <ProjectGuid>{CC4CA81F-6B30-4A3A-AE87-005350A885FB}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>Refractored.Xam.TTS</RootNamespace>
+    <RootNamespace>Plugin.TextToSpeech</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Refractored.Xam.TTS</AssemblyName>
+    <AssemblyName>Plugin.TextToSpeech</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,7 +23,7 @@
     <ConsolePause>false</ConsolePause>
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <DocumentationFile>bin\iPhone\Debug\Refractored.Xam.TTS.XML</DocumentationFile>
+    <DocumentationFile>bin\iPhone\Debug\Plugin.TextToSpeech.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <DocumentationFile>bin\iPhone\Release\Refractored.Xam.TTS.XML</DocumentationFile>
+    <DocumentationFile>bin\iPhone\Release\Plugin.TextToSpeech.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\Refractored.Xam.TTS.iOS\TextToSpeech.cs">

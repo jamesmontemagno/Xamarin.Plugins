@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Geolocator.Plugin
+namespace Plugin.Geolocator
 {
   public static class DateHelpers
   {

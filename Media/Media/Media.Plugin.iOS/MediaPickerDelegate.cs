@@ -19,7 +19,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-using Media.Plugin.Abstractions;
+using Plugin.Media.Abstractions;
 
 #if __UNIFIED__
 using CoreGraphics;
@@ -36,7 +36,7 @@ using CGRect = global::System.Drawing.RectangleF;
 using nfloat = global::System.Single;
 #endif
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     internal class MediaPickerDelegate
         : UIImagePickerControllerDelegate
@@ -72,7 +72,7 @@ namespace Media.Plugin
 
         public override void FinishedPickingMedia(UIImagePickerController picker, NSDictionary info)
         {
-            
+
             MediaFile mediaFile;
             switch ((NSString)info[UIImagePickerController.MediaType])
             {
@@ -93,9 +93,9 @@ namespace Media.Plugin
                 UIApplication.SharedApplication.SetStatusBarStyle(MediaImplementation.StatusBarStyle, false);
             }
 
-            Dismiss(picker, () => 
+            Dismiss(picker, () =>
             {
-                
+
 
                 this.tcs.TrySetResult(mediaFile);
             });
@@ -108,9 +108,9 @@ namespace Media.Plugin
                 UIApplication.SharedApplication.SetStatusBarStyle(MediaImplementation.StatusBarStyle, false);
             }
 
-            Dismiss(picker, () => 
+            Dismiss(picker, () =>
             {
-                
+
 
                 this.tcs.SetResult(null);
             });

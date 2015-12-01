@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExternalMaps.Plugin.Abstractions
+namespace Plugin.ExternalMaps.Abstractions
 {
   /// <summary>
   /// Type of navigation to initiate.

@@ -1,9 +1,9 @@
-using Battery.Plugin.Abstractions;
+using Plugin.Battery.Abstractions;
 using System;
 using System.Diagnostics;
 
 
-namespace Battery.Plugin
+namespace Plugin.Battery
 {
   /// <summary>
   /// Implementation for Battery

@@ -9,8 +9,8 @@
     <ProjectGuid>{7169373F-0B82-4E5D-9129-7CC3065B90FA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DeviceInfo.Plugin</RootNamespace>
-    <AssemblyName>DeviceInfo.Plugin</AssemblyName>
+    <RootNamespace>Plugin.DeviceInfo</RootNamespace>
+    <AssemblyName>Plugin.DeviceInfo</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
@@ -33,7 +33,7 @@
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\DeviceInfo.Plugin.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.DeviceInfo.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>

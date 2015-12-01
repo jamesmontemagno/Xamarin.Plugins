@@ -17,7 +17,7 @@
 using System;
 using System.Threading.Tasks;
 
-using Media.Plugin.Abstractions;
+using Plugin.Media.Abstractions;
 
 #if __UNIFIED__
 using UIKit;
@@ -27,7 +27,7 @@ using MonoTouch.UIKit;
 using MonoTouch.Foundation;
 #endif
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     /// <summary>
     /// Media Picker Controller
@@ -35,11 +35,11 @@ namespace Media.Plugin
     public sealed class MediaPickerController
         : UIImagePickerController
     {
-        
+
         internal MediaPickerController(MediaPickerDelegate mpDelegate)
         {
             base.Delegate = mpDelegate;
-         }
+        }
 
         /// <summary>
         /// Deleage
@@ -47,7 +47,7 @@ namespace Media.Plugin
         public override NSObject Delegate
         {
             get { return base.Delegate; }
-            set 
+            set
             {
                 if (value == null)
                     base.Delegate = value;

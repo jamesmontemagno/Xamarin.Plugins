@@ -21,7 +21,7 @@ using System.Reflection;
 using System.Text;
 using Uri = Android.Net.Uri;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal interface ITableFinder
   {

@@ -31,10 +31,10 @@ using InstantMessaging = Android.Provider.ContactsContract.CommonDataKinds.Im;
 using OrganizationData = Android.Provider.ContactsContract.CommonDataKinds.Organization;
 using WebsiteData = Android.Provider.ContactsContract.CommonDataKinds.Website;
 using Relation = Android.Provider.ContactsContract.CommonDataKinds.Relation;
-using Contacts.Plugin.Abstractions;
+using Plugin.Contacts.Abstractions;
 using System.Threading.Tasks;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal static class ContactHelper
   {

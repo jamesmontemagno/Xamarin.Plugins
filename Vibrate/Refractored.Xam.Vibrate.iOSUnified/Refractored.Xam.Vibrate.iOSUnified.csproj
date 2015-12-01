@@ -8,9 +8,9 @@
     <ProjectGuid>{A6B81057-0668-4931-A605-84F7AC1CA937}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>Refractored.Xam.Vibrate</RootNamespace>
+    <RootNamespace>Plugin.Vibrate</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Refractored.Xam.Vibrate</AssemblyName>
+    <AssemblyName>Plugin.Vibrate</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <DocumentationFile>bin\iPhone\Release\Refractored.Xam.Vibrate.XML</DocumentationFile>
+    <DocumentationFile>bin\iPhone\Release\Plugin.Vibrate.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\Refractored.Xam.Vibrate.iOS\Vibrate.cs">

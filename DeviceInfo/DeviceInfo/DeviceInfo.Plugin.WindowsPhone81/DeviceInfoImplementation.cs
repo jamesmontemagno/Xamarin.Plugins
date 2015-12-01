@@ -17,7 +17,7 @@
 // See the Apache 2 License for the specific language governing 
 // permissions and limitations under the License.
 //---------------------------------------------------------------------------------
-using DeviceInfo.Plugin.Abstractions;
+using Plugin.DeviceInfo.Abstractions;
 using System;
 using System.Threading.Tasks;
 using Windows.Devices.Enumeration.Pnp;
@@ -29,7 +29,7 @@ using System.Text.RegularExpressions;
 using Windows.Security.ExchangeActiveSyncProvisioning;
 
 
-namespace DeviceInfo.Plugin
+namespace Plugin.DeviceInfo
 {
   /// <summary>
   /// Implementation for DeviceInfo

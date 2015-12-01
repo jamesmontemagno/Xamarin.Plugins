@@ -20,9 +20,9 @@ using System.Linq.Expressions;
 using System.Reflection;
 using Android.Provider;
 using Uri = Android.Net.Uri;
-using Contacts.Plugin.Abstractions;
+using Plugin.Contacts.Abstractions;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal class ContactTableFinder
     : ExpressionVisitor, ITableFinder

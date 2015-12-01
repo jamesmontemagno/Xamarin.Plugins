@@ -1,7 +1,7 @@
-﻿using ExternalMaps.Plugin.Abstractions;
+﻿using Plugin.ExternalMaps.Abstractions;
 using System;
 
-namespace ExternalMaps.Plugin
+namespace Plugin.ExternalMaps
 {
   /// <summary>
   /// Cross platform ExternalMaps implemenations

@@ -9,45 +9,45 @@
  */
 
 using System;
-using Refractored.Xam.Settings.Abstractions;
+using Plugin.Settings.Abstractions;
 
-namespace Refractored.Xam.Settings
+namespace Plugin.Settings
 {
-  /// <summary>
-  /// Cross Platform settings
-  /// </summary>
+    /// <summary>
+    /// Cross Platform settings
+    /// </summary>
     public static class CrossSettings
     {
-      static Lazy<ISettings> settings = new Lazy<ISettings>(() => CreateSettings(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
+        static Lazy<ISettings> settings = new Lazy<ISettings>(() => CreateSettings(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
 
-      /// <summary>
-      /// Current settings to use
-      /// </summary>
-      public static ISettings Current
-      {
-        get
+        /// <summary>
+        /// Current settings to use
+        /// </summary>
+        public static ISettings Current
         {
-          ISettings ret = settings.Value;
-          if (ret == null)
-          {
-            throw NotImplementedInReferenceAssembly();
-          }
-          return ret;
+            get
+            {
+                ISettings ret = settings.Value;
+                if (ret == null)
+                {
+                    throw NotImplementedInReferenceAssembly();
+                }
+                return ret;
+            }
         }
-      }
 
-      static ISettings CreateSettings()
-      {
+        static ISettings CreateSettings()
+        {
 #if PORTABLE
-        return null;
+            return null;
 #else
-        return new Settings();
+            return new Settings();
 #endif
-      }
+        }
 
         internal static Exception NotImplementedInReferenceAssembly()
         {
-          return new NotImplementedException("This functionality is not implemented in the portable version of this assembly.  You should reference the Xam.Plugins.Settings NuGet package from your main application project in order to reference the platform-specific implementation.");
+            return new NotImplementedException("This functionality is not implemented in the portable version of this assembly.  You should reference the Xam.Plugins.Settings NuGet package from your main application project in order to reference the platform-specific implementation.");
         }
     }
 }

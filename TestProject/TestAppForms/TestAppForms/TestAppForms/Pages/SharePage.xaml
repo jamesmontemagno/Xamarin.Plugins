@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestAppForms.Pages.SharePage"
+             Title="Share">
+    <StackLayout Padding="20" Spacing="20">
+        <Button StyleId="Text" Text="Share Text" Clicked="Button_OnClicked"/>
+        <Button StyleId="Link" Text="Share Link" Clicked="Button_OnClicked"/>
+        <Button StyleId="Browser" Text="Open Browser" Clicked="Button_OnClicked"/>
+    </StackLayout>
+</ContentPage>

@@ -8,8 +8,8 @@
     <ProjectGuid>{747706F4-ECBF-4D50-8D72-B0DDCC18395C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Refractored.Xam.Settings</RootNamespace>
-    <AssemblyName>Refractored.Xam.Settings</AssemblyName>
+    <RootNamespace>Plugin.Settings</RootNamespace>
+    <AssemblyName>Plugin.Settings</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -35,7 +35,7 @@
     <DefineConstants>TRACE;PORTABLE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Refractored.Xam.Settings.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.Settings.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CrossSettings.cs" />

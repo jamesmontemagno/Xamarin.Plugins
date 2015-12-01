@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DeviceInfo.Plugin.Abstractions
+namespace Plugin.DeviceInfo.Abstractions
 {
   
   public enum Platform

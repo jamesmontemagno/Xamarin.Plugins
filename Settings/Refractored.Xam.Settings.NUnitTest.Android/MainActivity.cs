@@ -3,9 +3,9 @@ using Android.App;
 using Android.OS;
 using Xamarin.Android.NUnitLite;
 
-namespace Refractored.Xam.Settings.NUnitTest.Android
+namespace Plugin.Settings.NUnitTest.Android
 {
-  [Activity(Label = "Refractored.Xam.Settings.NUnitTest.Android", MainLauncher = true, Icon = "@drawable/icon")]
+  [Activity(Label = "Plugin.Settings.NUnitTest.Android", MainLauncher = true, Icon = "@drawable/icon")]
   public class MainActivity : TestSuiteActivity
   {
     protected override void OnCreate(Bundle bundle)

@@ -18,7 +18,7 @@ using System;
 using System.Runtime.CompilerServices;
 using Windows.Foundation;
 
-namespace Geolocator.Plugin
+namespace Plugin.Geolocator
 {
   internal static class Extensions
   {

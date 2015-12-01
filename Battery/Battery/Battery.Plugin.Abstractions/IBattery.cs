@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Battery.Plugin.Abstractions
+namespace Plugin.Battery.Abstractions
 {
   /// <summary>
   /// Interface for Battery

@@ -6,9 +6,9 @@
     <ProjectGuid>{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>Geolocator.Plugin</RootNamespace>
+    <RootNamespace>Plugin.Geolocator</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Geolocator.Plugin</AssemblyName>
+    <AssemblyName>Plugin.Geolocator</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,7 +30,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <DocumentationFile>bin\iPhone\Release\Geolocator.Plugin.XML</DocumentationFile>
+    <DocumentationFile>bin\iPhone\Release\Plugin.Geolocator.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\Geolocator.Plugin.iOS\DateHelpers.cs">

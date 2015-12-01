@@ -28,9 +28,9 @@ using MonoTouch.Foundation;
 #endif
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Contacts.Plugin.Abstractions;
+using Plugin.Contacts.Abstractions;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   public class AddressBook
     : IQueryable<Contact> //IQueryable<Contact>

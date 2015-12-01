@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Contacts.Plugin.Abstractions
+namespace Plugin.Contacts.Abstractions
 {
   /// <summary>
   /// Interface for Contacts

@@ -21,7 +21,7 @@ using System.Linq.Expressions;
 using System.Text;
 using Android.Provider;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal class ContentQueryTranslator
     : ExpressionVisitor

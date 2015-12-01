@@ -17,7 +17,7 @@
 // See the Apache 2 License for the specific language governing 
 // permissions and limitations under the License.
 //---------------------------------------------------------------------------------
-using DeviceInfo.Plugin.Abstractions;
+using Plugin.DeviceInfo.Abstractions;
 #if __UNIFIED__
 using UIKit;
 #else
@@ -26,7 +26,7 @@ using MonoTouch.UIKit;
 using System;
 
 
-namespace DeviceInfo.Plugin
+namespace Plugin.DeviceInfo
 {
   /// <summary>
   /// Implementation for DeviceInfo

@@ -1,4 +1,4 @@
-﻿using Media.Plugin;
+﻿using Plugin.Media;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,9 +26,9 @@ namespace MediaTest
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
-            this.NavigationCacheMode = NavigationCacheMode.Required;
+            NavigationCacheMode = NavigationCacheMode.Required;
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace MediaTest
 
         private async void TakePhoto_Click(object sender, RoutedEventArgs e)
         {
-          var file = await CrossMedia.Current.TakePhotoAsync(new Media.Plugin.Abstractions.StoreCameraMediaOptions
+          var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
           {
 
             Directory = "Sample",
@@ -73,7 +73,7 @@ namespace MediaTest
 
         private async void TakeVideo_Click(object sender, RoutedEventArgs e)
         {
-          var file = await CrossMedia.Current.TakeVideoAsync(new Media.Plugin.Abstractions.StoreVideoOptions
+          var file = await CrossMedia.Current.TakeVideoAsync(new Plugin.Media.Abstractions.StoreVideoOptions
           {
 
             Directory = "Sample",

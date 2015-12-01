@@ -1,4 +1,4 @@
-using Media.Plugin.Abstractions;
+using Plugin.Media.Abstractions;
 //
 //  Copyright 2011-2013, Xamarin Inc.
 //
@@ -29,7 +29,7 @@ using MonoTouch.UIKit;
 using CGRect = global::System.Drawing.RectangleF;
 #endif
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     /// <summary>
     /// Implementation for Media
@@ -40,6 +40,13 @@ namespace Media.Plugin
         /// Color of the status bar
         /// </summary>
         public static UIStatusBarStyle StatusBarStyle { get; set; }
+
+        ///<inheritdoc/>
+        public Task<bool> Initialize()
+        {
+            return Task.FromResult(true);
+        }
+
         /// <summary>
         /// Implementation
         /// </summary>
@@ -278,7 +285,7 @@ namespace Media.Plugin
                 viewController = viewController.PresentedViewController;
 
             MediaPickerDelegate ndelegate = new MediaPickerDelegate(viewController, sourceType, options);
-            var od = Interlocked.CompareExchange(ref this.pickerDelegate, ndelegate, null);
+            var od = Interlocked.CompareExchange(ref pickerDelegate, ndelegate, null);
             if (od != null)
                 throw new InvalidOperationException("Only one operation can be active at at time");
 
@@ -295,13 +302,13 @@ namespace Media.Plugin
 
             return ndelegate.Task.ContinueWith(t =>
             {
-                if (this.popover != null)
+                if (popover != null)
                 {
-                    this.popover.Dispose();
-                    this.popover = null;
+                    popover.Dispose();
+                    popover = null;
                 }
 
-                Interlocked.Exchange(ref this.pickerDelegate, null);
+                Interlocked.Exchange(ref pickerDelegate, null);
                 return t;
             }).Unwrap();
         }

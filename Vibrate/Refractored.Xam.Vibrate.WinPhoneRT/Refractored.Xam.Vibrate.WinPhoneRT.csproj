@@ -9,8 +9,8 @@
     <ProjectGuid>{E88F2DC0-AFCB-4D34-8F5D-E0B6BA54282B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Refractored.Xam.Vibrate</RootNamespace>
-    <AssemblyName>Refractored.Xam.Vibrate</AssemblyName>
+    <RootNamespace>Plugin.Vibrate</RootNamespace>
+    <AssemblyName>Plugin.Vibrate</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
@@ -33,7 +33,7 @@
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Refractored.Xam.Vibrate.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.Vibrate.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>

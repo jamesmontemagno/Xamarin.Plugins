@@ -1,61 +1,54 @@
-using Contacts.Plugin.Abstractions;
+using Plugin.Contacts.Abstractions;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
-  /// <summary>
-  /// Implementation for Contacts
-  /// </summary>
-  public class ContactsImplementation : IContacts
-  {
-    public Task<bool> RequestPermission()
+    /// <summary>
+    /// Implementation for Contacts
+    /// </summary>
+    public class ContactsImplementation : IContacts
     {
-      throw new NotImplementedException();
-    }
+        public Task<bool> RequestPermission()
+        {
+            return Task.FromResult(false);
+        }
 
-    public IQueryable<Contact> Contacts
-    {
-      get { throw new NotImplementedException(); }
-    }
+        public IQueryable<Contact> Contacts
+        {
+            get { return null; }
+        }
 
-    public Contact LoadContact(string id)
-    {
-      throw new NotImplementedException();
-    }
+        public Contact LoadContact(string id)
+        {
+            return null;
+        }
 
-    public bool LoadSupported
-    {
-      get { throw new NotImplementedException(); }
-    }
+        public bool LoadSupported
+        {
+            get { return false; }
+        }
 
-    public bool PreferContactAggregation
-    {
-      get
-      {
-        throw new NotImplementedException();
-      }
-      set
-      {
-        throw new NotImplementedException();
-      }
-    }
+        public bool PreferContactAggregation
+        {
+            get; set;
+        }
 
-    public bool AggregateContactsSupported
-    {
-      get { throw new NotImplementedException(); }
-    }
+        public bool AggregateContactsSupported
+        {
+            get { return false; }
+        }
 
-    public bool SingleContactsSupported
-    {
-      get { throw new NotImplementedException(); }
-    }
+        public bool SingleContactsSupported
+        {
+            get { return false; }
+        }
 
-    public bool IsReadOnly
-    {
-      get { throw new NotImplementedException(); }
+        public bool IsReadOnly
+        {
+            get { return false; }
+        }
     }
-  }
 }

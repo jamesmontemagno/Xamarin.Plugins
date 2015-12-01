@@ -8,8 +8,8 @@
     <ProjectGuid>{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Connectivity.Plugin.Abstractions</RootNamespace>
-    <AssemblyName>Connectivity.Plugin.Abstractions</AssemblyName>
+    <RootNamespace>Plugin.Connectivity.Abstractions</RootNamespace>
+    <AssemblyName>Plugin.Connectivity.Abstractions</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Connectivity.Plugin.Abstractions.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.Connectivity.Abstractions.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->

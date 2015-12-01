@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ExternalMaps.Plugin.Abstractions
+namespace Plugin.ExternalMaps.Abstractions
 {
   /// <summary>
   /// Interface for ExternalMaps

@@ -9,10 +9,10 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Battery.Plugin.Abstractions;
+using Plugin.Battery.Abstractions;
 using BatteryStatus = Android.OS.BatteryStatus;
 
-namespace Battery.Plugin
+namespace Plugin.Battery
 {
 
   /// <summary>

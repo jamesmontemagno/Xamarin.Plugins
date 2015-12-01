@@ -8,8 +8,8 @@
     <ProjectGuid>{E018DEDF-8FB8-4D46-A04B-97C9447965F5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Refractored.Xam.Vibrate</RootNamespace>
-    <AssemblyName>Refractored.Xam.Vibrate</AssemblyName>
+    <RootNamespace>Plugin.Vibrate</RootNamespace>
+    <AssemblyName>Plugin.Vibrate</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE;PORTABLE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Refractored.Xam.Vibrate.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.Vibrate.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->

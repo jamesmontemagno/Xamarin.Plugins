@@ -19,9 +19,9 @@ using Android.Locations;
 using Android.OS;
 using System.Threading;
 using System.Collections.Generic;
-using Geolocator.Plugin.Abstractions;
+using Plugin.Geolocator.Abstractions;
 
-namespace Geolocator.Plugin
+namespace Plugin.Geolocator
 {
   internal class GeolocationSingleListener
      : Java.Lang.Object, ILocationListener

@@ -20,9 +20,9 @@ using Android.Locations;
 using Android.OS;
 using System.Collections.Generic;
 
-using Geolocator.Plugin.Abstractions;
+using Plugin.Geolocator.Abstractions;
 
-namespace Geolocator.Plugin
+namespace Plugin.Geolocator
 {
   internal class GeolocationContinuousListener
     : Java.Lang.Object, ILocationListener

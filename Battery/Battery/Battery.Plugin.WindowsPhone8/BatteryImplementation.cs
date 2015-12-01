@@ -1,11 +1,11 @@
-using Battery.Plugin.Abstractions;
+using Plugin.Battery.Abstractions;
 using Microsoft.Phone.Info;
 using System;
 using System.Windows;
 using System.Windows.Threading;
 
 
-namespace Battery.Plugin
+namespace Plugin.Battery
 {
   /// <summary>
   /// Implementation for Battery

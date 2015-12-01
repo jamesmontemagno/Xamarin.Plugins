@@ -9,8 +9,8 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Refractored.Xam.TTS</RootNamespace>
-    <AssemblyName>Refractored.Xam.TTS</AssemblyName>
+    <RootNamespace>Plugin.TextToSpeech</RootNamespace>
+    <AssemblyName>Plugin.TextToSpeech</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
@@ -27,7 +27,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Refractored.Xam.TTS.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\Plugin.TextToSpeech.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,7 +36,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Refractored.Xam.TTS.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.TextToSpeech.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />

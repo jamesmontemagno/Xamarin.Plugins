@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Vibrate.Abstractions", "Refractored.Xam.Vibrate.Abstractions\Refractored.Xam.Vibrate.Abstractions.csproj", "{E0A73AEB-607F-443E-9529-4173FE690A16}"
 EndProject
@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{A3A9DD8D-9
 	ProjectSection(SolutionItems) = preProject
 		Common\Xam.Plugins.Vibrate.nuspec = Common\Xam.Plugins.Vibrate.nuspec
 	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Traditional", "Traditional", "{A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Vibrate.iOS", "Refractored.Xam.Vibrate.iOS\Refractored.Xam.Vibrate.iOS.csproj", "{B79FF39A-5930-4F5C-9138-FD081D438D28}"
 EndProject
@@ -25,6 +23,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Vibrate.Android", "Refractored.Xam.Vibrate.Android\Refractored.Xam.Vibrate.Android.csproj", "{3C98C724-1797-4991-9AF2-969A337465DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Vibrate.WinStore", "Refractored.Xam.Vibrate.WinStore\Refractored.Xam.Vibrate.WinStore.csproj", "{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Vibrate.UWP", "Refractored.Xam.Vibrate.UWP\Refractored.Xam.Vibrate.UWP.csproj", "{CC294F69-2513-455C-9B2D-547E4C01D1A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -132,17 +132,24 @@ Global
 		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Release|x64.Build.0 = Release|x64
 		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Release|x86.ActiveCfg = Release|x86
 		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662}.Release|x86.Build.0 = Release|x86
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Debug|ARM.ActiveCfg = Debug|ARM
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Debug|ARM.Build.0 = Debug|ARM
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Debug|x64.ActiveCfg = Debug|x64
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Debug|x64.Build.0 = Debug|x64
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Debug|x86.ActiveCfg = Debug|x86
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Debug|x86.Build.0 = Debug|x86
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Release|ARM.ActiveCfg = Release|ARM
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Release|ARM.Build.0 = Release|ARM
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Release|x64.ActiveCfg = Release|x64
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Release|x64.Build.0 = Release|x64
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Release|x86.ActiveCfg = Release|x86
+		{CC294F69-2513-455C-9B2D-547E4C01D1A6}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{B79FF39A-5930-4F5C-9138-FD081D438D28} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
-		{A6B81057-0668-4931-A605-84F7AC1CA937} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
-		{E88F2DC0-AFCB-4D34-8F5D-E0B6BA54282B} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
-		{9606B619-FC46-4512-A5AC-97B4B4A0FB60} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
-		{E018DEDF-8FB8-4D46-A04B-97C9447965F5} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
-		{3C98C724-1797-4991-9AF2-969A337465DE} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
-		{6065BE34-A624-42AA-ABF3-FA4D7E2DE662} = {A503D713-AAA3-474B-99A1-F8AEDD5B9B7F}
 	EndGlobalSection
 EndGlobal

@@ -24,7 +24,7 @@ using Android.Content.Res;
 using Android.Database;
 using Android.Provider;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal class GenericQueryReader<T>
     : IEnumerable<T>

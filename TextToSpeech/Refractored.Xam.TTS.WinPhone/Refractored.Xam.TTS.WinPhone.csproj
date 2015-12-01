@@ -9,8 +9,8 @@
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Refractored.Xam.TTS</RootNamespace>
-    <AssemblyName>Refractored.Xam.TTS</AssemblyName>
+    <RootNamespace>Plugin.TextToSpeech</RootNamespace>
+    <AssemblyName>Plugin.TextToSpeech</AssemblyName>
     <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
@@ -30,7 +30,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>Bin\Debug\Refractored.Xam.TTS.xml</DocumentationFile>
+    <DocumentationFile>Bin\Debug\Plugin.TextToSpeech.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,7 +41,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>Bin\Release\Refractored.Xam.TTS.xml</DocumentationFile>
+    <DocumentationFile>Bin\Release\Plugin.TextToSpeech.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,7 +53,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>Bin\x86\Debug\Refractored.Xam.TTS.xml</DocumentationFile>
+    <DocumentationFile>Bin\x86\Debug\Plugin.TextToSpeech.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>

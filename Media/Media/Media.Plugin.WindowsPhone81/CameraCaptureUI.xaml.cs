@@ -1,4 +1,4 @@
-﻿using Media.Plugin.Abstractions;
+﻿using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -69,7 +69,7 @@ namespace DMX.Helper
         /// </summary>
         public CameraCaptureUI()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             // get current app
             app = Application.Current;
@@ -84,7 +84,7 @@ namespace DMX.Helper
             // navigate to Capture UI page 
             NewCamCapFrame.Navigate(typeof(CameraCaptureUIPage));
 
-            this.Unloaded += CameraCaptureUI_Unloaded;
+            Unloaded += CameraCaptureUI_Unloaded;
 #if WINDOWS_PHONE_APP
             Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
 #endif
@@ -207,7 +207,7 @@ namespace DMX.Helper
         public async Task<StorageFile> CaptureFileAsync(CameraCaptureUIMode mode, StoreCameraMediaOptions options)
         {
             var t = IsStopped();
-            this.options = options;
+            options = options;
             // Create new MediaCapture 
             MyMediaCapture = new MediaCapture();
             var videoDevices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);

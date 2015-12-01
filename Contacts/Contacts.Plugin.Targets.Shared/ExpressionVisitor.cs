@@ -20,7 +20,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Contacts.Plugin
+namespace Plugin.Contacts
 {
   internal abstract class ExpressionVisitor
   {

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Geolocator</id>
-       <version>1.1.1</version>
+       <version>2.0.0</version>
        <title>Geolocator Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -28,84 +28,92 @@
        <summary>Easly access geolocation across Xamarin.iOS, Xamarin.Android and Windows. View full project page for README
        </summary>
      <releaseNotes>
-       [1.1.1]
-        -Fix timeout for unknown location on iOS
-        -Add PausesLocationUpdatesAutomatically for iOS
-       [1.1.0]
-        -Introduced AllowsBackgroundUpdates flag for iOS 9
-        -Set default accuracy to 100
-        
-       [1.0.4]
-       -Build against Android API 15 for better compat
-       -Fix date time stamps so they are all UTC
-       -Fix for Windows where default timeout could cause eception
+       [2.0.0]
+        -Breaking Changes: 
+        ---New Namespace: Plugin.Geolocator
+        ---Android API 14+ only
+        ---Requires Compile Against Android API 23 (6.0)
+        -Automatically Prompt on Android for Permissions
+        -Automatically add needed android permissions
+        -UWP Support
      </releaseNotes>
        <tags>xamarin, geolocator, geolocation, gps, pcl, xam.pcl, plugin, plugin for xamarin, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
        <dependencies>
+           <group targetFramework="MonoAndroid10">
+               <dependency id="Plugin.Permissions" version="1.1.1"/>
+           </group>
        </dependencies>
    </metadata>
    <files>
-<!--Core-->
-     <file src="Geolocator\Geolocator.Plugin\bin\Release\Geolocator.Plugin.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Geolocator.Plugin.dll" />
-     <file src="Geolocator\Geolocator.Plugin\bin\Release\Geolocator.Plugin.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Geolocator.Plugin.xml" />
-     <file src="Geolocator\Geolocator.Plugin\bin\Release\Geolocator.Plugin.pdb" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Geolocator.Plugin.pdb" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Geolocator.Plugin.Abstractions.dll" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Geolocator.Plugin.Abstractions.xml" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.pdb" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Geolocator.Plugin.Abstractions.pdb" />
-     <file src="GeolocatorReadme.txt.pp" target="content\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\PluginsHelp\GeolocatorReadme.txt.pp" />
+     <!--Core-->
+     <file src="Geolocator\Geolocator.Plugin\bin\Release\Plugin.Geolocator.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Geolocator.dll" />
+     <file src="Geolocator\Geolocator.Plugin\bin\Release\Plugin.Geolocator.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Geolocator.xml" />
+     <file src="Geolocator\Geolocator.Plugin\bin\Release\Plugin.Geolocator.pdb" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Geolocator.pdb" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Geolocator.Abstractions.dll" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Geolocator.Abstractions.xml" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.pdb" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Geolocator.Abstractions.pdb" />
+     <file src="GeolocatorReadme.txt.pp" target="content\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\PluginsHelp\GeolocatorReadme.txt.pp" />
 
      <!--Win Phone Silverlight-->
-     <file src="Geolocator\Geolocator.Plugin.WindowsPhone8\bin\Release\Geolocator.Plugin.dll" target="lib\wp8\Geolocator.Plugin.dll" />
-     <file src="Geolocator\Geolocator.Plugin.WindowsPhone8\bin\Release\Geolocator.Plugin.xml" target="lib\wp8\Geolocator.Plugin.xml" />
-     <file src="Geolocator\Geolocator.Plugin.WindowsPhone8\bin\Release\Geolocator.Plugin.pdb" target="lib\wp8\Geolocator.Plugin.pdb" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.dll" target="lib\wp8\Geolocator.Plugin.Abstractions.dll" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.xml" target="lib\wp8\Geolocator.Plugin.Abstractions.xml" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.pdb" target="lib\wp8\Geolocator.Plugin.Abstractions.pdb" />
+     <file src="Geolocator\Geolocator.Plugin.WindowsPhone8\bin\Release\Plugin.Geolocator.dll" target="lib\wp8\Plugin.Geolocator.dll" />
+     <file src="Geolocator\Geolocator.Plugin.WindowsPhone8\bin\Release\Plugin.Geolocator.xml" target="lib\wp8\Plugin.Geolocator.xml" />
+     <file src="Geolocator\Geolocator.Plugin.WindowsPhone8\bin\Release\Plugin.Geolocator.pdb" target="lib\wp8\Plugin.Geolocator.pdb" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.dll" target="lib\wp8\Plugin.Geolocator.Abstractions.dll" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.xml" target="lib\wp8\Plugin.Geolocator.Abstractions.xml" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.pdb" target="lib\wp8\Plugin.Geolocator.Abstractions.pdb" />
      <file src="GeolocatorReadme.txt.pp" target="content\wp8\PluginsHelp\GeolocatorReadme.txt.pp" />
 
      <!--Win Phone 81-->
-     <file src="Geolocator\Geolocator.Plugin.WindowsPhone81\bin\Release\Geolocator.Plugin.dll" target="lib\wpa81\Geolocator.Plugin.dll" />
-     <file src="Geolocator\Geolocator.Plugin.WindowsPhone81\bin\Release\Geolocator.Plugin.xml" target="lib\wpa81\Geolocator.Plugin.xml" />
-     <file src="Geolocator\Geolocator.Plugin.WindowsPhone81\bin\Release\Geolocator.Plugin.pdb" target="lib\wpa81\Geolocator.Plugin.pdb" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.dll" target="lib\wpa81\Geolocator.Plugin.Abstractions.dll" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.xml" target="lib\wpa81\Geolocator.Plugin.Abstractions.xml" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.pdb" target="lib\wpa81\Geolocator.Plugin.Abstractions.pdb" />
+     <file src="Geolocator\Geolocator.Plugin.WindowsPhone81\bin\Release\Plugin.Geolocator.dll" target="lib\wpa81\Plugin.Geolocator.dll" />
+     <file src="Geolocator\Geolocator.Plugin.WindowsPhone81\bin\Release\Plugin.Geolocator.xml" target="lib\wpa81\Plugin.Geolocator.xml" />
+     <file src="Geolocator\Geolocator.Plugin.WindowsPhone81\bin\Release\Plugin.Geolocator.pdb" target="lib\wpa81\Plugin.Geolocator.pdb" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.dll" target="lib\wpa81\Plugin.Geolocator.Abstractions.dll" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.xml" target="lib\wpa81\Plugin.Geolocator.Abstractions.xml" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.pdb" target="lib\wpa81\Plugin.Geolocator.Abstractions.pdb" />
      <file src="GeolocatorReadme.txt.pp" target="content\wpa81\PluginsHelp\GeolocatorReadme.txt.pp" />
 
 
      <!--WinStore-->
-     <file src="Geolocator\Geolocator.Plugin.WindowsStore\bin\Release\Geolocator.Plugin.dll" target="lib\win8\Geolocator.Plugin.dll" />
-     <file src="Geolocator\Geolocator.Plugin.WindowsStore\bin\Release\Geolocator.Plugin.xml" target="lib\win8\Geolocator.Plugin.xml" />
-     <file src="Geolocator\Geolocator.Plugin.WindowsStore\bin\Release\Geolocator.Plugin.pdb" target="lib\win8\Geolocator.Plugin.pdb" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.dll" target="lib\win8\Geolocator.Plugin.Abstractions.dll" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.xml" target="lib\win8\Geolocator.Plugin.Abstractions.xml" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.pdb" target="lib\win8\Geolocator.Plugin.Abstractions.pdb" />
+     <file src="Geolocator\Geolocator.Plugin.WindowsStore\bin\Release\Plugin.Geolocator.dll" target="lib\win8\Plugin.Geolocator.dll" />
+     <file src="Geolocator\Geolocator.Plugin.WindowsStore\bin\Release\Plugin.Geolocator.xml" target="lib\win8\Plugin.Geolocator.xml" />
+     <file src="Geolocator\Geolocator.Plugin.WindowsStore\bin\Release\Plugin.Geolocator.pdb" target="lib\win8\Plugin.Geolocator.pdb" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.dll" target="lib\win8\Plugin.Geolocator.Abstractions.dll" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.xml" target="lib\win8\Plugin.Geolocator.Abstractions.xml" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.pdb" target="lib\win8\Plugin.Geolocator.Abstractions.pdb" />
      <file src="GeolocatorReadme.txt.pp" target="content\win8\PluginsHelp\GeolocatorReadme.txt.pp" />
 
 
      <!--Xamarin.Android-->
-     <file src="Geolocator\Geolocator.Plugin.Android\bin\Release\Geolocator.Plugin.dll" target="lib\MonoAndroid10\Geolocator.Plugin.dll" />
-     <file src="Geolocator\Geolocator.Plugin.Android\bin\Release\Geolocator.Plugin.xml" target="lib\MonoAndroid10\Geolocator.Plugin.xml" />
-     <file src="Geolocator\Geolocator.Plugin.Android\bin\Release\Geolocator.Plugin.pdb" target="lib\MonoAndroid10\Geolocator.Plugin.pdb" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.dll" target="lib\MonoAndroid10\Geolocator.Plugin.Abstractions.dll" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.xml" target="lib\MonoAndroid10\Geolocator.Plugin.Abstractions.xml" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.pdb" target="lib\MonoAndroid10\Geolocator.Plugin.Abstractions.pdb" />
+     <file src="Geolocator\Geolocator.Plugin.Android\bin\Release\Plugin.Geolocator.dll" target="lib\MonoAndroid10\Plugin.Geolocator.dll" />
+     <file src="Geolocator\Geolocator.Plugin.Android\bin\Release\Plugin.Geolocator.xml" target="lib\MonoAndroid10\Plugin.Geolocator.xml" />
+     <file src="Geolocator\Geolocator.Plugin.Android\bin\Release\Plugin.Geolocator.pdb" target="lib\MonoAndroid10\Plugin.Geolocator.pdb" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.dll" target="lib\MonoAndroid10\Plugin.Geolocator.Abstractions.dll" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.xml" target="lib\MonoAndroid10\Plugin.Geolocator.Abstractions.xml" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.pdb" target="lib\MonoAndroid10\Plugin.Geolocator.Abstractions.pdb" />
      <file src="GeolocatorReadme.txt.pp" target="content\MonoAndroid10\PluginsHelp\GeolocatorReadme.txt.pp" />
 
      <!--Xamarin.iOS-->
-     <file src="Geolocator\Geolocator.Plugin.iOS\bin\iPhone\Release\Geolocator.Plugin.dll" target="lib\MonoTouch10\Geolocator.Plugin.dll" />
-     <file src="Geolocator\Geolocator.Plugin.iOS\bin\iPhone\Release\Geolocator.Plugin.xml" target="lib\MonoTouch10\Geolocator.Plugin.xml" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.dll" target="lib\MonoTouch10\Geolocator.Plugin.Abstractions.dll" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.xml" target="lib\MonoTouch10\Geolocator.Plugin.Abstractions.xml" />
+     <file src="Geolocator\Geolocator.Plugin.iOS\bin\iPhone\Release\Plugin.Geolocator.dll" target="lib\MonoTouch10\Plugin.Geolocator.dll" />
+     <file src="Geolocator\Geolocator.Plugin.iOS\bin\iPhone\Release\Plugin.Geolocator.xml" target="lib\MonoTouch10\Plugin.Geolocator.xml" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.dll" target="lib\MonoTouch10\Plugin.Geolocator.Abstractions.dll" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.xml" target="lib\MonoTouch10\Plugin.Geolocator.Abstractions.xml" />
      <file src="GeolocatorReadme.txt.pp" target="content\MonoTouch10\PluginsHelp\GeolocatorReadme.txt.pp" />
 
      <!--Xamarin.iOS Unified-->
-     <file src="Geolocator\Geolocator.Plugin.iOSUnified\bin\iPhone\Release\Geolocator.Plugin.dll" target="lib\Xamarin.iOS10\Geolocator.Plugin.dll" />
-     <file src="Geolocator\Geolocator.Plugin.iOSUnified\bin\iPhone\Release\Geolocator.Plugin.xml" target="lib\Xamarin.iOS10\Geolocator.Plugin.xml" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.dll" target="lib\Xamarin.iOS10\Geolocator.Plugin.Abstractions.dll" />
-     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Geolocator.Plugin.Abstractions.xml" target="lib\Xamarin.iOS10\Geolocator.Plugin.Abstractions.xml" />
+     <file src="Geolocator\Geolocator.Plugin.iOSUnified\bin\iPhone\Release\Plugin.Geolocator.dll" target="lib\Xamarin.iOS10\Plugin.Geolocator.dll" />
+     <file src="Geolocator\Geolocator.Plugin.iOSUnified\bin\iPhone\Release\Plugin.Geolocator.xml" target="lib\Xamarin.iOS10\Plugin.Geolocator.xml" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.dll" target="lib\Xamarin.iOS10\Plugin.Geolocator.Abstractions.dll" />
+     <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.xml" target="lib\Xamarin.iOS10\Plugin.Geolocator.Abstractions.xml" />
      <file src="GeolocatorReadme.txt.pp" target="content\Xamarin.iOS10\PluginsHelp\GeolocatorReadme.txt.pp" />
 
+       <!--UWP-->
+       <file src="Geolocator\Geolocator.Plugin.UWP\bin\Release\Plugin.Geolocator.dll" target="lib\UAP10\Plugin.Geolocator.dll" />
+       <file src="Geolocator\Geolocator.Plugin.UWP\bin\Release\Plugin.Geolocator.xml" target="lib\UAP10\Plugin.Geolocator.xml" />
+       <file src="Geolocator\Geolocator.Plugin.UWP\bin\Release\Plugin.Geolocator.pdb" target="lib\UAP10\Plugin.Geolocator.pdb" />
+       <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.dll" target="lib\UAP10\Plugin.Geolocator.Abstractions.dll" />
+       <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.xml" target="lib\UAP10\Plugin.Geolocator.Abstractions.xml" />
+       <file src="Geolocator\Geolocator.Plugin.Abstractions\bin\Release\Plugin.Geolocator.Abstractions.pdb" target="lib\UAP10\Plugin.Geolocator.Abstractions.pdb" />
+       <file src="GeolocatorReadme.txt.pp" target="content\UAP10\PluginsHelp\GeolocatorReadme.txt.pp" />
 
 
    </files>

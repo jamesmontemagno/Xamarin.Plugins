@@ -9,12 +9,12 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Refractored.Xam.Settings</RootNamespace>
-    <AssemblyName>Refractored.Xam.Settings</AssemblyName>
+    <RootNamespace>Plugin.Settings</RootNamespace>
+    <AssemblyName>Plugin.Settings</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
@@ -37,7 +37,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-    <DocumentationFile>bin\Release\Refractored.Xam.Settings.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.Settings.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />

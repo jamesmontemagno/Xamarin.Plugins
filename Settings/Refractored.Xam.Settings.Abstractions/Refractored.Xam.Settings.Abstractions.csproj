@@ -8,8 +8,8 @@
     <ProjectGuid>{D12D6AFA-0696-4177-9C85-EC576277EF8E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Refractored.Xam.Settings.Abstractions</RootNamespace>
-    <AssemblyName>Refractored.Xam.Settings.Abstractions</AssemblyName>
+    <RootNamespace>Plugin.Settings.Abstractions</RootNamespace>
+    <AssemblyName>Plugin.Settings.Abstractions</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -31,7 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Refractored.Xam.Settings.Abstractions.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.Settings.Abstractions.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->

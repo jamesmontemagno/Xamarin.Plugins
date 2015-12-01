@@ -18,7 +18,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Geolocator.Plugin
+namespace Plugin.Geolocator
 {
   internal class Timeout
   {
@@ -33,7 +33,7 @@ namespace Geolocator.Plugin
       if (timesup == null)
         throw new ArgumentNullException("timesup");
       
-      Task.Delay(TimeSpan.FromMilliseconds(timeout), this.canceller.Token)
+      Task.Delay(TimeSpan.FromMilliseconds(timeout), canceller.Token)
           .ContinueWith(t =>
           {
               if (!t.IsCanceled)
@@ -43,7 +43,7 @@ namespace Geolocator.Plugin
 
     public void Cancel()
     {
-      this.canceller.Cancel();
+      canceller.Cancel();
     }
 
     private readonly CancellationTokenSource canceller = new CancellationTokenSource();

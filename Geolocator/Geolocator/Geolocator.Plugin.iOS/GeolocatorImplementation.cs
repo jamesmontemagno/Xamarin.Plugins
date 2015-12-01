@@ -28,10 +28,10 @@ using MonoTouch.CoreLocation;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 #endif
-using Geolocator.Plugin.Abstractions;
+using Plugin.Geolocator.Abstractions;
 
 
-namespace Geolocator.Plugin
+namespace Plugin.Geolocator
 {
   /// <summary>
   /// Implementation for Geolocator

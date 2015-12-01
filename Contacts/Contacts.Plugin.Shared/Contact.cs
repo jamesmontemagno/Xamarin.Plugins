@@ -1,4 +1,4 @@
-﻿/*using Contacts.Plugin.Abstractions;
+﻿/*using Plugin.Contacts.Abstractions;
 
 #if __ANDROID__
 using Android.Provider;
@@ -26,7 +26,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contacts.Plugin.Abstractions
+namespace Plugin.Contacts.Abstractions
 {
   public partial class Contact
   {

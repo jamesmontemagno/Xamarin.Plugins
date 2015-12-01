@@ -3,9 +3,9 @@
 <plist version="1.0">
   <dict>
     <key>CFBundleDisplayName</key>
-    <string>Refractored.Xam.Settings.NUnitTest.iOSUnified</string>
+    <string>Plugin.Settings.NUnitTest.iOSUnified</string>
     <key>CFBundleIdentifier</key>
-    <string>com.your-company.Refractored.Xam.Settings.NUnitTest.iOSUnified</string>
+    <string>com.your-company.Plugin.Settings.NUnitTest.iOSUnified</string>
     <key>CFBundleShortVersionString</key>
     <string>1.0</string>
     <key>CFBundleVersion</key>

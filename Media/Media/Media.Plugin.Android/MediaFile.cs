@@ -20,9 +20,9 @@ using System.Threading.Tasks;
 using Android.Content;
 using File = System.IO.File;
 using IOException = System.IO.IOException;
-using Media.Plugin.Abstractions;
+using Plugin.Media.Abstractions;
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     /// <summary>
     /// 

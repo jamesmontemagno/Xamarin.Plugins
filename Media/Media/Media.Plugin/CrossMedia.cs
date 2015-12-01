@@ -1,7 +1,7 @@
-﻿using Media.Plugin.Abstractions;
+﻿using Plugin.Media.Abstractions;
 using System;
 
-namespace Media.Plugin
+namespace Plugin.Media
 {
     /// <summary>
     /// Cross platform Media implemenations
@@ -29,7 +29,7 @@ namespace Media.Plugin
         static IMedia CreateMedia()
         {
 #if PORTABLE
-        return null;
+            return null;
 #else
             return new MediaImplementation();
 #endif
