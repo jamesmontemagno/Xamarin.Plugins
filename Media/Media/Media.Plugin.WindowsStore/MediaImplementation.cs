@@ -94,7 +94,7 @@ namespace Plugin.Media
                 throw new NotSupportedException();
 
             options.VerifyOptions();
-
+            
             var capture = new CameraCaptureUI();
             capture.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
             capture.PhotoSettings.MaxResolution = CameraCaptureUIMaxPhotoResolution.HighestAvailable;

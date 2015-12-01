@@ -42,7 +42,7 @@ namespace DMX.Helper
         public CameraCaptureUIPage()
         {
           previous = DisplayInformation.AutoRotationPreferences;
-          DisplayInformation.AutoRotationPreferences = DisplayOrientations.Landscape;
+          //DisplayInformation.AutoRotationPreferences = DisplayOrientations.;
             this.Loaded += CameraCaptureUIPage_Loaded;
             this.Unloaded += CameraCaptureUIPage_Unloaded;
             this.InitializeComponent();

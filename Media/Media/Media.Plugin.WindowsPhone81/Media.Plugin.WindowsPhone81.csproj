@@ -92,9 +92,11 @@
     </Compile>
     <Compile Include="CameraCaptureUI.xaml.cs">
       <DependentUpon>CameraCaptureUI.xaml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CameraCaptureUiPage.xaml.cs">
       <DependentUpon>CameraCaptureUiPage.xaml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="MediaImplementation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,10 +105,12 @@
     <Page Include="CameraCaptureUI.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Page>
     <Page Include="CameraCaptureUiPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
