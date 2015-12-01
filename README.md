@@ -30,7 +30,9 @@ Each plugin has a README with more information on what they contain.
 * **[Device Information](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/DeviceInfo)**: Base information about each device such as OS and version.
 * **[Extended Maps](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/ExternalMaps)**: Launch navigation directions in default map app on each OS
 * **[Geolocator](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Geolocator)**: Easy way of querying GPS location
+* **[Local Notifications](https://github.com/edsnider/Xamarin.Plugins/tree/master/Notifier)**: Easily show and schedule local notifications.
 * **[Media](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Media)**: Take or pick photos/videos
+* **[Permissions](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Permissions)**: Check and request runtime permissions.
 * **[Settings](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Settings)**: Fully cross platform settings for your application.
 * **[Share](https://github.com/jguertl/SharePlugin)**: Easily share text or open a browser
 * **[Text To Speech](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/TextToSpeech)**: Turn your text into a vocal symphony on mobile devices.
