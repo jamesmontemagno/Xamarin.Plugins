@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugins.Vibrate</id>
-       <version>2.0.0-alpha1</version>
+       <version>2.0.0</version>
        <title>Vibrate Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -16,8 +16,9 @@
        </description>
      <releaseNotes>
        [2.0.0]
-       -Breaking Changes: new namespace
+       -Breaking Change: new namespace - Plugin.Vibrate
        -Automatically add Android permissions
+       -Add UWP Support
      </releaseNotes>
        <summary>
          Xamarin and Windows plugin to vibrate your device.

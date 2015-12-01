@@ -24,6 +24,7 @@ bld/
 data/
 .nuget/
 .vs/
+*.csproj.bak
 
 # MSTest test Results
 [Tt]est[Rr]esult*/

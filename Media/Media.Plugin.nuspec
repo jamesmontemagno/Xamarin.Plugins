@@ -2,14 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Media</id>
-       <version>2.0.0-alpha2</version>
+       <version>2.0.0</version>
        <title>Media Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
        <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
        <projectUrl>http://github.com/jamesmontemagno/Xamarin.Plugins</projectUrl>
      <iconUrl>http://www.refractored.com/images/plugin_icon_media.png</iconUrl>
-     
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
          Take or pick photos and videos from a cross platform API.

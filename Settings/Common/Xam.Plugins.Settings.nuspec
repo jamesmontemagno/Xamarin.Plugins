@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata minClientVersion="2.8.1">
         <id>Xam.Plugins.Settings</id>
-        <version>2.0.0-alpha1</version>
+        <version>2.0.0</version>
         <title>Settings Plugin for Xamarin and Windows</title>
         <authors>James Montemagno</authors>
         <owners>James Montemagno</owners>

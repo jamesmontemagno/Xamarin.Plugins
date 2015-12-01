@@ -6,8 +6,10 @@ Android:
 You must request ACCESS_NETWORK_STATE permission to get the network state
 You must request ACCESS_WIFI_STATE to get speeds
 
+(Added automatically now for you)
+
 iOS:
-Bandwidths is not supported and will always return an empty list.
+Bandwidths are not supported and will always return an empty list.
 
 Windows 8.1 & Windows Phone 8.1 RT:
 RT apps can not perform loopback, so you can not use IsReachable to query the states of a local IP.

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.DeviceInfo</id>
-       <version>2.0.0-alpha1</version>
+       <version>2.0.0</version>
        <title>Device Info Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -16,6 +16,7 @@
      <releaseNotes>
        [2.0.0]
        -Breaking Change: New Namespace - Plugin.DeviceInfo
+       -Added UWP Support
      </releaseNotes>
        <summary>Get device information such as Model, OS, and other properties.</summary>
        <tags>xamarin, pcl, xam.pcl, settings, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>

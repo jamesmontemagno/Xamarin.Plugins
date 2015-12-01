@@ -1556,7 +1556,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xam.Plugin.Battery/2.0.0-alpha1": {
+      "Xam.Plugin.Battery/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Battery.Abstractions.dll": {},
           "lib/UAP10/Plugin.Battery.dll": {}
@@ -1566,7 +1566,7 @@
           "lib/UAP10/Plugin.Battery.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/2.0.0-alpha2": {
+      "Xam.Plugin.Connectivity/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
           "lib/UAP10/Plugin.Connectivity.dll": {}
@@ -1576,17 +1576,17 @@
           "lib/UAP10/Plugin.Connectivity.dll": {}
         }
       },
-      "Xam.Plugin.Contacts/1.0.0-alpha5": {
+      "Xam.Plugin.Contacts/2.0.0-beta1": {
         "compile": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll": {},
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll": {}
+          "lib/UAP10/Plugin.Contacts.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Contacts.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll": {},
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll": {}
+          "lib/UAP10/Plugin.Contacts.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Contacts.dll": {}
         }
       },
-      "Xam.Plugin.DeviceInfo/2.0.0-alpha1": {
+      "Xam.Plugin.DeviceInfo/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.DeviceInfo.Abstractions.dll": {},
           "lib/UAP10/Plugin.DeviceInfo.dll": {}
@@ -1596,7 +1596,7 @@
           "lib/UAP10/Plugin.DeviceInfo.dll": {}
         }
       },
-      "Xam.Plugin.ExternalMaps/2.0.0-alpha1": {
+      "Xam.Plugin.ExternalMaps/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.ExternalMaps.Abstractions.dll": {},
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
@@ -1606,7 +1606,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/2.0.0-alpha1": {
+      "Xam.Plugin.Geolocator/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -1616,7 +1616,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.0.0-alpha1": {
+      "Xam.Plugin.Media/2.0.0": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -1639,7 +1639,7 @@
           "lib/UAP10/ImageCircle.Forms.Plugin.UWP.dll": {}
         }
       },
-      "Xam.Plugins.Notifier/2.0.0-alpha2": {
+      "Xam.Plugins.Notifier/2.0.1": {
         "compile": {
           "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll": {},
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
@@ -1649,7 +1649,7 @@
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
         }
       },
-      "Xam.Plugins.Settings/2.0.0-alpha1": {
+      "Xam.Plugins.Settings/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
           "lib/UAP10/Plugin.Settings.dll": {}
@@ -1659,7 +1659,7 @@
           "lib/UAP10/Plugin.Settings.dll": {}
         }
       },
-      "Xam.Plugins.TextToSpeech/2.0.0-alpha1": {
+      "Xam.Plugins.TextToSpeech/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.TextToSpeech.Abstractions.dll": {},
           "lib/UAP10/Plugin.TextToSpeech.dll": {}
@@ -1669,7 +1669,7 @@
           "lib/UAP10/Plugin.TextToSpeech.dll": {}
         }
       },
-      "Xam.Plugins.Vibrate/2.0.0-alpha1": {
+      "Xam.Plugins.Vibrate/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Vibrate.Abstractions.dll": {},
           "lib/UAP10/Plugin.Vibrate.dll": {}
@@ -3346,7 +3346,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xam.Plugin.Battery/2.0.0-alpha1": {
+      "Xam.Plugin.Battery/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Battery.Abstractions.dll": {},
           "lib/UAP10/Plugin.Battery.dll": {}
@@ -3356,7 +3356,7 @@
           "lib/UAP10/Plugin.Battery.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/2.0.0-alpha2": {
+      "Xam.Plugin.Connectivity/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
           "lib/UAP10/Plugin.Connectivity.dll": {}
@@ -3366,17 +3366,17 @@
           "lib/UAP10/Plugin.Connectivity.dll": {}
         }
       },
-      "Xam.Plugin.Contacts/1.0.0-alpha5": {
+      "Xam.Plugin.Contacts/2.0.0-beta1": {
         "compile": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll": {},
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll": {}
+          "lib/UAP10/Plugin.Contacts.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Contacts.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll": {},
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll": {}
+          "lib/UAP10/Plugin.Contacts.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Contacts.dll": {}
         }
       },
-      "Xam.Plugin.DeviceInfo/2.0.0-alpha1": {
+      "Xam.Plugin.DeviceInfo/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.DeviceInfo.Abstractions.dll": {},
           "lib/UAP10/Plugin.DeviceInfo.dll": {}
@@ -3386,7 +3386,7 @@
           "lib/UAP10/Plugin.DeviceInfo.dll": {}
         }
       },
-      "Xam.Plugin.ExternalMaps/2.0.0-alpha1": {
+      "Xam.Plugin.ExternalMaps/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.ExternalMaps.Abstractions.dll": {},
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
@@ -3396,7 +3396,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/2.0.0-alpha1": {
+      "Xam.Plugin.Geolocator/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -3406,7 +3406,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.0.0-alpha1": {
+      "Xam.Plugin.Media/2.0.0": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -3429,7 +3429,7 @@
           "lib/UAP10/ImageCircle.Forms.Plugin.UWP.dll": {}
         }
       },
-      "Xam.Plugins.Notifier/2.0.0-alpha2": {
+      "Xam.Plugins.Notifier/2.0.1": {
         "compile": {
           "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll": {},
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
@@ -3439,7 +3439,7 @@
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
         }
       },
-      "Xam.Plugins.Settings/2.0.0-alpha1": {
+      "Xam.Plugins.Settings/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
           "lib/UAP10/Plugin.Settings.dll": {}
@@ -3449,7 +3449,7 @@
           "lib/UAP10/Plugin.Settings.dll": {}
         }
       },
-      "Xam.Plugins.TextToSpeech/2.0.0-alpha1": {
+      "Xam.Plugins.TextToSpeech/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.TextToSpeech.Abstractions.dll": {},
           "lib/UAP10/Plugin.TextToSpeech.dll": {}
@@ -3459,7 +3459,7 @@
           "lib/UAP10/Plugin.TextToSpeech.dll": {}
         }
       },
-      "Xam.Plugins.Vibrate/2.0.0-alpha1": {
+      "Xam.Plugins.Vibrate/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Vibrate.Abstractions.dll": {},
           "lib/UAP10/Plugin.Vibrate.dll": {}
@@ -5108,7 +5108,7 @@
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xam.Plugin.Battery/2.0.0-alpha1": {
+      "Xam.Plugin.Battery/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Battery.Abstractions.dll": {},
           "lib/UAP10/Plugin.Battery.dll": {}
@@ -5118,7 +5118,7 @@
           "lib/UAP10/Plugin.Battery.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/2.0.0-alpha2": {
+      "Xam.Plugin.Connectivity/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
           "lib/UAP10/Plugin.Connectivity.dll": {}
@@ -5128,17 +5128,17 @@
           "lib/UAP10/Plugin.Connectivity.dll": {}
         }
       },
-      "Xam.Plugin.Contacts/1.0.0-alpha5": {
+      "Xam.Plugin.Contacts/2.0.0-beta1": {
         "compile": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll": {},
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll": {}
+          "lib/UAP10/Plugin.Contacts.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Contacts.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll": {},
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll": {}
+          "lib/UAP10/Plugin.Contacts.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Contacts.dll": {}
         }
       },
-      "Xam.Plugin.DeviceInfo/2.0.0-alpha1": {
+      "Xam.Plugin.DeviceInfo/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.DeviceInfo.Abstractions.dll": {},
           "lib/UAP10/Plugin.DeviceInfo.dll": {}
@@ -5148,7 +5148,7 @@
           "lib/UAP10/Plugin.DeviceInfo.dll": {}
         }
       },
-      "Xam.Plugin.ExternalMaps/2.0.0-alpha1": {
+      "Xam.Plugin.ExternalMaps/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.ExternalMaps.Abstractions.dll": {},
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
@@ -5158,7 +5158,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/2.0.0-alpha1": {
+      "Xam.Plugin.Geolocator/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -5168,7 +5168,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.0.0-alpha1": {
+      "Xam.Plugin.Media/2.0.0": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -5191,7 +5191,7 @@
           "lib/UAP10/ImageCircle.Forms.Plugin.UWP.dll": {}
         }
       },
-      "Xam.Plugins.Notifier/2.0.0-alpha2": {
+      "Xam.Plugins.Notifier/2.0.1": {
         "compile": {
           "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll": {},
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
@@ -5201,7 +5201,7 @@
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
         }
       },
-      "Xam.Plugins.Settings/2.0.0-alpha1": {
+      "Xam.Plugins.Settings/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
           "lib/UAP10/Plugin.Settings.dll": {}
@@ -5211,7 +5211,7 @@
           "lib/UAP10/Plugin.Settings.dll": {}
         }
       },
-      "Xam.Plugins.TextToSpeech/2.0.0-alpha1": {
+      "Xam.Plugins.TextToSpeech/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.TextToSpeech.Abstractions.dll": {},
           "lib/UAP10/Plugin.TextToSpeech.dll": {}
@@ -5221,7 +5221,7 @@
           "lib/UAP10/Plugin.TextToSpeech.dll": {}
         }
       },
-      "Xam.Plugins.Vibrate/2.0.0-alpha1": {
+      "Xam.Plugins.Vibrate/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Vibrate.Abstractions.dll": {},
           "lib/UAP10/Plugin.Vibrate.dll": {}
@@ -6903,7 +6903,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xam.Plugin.Battery/2.0.0-alpha1": {
+      "Xam.Plugin.Battery/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Battery.Abstractions.dll": {},
           "lib/UAP10/Plugin.Battery.dll": {}
@@ -6913,7 +6913,7 @@
           "lib/UAP10/Plugin.Battery.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/2.0.0-alpha2": {
+      "Xam.Plugin.Connectivity/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
           "lib/UAP10/Plugin.Connectivity.dll": {}
@@ -6923,17 +6923,17 @@
           "lib/UAP10/Plugin.Connectivity.dll": {}
         }
       },
-      "Xam.Plugin.Contacts/1.0.0-alpha5": {
+      "Xam.Plugin.Contacts/2.0.0-beta1": {
         "compile": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll": {},
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll": {}
+          "lib/UAP10/Plugin.Contacts.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Contacts.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll": {},
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll": {}
+          "lib/UAP10/Plugin.Contacts.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Contacts.dll": {}
         }
       },
-      "Xam.Plugin.DeviceInfo/2.0.0-alpha1": {
+      "Xam.Plugin.DeviceInfo/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.DeviceInfo.Abstractions.dll": {},
           "lib/UAP10/Plugin.DeviceInfo.dll": {}
@@ -6943,7 +6943,7 @@
           "lib/UAP10/Plugin.DeviceInfo.dll": {}
         }
       },
-      "Xam.Plugin.ExternalMaps/2.0.0-alpha1": {
+      "Xam.Plugin.ExternalMaps/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.ExternalMaps.Abstractions.dll": {},
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
@@ -6953,7 +6953,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/2.0.0-alpha1": {
+      "Xam.Plugin.Geolocator/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -6963,7 +6963,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.0.0-alpha1": {
+      "Xam.Plugin.Media/2.0.0": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -6986,7 +6986,7 @@
           "lib/UAP10/ImageCircle.Forms.Plugin.UWP.dll": {}
         }
       },
-      "Xam.Plugins.Notifier/2.0.0-alpha2": {
+      "Xam.Plugins.Notifier/2.0.1": {
         "compile": {
           "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll": {},
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
@@ -6996,7 +6996,7 @@
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
         }
       },
-      "Xam.Plugins.Settings/2.0.0-alpha1": {
+      "Xam.Plugins.Settings/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
           "lib/UAP10/Plugin.Settings.dll": {}
@@ -7006,7 +7006,7 @@
           "lib/UAP10/Plugin.Settings.dll": {}
         }
       },
-      "Xam.Plugins.TextToSpeech/2.0.0-alpha1": {
+      "Xam.Plugins.TextToSpeech/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.TextToSpeech.Abstractions.dll": {},
           "lib/UAP10/Plugin.TextToSpeech.dll": {}
@@ -7016,7 +7016,7 @@
           "lib/UAP10/Plugin.TextToSpeech.dll": {}
         }
       },
-      "Xam.Plugins.Vibrate/2.0.0-alpha1": {
+      "Xam.Plugins.Vibrate/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Vibrate.Abstractions.dll": {},
           "lib/UAP10/Plugin.Vibrate.dll": {}
@@ -8665,7 +8665,7 @@
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xam.Plugin.Battery/2.0.0-alpha1": {
+      "Xam.Plugin.Battery/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Battery.Abstractions.dll": {},
           "lib/UAP10/Plugin.Battery.dll": {}
@@ -8675,7 +8675,7 @@
           "lib/UAP10/Plugin.Battery.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/2.0.0-alpha2": {
+      "Xam.Plugin.Connectivity/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
           "lib/UAP10/Plugin.Connectivity.dll": {}
@@ -8685,17 +8685,17 @@
           "lib/UAP10/Plugin.Connectivity.dll": {}
         }
       },
-      "Xam.Plugin.Contacts/1.0.0-alpha5": {
+      "Xam.Plugin.Contacts/2.0.0-beta1": {
         "compile": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll": {},
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll": {}
+          "lib/UAP10/Plugin.Contacts.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Contacts.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll": {},
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll": {}
+          "lib/UAP10/Plugin.Contacts.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Contacts.dll": {}
         }
       },
-      "Xam.Plugin.DeviceInfo/2.0.0-alpha1": {
+      "Xam.Plugin.DeviceInfo/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.DeviceInfo.Abstractions.dll": {},
           "lib/UAP10/Plugin.DeviceInfo.dll": {}
@@ -8705,7 +8705,7 @@
           "lib/UAP10/Plugin.DeviceInfo.dll": {}
         }
       },
-      "Xam.Plugin.ExternalMaps/2.0.0-alpha1": {
+      "Xam.Plugin.ExternalMaps/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.ExternalMaps.Abstractions.dll": {},
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
@@ -8715,7 +8715,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/2.0.0-alpha1": {
+      "Xam.Plugin.Geolocator/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -8725,7 +8725,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.0.0-alpha1": {
+      "Xam.Plugin.Media/2.0.0": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -8748,7 +8748,7 @@
           "lib/UAP10/ImageCircle.Forms.Plugin.UWP.dll": {}
         }
       },
-      "Xam.Plugins.Notifier/2.0.0-alpha2": {
+      "Xam.Plugins.Notifier/2.0.1": {
         "compile": {
           "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll": {},
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
@@ -8758,7 +8758,7 @@
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
         }
       },
-      "Xam.Plugins.Settings/2.0.0-alpha1": {
+      "Xam.Plugins.Settings/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
           "lib/UAP10/Plugin.Settings.dll": {}
@@ -8768,7 +8768,7 @@
           "lib/UAP10/Plugin.Settings.dll": {}
         }
       },
-      "Xam.Plugins.TextToSpeech/2.0.0-alpha1": {
+      "Xam.Plugins.TextToSpeech/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.TextToSpeech.Abstractions.dll": {},
           "lib/UAP10/Plugin.TextToSpeech.dll": {}
@@ -8778,7 +8778,7 @@
           "lib/UAP10/Plugin.TextToSpeech.dll": {}
         }
       },
-      "Xam.Plugins.Vibrate/2.0.0-alpha1": {
+      "Xam.Plugins.Vibrate/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Vibrate.Abstractions.dll": {},
           "lib/UAP10/Plugin.Vibrate.dll": {}
@@ -10460,7 +10460,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xam.Plugin.Battery/2.0.0-alpha1": {
+      "Xam.Plugin.Battery/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Battery.Abstractions.dll": {},
           "lib/UAP10/Plugin.Battery.dll": {}
@@ -10470,7 +10470,7 @@
           "lib/UAP10/Plugin.Battery.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/2.0.0-alpha2": {
+      "Xam.Plugin.Connectivity/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
           "lib/UAP10/Plugin.Connectivity.dll": {}
@@ -10480,17 +10480,17 @@
           "lib/UAP10/Plugin.Connectivity.dll": {}
         }
       },
-      "Xam.Plugin.Contacts/1.0.0-alpha5": {
+      "Xam.Plugin.Contacts/2.0.0-beta1": {
         "compile": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll": {},
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll": {}
+          "lib/UAP10/Plugin.Contacts.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Contacts.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll": {},
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll": {}
+          "lib/UAP10/Plugin.Contacts.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Contacts.dll": {}
         }
       },
-      "Xam.Plugin.DeviceInfo/2.0.0-alpha1": {
+      "Xam.Plugin.DeviceInfo/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.DeviceInfo.Abstractions.dll": {},
           "lib/UAP10/Plugin.DeviceInfo.dll": {}
@@ -10500,7 +10500,7 @@
           "lib/UAP10/Plugin.DeviceInfo.dll": {}
         }
       },
-      "Xam.Plugin.ExternalMaps/2.0.0-alpha1": {
+      "Xam.Plugin.ExternalMaps/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.ExternalMaps.Abstractions.dll": {},
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
@@ -10510,7 +10510,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/2.0.0-alpha1": {
+      "Xam.Plugin.Geolocator/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -10520,7 +10520,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.0.0-alpha1": {
+      "Xam.Plugin.Media/2.0.0": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -10543,7 +10543,7 @@
           "lib/UAP10/ImageCircle.Forms.Plugin.UWP.dll": {}
         }
       },
-      "Xam.Plugins.Notifier/2.0.0-alpha2": {
+      "Xam.Plugins.Notifier/2.0.1": {
         "compile": {
           "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll": {},
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
@@ -10553,7 +10553,7 @@
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
         }
       },
-      "Xam.Plugins.Settings/2.0.0-alpha1": {
+      "Xam.Plugins.Settings/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
           "lib/UAP10/Plugin.Settings.dll": {}
@@ -10563,7 +10563,7 @@
           "lib/UAP10/Plugin.Settings.dll": {}
         }
       },
-      "Xam.Plugins.TextToSpeech/2.0.0-alpha1": {
+      "Xam.Plugins.TextToSpeech/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.TextToSpeech.Abstractions.dll": {},
           "lib/UAP10/Plugin.TextToSpeech.dll": {}
@@ -10573,7 +10573,7 @@
           "lib/UAP10/Plugin.TextToSpeech.dll": {}
         }
       },
-      "Xam.Plugins.Vibrate/2.0.0-alpha1": {
+      "Xam.Plugins.Vibrate/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Vibrate.Abstractions.dll": {},
           "lib/UAP10/Plugin.Vibrate.dll": {}
@@ -12222,7 +12222,7 @@
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xam.Plugin.Battery/2.0.0-alpha1": {
+      "Xam.Plugin.Battery/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Battery.Abstractions.dll": {},
           "lib/UAP10/Plugin.Battery.dll": {}
@@ -12232,7 +12232,7 @@
           "lib/UAP10/Plugin.Battery.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/2.0.0-alpha2": {
+      "Xam.Plugin.Connectivity/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
           "lib/UAP10/Plugin.Connectivity.dll": {}
@@ -12242,17 +12242,17 @@
           "lib/UAP10/Plugin.Connectivity.dll": {}
         }
       },
-      "Xam.Plugin.Contacts/1.0.0-alpha5": {
+      "Xam.Plugin.Contacts/2.0.0-beta1": {
         "compile": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll": {},
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll": {}
+          "lib/UAP10/Plugin.Contacts.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Contacts.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll": {},
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll": {}
+          "lib/UAP10/Plugin.Contacts.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Contacts.dll": {}
         }
       },
-      "Xam.Plugin.DeviceInfo/2.0.0-alpha1": {
+      "Xam.Plugin.DeviceInfo/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.DeviceInfo.Abstractions.dll": {},
           "lib/UAP10/Plugin.DeviceInfo.dll": {}
@@ -12262,7 +12262,7 @@
           "lib/UAP10/Plugin.DeviceInfo.dll": {}
         }
       },
-      "Xam.Plugin.ExternalMaps/2.0.0-alpha1": {
+      "Xam.Plugin.ExternalMaps/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.ExternalMaps.Abstractions.dll": {},
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
@@ -12272,7 +12272,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/2.0.0-alpha1": {
+      "Xam.Plugin.Geolocator/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -12282,7 +12282,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.0.0-alpha1": {
+      "Xam.Plugin.Media/2.0.0": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -12305,7 +12305,7 @@
           "lib/UAP10/ImageCircle.Forms.Plugin.UWP.dll": {}
         }
       },
-      "Xam.Plugins.Notifier/2.0.0-alpha2": {
+      "Xam.Plugins.Notifier/2.0.1": {
         "compile": {
           "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll": {},
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
@@ -12315,7 +12315,7 @@
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
         }
       },
-      "Xam.Plugins.Settings/2.0.0-alpha1": {
+      "Xam.Plugins.Settings/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
           "lib/UAP10/Plugin.Settings.dll": {}
@@ -12325,7 +12325,7 @@
           "lib/UAP10/Plugin.Settings.dll": {}
         }
       },
-      "Xam.Plugins.TextToSpeech/2.0.0-alpha1": {
+      "Xam.Plugins.TextToSpeech/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.TextToSpeech.Abstractions.dll": {},
           "lib/UAP10/Plugin.TextToSpeech.dll": {}
@@ -12335,7 +12335,7 @@
           "lib/UAP10/Plugin.TextToSpeech.dll": {}
         }
       },
-      "Xam.Plugins.Vibrate/2.0.0-alpha1": {
+      "Xam.Plugins.Vibrate/2.0.0": {
         "compile": {
           "lib/UAP10/Plugin.Vibrate.Abstractions.dll": {},
           "lib/UAP10/Plugin.Vibrate.dll": {}
@@ -15832,8 +15832,8 @@
         "System.Xml.XmlSerializer.nuspec"
       ]
     },
-    "Xam.Plugin.Battery/2.0.0-alpha1": {
-      "sha512": "zE9AdjJcSxF+azchXRhByekkHSi+6hr0rcD5H2VTV+AnuIbNOiPoGZIBYU537hxTDKDkCUmMNYv42rEYyzTMJA==",
+    "Xam.Plugin.Battery/2.0.0": {
+      "sha512": "6IQXRA6QhAFnsLc/3RDpixqJhtKj4T1YIChwRDcrGZVTgQp9XHIRGk7fUAt0PqqmghDY+kNbigknugY8GWMvfQ==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -15882,12 +15882,12 @@
         "lib/Xamarin.iOS10/Plugin.Battery.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Battery.dll",
         "lib/Xamarin.iOS10/Plugin.Battery.xml",
-        "package/services/metadata/core-properties/b5a6f21eec0644c9aada44240f5f1546.psmdcp",
+        "package/services/metadata/core-properties/3755857f39e943ecb088818e62ee4dc6.psmdcp",
         "Xam.Plugin.Battery.nuspec"
       ]
     },
-    "Xam.Plugin.Connectivity/2.0.0-alpha2": {
-      "sha512": "yOuD709GcIqDojNzHlx/g0sLxxx+gxx90kP41SXWV5ZUPdz5FN6UD83aDiITEvaB/yXgmzcdu2RCaY8ErclQVA==",
+    "Xam.Plugin.Connectivity/2.0.0": {
+      "sha512": "DIYq+66kZVnHH02L3bEf3/WO3/SrnQWWDN77hCTsTKCKofnoUzZ6ecGmHy4nuSTKAsx8tuiotln+2h/nn9Cg7w==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -15897,7 +15897,8 @@
         "content/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/PluginsHelp/ConnectivityReadme.txt.pp",
         "content/UAP10/PluginsHelp/ConnectivityReadme.txt.pp",
         "content/win8/PluginsHelp/ConnectivityReadme.txt.pp",
-        "content/wp8/PluginsHelp/ConnectivityReadme.txt.pp",
+        "content/wp80/PluginsHelp/ConnectivityReadme.txt.pp",
+        "content/wp81/PluginsHelp/ConnectivityReadme.txt.pp",
         "content/wpa81/PluginsHelp/ConnectivityReadme.txt.pp",
         "content/Xamarin.iOS10/PluginsHelp/ConnectivityReadme.txt.pp",
         "lib/MonoAndroid10/Plugin.Connectivity.Abstractions.dll",
@@ -15910,12 +15911,12 @@
         "lib/MonoTouch10/Plugin.Connectivity.Abstractions.xml",
         "lib/MonoTouch10/Plugin.Connectivity.dll",
         "lib/MonoTouch10/Plugin.Connectivity.xml",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.Abstractions.dll",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.Abstractions.pdb",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.Abstractions.xml",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.dll",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.pdb",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.xml",
+        "lib/portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.Abstractions.dll",
+        "lib/portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.Abstractions.pdb",
+        "lib/portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.Abstractions.xml",
+        "lib/portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.dll",
+        "lib/portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.pdb",
+        "lib/portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.xml",
         "lib/UAP10/Plugin.Connectivity.Abstractions.dll",
         "lib/UAP10/Plugin.Connectivity.Abstractions.pdb",
         "lib/UAP10/Plugin.Connectivity.Abstractions.xml",
@@ -15928,12 +15929,18 @@
         "lib/win8/Plugin.Connectivity.dll",
         "lib/win8/Plugin.Connectivity.pdb",
         "lib/win8/Plugin.Connectivity.xml",
-        "lib/wp8/Plugin.Connectivity.Abstractions.dll",
-        "lib/wp8/Plugin.Connectivity.Abstractions.pdb",
-        "lib/wp8/Plugin.Connectivity.Abstractions.xml",
-        "lib/wp8/Plugin.Connectivity.dll",
-        "lib/wp8/Plugin.Connectivity.pdb",
-        "lib/wp8/Plugin.Connectivity.xml",
+        "lib/wp80/Plugin.Connectivity.Abstractions.dll",
+        "lib/wp80/Plugin.Connectivity.Abstractions.pdb",
+        "lib/wp80/Plugin.Connectivity.Abstractions.xml",
+        "lib/wp80/Plugin.Connectivity.dll",
+        "lib/wp80/Plugin.Connectivity.pdb",
+        "lib/wp80/Plugin.Connectivity.xml",
+        "lib/wp81/Plugin.Connectivity.Abstractions.dll",
+        "lib/wp81/Plugin.Connectivity.Abstractions.pdb",
+        "lib/wp81/Plugin.Connectivity.Abstractions.xml",
+        "lib/wp81/Plugin.Connectivity.dll",
+        "lib/wp81/Plugin.Connectivity.pdb",
+        "lib/wp81/Plugin.Connectivity.xml",
         "lib/wpa81/Plugin.Connectivity.Abstractions.dll",
         "lib/wpa81/Plugin.Connectivity.Abstractions.pdb",
         "lib/wpa81/Plugin.Connectivity.Abstractions.xml",
@@ -15944,48 +15951,66 @@
         "lib/Xamarin.iOS10/Plugin.Connectivity.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Connectivity.dll",
         "lib/Xamarin.iOS10/Plugin.Connectivity.xml",
-        "package/services/metadata/core-properties/fcd60e40da4745d3b11e7f9e5eb90513.psmdcp",
+        "package/services/metadata/core-properties/fde2c0294083456ba31c0ef0f68df680.psmdcp",
         "Xam.Plugin.Connectivity.nuspec"
       ]
     },
-    "Xam.Plugin.Contacts/1.0.0-alpha5": {
-      "sha512": "4rT8Tmo+UAtWLiUcXh5ueCYOa4kL3Bw3GsFWCezk2vBUqA3CXkrg1n70jmIEkvue0ErqiyPN7KlzibEnBHGroA==",
+    "Xam.Plugin.Contacts/2.0.0-beta1": {
+      "sha512": "13KCGVuas6UoYsD0wlLzFMgXKIHIL4WciIstAhMAwpiHWTNBwFvAusNnt80QgTT3i+mhuvV8BKpdO738CJrcVw==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
         "_rels/.rels",
-        "lib/MonoAndroid10/Contacts.Plugin.Abstractions.dll",
-        "lib/MonoAndroid10/Contacts.Plugin.Abstractions.pdb",
-        "lib/MonoAndroid10/Contacts.Plugin.Abstractions.xml",
-        "lib/MonoAndroid10/Contacts.Plugin.dll",
-        "lib/MonoAndroid10/Contacts.Plugin.pdb",
-        "lib/MonoAndroid10/Contacts.Plugin.xml",
-        "lib/MonoTouch10/Contacts.Plugin.Abstractions.dll",
-        "lib/MonoTouch10/Contacts.Plugin.Abstractions.xml",
-        "lib/MonoTouch10/Contacts.Plugin.dll",
-        "lib/MonoTouch10/Contacts.Plugin.xml",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.dll",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.pdb",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.Abstractions.xml",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.dll",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.pdb",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Contacts.Plugin.xml",
-        "lib/wp8/Contacts.Plugin.Abstractions.dll",
-        "lib/wp8/Contacts.Plugin.Abstractions.pdb",
-        "lib/wp8/Contacts.Plugin.Abstractions.xml",
-        "lib/wp8/Contacts.Plugin.dll",
-        "lib/wp8/Contacts.Plugin.pdb",
-        "lib/wp8/Contacts.Plugin.xml",
-        "lib/Xamarin.iOS10/Contacts.Plugin.Abstractions.dll",
-        "lib/Xamarin.iOS10/Contacts.Plugin.Abstractions.xml",
-        "lib/Xamarin.iOS10/Contacts.Plugin.dll",
-        "lib/Xamarin.iOS10/Contacts.Plugin.xml",
-        "package/services/metadata/core-properties/164bbd11a5f24f7c92489b10dfd1b7d2.psmdcp",
+        "lib/MonoAndroid10/Plugin.Contacts.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Contacts.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.Contacts.Abstractions.xml",
+        "lib/MonoAndroid10/Plugin.Contacts.dll",
+        "lib/MonoAndroid10/Plugin.Contacts.pdb",
+        "lib/MonoAndroid10/Plugin.Contacts.xml",
+        "lib/MonoTouch10/Plugin.Contacts.Abstractions.dll",
+        "lib/MonoTouch10/Plugin.Contacts.Abstractions.xml",
+        "lib/MonoTouch10/Plugin.Contacts.dll",
+        "lib/MonoTouch10/Plugin.Contacts.xml",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Contacts.Abstractions.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Contacts.Abstractions.pdb",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Contacts.Abstractions.xml",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Contacts.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Contacts.pdb",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Contacts.xml",
+        "lib/UAP10/Plugin.Contacts.Abstractions.dll",
+        "lib/UAP10/Plugin.Contacts.Abstractions.pdb",
+        "lib/UAP10/Plugin.Contacts.Abstractions.xml",
+        "lib/UAP10/Plugin.Contacts.dll",
+        "lib/UAP10/Plugin.Contacts.pdb",
+        "lib/UAP10/Plugin.Contacts.xml",
+        "lib/win8/Plugin.Contacts.Abstractions.dll",
+        "lib/win8/Plugin.Contacts.Abstractions.pdb",
+        "lib/win8/Plugin.Contacts.Abstractions.xml",
+        "lib/win8/Plugin.Contacts.dll",
+        "lib/win8/Plugin.Contacts.pdb",
+        "lib/win8/Plugin.Contacts.xml",
+        "lib/wp8/Plugin.Contacts.Abstractions.dll",
+        "lib/wp8/Plugin.Contacts.Abstractions.pdb",
+        "lib/wp8/Plugin.Contacts.Abstractions.xml",
+        "lib/wp8/Plugin.Contacts.dll",
+        "lib/wp8/Plugin.Contacts.pdb",
+        "lib/wp8/Plugin.Contacts.xml",
+        "lib/wpa81/Plugin.Contacts.Abstractions.dll",
+        "lib/wpa81/Plugin.Contacts.Abstractions.pdb",
+        "lib/wpa81/Plugin.Contacts.Abstractions.xml",
+        "lib/wpa81/Plugin.Contacts.dll",
+        "lib/wpa81/Plugin.Contacts.pdb",
+        "lib/wpa81/Plugin.Contacts.xml",
+        "lib/Xamarin.iOS10/Plugin.Contacts.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Contacts.Abstractions.xml",
+        "lib/Xamarin.iOS10/Plugin.Contacts.dll",
+        "lib/Xamarin.iOS10/Plugin.Contacts.xml",
+        "package/services/metadata/core-properties/f995ddcf58094da98a67026326b6879d.psmdcp",
         "Xam.Plugin.Contacts.nuspec"
       ]
     },
-    "Xam.Plugin.DeviceInfo/2.0.0-alpha1": {
-      "sha512": "wWpxQCPHt61YtJhoPmV8ktlkdt/ZPukvneHnRg41dlHWl5MtJn9Je96/HSDYIk8zNMs/rHFUcawfrW6UYBI+hg==",
+    "Xam.Plugin.DeviceInfo/2.0.0": {
+      "sha512": "upj0V8ikyGE+jSoFzh8yHDH0WyzR+Dp0gig7UNGHden4Wf+Jk453jxJIbdyUOh+FJbMouu9Lc8tL7/FEwxT0JQ==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16042,12 +16067,12 @@
         "lib/Xamarin.iOS10/Plugin.DeviceInfo.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.DeviceInfo.dll",
         "lib/Xamarin.iOS10/Plugin.DeviceInfo.xml",
-        "package/services/metadata/core-properties/39ad76f043ff4673bbb553cf9479c773.psmdcp",
+        "package/services/metadata/core-properties/707d9a4ee5a043ff89fec12691f34bf9.psmdcp",
         "Xam.Plugin.DeviceInfo.nuspec"
       ]
     },
-    "Xam.Plugin.ExternalMaps/2.0.0-alpha1": {
-      "sha512": "yGtE9aKLT+iggL8B3JfJUP0Gs+BqoQ4W6qAa4313kU3D0lk8xf6zU4HdnL/zayqnhuagc03tC03FjhaT2Rc2Zw==",
+    "Xam.Plugin.ExternalMaps/2.0.0": {
+      "sha512": "DidBArLH0OhpPy6tJkOhWFdqAY8Hf9qlSZcrl496II3TvR0/DK6O+u5CfA4/24iu045OJMEHZtzNYVD7hS0luw==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16096,12 +16121,12 @@
         "lib/Xamarin.iOS10/Plugin.ExternalMaps.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.ExternalMaps.dll",
         "lib/Xamarin.iOS10/Plugin.ExternalMaps.xml",
-        "package/services/metadata/core-properties/982d408e58a742ae88bd458740e42db7.psmdcp",
+        "package/services/metadata/core-properties/f491bbe36517491097c1fc8c8d90e60b.psmdcp",
         "Xam.Plugin.ExternalMaps.nuspec"
       ]
     },
-    "Xam.Plugin.Geolocator/2.0.0-alpha1": {
-      "sha512": "zkQQRn4J0l0F8XZ6ExvPtj+oFOrVVHc3CVhrJevwKIFAMAbWpBzS6eQNFsP4fAnbKjqQZQwbJtCG7p90pkh7tQ==",
+    "Xam.Plugin.Geolocator/2.0.0": {
+      "sha512": "A/IEK77HAEnjf7TfHjT4cASWHzDenJR7a6KxN+vDmDCYU/wTAlHyS59L+TpqfOBVTSBI3GPCgsvsP7iEzIp+2w==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16158,12 +16183,12 @@
         "lib/Xamarin.iOS10/Plugin.Geolocator.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Geolocator.dll",
         "lib/Xamarin.iOS10/Plugin.Geolocator.xml",
-        "package/services/metadata/core-properties/fed65b12826448a8ace5d445dc10f92b.psmdcp",
+        "package/services/metadata/core-properties/44030b72abaf478aaad3f21b7558f2ca.psmdcp",
         "Xam.Plugin.Geolocator.nuspec"
       ]
     },
-    "Xam.Plugin.Media/2.0.0-alpha1": {
-      "sha512": "Pfhi4uRtUpk9NgEoVa36+VTCxwRm0Pg2ZeVb8COzU8uDM1CrGIPyTmm3YuxZDp6juUZ4+RjjOfyIoCuhVIZGUg==",
+    "Xam.Plugin.Media/2.0.0": {
+      "sha512": "s2vMe9ueJstyyuj/98G70EUGy5MGc0uutXGbh5GWQ9P4F1HPnEdo9o8G3+zj3gTp2G5ewLjLM2lD/MYmpg3BJw==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16206,7 +16231,7 @@
         "lib/Xamarin.iOS10/Plugin.Media.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Media.dll",
         "lib/Xamarin.iOS10/Plugin.Media.xml",
-        "package/services/metadata/core-properties/68f4e2bb92c2404d9dd6282ef3ccc0cc.psmdcp",
+        "package/services/metadata/core-properties/0481103b236f49b09d8c730dcb531a3f.psmdcp",
         "Xam.Plugin.Media.nuspec"
       ]
     },
@@ -16261,8 +16286,8 @@
         "Xam.Plugins.Forms.ImageCircle.nuspec"
       ]
     },
-    "Xam.Plugins.Notifier/2.0.0-alpha2": {
-      "sha512": "iF4vzE3Twbsv9OfiIa3iKdKyOIAd9TuZI/czhDinLuLGmGkYffGW7xp/qkCJSWCKd/h3LvjndGhDhlFmR93Qxw==",
+    "Xam.Plugins.Notifier/2.0.1": {
+      "sha512": "E2ckqudzmhHtu9uohHEy1gMgjgDkYoSuARVKViS6inSDWevIYYLquvYanrEVKQ1wP8pKbdtadgkJS6S34q3GVQ==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16311,12 +16336,12 @@
         "lib/Xamarin.iOS10/Plugin.LocalNotifications.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.LocalNotifications.dll",
         "lib/Xamarin.iOS10/Plugin.LocalNotifications.xml",
-        "package/services/metadata/core-properties/8b002b88a98145dcb6f6c8a2ccac766e.psmdcp",
+        "package/services/metadata/core-properties/d185ea131753407dab50cbdaa8bc8350.psmdcp",
         "Xam.Plugins.Notifier.nuspec"
       ]
     },
-    "Xam.Plugins.Settings/2.0.0-alpha1": {
-      "sha512": "6BieB36p4wDCOClQ1UpGQiAme7q+4oyRuj7Re2I6NeDIZ4FJ5adg1v9qrDPidVm1HhqVx92ZwWA7v5/Qce1k9A==",
+    "Xam.Plugins.Settings/2.0.0": {
+      "sha512": "N8e3zZg0t0iXiGqpccpo5/EGZf/9Q+0Za+9wwRrRUy/mVvZ4UlghwBDiZwj25IP8J59M/OkuMOy/58LO7dclQQ==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16361,12 +16386,12 @@
         "lib/Xamarin.iOS10/Plugin.Settings.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Settings.dll",
         "lib/Xamarin.iOS10/Plugin.Settings.xml",
-        "package/services/metadata/core-properties/26a86c7b2268480cb19511c386c5edf7.psmdcp",
+        "package/services/metadata/core-properties/c2e6dacaad5c43d8b18ca45832679d78.psmdcp",
         "Xam.Plugins.Settings.nuspec"
       ]
     },
-    "Xam.Plugins.TextToSpeech/2.0.0-alpha1": {
-      "sha512": "xlSUvyd475q4DndShvApEJhZS2k2FyWGyv8AuXXvqvt46jpQMLrTao7GT3foinOMpvgP39Cl6mqHrp84uNKOOQ==",
+    "Xam.Plugins.TextToSpeech/2.0.0": {
+      "sha512": "yHH0zmn/TPiWwNdhzzeTqx20O5CySSMqYI8jo2R0plbBjq34EZ5YI915nmJO0pKF6IOsB30STyi/jZkD6Lk/kg==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16415,12 +16440,12 @@
         "lib/Xamarin.iOS10/Plugin.TextToSpeech.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.TextToSpeech.dll",
         "lib/Xamarin.iOS10/Plugin.TextToSpeech.xml",
-        "package/services/metadata/core-properties/cef7746fb9c24461b023bd477548e030.psmdcp",
+        "package/services/metadata/core-properties/a5c490c3fca848ceb7d3e4d05802364e.psmdcp",
         "Xam.Plugins.TextToSpeech.nuspec"
       ]
     },
-    "Xam.Plugins.Vibrate/2.0.0-alpha1": {
-      "sha512": "lAH09vJ0gzRKWa1TjuaKDc+9OLJaudsruy8LyQiTE0Ly5LipyxnNh3uCBIUBUPYUPw1g3U1t/N0dCQ7BLkSYcw==",
+    "Xam.Plugins.Vibrate/2.0.0": {
+      "sha512": "Pyo48v6DI51zQr18fVGKXtQ7LKbwG6SeNWcNz/Sv+NYMU00qdwmMPKo3C4hrfMwz/kuP5/9mbK8Bgc6TH3g2og==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16471,7 +16496,7 @@
         "lib/Xamarin.iOS10/Plugin.Vibrate.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Vibrate.dll",
         "lib/Xamarin.iOS10/Plugin.Vibrate.xml",
-        "package/services/metadata/core-properties/674e30fe56004524bd83f0a759d90f6f.psmdcp",
+        "package/services/metadata/core-properties/7e1072599c5f40b2b3f0ff55bf672b57.psmdcp",
         "Xam.Plugins.Vibrate.nuspec"
       ]
     },
@@ -16630,18 +16655,18 @@
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "Plugin.Permissions >= 1.1.1",
       "Plugin.Share >= 3.0.1",
-      "Xam.Plugin.Battery >= 2.0.0-alpha1",
-      "Xam.Plugin.Connectivity >= 2.0.0-alpha2",
-      "Xam.Plugin.Contacts >= 1.0.0-alpha5",
-      "Xam.Plugin.DeviceInfo >= 2.0.0-alpha1",
-      "Xam.Plugin.ExternalMaps >= 2.0.0-alpha1",
-      "Xam.Plugin.Geolocator >= 2.0.0-alpha1",
-      "Xam.Plugin.Media >= 2.0.0-alpha1",
+      "Xam.Plugin.Battery >= 2.0.0",
+      "Xam.Plugin.Connectivity >= 2.0.0",
+      "Xam.Plugin.Contacts >= 2.0.0-beta1",
+      "Xam.Plugin.DeviceInfo >= 2.0.0",
+      "Xam.Plugin.ExternalMaps >= 2.0.0",
+      "Xam.Plugin.Geolocator >= 2.0.0",
+      "Xam.Plugin.Media >= 2.0.0",
       "Xam.Plugins.Forms.ImageCircle >= 1.2.0",
-      "Xam.Plugins.Notifier >= 2.0.0-alpha2",
-      "Xam.Plugins.Settings >= 2.0.0-alpha1",
-      "Xam.Plugins.TextToSpeech >= 2.0.0-alpha1",
-      "Xam.Plugins.Vibrate >= 2.0.0-alpha1",
+      "Xam.Plugins.Notifier >= 2.0.1",
+      "Xam.Plugins.Settings >= 2.0.0",
+      "Xam.Plugins.TextToSpeech >= 2.0.0",
+      "Xam.Plugins.Vibrate >= 2.0.0",
       "Xamarin.Forms >= 2.0.0.6484",
       "Xamarin.Insights >= 1.11.2"
     ],

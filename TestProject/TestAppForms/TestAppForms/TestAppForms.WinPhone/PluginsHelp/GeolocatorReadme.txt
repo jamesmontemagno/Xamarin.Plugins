@@ -3,7 +3,7 @@ Find the most up to date information at: https://github.com/jamesmontemagno/Xama
 
 **IMPORTANT**
 Android:
-You must request ACCESS_COARSE_LOCATION & ACCESS_FINE_LOCATION permission
+You must request ACCESS_COARSE_LOCATION & ACCESS_FINE_LOCATION permission, now added automotically.
 
 iOS:
 In iOS 8 you now have to call either RequestWhenInUseAuthorization or RequestAlwaysAuthorization on the location manager. Additionally you need to add either the concisely named NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription to your Info.plist. 
