@@ -63,8 +63,11 @@ Then add the xaml:
 
 **Bindable Properties**
 
-You are able to set the ```BorderColor``` to a Forms.Color to display a border around your image and also ```BorderThickness``` for how thick you want it. This is supported in iOS & Android only.
+You are able to set the ```BorderColor``` to a Forms.Color to display a border around your image and also ```BorderThickness``` for how thick you want it. 
 
+You can also set ```FillColor``` to the Forms.Color to fill the circle. DO NOT set ```BackgroundColor``` as that will be the sqaure the entire image takes up.
+
+These are supported in iOS, Android, WinRT, and UWP (not on Windows Phone 8 Silverlight).
 
 **Final Builds**
 For linking you may need to add:
