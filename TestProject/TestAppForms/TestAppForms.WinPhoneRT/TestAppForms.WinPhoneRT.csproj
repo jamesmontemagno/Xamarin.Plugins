@@ -118,12 +118,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="ImageCircle.Forms.Plugin.Abstractions, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugins.Forms.ImageCircle.1.2.0\lib\wpa81\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
+    <Reference Include="ImageCircle.Forms.Plugin.Abstractions, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Forms.ImageCircle.1.3.0\lib\wpa81\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ImageCircle.Forms.Plugin.WindowsPhoneRT, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugins.Forms.ImageCircle.1.2.0\lib\wpa81\ImageCircle.Forms.Plugin.WindowsPhoneRT.dll</HintPath>
+    <Reference Include="ImageCircle.Forms.Plugin.WindowsPhoneRT, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Forms.ImageCircle.1.3.0\lib\wpa81\ImageCircle.Forms.Plugin.WindowsPhoneRT.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.Battery, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">

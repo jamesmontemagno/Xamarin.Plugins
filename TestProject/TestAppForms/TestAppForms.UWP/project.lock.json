@@ -1626,7 +1626,7 @@
           "lib/win8/Plugin.Media.dll": {}
         }
       },
-      "Xam.Plugins.Forms.ImageCircle/1.2.0": {
+      "Xam.Plugins.Forms.ImageCircle/1.3.0": {
         "dependencies": {
           "Xamarin.Forms": "[2.0.0.6482, )"
         },
@@ -3416,7 +3416,7 @@
           "lib/win8/Plugin.Media.dll": {}
         }
       },
-      "Xam.Plugins.Forms.ImageCircle/1.2.0": {
+      "Xam.Plugins.Forms.ImageCircle/1.3.0": {
         "dependencies": {
           "Xamarin.Forms": "[2.0.0.6482, )"
         },
@@ -5178,7 +5178,7 @@
           "lib/win8/Plugin.Media.dll": {}
         }
       },
-      "Xam.Plugins.Forms.ImageCircle/1.2.0": {
+      "Xam.Plugins.Forms.ImageCircle/1.3.0": {
         "dependencies": {
           "Xamarin.Forms": "[2.0.0.6482, )"
         },
@@ -6973,7 +6973,7 @@
           "lib/win8/Plugin.Media.dll": {}
         }
       },
-      "Xam.Plugins.Forms.ImageCircle/1.2.0": {
+      "Xam.Plugins.Forms.ImageCircle/1.3.0": {
         "dependencies": {
           "Xamarin.Forms": "[2.0.0.6482, )"
         },
@@ -8735,7 +8735,7 @@
           "lib/win8/Plugin.Media.dll": {}
         }
       },
-      "Xam.Plugins.Forms.ImageCircle/1.2.0": {
+      "Xam.Plugins.Forms.ImageCircle/1.3.0": {
         "dependencies": {
           "Xamarin.Forms": "[2.0.0.6482, )"
         },
@@ -10530,7 +10530,7 @@
           "lib/win8/Plugin.Media.dll": {}
         }
       },
-      "Xam.Plugins.Forms.ImageCircle/1.2.0": {
+      "Xam.Plugins.Forms.ImageCircle/1.3.0": {
         "dependencies": {
           "Xamarin.Forms": "[2.0.0.6482, )"
         },
@@ -12292,7 +12292,7 @@
           "lib/win8/Plugin.Media.dll": {}
         }
       },
-      "Xam.Plugins.Forms.ImageCircle/1.2.0": {
+      "Xam.Plugins.Forms.ImageCircle/1.3.0": {
         "dependencies": {
           "Xamarin.Forms": "[2.0.0.6482, )"
         },
@@ -16235,8 +16235,8 @@
         "Xam.Plugin.Media.nuspec"
       ]
     },
-    "Xam.Plugins.Forms.ImageCircle/1.2.0": {
-      "sha512": "gmM/gtdYpdqfPnIwbGTr2TEMtIXUb4daLE3xwnH4c4VXFaakOWQuDYvX8oa6N5CYgHxr0W0oUdNwvB2hZ6iy+g==",
+    "Xam.Plugins.Forms.ImageCircle/1.3.0": {
+      "sha512": "NJLyOvv8Jmm7Gn22ywQuLE3g7CXWUdIXWYbkMAPmQOu9E+p5h3agEC2TQESYC0Hp+O4RZjsy3L1qMx7NU4VD3w==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16282,7 +16282,7 @@
         "lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.Abstractions.xml",
         "lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.iOS.dll",
         "lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.iOS.xml",
-        "package/services/metadata/core-properties/b001bea97d3446cbb89cb8e65c3c917c.psmdcp",
+        "package/services/metadata/core-properties/be3b52c753244afc8176a93b2425a50c.psmdcp",
         "Xam.Plugins.Forms.ImageCircle.nuspec"
       ]
     },
@@ -16662,7 +16662,7 @@
       "Xam.Plugin.ExternalMaps >= 2.0.0",
       "Xam.Plugin.Geolocator >= 2.0.0",
       "Xam.Plugin.Media >= 2.0.0",
-      "Xam.Plugins.Forms.ImageCircle >= 1.2.0",
+      "Xam.Plugins.Forms.ImageCircle >= 1.3.0",
       "Xam.Plugins.Notifier >= 2.0.1",
       "Xam.Plugins.Settings >= 2.0.0",
       "Xam.Plugins.TextToSpeech >= 2.0.0",

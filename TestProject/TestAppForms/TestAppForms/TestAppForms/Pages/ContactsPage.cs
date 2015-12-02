@@ -1,13 +1,10 @@
-﻿using Contacts.Plugin;
-using Contacts.Plugin.Abstractions;
+﻿using Plugin.Contacts;
+using Plugin.Contacts.Abstractions;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Diagnostics;
-using Plugin.Permissions;
 
 namespace TestAppForms
 {
@@ -53,11 +50,7 @@ namespace TestAppForms
 
             loaded = true;
 
-            var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Plugin.Permissions.Abstractions.Permission.Contacts);
-            if(status != Plugin.Permissions.Abstractions.PermissionStatus.Granted)
-            {
-                await CrossPermissions.Current.RequestPermissionsAsync(Plugin.Permissions.Abstractions.Permission.Contacts);
-            }
+           
 
             if (await CrossContacts.Current.RequestPermission())
             {
@@ -108,6 +101,10 @@ namespace TestAppForms
                 else
                     this.Title = "Error";
                 this.IsBusy = false;
+            }
+            else
+            {
+               await DisplayAlert("Permission", "Permission denied :(", "OK");
             }
         }
     }
