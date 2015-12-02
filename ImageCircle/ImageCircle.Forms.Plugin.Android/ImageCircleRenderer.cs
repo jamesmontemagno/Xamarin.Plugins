@@ -1,18 +1,15 @@
 using ImageCircle.Forms.Plugin.Abstractions;
-using Android.Content;
-using Android.OS;
 using Android.Runtime;
 using Android.Views;
-using Android.Widget;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Android.Graphics;
 using ImageCircle.Forms.Plugin.Droid;
 using System;
-using System.Diagnostics;
 using System.ComponentModel;
+using Color = Xamarin.Forms.Color;
 
-[assembly: ExportRenderer(typeof(ImageCircle.Forms.Plugin.Abstractions.CircleImage), typeof(ImageCircleRenderer))]
+[assembly: ExportRenderer(typeof(CircleImage), typeof(ImageCircleRenderer))]
 namespace ImageCircle.Forms.Plugin.Droid
 {
     /// <summary>
@@ -50,13 +47,16 @@ namespace ImageCircle.Forms.Plugin.Droid
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
-            if (e.PropertyName == ImageCircle.Forms.Plugin.Abstractions.CircleImage.BorderColorProperty.PropertyName ||
-              e.PropertyName == ImageCircle.Forms.Plugin.Abstractions.CircleImage.BorderThicknessProperty.PropertyName)
+
+            if (e.PropertyName == CircleImage.BorderColorProperty.PropertyName ||
+              e.PropertyName == CircleImage.BorderThicknessProperty.PropertyName ||
+              e.PropertyName == CircleImage.FillColorProperty.PropertyName)
             {
                 this.Invalidate();
             }
         }
 
+        
         /// <summary>
         /// 
         /// </summary>
@@ -64,20 +64,34 @@ namespace ImageCircle.Forms.Plugin.Droid
         /// <param name="child"></param>
         /// <param name="drawingTime"></param>
         /// <returns></returns>
-        protected override bool DrawChild(Canvas canvas, global::Android.Views.View child, long drawingTime)
+        protected override bool DrawChild(Canvas canvas, Android.Views.View child, long drawingTime)
         {
             try
             {
-
+                
                 var radius = Math.Min(Width, Height) / 2;
-                var strokeWidth = ((ImageCircle.Forms.Plugin.Abstractions.CircleImage)Element).BorderThickness;
+                var strokeWidth = ((CircleImage)Element).BorderThickness;
                 radius -= strokeWidth / 2;
 
 
-                Path path = new Path();
+               
+
+                var path = new Path();
                 path.AddCircle(Width / 2, Height / 2, radius, Path.Direction.Ccw);
+
+                
                 canvas.Save();
                 canvas.ClipPath(path);
+
+               
+
+                var paint = new Paint();
+                paint.AntiAlias = true;
+                paint.SetStyle(Paint.Style.Fill);
+                paint.Color = ((CircleImage)Element).FillColor.ToAndroid();
+                canvas.DrawPath(path, paint);
+                paint.Dispose();
+
 
                 var result = base.DrawChild(canvas, child, drawingTime);
 
@@ -85,19 +99,20 @@ namespace ImageCircle.Forms.Plugin.Droid
 
                 path = new Path();
                 path.AddCircle(Width / 2, Height / 2, radius, Path.Direction.Ccw);
+                
 
-                var thickness = ((ImageCircle.Forms.Plugin.Abstractions.CircleImage)Element).BorderThickness;
+                var thickness = ((CircleImage)Element).BorderThickness;
                 if(thickness > 0.0f)
                 {
-                    var paint = new Paint();
+                    paint = new Paint();
                     paint.AntiAlias = true;
                     paint.StrokeWidth = thickness;
                     paint.SetStyle(Paint.Style.Stroke);
-                    paint.Color = ((ImageCircle.Forms.Plugin.Abstractions.CircleImage)Element).BorderColor.ToAndroid();
+                    paint.Color = ((CircleImage)Element).BorderColor.ToAndroid();
                     canvas.DrawPath(path, paint);
                     paint.Dispose();
                 }
-
+                
                 path.Dispose();
                 return result;
             }
