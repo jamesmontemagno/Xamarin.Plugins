@@ -40,6 +40,7 @@ namespace MediaAndroidTest
 
         public void OnActivityPaused(Activity activity)
         {
+           
         }
 
         public void OnActivityResumed(Activity activity)

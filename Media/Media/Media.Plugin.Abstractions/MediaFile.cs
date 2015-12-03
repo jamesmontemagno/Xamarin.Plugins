@@ -35,10 +35,10 @@ namespace Plugin.Media.Abstractions
         /// <param name="dispose"></param>
         public MediaFile(string path, Func<Stream> streamGetter, bool deletePathOnDispose = false, Action<bool> dispose = null)
         {
-            dispose = dispose;
-            streamGetter = streamGetter;
-            path = path;
-            deletePathOnDispose = deletePathOnDispose;
+            this.dispose = dispose;
+            this.streamGetter = streamGetter;
+            this.path = path;
+            this.deletePathOnDispose = deletePathOnDispose;
         }
         /// <summary>
         /// Path to file

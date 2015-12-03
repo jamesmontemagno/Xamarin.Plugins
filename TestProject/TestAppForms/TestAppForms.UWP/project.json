@@ -9,13 +9,13 @@
     "Xam.Plugin.DeviceInfo": "2.0.0",
     "Xam.Plugin.ExternalMaps": "2.0.0",
     "Xam.Plugin.Geolocator": "2.0.0",
-    "Xam.Plugin.Media": "2.0.0",
+    "Xam.Plugin.Media": "2.0.1",
     "Xam.Plugins.Forms.ImageCircle": "1.3.0",
     "Xam.Plugins.Notifier": "2.0.1",
     "Xam.Plugins.Settings": "2.0.0",
     "Xam.Plugins.TextToSpeech": "2.0.0",
     "Xam.Plugins.Vibrate": "2.0.0",
-    "Xamarin.Forms": "2.0.0.6484",
+    "Xamarin.Forms": "2.0.0.6490",
     "Xamarin.Insights": "1.11.2"
   },
   "frameworks": {

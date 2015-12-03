@@ -28,20 +28,20 @@ namespace Plugin.Media
 {
     class NSDataStream : Stream
     {
-        NSData data;
+        NSData theData;
         uint pos;
 
         public NSDataStream(NSData data)
         {
-            data = data;
+            this.theData = data;
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (data != null)
+            if (theData != null)
             {
-                data.Dispose();
-                data = null;
+                theData.Dispose();
+                theData = null;
             }
         }
 
@@ -51,19 +51,19 @@ namespace Plugin.Media
 
         public override int Read(byte[] buffer, int offset, int count)
         {
-            if (pos >= data.Length)
+            if (pos >= theData.Length)
             {
                 return 0;
             }
             else
             {
 #if ! __UNIFIED__
-                var len = (int)Math.Min(count, data.Length - pos);
+                var len = (int)Math.Min(count, theData.Length - pos);
 #else
-				var len = (int)Math.Min (count, (double)(data.Length - pos));
+				var len = (int)Math.Min (count, (double)(theData.Length - pos));
 #endif
 
-                Marshal.Copy(new IntPtr(data.Bytes.ToInt64() + pos), buffer, offset, len);
+                Marshal.Copy(new IntPtr(theData.Bytes.ToInt64() + pos), buffer, offset, len);
                 pos += (uint)len;
                 return len;
             }
@@ -114,9 +114,9 @@ namespace Plugin.Media
             {
                 // override does not allow nint
 #if ! __UNIFIED__
-                return data.Length;
+                return theData.Length;
 #else
-				return (long) data.Length;
+				return (long) theData.Length;
 #endif
             }
         }

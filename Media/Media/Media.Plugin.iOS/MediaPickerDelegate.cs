@@ -16,7 +16,6 @@
 
 using System;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 using Plugin.Media.Abstractions;
@@ -50,7 +49,7 @@ namespace Plugin.Media
             if (viewController != null)
             {
                 UIDevice.CurrentDevice.BeginGeneratingDeviceOrientationNotifications();
-                this.observer = NSNotificationCenter.DefaultCenter.AddObserver(UIDevice.OrientationDidChangeNotification, DidRotate);
+                observer = NSNotificationCenter.DefaultCenter.AddObserver(UIDevice.OrientationDidChangeNotification, DidRotate);
             }
         }
 
@@ -62,7 +61,7 @@ namespace Plugin.Media
 
         public UIView View
         {
-            get { return this.viewController.View; }
+            get { return viewController.View; }
         }
 
         public Task<MediaFile> Task
@@ -97,7 +96,7 @@ namespace Plugin.Media
             {
 
 
-                this.tcs.TrySetResult(mediaFile);
+                tcs.TrySetResult(mediaFile);
             });
         }
 
@@ -112,7 +111,7 @@ namespace Plugin.Media
             {
 
 
-                this.tcs.SetResult(null);
+                tcs.SetResult(null);
             });
         }
 
@@ -127,16 +126,17 @@ namespace Plugin.Media
             nfloat width = 400;
             nfloat height = 300;
 
-            if (this.orientation == null)
+
+            if (orientation == null)
             {
                 if (IsValidInterfaceOrientation(UIDevice.CurrentDevice.Orientation))
-                    this.orientation = UIDevice.CurrentDevice.Orientation;
+                    orientation = UIDevice.CurrentDevice.Orientation;
                 else
-                    this.orientation = GetDeviceOrientation(this.viewController.InterfaceOrientation);
+                    orientation = GetDeviceOrientation(this.viewController.InterfaceOrientation);
             }
 
             nfloat x, y;
-            if (this.orientation == UIDeviceOrientation.LandscapeLeft || this.orientation == UIDeviceOrientation.LandscapeRight)
+            if (orientation == UIDeviceOrientation.LandscapeLeft || orientation == UIDeviceOrientation.LandscapeRight)
             {
                 y = (swidth / 2) - (height / 2);
                 x = (sheight / 2) - (width / 2);
@@ -162,22 +162,22 @@ namespace Plugin.Media
 
         private bool IsCaptured
         {
-            get { return this.source == UIImagePickerControllerSourceType.Camera; }
+            get { return source == UIImagePickerControllerSourceType.Camera; }
         }
 
         private void Dismiss(UIImagePickerController picker, NSAction onDismiss)
         {
-            if (this.viewController == null)
+            if (viewController == null)
             {
                 onDismiss();
                 tcs = new TaskCompletionSource<MediaFile>();
             }
             else
             {
-                NSNotificationCenter.DefaultCenter.RemoveObserver(this.observer);
+                NSNotificationCenter.DefaultCenter.RemoveObserver(observer);
                 UIDevice.CurrentDevice.EndGeneratingDeviceOrientationNotifications();
 
-                this.observer.Dispose();
+                observer.Dispose();
 
                 if (Popover != null)
                 {
@@ -200,7 +200,7 @@ namespace Plugin.Media
             UIDevice device = (UIDevice)notice.Object;
             if (!IsValidInterfaceOrientation(device.Orientation) || Popover == null)
                 return;
-            if (this.orientation.HasValue && IsSameOrientationKind(this.orientation.Value, device.Orientation))
+            if (orientation.HasValue && IsSameOrientationKind(orientation.Value, device.Orientation))
                 return;
 
             if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
@@ -211,8 +211,8 @@ namespace Plugin.Media
             else if (!GetShouldRotate(device.Orientation))
                 return;
 
-            UIDeviceOrientation? co = this.orientation;
-            this.orientation = device.Orientation;
+            UIDeviceOrientation? co = orientation;
+            orientation = device.Orientation;
 
             if (co == null)
                 return;
@@ -244,12 +244,12 @@ namespace Plugin.Media
                 default: return false;
             }
 
-            return this.viewController.ShouldAutorotateToInterfaceOrientation(iorientation);
+            return viewController.ShouldAutorotateToInterfaceOrientation(iorientation);
         }
 
         private bool GetShouldRotate6(UIDeviceOrientation orientation)
         {
-            if (!this.viewController.ShouldAutorotate())
+            if (!viewController.ShouldAutorotate())
                 return false;
 
             UIInterfaceOrientationMask mask = UIInterfaceOrientationMask.Portrait;
@@ -274,7 +274,7 @@ namespace Plugin.Media
                 default: return false;
             }
 
-            return this.viewController.GetSupportedInterfaceOrientations().HasFlag(mask);
+            return viewController.GetSupportedInterfaceOrientations().HasFlag(mask);
         }
 
         private MediaFile GetPictureMediaFile(NSDictionary info)
@@ -295,7 +295,7 @@ namespace Plugin.Media
             }
 
             Action<bool> dispose = null;
-            if (this.source != UIImagePickerControllerSourceType.Camera)
+            if (source != UIImagePickerControllerSourceType.Camera)
                 dispose = d => File.Delete(path);
 
             return new MediaFile(path, () => File.OpenRead(path), dispose: dispose);
@@ -307,12 +307,12 @@ namespace Plugin.Media
 
             string path = GetOutputPath(MediaImplementation.TypeMovie,
                       options.Directory ?? ((IsCaptured) ? String.Empty : "temp"),
-                      this.options.Name ?? Path.GetFileName(url.Path));
+                      options.Name ?? Path.GetFileName(url.Path));
 
             File.Move(url.Path, path);
 
             Action<bool> dispose = null;
-            if (this.source != UIImagePickerControllerSourceType.Camera)
+            if (source != UIImagePickerControllerSourceType.Camera)
                 dispose = d => File.Delete(path);
 
             return new MediaFile(path, () => File.OpenRead(path), dispose: dispose);

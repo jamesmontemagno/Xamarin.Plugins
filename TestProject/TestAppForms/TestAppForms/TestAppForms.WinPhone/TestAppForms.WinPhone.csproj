@@ -233,12 +233,12 @@
       <HintPath>..\..\packages\Xam.Plugins.Notifier.2.0.1\lib\wp8\Plugin.LocalNotifications.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Media, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Media.2.0.0\lib\wp8\Plugin.Media.dll</HintPath>
+    <Reference Include="Plugin.Media, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.0.1\lib\wp8\Plugin.Media.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Media.Abstractions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Media.2.0.0\lib\wp8\Plugin.Media.Abstractions.dll</HintPath>
+    <Reference Include="Plugin.Media.Abstractions, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.0.1\lib\wp8\Plugin.Media.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.Permissions, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">

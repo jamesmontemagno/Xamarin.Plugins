@@ -43,6 +43,8 @@ namespace MediaAndroidTest
                   var file = await Plugin.Media.CrossMedia.Current.PickPhotoAsync();
                   if (file == null)
                       return;
+                  var path = file.Path;
+                  System.Diagnostics.Debug.WriteLine(path);
                   image.SetImageBitmap(BitmapFactory.DecodeFile(file.Path));
                   file.Dispose();
               };
