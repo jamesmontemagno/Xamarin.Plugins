@@ -262,6 +262,11 @@ namespace Plugin.Media
                 pickerIntent.PutExtra(MediaPickerActivity.ExtraPath, options.Directory);
                 pickerIntent.PutExtra(MediaStore.Images.ImageColumns.Title, options.Name);
 
+
+                var cameraOptions = (options as StoreCameraMediaOptions);
+                if (cameraOptions != null)
+                    pickerIntent.PutExtra(MediaPickerActivity.ExtraSaveToAlbum, cameraOptions.SaveToAlbum);
+
                 var vidOptions = (options as StoreVideoOptions);
                 if (vidOptions != null)
                 {

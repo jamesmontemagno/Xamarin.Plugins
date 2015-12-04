@@ -27,6 +27,7 @@ using Environment = Android.OS.Environment;
 using Path = System.IO.Path;
 using Uri = Android.Net.Uri;
 using Plugin.Media.Abstractions;
+using Android.Net;
 
 namespace Plugin.Media
 {
@@ -36,7 +37,7 @@ namespace Plugin.Media
     [Activity]
     [Android.Runtime.Preserve(AllMembers = true)]
     public class MediaPickerActivity
-        : Activity
+        : Activity, Android.Media.MediaScannerConnection.IOnScanCompletedListener
     {
         internal const string ExtraPath = "path";
         internal const string ExtraLocation = "location";
@@ -44,6 +45,7 @@ namespace Plugin.Media
         internal const string ExtraId = "id";
         internal const string ExtraAction = "action";
         internal const string ExtraTasked = "tasked";
+        internal const string ExtraSaveToAlbum = "album_save";
 
         internal static event EventHandler<MediaPickedEventArgs> MediaPicked;
 
@@ -57,6 +59,7 @@ namespace Plugin.Media
         /// </summary>
         private Uri path;
         private bool isPhoto;
+        private bool saveToAlbum;
         private string action;
 
         private int seconds;
@@ -77,6 +80,7 @@ namespace Plugin.Media
             outState.PutString(ExtraAction, this.action);
             outState.PutInt(MediaStore.ExtraDurationLimit, this.seconds);
             outState.PutInt(MediaStore.ExtraVideoQuality, (int)this.quality);
+            outState.PutBoolean(ExtraSaveToAlbum, saveToAlbum);
             outState.PutBoolean(ExtraTasked, this.tasked);
 
             if (this.path != null)
@@ -122,12 +126,15 @@ namespace Plugin.Media
                             pickIntent.PutExtra(MediaStore.ExtraDurationLimit, seconds);
                     }
 
+                    this.saveToAlbum = b.GetBoolean(ExtraSaveToAlbum);
+                    pickIntent.PutExtra(ExtraSaveToAlbum, this.saveToAlbum);
+
                     this.quality = (VideoQuality)b.GetInt(MediaStore.ExtraVideoQuality, (int)VideoQuality.High);
                     pickIntent.PutExtra(MediaStore.ExtraVideoQuality, GetVideoQuality(this.quality));
 
                     if (!ran)
                     {
-                        this.path = GetOutputMediaFile(this, b.GetString(ExtraPath), this.title, this.isPhoto);
+                        this.path = GetOutputMediaFile(this, b.GetString(ExtraPath), this.title, this.isPhoto, this.saveToAlbum);
 
                         Touch();
                         pickIntent.PutExtra(MediaStore.ExtraOutput, this.path);
@@ -158,7 +165,7 @@ namespace Plugin.Media
             File.Create(GetLocalPath(this.path)).Close();
         }
 
-        internal static Task<MediaPickedEventArgs> GetMediaFileAsync(Context context, int requestCode, string action, bool isPhoto, ref Uri path, Uri data)
+        internal static Task<MediaPickedEventArgs> GetMediaFileAsync(Context context, int requestCode, string action, bool isPhoto, ref Uri path, Uri data, bool saveToAlbum)
         {
             Task<Tuple<string, bool>> pathFuture;
 
@@ -166,7 +173,9 @@ namespace Plugin.Media
 
             if (action != Intent.ActionPick)
             {
+
                 originalPath = path.Path;
+
 
                 // Not all camera apps respect EXTRA_OUTPUT, some will instead
                 // return a content or file uri from data.
@@ -174,26 +183,73 @@ namespace Plugin.Media
                 {
                     originalPath = data.ToString();
                     string currentPath = path.Path;
-                    pathFuture = TryMoveFileAsync(context, data, path, isPhoto).ContinueWith(t =>
+                    pathFuture = TryMoveFileAsync(context, data, path, isPhoto, saveToAlbum).ContinueWith(t =>
                         new Tuple<string, bool>(t.Result ? currentPath : null, false));
                 }
                 else
+                {
                     pathFuture = TaskFromResult(new Tuple<string, bool>(path.Path, false));
+                   
+                }
             }
             else if (data != null)
             {
                 originalPath = data.ToString();
                 path = data;
-                pathFuture = GetFileForUriAsync(context, path, isPhoto);
+                pathFuture = GetFileForUriAsync(context, path, isPhoto, saveToAlbum);
             }
             else
                 pathFuture = TaskFromResult<Tuple<string, bool>>(null);
 
             return pathFuture.ContinueWith(t =>
             {
+                
                 string resultPath = t.Result.Item1;
                 if (resultPath != null && File.Exists(t.Result.Item1))
                 {
+                    string aPath = null;
+                    if (saveToAlbum)
+                    {
+                        aPath = resultPath;
+                        try
+                        {
+                            
+                            var f = new Java.IO.File(resultPath);
+
+                            
+                            //MediaStore.Images.Media.InsertImage(context.ContentResolver,
+                            //    f.AbsolutePath, f.Name, null);
+
+                            try
+                            {
+                                Android.Media.MediaScannerConnection.ScanFile(context, new [] { f.AbsolutePath }, null, context as MediaPickerActivity);
+
+                                ContentValues values = new ContentValues();
+                                values.Put(MediaStore.Images.Media.InterfaceConsts.Title, Path.GetFileNameWithoutExtension(f.AbsolutePath));
+                                values.Put(MediaStore.Images.Media.InterfaceConsts.Description, string.Empty);
+                                values.Put(MediaStore.Images.Media.InterfaceConsts.DateTaken, Java.Lang.JavaSystem.CurrentTimeMillis());
+                                values.Put(MediaStore.Images.ImageColumns.BucketId, f.ToString().ToLowerInvariant().GetHashCode());
+                                values.Put(MediaStore.Images.ImageColumns.BucketDisplayName, f.Name.ToLowerInvariant());
+                                values.Put("_data", f.AbsolutePath);
+
+                                var cr = context.ContentResolver;
+                                cr.Insert(MediaStore.Images.Media.ExternalContentUri, values);
+                            }
+                            catch (Exception ex1)
+                            {
+                                    Console.WriteLine("Unable to save to scan file: " + ex1);
+                            }
+                        
+                            var contentUri = Uri.FromFile(f);
+                            var mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile, contentUri);
+                            context.SendBroadcast(mediaScanIntent);
+                        }
+                        catch (Exception ex2)
+                        {
+                            Console.WriteLine("Unable to save to gallery: " + ex2);
+                        }
+                    }
+
                     var mf = new MediaFile(resultPath, () =>
                       {
                           return File.OpenRead(resultPath);
@@ -216,7 +272,7 @@ namespace Plugin.Media
                               {
                               }
                           }
-                      });
+                      }, albumPath: aPath);
                     return new MediaPickedEventArgs(requestCode, false, mf);
                 }
                 else
@@ -234,8 +290,12 @@ namespace Plugin.Media
         {
             base.OnActivityResult(requestCode, resultCode, data);
 
+
+
             if (this.tasked)
             {
+
+               
                 Task<MediaPickedEventArgs> future;
 
                 if (resultCode == Result.Canceled)
@@ -250,13 +310,13 @@ namespace Plugin.Media
                 {
                     if ((int)Build.VERSION.SdkInt >= 22)
                     {
-                        var e = await GetMediaFileAsync(this, requestCode, this.action, this.isPhoto, ref this.path, (data != null) ? data.Data : null);
+                        var e = await GetMediaFileAsync(this, requestCode, this.action, this.isPhoto, ref this.path, (data != null) ? data.Data : null, saveToAlbum);
                         OnMediaPicked(e);
                         Finish();
                     }
                     else
                     {
-                        future = GetMediaFileAsync(this, requestCode, this.action, this.isPhoto, ref this.path, (data != null) ? data.Data : null);
+                        future = GetMediaFileAsync(this, requestCode, this.action, this.isPhoto, ref this.path, (data != null) ? data.Data : null, saveToAlbum);
 
                         Finish();
 
@@ -275,7 +335,7 @@ namespace Plugin.Media
                     resultData.PutExtra("path", this.path);
                     resultData.PutExtra("isPhoto", this.isPhoto);
                     resultData.PutExtra("action", this.action);
-
+                    resultData.PutExtra(ExtraSaveToAlbum, this.saveToAlbum);
                     SetResult(Result.Ok, resultData);
                 }
 
@@ -283,10 +343,10 @@ namespace Plugin.Media
             }
         }
 
-        private static Task<bool> TryMoveFileAsync(Context context, Uri url, Uri path, bool isPhoto)
+        private static Task<bool> TryMoveFileAsync(Context context, Uri url, Uri path, bool isPhoto, bool saveToAlbum)
         {
             string moveTo = GetLocalPath(path);
-            return GetFileForUriAsync(context, url, isPhoto).ContinueWith(t =>
+            return GetFileForUriAsync(context, url, isPhoto, saveToAlbum).ContinueWith(t =>
             {
                 if (t.Result.Item1 == null)
                     return false;
@@ -330,7 +390,7 @@ namespace Plugin.Media
             return Path.Combine(folder, nname);
         }
 
-        private static Uri GetOutputMediaFile(Context context, string subdir, string name, bool isPhoto)
+        private static Uri GetOutputMediaFile(Context context, string subdir, string name, bool isPhoto, bool saveToAlbum)
         {
             subdir = subdir ?? String.Empty;
 
@@ -344,7 +404,8 @@ namespace Plugin.Media
             }
 
             string mediaType = (isPhoto) ? Environment.DirectoryPictures : Environment.DirectoryMovies;
-            using (Java.IO.File mediaStorageDir = new Java.IO.File(context.GetExternalFilesDir(mediaType), subdir))
+            var directory = saveToAlbum ? Environment.GetExternalStoragePublicDirectory(mediaType) : context.GetExternalFilesDir(mediaType);
+            using (Java.IO.File mediaStorageDir = new Java.IO.File(directory, subdir))
             {
                 if (!mediaStorageDir.Exists())
                 {
@@ -360,7 +421,7 @@ namespace Plugin.Media
             }
         }
 
-        internal static Task<Tuple<string, bool>> GetFileForUriAsync(Context context, Uri uri, bool isPhoto)
+        internal static Task<Tuple<string, bool>> GetFileForUriAsync(Context context, Uri uri, bool isPhoto, bool saveToAlbum)
         {
             var tcs = new TaskCompletionSource<Tuple<string, bool>>();
 
@@ -394,7 +455,7 @@ namespace Plugin.Media
                             if (contentPath == null || !contentPath.StartsWith("file"))
                             {
 
-                                Uri outputPath = GetOutputMediaFile(context, "temp", null, isPhoto);
+                                Uri outputPath = GetOutputMediaFile(context, "temp", null, isPhoto, saveToAlbum);
 
                                 try
                                 {
@@ -445,9 +506,16 @@ namespace Plugin.Media
 
         private static void OnMediaPicked(MediaPickedEventArgs e)
         {
+
+
             var picked = MediaPicked;
             if (picked != null)
                 picked(null, e);
+        }
+
+        public void OnScanCompleted(string path, Uri uri)
+        {
+            Console.WriteLine("scan complete: " + path);
         }
     }
 

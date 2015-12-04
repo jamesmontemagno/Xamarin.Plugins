@@ -50,8 +50,14 @@ namespace Plugin.Media
             var uri = (Android.Net.Uri)self.GetParcelableExtra("MediaFile");
             bool isPhoto = self.GetBooleanExtra("isPhoto", false);
             var path = (Android.Net.Uri)self.GetParcelableExtra("path");
+            bool saveToAlbum = false;
+            try
+            {
+                saveToAlbum = (bool)self.GetParcelableExtra("album_save");
+            }
+            catch { }
 
-            return MediaPickerActivity.GetMediaFileAsync(context, 0, action, isPhoto, ref path, uri)
+            return MediaPickerActivity.GetMediaFileAsync(context, 0, action, isPhoto, ref path, uri, saveToAlbum)
                 .ContinueWith(t => t.Result.ToTask()).Unwrap();
         }
     }

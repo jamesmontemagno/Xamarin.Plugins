@@ -19,7 +19,8 @@ namespace MediaTest.iOS
             {
                 var test = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
                 {
-                    Name = "test1.jpg"
+                    Name = "test1.jpg",
+                    SaveToAlbum = true
                 });
 
                 if (test != null)
@@ -37,7 +38,8 @@ namespace MediaTest.iOS
             {
                 var test = await CrossMedia.Current.TakeVideoAsync(new Plugin.Media.Abstractions.StoreVideoOptions
                 {
-                    Name = "test1.mp4"
+                    Name = "test1.mp4",
+                    SaveToAlbum = true
                 });
                 if (test != null)
                     test.Dispose();

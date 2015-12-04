@@ -28,10 +28,13 @@ namespace MediaAndroidTest
                 var file = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
                 {
                     Directory = "Sample",
-                    Name = "test.jpg"
+                    Name = "test.jpg",
+                    SaveToAlbum = true
                 });
                 if (file == null)
                     return;
+                var path = file.Path;
+                System.Diagnostics.Debug.WriteLine(path);
 
                 image.SetImageBitmap(BitmapFactory.DecodeFile(file.Path));
                 file.Dispose();
@@ -55,12 +58,15 @@ namespace MediaAndroidTest
                   var file = await Plugin.Media.CrossMedia.Current.TakeVideoAsync(new Plugin.Media.Abstractions.StoreVideoOptions
                   {
                       Directory = "Sample",
-                      Name = "test.jpg"
+                      Name = "test.jpg",
+                      SaveToAlbum = true
                   });
                   if (file == null)
                       return;
+                  var path = file.Path;
+                  System.Diagnostics.Debug.WriteLine(path);
 
-                  
+
 
                   file.Dispose();
                   
@@ -74,6 +80,8 @@ namespace MediaAndroidTest
                 if (file == null)
                     return;
 
+                var path = file.Path;
+                System.Diagnostics.Debug.WriteLine(path);
 
                 file.Dispose();
             };

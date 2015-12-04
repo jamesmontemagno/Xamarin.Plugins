@@ -31,7 +31,7 @@ using System.Threading;
 using System.Linq;
 using Windows.ApplicationModel.Activation;
 using DMX.Helper;
-
+using System.Diagnostics;
 
 namespace Plugin.Media
 {
@@ -136,7 +136,7 @@ namespace Plugin.Media
             var result = await capture.CaptureFileAsync(CameraCaptureUIMode.Photo, options);
             if (result == null)
                 return null;
-
+            
             StorageFolder folder = ApplicationData.Current.LocalFolder;
 
             string path = options.GetFilePath(folder.Path);
@@ -148,9 +148,23 @@ namespace Plugin.Media
             folder = await StorageFolder.GetFolderFromPathAsync(directoryFull);
 
             string filename = Path.GetFileName(path);
+            string aPath = null;
+            if (options?.SaveToAlbum ?? false)
+            {
+                try
+                {
+                    string fileNameNoEx = Path.GetFileNameWithoutExtension(path);
+                    var copy = await result.CopyAsync(KnownFolders.PicturesLibrary, fileNameNoEx + result.FileType, NameCollisionOption.GenerateUniqueName);
+                    aPath = copy.Path;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("unable to save to album:" + ex);
+                }
+            }
 
             var file = await result.CopyAsync(folder, filename, NameCollisionOption.GenerateUniqueName).AsTask();
-            return new MediaFile(file.Path, () => file.OpenStreamForReadAsync().Result);
+            return new MediaFile(file.Path, () => file.OpenStreamForReadAsync().Result, albumPath: aPath);
         }
 
         /// <summary>

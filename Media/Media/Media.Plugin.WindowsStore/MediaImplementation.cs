@@ -8,7 +8,7 @@ using Windows.Storage;
 using Windows.Storage.Pickers;
 
 using Plugin.Media.Abstractions;
-
+using System.Diagnostics;
 
 namespace Plugin.Media
 {
@@ -124,8 +124,23 @@ namespace Plugin.Media
 
             string filename = Path.GetFileName(path);
 
+            string aPath = null;
+            if (options?.SaveToAlbum ?? false)
+            {
+                try
+                {
+                    string fileNameNoEx = Path.GetFileNameWithoutExtension(path);
+                    var copy = await result.CopyAsync(KnownFolders.PicturesLibrary, fileNameNoEx + result.FileType, NameCollisionOption.GenerateUniqueName);
+                    aPath = copy.Path;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("unable to save to album:" + ex);
+                }
+            }
+
             var file = await result.CopyAsync(folder, filename, NameCollisionOption.GenerateUniqueName).AsTask();
-            return new MediaFile(file.Path, () => file.OpenStreamForReadAsync().Result);
+            return new MediaFile(file.Path, () => file.OpenStreamForReadAsync().Result, albumPath: aPath);
         }
 
         /// <summary>
@@ -171,7 +186,22 @@ namespace Plugin.Media
             if (result == null)
                 return null;
 
-            return new MediaFile(result.Path, () => result.OpenStreamForReadAsync().Result);
+            string aPath = null;
+            if (options?.SaveToAlbum ?? false)
+            {
+                try
+                {
+                    string fileNameNoEx = Path.GetFileNameWithoutExtension(result.Path);
+                    var copy = await result.CopyAsync(KnownFolders.VideosLibrary, fileNameNoEx + result.FileType, NameCollisionOption.GenerateUniqueName);
+                    aPath = copy.Path;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("unable to save to album:" + ex);
+                }
+            }
+
+            return new MediaFile(result.Path, () => result.OpenStreamForReadAsync().Result, albumPath: aPath);
         }
 
         /// <summary>

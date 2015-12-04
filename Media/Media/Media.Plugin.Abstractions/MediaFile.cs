@@ -26,6 +26,7 @@ namespace Plugin.Media.Abstractions
     public sealed class MediaFile
       : IDisposable
     {
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -33,12 +34,13 @@ namespace Plugin.Media.Abstractions
         /// <param name="streamGetter"></param>
         /// <param name="deletePathOnDispose"></param>
         /// <param name="dispose"></param>
-        public MediaFile(string path, Func<Stream> streamGetter, bool deletePathOnDispose = false, Action<bool> dispose = null)
+        public MediaFile(string path, Func<Stream> streamGetter, bool deletePathOnDispose = false, Action<bool> dispose = null, string albumPath = null)
         {
             this.dispose = dispose;
             this.streamGetter = streamGetter;
             this.path = path;
             this.deletePathOnDispose = deletePathOnDispose;
+            this.albumPath = albumPath;
         }
         /// <summary>
         /// Path to file
@@ -53,6 +55,21 @@ namespace Plugin.Media.Abstractions
                 return path;
             }
         }
+
+        /// <summary>
+        /// Path to file
+        /// </summary>
+        public string AlbumPath
+        {
+            get
+            {
+                if (isDisposed)
+                    throw new ObjectDisposedException(null);
+
+                return albumPath;
+            }
+        }
+
         /// <summary>
         /// Get stream if available
         /// </summary>
@@ -76,7 +93,7 @@ namespace Plugin.Media.Abstractions
         private bool isDisposed;
         private readonly Action<bool> dispose;
         private readonly Func<Stream> streamGetter;
-        private readonly string path;
+        private readonly string path, albumPath;
         private readonly bool deletePathOnDispose;
 
         private void Dispose(bool disposing)

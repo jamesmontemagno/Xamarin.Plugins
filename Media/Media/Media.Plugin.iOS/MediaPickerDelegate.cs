@@ -19,6 +19,7 @@ using System.IO;
 using System.Threading.Tasks;
 
 using Plugin.Media.Abstractions;
+using System.Collections.Generic;
 
 #if __UNIFIED__
 using CoreGraphics;
@@ -69,18 +70,18 @@ namespace Plugin.Media
             get { return tcs.Task; }
         }
 
-        public override void FinishedPickingMedia(UIImagePickerController picker, NSDictionary info)
+        public override async void FinishedPickingMedia(UIImagePickerController picker, NSDictionary info)
         {
 
             MediaFile mediaFile;
             switch ((NSString)info[UIImagePickerController.MediaType])
             {
                 case MediaImplementation.TypeImage:
-                    mediaFile = GetPictureMediaFile(info);
+                    mediaFile = await GetPictureMediaFile(info);
                     break;
 
                 case MediaImplementation.TypeMovie:
-                    mediaFile = GetMovieMediaFile(info);
+                    mediaFile = await GetMovieMediaFile(info);
                     break;
 
                 default:
@@ -277,11 +278,14 @@ namespace Plugin.Media
             return viewController.GetSupportedInterfaceOrientations().HasFlag(mask);
         }
 
-        private MediaFile GetPictureMediaFile(NSDictionary info)
+        private async Task<MediaFile> GetPictureMediaFile(NSDictionary info)
         {
             var image = (UIImage)info[UIImagePickerController.EditedImage];
             if (image == null)
                 image = (UIImage)info[UIImagePickerController.OriginalImage];
+
+            var meta = info[UIImagePickerController.MediaMetadata] as NSDictionary;
+
 
             string path = GetOutputPath(MediaImplementation.TypeImage,
                 options.Directory ?? ((IsCaptured) ? String.Empty : "temp"),
@@ -295,13 +299,32 @@ namespace Plugin.Media
             }
 
             Action<bool> dispose = null;
+            string aPath = null;
             if (source != UIImagePickerControllerSourceType.Camera)
                 dispose = d => File.Delete(path);
+            else
+            {
+                if (this.options.SaveToAlbum)
+                {
+                    try
+                    {
+                        var library = new ALAssetsLibrary();
+                        var albumSave = await library.WriteImageToSavedPhotosAlbumAsync(image.CGImage, meta);
+                        aPath = albumSave.AbsoluteString;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("unable to save to album:" + ex);
+                    }
+                }
+            }
 
-            return new MediaFile(path, () => File.OpenRead(path), dispose: dispose);
+            return new MediaFile(path, () => File.OpenRead(path), dispose: dispose, albumPath: aPath);
         }
 
-        private MediaFile GetMovieMediaFile(NSDictionary info)
+        
+
+        private async Task<MediaFile> GetMovieMediaFile(NSDictionary info)
         {
             NSUrl url = (NSUrl)info[UIImagePickerController.MediaURL];
 
@@ -311,11 +334,28 @@ namespace Plugin.Media
 
             File.Move(url.Path, path);
 
+            string aPath = null;
             Action<bool> dispose = null;
             if (source != UIImagePickerControllerSourceType.Camera)
                 dispose = d => File.Delete(path);
+            else
+            {
+                if (this.options.SaveToAlbum)
+                {
+                    try
+                    {
+                        var library = new ALAssetsLibrary();
+                        var albumSave = await library.WriteVideoToSavedPhotosAlbumAsync(new NSUrl(path));
+                        aPath = albumSave.AbsoluteString;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("unable to save to album:" + ex);
+                    }
+                }
+            }
 
-            return new MediaFile(path, () => File.OpenRead(path), dispose: dispose);
+            return new MediaFile(path, () => File.OpenRead(path), dispose: dispose, albumPath: aPath);
         }
 
         private static string GetUniquePath(string type, string path, string name)

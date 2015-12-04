@@ -77,6 +77,14 @@ namespace Plugin.Media.Abstractions
             get;
             set;
         }
+
+        /// <summary>
+        // Get or set if the image should be stored public
+        /// </summary>
+        public bool SaveToAlbum
+        {
+            get; set;
+        }
     }
 
     /// <summary>
