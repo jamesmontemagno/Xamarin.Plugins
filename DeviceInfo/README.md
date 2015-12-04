@@ -13,6 +13,7 @@ Simple way of getting common device information.
 * Windows Phone 8 (Silverlight)
 * Windows Ptone 8.1 RT
 * Windows Store 8.1
+* Windows 10 UWP
 
 
 ### API Usage
