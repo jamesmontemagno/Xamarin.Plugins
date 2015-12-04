@@ -25,6 +25,7 @@ public override void OnRequestPermissionsResult(int requestCode, string[] permis
 * Windows Phone 8 (Silverlight)
 * Windows Ptone 8.1 RT
 * Windows Store 8.1
+* Windows 10 UWP
 
 
 ### API Usage
