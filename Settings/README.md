@@ -6,13 +6,23 @@ Create and access settings from shared code across all of your mobile apps!
 * Android: SharedPreferences
 * iOS: NSUserDefaults
 * Windows Phone: IsolatedStorageSettings
-* Windows Store / Windows Phone RT: ApplicationDataContainer
+* Windows RT / UWP: ApplicationDataContainer
 
 ### Setup & Usage
 * Available on NuGet: https://www.nuget.org/packages/Xam.Plugins.Settings/
 * Install into your PCL project and Client projects.
 * Open up Helpers/Settings.cs in your PCL for directions on how to use.
 * If you are not using a PCL you will find an _SettingsStarted.txt file under properties to get started. Else you can follow this guide:
+
+
+**Supports**
+* Xamarin.iOS
+* Xamarin.iOS (x64 Unified)
+* Xamarin.Android
+* Windows Phone 8 (Silverlight)
+* Windows Phone 8.1 RT
+* Windows Store 8.1
+* Windows 10 UWP
 
 #### Create a new static class
 You will want to create a new `static` class called "Settings" in your shared code project or PCL that will house all of your settings.
@@ -72,14 +82,6 @@ There you have it! You are all done :)
 You must enable generic type sharing in the settings. It is on by default on new projects.
 
 ![](http://content.screencast.com/users/JamesMontemagno/folders/Jing/media/7466bca6-a916-4fd9-9301-3c3403d3a6ad/00000097.png)
-
-**Supports**
-* Xamarin.iOS
-* Xamarin.iOS (x64 Unified)
-* Xamarin.Android
-* Windows Phone 8 (Silverlight)
-* Windows Pone 8.1 RT
-* Windows Store 8.0+
 
 
 ### Data Types Supported
