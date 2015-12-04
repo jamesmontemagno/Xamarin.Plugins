@@ -13,6 +13,7 @@ Simple cross platform plugin to check connection status of mobile device, gather
 * Windows Phone 8 (Silverlight)
 * Windows Phone 8.1 RT
 * Windows Store 8.1
+* Windows 10 UWP
 
 
 ### API Usage
