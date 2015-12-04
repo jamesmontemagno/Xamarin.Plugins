@@ -7,6 +7,14 @@
 * Available on NuGet: https://www.nuget.org/packages/Xam.Plugin.ExternalMaps
 * Install into your PCL project and Client projects.
 
+**Supports**
+* Xamarin.iOS
+* Xamarin.iOS (x64 Unified)
+* Xamarin.Android
+* Windows Phone 8 (Silverlight)
+* Windows Phone 8.1 RT
+* Windows Store 8.1
+* Windows 10 UWP
 
 #### Usage
 There are two methods that you can call to navigate either with the geolocation lat/long or with a full address to go to.
