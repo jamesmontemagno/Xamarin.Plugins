@@ -17,10 +17,11 @@ This NuGet can be used for all tradition Xamarin and Windows development with or
 * Xamarin.Android
 * Windows Phone 8 (Silverlight)
 * Windows Phone 8.1 RT
-* Windows Store 8.1 (Vibrate not supported on these devices, just a blank DLL installed)
+* Windows Store 8.1 (not supported on devices, just blank implementation)
+* Windows 10 UWP
 
 **ANDROID Specific**
-Please ensure you have the VIBRATE persmission enabled:
+Please ensure you have the VIBRATE persmission enabled (will auto be added now).
 
 ```
 <uses-permission android:name="android.permission.VIBRATE" />
