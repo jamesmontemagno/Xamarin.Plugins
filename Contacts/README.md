@@ -14,6 +14,9 @@ Ported from [Xamarin.Mobile](http://www.github.com/xamarin/xamarin.mobile) to a 
 * Xamarin.iOS (x64 Unified)
 * Xamarin.Android
 * Windows Phone 8 (Silverlight)
+* Windows Phone 8.1 RT (Blank Implementation)
+* Windows Store 8.1 (Blank Implementation)
+* Windows 10 UWP (Blank Implementation)
 
 ### API Usage Example
 ```csharp
