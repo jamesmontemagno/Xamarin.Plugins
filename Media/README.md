@@ -96,7 +96,7 @@ takePhoto.Clicked += async (sender, args) =>
         return;
     }
 
-    var file = await CrossMedia.Current.TakePhotoAsync(new Media.Plugin.Abstractions.StoreCameraMediaOptions
+    var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
     {
         Directory = "Sample",
         Name = "test.jpg"
@@ -146,7 +146,7 @@ Set `Webcam` permission.
 In your App.xaml.cs you MUST place the following code:
 
 ```csharp
-Media.Plugin.MediaImplementation.OnFilesPicked(args);
+Plugin.Media.MediaImplementation.OnFilesPicked(args);
 ```
 
 **Windows Store:**
