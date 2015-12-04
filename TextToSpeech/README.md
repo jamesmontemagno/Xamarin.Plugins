@@ -22,9 +22,10 @@ Preview: http://screencast.com/t/voW1P48Ka
 * Xamarin.iOS
 * Xamarin.iOS (x64 Unified)
 * Xamarin.Android
-* Windows Phone 8/8.1 (Silverlight)
+* Windows Phone 8 (Silverlight)
 * Windows Phone 8.1 RT
 * Windows Store 8.1
+* Windows 10 UWP
 
 
 ### Usage
