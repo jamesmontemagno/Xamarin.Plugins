@@ -13,7 +13,14 @@ This is my main repo for all all Xamarin Plugins that I have or will be publishi
 
 Read more on my blog: http://motzcod.es/post/104507063997/what-exactly-is-a-plugin-for-xamarin
 
-# Sample App
+## Contribute
+My Plugins for Xamarin are completely open source and I encourage and accept pull requests! So please help out in any ways you can:
+1. Report Bugs: Open an Issue
+2. Submit Feature Requests: Open an Issue
+3. Fix a Bug or Add Feature: Send a Pull Request
+4. Create your Own Plugin : [Learn How](https://github.com/xamarin/plugins)
+
+## Sample App
 Download the sample app today:
 * Google Play: https://play.google.com/store/apps/details?id=com.refractored.testappforms
 * iOS: Coming Soon
