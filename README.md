@@ -30,7 +30,7 @@ Download the sample app today:
 
 # My Current Plugins for Xamarin
 
-Each plugin has a README with more information on what they contain.
+Each plugin has a README with more information on what they contain. These are plugins I have created or actively contribute to:
 * **[Battery Status](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Battery)**: Get battery level, how it is getting charge, and events.
 * **[Compass](https://github.com/JarleySoft/Xamarin.Plugins/tree/master/Compass)**: Easily access compass heading
 * **[Connectivity](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Connectivity)**: See if device is connected to the internet and through what connection type.
@@ -40,6 +40,7 @@ Each plugin has a README with more information on what they contain.
 * **[Geolocator](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Geolocator)**: Easy way of querying GPS location
 * **[Local Notifications](https://github.com/edsnider/Xamarin.Plugins/tree/master/Notifier)**: Easily show and schedule local notifications.
 * **[Media](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Media)**: Take or pick photos/videos
+* **[Messaging](https://github.com/cjlotz/Xamarin.Plugins/tree/master/Messaging)**: Send emails, sms, and place phone calls
 * **[Permissions](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Permissions)**: Check and request runtime permissions.
 * **[Settings](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Settings)**: Fully cross platform settings for your application.
 * **[Share](https://github.com/jguertl/SharePlugin)**: Easily share text or open a browser
