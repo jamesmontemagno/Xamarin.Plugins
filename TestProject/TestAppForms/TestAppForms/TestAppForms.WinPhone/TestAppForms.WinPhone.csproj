@@ -225,12 +225,12 @@
       <HintPath>..\..\packages\Xam.Plugin.Geolocator.3.0.1\lib\wp8\Plugin.Geolocator.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.LocalNotifications, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugins.Notifier.2.0.1\lib\wp8\Plugin.LocalNotifications.dll</HintPath>
+    <Reference Include="Plugin.LocalNotifications, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Notifier.2.0.2\lib\wp8\Plugin.LocalNotifications.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.LocalNotifications.Abstractions, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugins.Notifier.2.0.1\lib\wp8\Plugin.LocalNotifications.Abstractions.dll</HintPath>
+    <Reference Include="Plugin.LocalNotifications.Abstractions, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Notifier.2.0.2\lib\wp8\Plugin.LocalNotifications.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.Media, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">

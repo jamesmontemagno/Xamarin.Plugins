@@ -1639,7 +1639,7 @@
           "lib/UAP10/ImageCircle.Forms.Plugin.UWP.dll": {}
         }
       },
-      "Xam.Plugins.Notifier/2.0.1": {
+      "Xam.Plugins.Notifier/2.0.2": {
         "compile": {
           "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll": {},
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
@@ -3429,7 +3429,7 @@
           "lib/UAP10/ImageCircle.Forms.Plugin.UWP.dll": {}
         }
       },
-      "Xam.Plugins.Notifier/2.0.1": {
+      "Xam.Plugins.Notifier/2.0.2": {
         "compile": {
           "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll": {},
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
@@ -5191,7 +5191,7 @@
           "lib/UAP10/ImageCircle.Forms.Plugin.UWP.dll": {}
         }
       },
-      "Xam.Plugins.Notifier/2.0.1": {
+      "Xam.Plugins.Notifier/2.0.2": {
         "compile": {
           "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll": {},
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
@@ -6986,7 +6986,7 @@
           "lib/UAP10/ImageCircle.Forms.Plugin.UWP.dll": {}
         }
       },
-      "Xam.Plugins.Notifier/2.0.1": {
+      "Xam.Plugins.Notifier/2.0.2": {
         "compile": {
           "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll": {},
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
@@ -8748,7 +8748,7 @@
           "lib/UAP10/ImageCircle.Forms.Plugin.UWP.dll": {}
         }
       },
-      "Xam.Plugins.Notifier/2.0.1": {
+      "Xam.Plugins.Notifier/2.0.2": {
         "compile": {
           "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll": {},
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
@@ -10543,7 +10543,7 @@
           "lib/UAP10/ImageCircle.Forms.Plugin.UWP.dll": {}
         }
       },
-      "Xam.Plugins.Notifier/2.0.1": {
+      "Xam.Plugins.Notifier/2.0.2": {
         "compile": {
           "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll": {},
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
@@ -12305,7 +12305,7 @@
           "lib/UAP10/ImageCircle.Forms.Plugin.UWP.dll": {}
         }
       },
-      "Xam.Plugins.Notifier/2.0.1": {
+      "Xam.Plugins.Notifier/2.0.2": {
         "compile": {
           "lib/UAP10/Plugin.LocalNotifications.Abstractions.dll": {},
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
@@ -16286,8 +16286,8 @@
         "Xam.Plugins.Forms.ImageCircle.nuspec"
       ]
     },
-    "Xam.Plugins.Notifier/2.0.1": {
-      "sha512": "E2ckqudzmhHtu9uohHEy1gMgjgDkYoSuARVKViS6inSDWevIYYLquvYanrEVKQ1wP8pKbdtadgkJS6S34q3GVQ==",
+    "Xam.Plugins.Notifier/2.0.2": {
+      "sha512": "I3HVB5ZmMVMqhYwqaPHMHhElHYDGN0Hy6suCODvahf25EATFzl/UOa4U4KDSqXkLvIAVbUdhpByYHqTYSuAE/Q==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16336,7 +16336,7 @@
         "lib/Xamarin.iOS10/Plugin.LocalNotifications.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.LocalNotifications.dll",
         "lib/Xamarin.iOS10/Plugin.LocalNotifications.xml",
-        "package/services/metadata/core-properties/d185ea131753407dab50cbdaa8bc8350.psmdcp",
+        "package/services/metadata/core-properties/baa0326d523943b193c07e8ea0a70821.psmdcp",
         "Xam.Plugins.Notifier.nuspec"
       ]
     },
@@ -16664,7 +16664,7 @@
       "Xam.Plugin.Geolocator >= 3.0.1",
       "Xam.Plugin.Media >= 2.1.0-beta1",
       "Xam.Plugins.Forms.ImageCircle >= 1.3.0",
-      "Xam.Plugins.Notifier >= 2.0.1",
+      "Xam.Plugins.Notifier >= 2.0.2",
       "Xam.Plugins.Settings >= 2.0.0",
       "Xam.Plugins.TextToSpeech >= 2.0.0",
       "Xam.Plugins.Vibrate >= 2.0.0",

@@ -26,7 +26,6 @@ namespace TestAppForms.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Plugin.LocalNotifications.Resource.Drawable.plugin_lc_smallicon = global::TestAppForms.Droid.Resource.Drawable.plugin_lc_smallicon;
 			global::Plugin.TextToSpeech.Resource.String.ApplicationName = global::TestAppForms.Droid.Resource.String.ApplicationName;
 			global::Plugin.TextToSpeech.Resource.String.Hello = global::TestAppForms.Droid.Resource.String.Hello;
 			global::Plugin.Vibrate.Resource.String.ApplicationName = global::TestAppForms.Droid.Resource.String.ApplicationName;
@@ -3332,11 +3331,8 @@ namespace TestAppForms.Droid
 			// aapt resource value: 0x7f020063
 			public const int mr_ic_settings_light = 2130837603;
 			
-			// aapt resource value: 0x7f020065
-			public const int notification_template_icon_bg = 2130837605;
-			
 			// aapt resource value: 0x7f020064
-			public const int plugin_lc_smallicon = 2130837604;
+			public const int notification_template_icon_bg = 2130837604;
 			
 			static Drawable()
 			{
