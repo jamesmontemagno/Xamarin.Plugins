@@ -1606,7 +1606,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/2.0.0": {
+      "Xam.Plugin.Geolocator/3.0.1": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -1616,7 +1616,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.0.1": {
+      "Xam.Plugin.Media/2.1.0-beta1": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -1679,7 +1679,7 @@
           "lib/UAP10/Plugin.Vibrate.dll": {}
         }
       },
-      "Xamarin.Forms/2.0.0.6490": {
+      "Xamarin.Forms/2.0.1.6492-pre1": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
@@ -3396,7 +3396,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/2.0.0": {
+      "Xam.Plugin.Geolocator/3.0.1": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -3406,7 +3406,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.0.1": {
+      "Xam.Plugin.Media/2.1.0-beta1": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -3469,7 +3469,7 @@
           "lib/UAP10/Plugin.Vibrate.dll": {}
         }
       },
-      "Xamarin.Forms/2.0.0.6490": {
+      "Xamarin.Forms/2.0.1.6492-pre1": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
@@ -5158,7 +5158,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/2.0.0": {
+      "Xam.Plugin.Geolocator/3.0.1": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -5168,7 +5168,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.0.1": {
+      "Xam.Plugin.Media/2.1.0-beta1": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -5231,7 +5231,7 @@
           "lib/UAP10/Plugin.Vibrate.dll": {}
         }
       },
-      "Xamarin.Forms/2.0.0.6490": {
+      "Xamarin.Forms/2.0.1.6492-pre1": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
@@ -6953,7 +6953,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/2.0.0": {
+      "Xam.Plugin.Geolocator/3.0.1": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -6963,7 +6963,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.0.1": {
+      "Xam.Plugin.Media/2.1.0-beta1": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -7026,7 +7026,7 @@
           "lib/UAP10/Plugin.Vibrate.dll": {}
         }
       },
-      "Xamarin.Forms/2.0.0.6490": {
+      "Xamarin.Forms/2.0.1.6492-pre1": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
@@ -8715,7 +8715,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/2.0.0": {
+      "Xam.Plugin.Geolocator/3.0.1": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -8725,7 +8725,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.0.1": {
+      "Xam.Plugin.Media/2.1.0-beta1": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -8788,7 +8788,7 @@
           "lib/UAP10/Plugin.Vibrate.dll": {}
         }
       },
-      "Xamarin.Forms/2.0.0.6490": {
+      "Xamarin.Forms/2.0.1.6492-pre1": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
@@ -10510,7 +10510,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/2.0.0": {
+      "Xam.Plugin.Geolocator/3.0.1": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -10520,7 +10520,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.0.1": {
+      "Xam.Plugin.Media/2.1.0-beta1": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -10583,7 +10583,7 @@
           "lib/UAP10/Plugin.Vibrate.dll": {}
         }
       },
-      "Xamarin.Forms/2.0.0.6490": {
+      "Xamarin.Forms/2.0.1.6492-pre1": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
@@ -12272,7 +12272,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/2.0.0": {
+      "Xam.Plugin.Geolocator/3.0.1": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -12282,7 +12282,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.0.1": {
+      "Xam.Plugin.Media/2.1.0-beta1": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -12345,7 +12345,7 @@
           "lib/UAP10/Plugin.Vibrate.dll": {}
         }
       },
-      "Xamarin.Forms/2.0.0.6490": {
+      "Xamarin.Forms/2.0.1.6492-pre1": {
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
           "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
@@ -16125,8 +16125,8 @@
         "Xam.Plugin.ExternalMaps.nuspec"
       ]
     },
-    "Xam.Plugin.Geolocator/2.0.0": {
-      "sha512": "A/IEK77HAEnjf7TfHjT4cASWHzDenJR7a6KxN+vDmDCYU/wTAlHyS59L+TpqfOBVTSBI3GPCgsvsP7iEzIp+2w==",
+    "Xam.Plugin.Geolocator/3.0.1": {
+      "sha512": "HX6E0BkSy8emwiA/8L2SLRCXXpDD8aExI2bfSklE47SQMHfPeSI2CpzMu9GCcyMp7ZdjiUqwLr6soID2EoK5Zg==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16183,12 +16183,12 @@
         "lib/Xamarin.iOS10/Plugin.Geolocator.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Geolocator.dll",
         "lib/Xamarin.iOS10/Plugin.Geolocator.xml",
-        "package/services/metadata/core-properties/44030b72abaf478aaad3f21b7558f2ca.psmdcp",
+        "package/services/metadata/core-properties/16b9ce3c2a534ad8baef83faae679fb0.psmdcp",
         "Xam.Plugin.Geolocator.nuspec"
       ]
     },
-    "Xam.Plugin.Media/2.0.1": {
-      "sha512": "h2m04QdI5Z3pARmoaKfiwUFue9XpqwaA7FyrFyvjUtd3UT6jBy3gxkq+S8PGRSWml2IvMOqbW4rnk7sE7c5LCA==",
+    "Xam.Plugin.Media/2.1.0-beta1": {
+      "sha512": "6KxB38snHnYHXDBDzdHRbZaICH86I5/TTmh3KSBKMqZRvbBanSHi2A/Q7YlfL4xDkPvis4mdjF06pff6SHz6IQ==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16231,7 +16231,7 @@
         "lib/Xamarin.iOS10/Plugin.Media.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Media.dll",
         "lib/Xamarin.iOS10/Plugin.Media.xml",
-        "package/services/metadata/core-properties/901e9f1f40254fef96ca11c5c02c03c5.psmdcp",
+        "package/services/metadata/core-properties/00cbd45354e34639a7c89c56d83adcd9.psmdcp",
         "Xam.Plugin.Media.nuspec"
       ]
     },
@@ -16500,8 +16500,8 @@
         "Xam.Plugins.Vibrate.nuspec"
       ]
     },
-    "Xamarin.Forms/2.0.0.6490": {
-      "sha512": "jTQp/dIlAT2J3dvFwr+UsP0COsTmkTuPQ2ySnYnrLyoHV0gbUueMt1oPmBnFEDedoUxhEQIhMFbzGRKuiS+Wvw==",
+    "Xamarin.Forms/2.0.1.6492-pre1": {
+      "sha512": "S6yI7Sw5zd6qNAuqBiivYDpsgarngQmuljejxXbM7u3i4QBo2GBfzsKRqaMfVliIiRfxhlwHm8JF2ROoodnBRQ==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16577,6 +16577,7 @@
         "lib/wpa81/Xamarin.Forms.Platform.WinRT.dll",
         "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone.dll",
         "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone.pri",
+        "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone/FormsTextBoxStyle.xbf",
         "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone/PhoneResources.xbf",
         "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone/Resources.xbf",
         "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone/SearchBox.xbf",
@@ -16594,7 +16595,7 @@
         "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll",
         "lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll",
         "lib/Xamarin.iOS10/Xamarin.Forms.Xaml.xml",
-        "package/services/metadata/core-properties/bc55d49ed9c94f79b5764d7531ffc462.psmdcp",
+        "package/services/metadata/core-properties/6f10ef328dc4439e9cd758ee8ce4b6b3.psmdcp",
         "tools/init.ps1",
         "tools/Xamarin.Forms.Core.Design.dll",
         "tools/Xamarin.Forms.Xaml.Design.dll",
@@ -16660,14 +16661,14 @@
       "Xam.Plugin.Contacts >= 2.0.0-beta1",
       "Xam.Plugin.DeviceInfo >= 2.0.0",
       "Xam.Plugin.ExternalMaps >= 2.0.0",
-      "Xam.Plugin.Geolocator >= 2.0.0",
-      "Xam.Plugin.Media >= 2.0.1",
+      "Xam.Plugin.Geolocator >= 3.0.1",
+      "Xam.Plugin.Media >= 2.1.0-beta1",
       "Xam.Plugins.Forms.ImageCircle >= 1.3.0",
       "Xam.Plugins.Notifier >= 2.0.1",
       "Xam.Plugins.Settings >= 2.0.0",
       "Xam.Plugins.TextToSpeech >= 2.0.0",
       "Xam.Plugins.Vibrate >= 2.0.0",
-      "Xamarin.Forms >= 2.0.0.6490",
+      "Xamarin.Forms >= 2.0.1.6492-pre1",
       "Xamarin.Insights >= 1.11.2"
     ],
     "UAP,Version=v10.0": []
