@@ -50,7 +50,7 @@ namespace TestAppForms.Pages
                         else
                         { 
                             CrossGeolocator.Current.StartListening(30000, 0);
-                            labelGPSTrack.Text = "Stopped tracking";
+                            labelGPSTrack.Text = "Started tracking";
                             buttonTrack.Text = "Track Movements";
                         }
                     }
