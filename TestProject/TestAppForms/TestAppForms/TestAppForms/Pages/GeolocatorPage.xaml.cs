@@ -43,15 +43,17 @@ namespace TestAppForms.Pages
                     {
                         if(CrossGeolocator.Current.IsListening)
                         {
-                            CrossGeolocator.Current.StopListening();
+                            await CrossGeolocator.Current.StopListeningAsync();
                             labelGPSTrack.Text = "Stopped tracking";
                             buttonTrack.Text = "Stop Tracking";
                         }
                         else
                         { 
-                            CrossGeolocator.Current.StartListening(30000, 0);
-                            labelGPSTrack.Text = "Started tracking";
-                            buttonTrack.Text = "Track Movements";
+                            if(await CrossGeolocator.Current.StartListeningAsync(30000, 0))
+                            {
+                                labelGPSTrack.Text = "Started tracking";
+                                buttonTrack.Text = "Track Movements";
+                            }
                         }
                     }
                     catch (Exception ex)

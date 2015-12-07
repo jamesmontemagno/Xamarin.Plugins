@@ -17,8 +17,8 @@
         <Label Text="var locator = CrossGeolocator.Current;"  FontSize="Small"/>
         <Label Text="var position = await locator.GetPositionAsync(int timeout);"  FontSize="Small"/>
         <Label Text="Location Tracking:"  FontSize="Small"/>
-        <Label Text="locator.StartListening(int time, int distance);"  FontSize="Small"/>
-        <Label Text="locator.StopListening();"  FontSize="Small"/>
+        <Label Text="await locator.StartListeningAsync(int time, int distance);"  FontSize="Small"/>
+        <Label Text="await locator.StopListeningAsync();"  FontSize="Small"/>
         <Label Text="Events:"  FontSize="Small"/>
         <Label Text="locator.PositionChanged += (sender, args)&#10;&#123;"  FontSize="Small"/>
         <Label Text="    var position = args.Position;"  FontSize="Small"/>

@@ -98,12 +98,6 @@
     <Reference Include="Plugin.ExternalMaps.Abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.2.0.0\lib\MonoAndroid10\Plugin.ExternalMaps.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.Geolocator, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\packages\Xam.Plugin.Geolocator.2.0.0\lib\MonoAndroid10\Plugin.Geolocator.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.Geolocator.Abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\packages\Xam.Plugin.Geolocator.2.0.0\lib\MonoAndroid10\Plugin.Geolocator.Abstractions.dll</HintPath>
-    </Reference>
     <Reference Include="Plugin.LocalNotifications, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\packages\Xam.Plugins.Notifier.2.0.1\lib\MonoAndroid10\Plugin.LocalNotifications.dll</HintPath>
     </Reference>
@@ -191,6 +185,12 @@
     <Reference Include="Xamarin.Forms.Platform">
       <HintPath>..\..\packages\Xamarin.Forms.2.0.1.6492-pre1\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Geolocator">
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.3.0.1\lib\MonoAndroid10\Plugin.Geolocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Geolocator.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.3.0.1\lib\MonoAndroid10\Plugin.Geolocator.Abstractions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dialogs.cs" />
@@ -211,12 +211,12 @@
     <AndroidResource Include="Resources\layout\toolbar.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <None Include="PluginsHelp\GeolocatorReadme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DeviceInfoReadme.txt" />
     <Content Include="PluginsHelp\ConnectivityReadme.txt" />
     <Content Include="PluginsHelp\CrossActivityReadme.txt" />
-    <Content Include="PluginsHelp\GeolocatorReadme.txt" />
     <Content Include="PluginsHelp\PermissionsReadme.txt" />
     <Content Include="PluginsHelp\SettingsReadme.txt" />
     <Content Include="Properties\AndroidManifest.xml" />
