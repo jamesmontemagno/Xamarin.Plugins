@@ -56,6 +56,7 @@ You must add ID_CAP_CONTACTS permission
 Thanks!
 
 #### License
+This is a derivative to [Xamarin.Mobile's Contacts](http://github.com/xamarin/xamarin.mobile) with a cross platform API and other enhancements.
 ﻿//
 //  Copyright 2011-2013, Xamarin Inc.
 //
