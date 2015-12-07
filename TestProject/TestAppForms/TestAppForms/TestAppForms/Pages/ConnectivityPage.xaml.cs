@@ -56,10 +56,26 @@ namespace TestAppForms.Pages
                 }
             };
 
-            CrossConnectivity.Current.ConnectivityChanged += async (sender, args) =>
-            {
-                await DisplayAlert("Connectivity Changed", "IsConnected: " + args.IsConnected.ToString(), "OK");
-            };
+
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            CrossConnectivity.Current.ConnectivityChanged += CrossConnectivity_Current_ConnectivityChanged;
+        }
+
+        async void CrossConnectivity_Current_ConnectivityChanged (object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs args)
+        {
+            await DisplayAlert("Connectivity Changed", "IsConnected: " + args.IsConnected.ToString(), "OK");
+
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            CrossConnectivity.Current.ConnectivityChanged -= CrossConnectivity_Current_ConnectivityChanged;
         }
     }
 }

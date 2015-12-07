@@ -22,15 +22,15 @@ namespace TestAppForms.Pages
                 {
                     var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
                         {
-
                             Directory = "Sample",
-                            Name = "test.jpg"
+                            Name = "test.jpg",
+                            SaveToAlbum = saveToGallery.IsToggled
                         });
 
                     if (file == null)
                         return;
 
-                    await DisplayAlert("File Location", file.Path, "OK");
+                    await DisplayAlert("File Location", (saveToGallery.IsToggled ? file.AlbumPath : file.Path), "OK");
 
                     image.Source = ImageSource.FromStream(() =>
                         {
@@ -89,12 +89,13 @@ namespace TestAppForms.Pages
                         {
                             Name = "video.mp4",
                             Directory = "DefaultVideos", 
+                                SaveToAlbum = saveToGallery.IsToggled
                         });
 
                     if (file == null)
                         return;
 
-                    await DisplayAlert("Video Recorded", "Location: " + file.Path, "OK");
+                        await DisplayAlert("Video Recorded", "Location: " + (saveToGallery.IsToggled ? file.AlbumPath : file.Path), "OK");
 
                     file.Dispose();
 

@@ -6,5 +6,13 @@
 
     <StackLayout Padding="20" Spacing="20">
         <Button Text="Display Notification" x:Name="ButtonNotification"/>
+        <Button Text="Schedule Notification" x:Name="ButtonSchedule"/>
+        <Label Text="About" FontSize="Medium" FontAttributes="Bold" />
+        <Label Text="Created by: Ed Snyder, Krystin Stutesman, James Montemagno"  FontSize="Small"/>
+        <Label Text="Easily display or schedule system level notifications"  FontSize="Small"/>
+        <Label Text="Code:" FontSize="Medium" FontAttributes="Bold" />
+        <Label Text="var notifier = CrossLocalNotifications.Current;"  FontSize="Small"/>
+        <Label Text="notifier.Show(string title, string message);"  FontSize="Small"/>
+        <Label Text="notifier.Show(string title, string message, int id, DateTime time);"  FontSize="Small"/>
     </StackLayout>
 </ContentPage>

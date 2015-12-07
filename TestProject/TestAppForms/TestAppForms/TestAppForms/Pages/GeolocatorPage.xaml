@@ -3,8 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestAppForms.Pages.GeolocatorPage"
              Title="Geolocator Plugin">
-  <StackLayout Spacing="10" Padding="10">
-    <Button x:Name="buttonGetGPS" Text="Get GPS"/>
-    <Label x:Name="labelGPS"/>
-  </StackLayout>
+  <ScrollView>
+      <StackLayout Spacing="10" Padding="10">
+        <Button x:Name="buttonGetGPS" Text="Get GPS"/>
+        <Label x:Name="labelGPS"/>
+        <Button x:Name="buttonTrack" Text="Track Movements"/>
+        <Label x:Name="labelGPSTrack"/>
+        <Label Text=""/>
+        <Label Text="About" FontSize="Medium" FontAttributes="Bold" />
+        <Label Text="Created by: James Montemagno"  FontSize="Small"/>
+        <Label Text="Get current geolocation and track changes."  FontSize="Small"/>
+        <Label Text="Code:" FontSize="Medium" FontAttributes="Bold" />
+        <Label Text="var locator = CrossGeolocator.Current;"  FontSize="Small"/>
+        <Label Text="var position = await locator.GetPositionAsync(int timeout);"  FontSize="Small"/>
+        <Label Text="Location Tracking:"  FontSize="Small"/>
+        <Label Text="locator.StartListening(int time, int distance);"  FontSize="Small"/>
+        <Label Text="locator.StopListening();"  FontSize="Small"/>
+        <Label Text="Events:"  FontSize="Small"/>
+        <Label Text="locator.PositionChanged += (sender, args)&#10;&#123;"  FontSize="Small"/>
+        <Label Text="    var position = args.Position;"  FontSize="Small"/>
+        <Label Text="};"  FontSize="Small"/>
+        <Label Text="locator.PositionError += (sender, args)&#10;&#123;"  FontSize="Small"/>
+        <Label Text="    var error = args.Error;"  FontSize="Small"/>
+        <Label Text="};" FontSize="Small" />
+      </StackLayout>
+  </ScrollView>
 </ContentPage>

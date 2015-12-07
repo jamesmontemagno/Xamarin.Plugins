@@ -12,18 +12,18 @@ namespace TestAppForms.Pages
             InitializeComponent();
         }
 
-        void Button_OnClicked(object sender, EventArgs e)
+        async void Button_OnClicked(object sender, EventArgs e)
         {
             switch(((Button)sender).StyleId)
             {
                 case "Text":
-                    CrossShare.Current.Share("Follow @JamesMontemagno on Twitter", "Share");
+                    await CrossShare.Current.Share("Follow @JamesMontemagno on Twitter", "Share");
                     break;
                 case "Link":
-                    CrossShare.Current.ShareLink("http://motzcod.es", "Checkout my blog", "MotzCod.es");
+                    await CrossShare.Current.ShareLink("http://motzcod.es", "Checkout my blog", "MotzCod.es");
                     break;
                 case "Browser":
-                    CrossShare.Current.OpenBrowser("http://motzcod.es");
+                    await CrossShare.Current.OpenBrowser("http://motzcod.es");
                     break;
             }
         }

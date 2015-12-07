@@ -19,6 +19,12 @@ namespace TestAppForms.Pages
             {
                 CrossLocalNotifications.Current.Show("Hello", "World!");
             };
+
+            ButtonSchedule.Clicked += async (sender, e) => 
+                {
+                    CrossLocalNotifications.Current.Show("Hello", "from the future", 1, DateTime.Now.AddMinutes(1));
+                    await DisplayAlert("Scheduled", "Form 1 minute in the future", "OK");
+                };
         }
     }
 }

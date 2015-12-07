@@ -9,8 +9,20 @@
       <Button x:Name="pickPhoto" Text="Pick Photo"/>
       <Button x:Name="takeVideo" Text="Take Video"/>
       <Button x:Name="pickVideo" Text="Pick Video"/>
-
+      <Label Text="Save to Gallery"/>
+      <Switch x:Name="saveToGallery" IsToggled="false" HorizontalOptions="Center"/>
+      <Label Text="Image will show here"/>
       <Image x:Name="image"/>
+        <Label Text=""/>
+        <Label Text="About" FontSize="Medium" FontAttributes="Bold" />
+        <Label Text="Created by: James Montemagno"  FontSize="Small"/>
+        <Label Text="Easily take and pick photos or videos."  FontSize="Small"/>
+        <Label Text="Code:" FontSize="Medium" FontAttributes="Bold" />
+        <Label Text="var media = CrossMedia.Current;"  FontSize="Small"/>
+        <Label Text="var file = await media.TakePhotoAsync(StoreCameraMediaOptions options);"  FontSize="Small"/>
+        <Label Text="var file = await media.PickPhotoAsync();"  FontSize="Small"/>
+        <Label Text="var file = await media.TakeVideoAsync(StoreVideoOptions options);"  FontSize="Small"/>
+        <Label Text="var file = await media.PickVideoAsync();"  FontSize="Small"/>
     </StackLayout>
   </ScrollView>
 </ContentPage>

@@ -3,15 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestAppForms.Pages.ConnectivityPage" 
              Title="Connectivity Plugin">
-  <StackLayout Padding="10" Spacing="10">
-    <Button x:Name="connectivityButton" Text="Test Connectivity"/>
-    <Label x:Name="connected" Text="Is Connected: "/>
-    <Label x:Name="connectionTypes" Text="Connection Types:"/>
-    <Label x:Name="bandwidths" Text="Bandwidths: "/>
-    <Entry x:Name="host" Text="127.0.0.1"/>
-    <Entry x:Name="host2" Text="montemagno.com"/>
-    <Entry x:Name="port" Text="80" Keyboard="Numeric"/>
-    <Label x:Name="canReach1"/>
-    <Label x:Name="canReach2"/>
-  </StackLayout>
+  <ScrollView>
+      <StackLayout Padding="10" Spacing="10">
+        <Button x:Name="connectivityButton" Text="Test Connectivity"/>
+        <Label x:Name="connected" Text="Is Connected: "/>
+        <Label x:Name="connectionTypes" Text="Connection Types:"/>
+        <Label x:Name="bandwidths" Text="Bandwidths: "/>
+        <Entry x:Name="host" Text="127.0.0.1"/>
+        <Entry x:Name="host2" Text="montemagno.com"/>
+        <Entry x:Name="port" Text="80" Keyboard="Numeric"/>
+        <Label x:Name="canReach1"/>
+        <Label x:Name="canReach2"/>
+        <Label Text=""/>
+        <Label Text="About" FontSize="Medium" FontAttributes="Bold" />
+        <Label Text="Created by: James Montemagno"  FontSize="Small"/>
+        <Label Text="Retrieve and query connection status. Additionally, subscribe to connection change events."  FontSize="Small"/>
+        <Label Text="Code:" FontSize="Medium" FontAttributes="Bold" />
+        <Label Text="var connectivity = CrossConnectivity.Current;"  FontSize="Small"/>
+        <Label Text="bool connected = connectivity.IsConnected;" FontSize="Small" />
+        <Label Text="var bandwidths = connectivity.Bandwidths;"  FontSize="Small"/>
+        <Label Text="var types = connectivity.ConnectionTypes;"  FontSize="Small"/>
+        <Label Text="Can reach urls:"  FontSize="Small"/>
+        <Label Text="bool reached = connectivity.IsReachable(string host);"  FontSize="Small"/>
+      </StackLayout>
+  </ScrollView>
 </ContentPage>

@@ -17,6 +17,15 @@
             <Button Text="Sensors" StyleId="Sensors" Clicked="ButtonPermission_OnClicked"></Button>
             <Button Text="Sms" StyleId="Sms" Clicked="ButtonPermission_OnClicked"></Button>
             <Button Text="Storage" StyleId="Storage" Clicked="ButtonPermission_OnClicked"></Button>
+            <Label Text=""/>
+            <Label Text="About" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="Created by: James Montemagno"  FontSize="Small"/>
+            <Label Text="Check and request runtime permissions from shared code."  FontSize="Small"/>
+            <Label Text="Code:" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="var permissions = CrossPermissions.Current;"  FontSize="Small"/>
+            <Label Text="var status = await permissions.CheckPermissionStatusAsync(Permission permission);"  FontSize="Small"/>
+            <Label Text="var explain = await permissions.ShouldShowRequestPermissionRationaleAsync(Permission permission);"  FontSize="Small"/>
+            <Label Text="var results = await permissions.RequestPermissionsAsync(params Permission[] permissions);"  FontSize="Small"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

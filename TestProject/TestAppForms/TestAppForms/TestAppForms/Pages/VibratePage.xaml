@@ -3,9 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestAppForms.Pages.VibratePage"
              Title="Vibrate Plugin">
-  <StackLayout Padding="10" Spacing="10">
-    <Label Text="Vibration Duration"/>
-    <Slider x:Name="sliderVibrate" Minimum="0" Maximum="10000.0" Value="500.0"/>
-    <Button x:Name="vibrateButton" Text="Vibrate"/>
-  </StackLayout>
+  <ScrollView>
+      <StackLayout Padding="10" Spacing="10">
+        <Label Text="Vibration Duration"/>
+        <Slider x:Name="sliderVibrate" Minimum="0" Maximum="10000.0" Value="500.0"/>
+        <Button x:Name="vibrateButton" Text="Vibrate"/>
+        <Label Text=""/>
+        <Label Text="About" FontSize="Medium" FontAttributes="Bold" />
+        <Label Text="Created by: James Montemagno"  FontSize="Small"/>
+        <Label Text="Easily vibrate the device for a specifice amount of time."  FontSize="Small"/>
+        <Label Text="Code:" FontSize="Medium" FontAttributes="Bold" />
+        <Label Text="var vibrate = CrossVibrate.Current;" FontSize="Small" />
+        <Label Text="vibrate.Vibration(int timeMS);" FontSize="Small"/>
+      </StackLayout>
+  </ScrollView>
 </ContentPage>

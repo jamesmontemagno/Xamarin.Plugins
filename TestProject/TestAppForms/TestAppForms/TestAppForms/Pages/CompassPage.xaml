@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="TestAppForms.Pages.CompassPage"
+    Title="Compass Plugin">
+    <ScrollView>
+      <StackLayout Padding="10" Spacing="10">
+        <Button x:Name="buttonStart" Text="Start"/>
+        <Button x:Name="buttonStop" Text="Stop"/>
+        <Label x:Name="label"/>
+        <Label Text=""/>
+        <Label Text="About" FontSize="Medium" FontAttributes="Bold" />
+        <Label Text="Created by: Carl Barton, James Montemagno"  FontSize="Small"/>
+        <Label Text="Read compass and subscribe to changes."  FontSize="Small"/>
+        <Label Text="Code:" FontSize="Medium" FontAttributes="Bold" />
+        <Label Text="var compass = CrossCompass.Current;"  FontSize="Small"/>
+        <Label Text="compass.Start();"  FontSize="Small"/>
+        <Label Text="compass.Stop();"  FontSize="Small"/>
+        <Label Text="Events:"  FontSize="Small"/>
+        <Label Text="compass.CompassChanged += (sender, args)&#10;&#123;"  FontSize="Small"/>
+        <Label Text="    label.Text = $&quot;Heading = {e.Heading}&quot;;"  FontSize="Small"/>
+        <Label Text="};"  FontSize="Small"/>
+      </StackLayout>
+  </ScrollView>
+</ContentPage>

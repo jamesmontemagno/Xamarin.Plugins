@@ -3,37 +3,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestAppForms.Pages.TextToSpeechPage"
              Title="Text to Speech Plugin">
-  <StackLayout Padding="10" Spacing="10">
-    <Label BindingContext="{x:Reference sliderPitch}"
-          Text="{Binding Value,
-                          StringFormat='Pitch: {0:F2}'}"
-          FontAttributes="Bold"
-          FontSize="Large"
-          HorizontalOptions="Center"
-          VerticalOptions="CenterAndExpand" />
-    <Slider x:Name="sliderPitch" Minimum="0" Maximum="2.0" Value="1.0"/>
+  <ScrollView>
+      <StackLayout Padding="10" Spacing="10">
+        <Label BindingContext="{x:Reference sliderPitch}"
+              Text="{Binding Value,
+                              StringFormat='Pitch: {0:F2}'}"
+              FontAttributes="Bold"
+              FontSize="Large"
+              HorizontalOptions="Center"
+              VerticalOptions="CenterAndExpand" />
+        <Slider x:Name="sliderPitch" Minimum="0" Maximum="2.0" Value="1.0"/>
 
-     <Label BindingContext="{x:Reference sliderRate}"
-          Text="{Binding Value,
-                          StringFormat='Speak Rate: {0:F2}'}"
-          FontAttributes="Bold"
-          FontSize="Large"
-          HorizontalOptions="Center"
-          VerticalOptions="CenterAndExpand" />
-    
-    <Slider x:Name="sliderRate" Minimum="0" Maximum="2.0" Value="1.0"/>
-     <Label BindingContext="{x:Reference sliderVolume}"
-          Text="{Binding Value,
-                          StringFormat='Volume: {0:F2}'}"
-          FontAttributes="Bold"
-          FontSize="Large"
-          HorizontalOptions="Center"
-          VerticalOptions="CenterAndExpand" />
-    
-    <Slider x:Name="sliderVolume" Minimum="0" Maximum="1.0" Value="1.0"/>
-    <Label Text="Use Defaults"/>
-    <Switch x:Name="useDefaults" IsToggled="true"/>
-    <Button x:Name="languageButton" Text="Default Language"/>
-    <Button x:Name="speakButton" Text="Speak"/>
-  </StackLayout>
+         <Label BindingContext="{x:Reference sliderRate}"
+              Text="{Binding Value,
+                              StringFormat='Speak Rate: {0:F2}'}"
+              FontAttributes="Bold"
+              FontSize="Large"
+              HorizontalOptions="Center"
+              VerticalOptions="CenterAndExpand" />
+        
+        <Slider x:Name="sliderRate" Minimum="0" Maximum="2.0" Value="1.0"/>
+         <Label BindingContext="{x:Reference sliderVolume}"
+              Text="{Binding Value,
+                              StringFormat='Volume: {0:F2}'}"
+              FontAttributes="Bold"
+              FontSize="Large"
+              HorizontalOptions="Center"
+              VerticalOptions="CenterAndExpand" />
+        
+        <Slider x:Name="sliderVolume" Minimum="0" Maximum="1.0" Value="1.0"/>
+        <Label Text="Use Defaults"/>
+        <Switch x:Name="useDefaults" IsToggled="true"/>
+        <Button x:Name="languageButton" Text="Default Language"/>
+        <Button x:Name="speakButton" Text="Speak"/>
+        <Label Text=""/>
+        <Label Text="About" FontSize="Medium" FontAttributes="Bold" />
+        <Label Text="Created by: James Montemagno"  FontSize="Small"/>
+        <Label Text="Speak text and query device languages."  FontSize="Small"/>
+        <Label Text="Code:" FontSize="Medium" FontAttributes="Bold" />
+        <Label Text="var speak = CrossTextToSpeech.Current;"  FontSize="Small"/>
+        <Label Text="speak.Speak(string text, bool queue = false, CrossLocale? crossLocale = null, float? pitch = null, float? speakRate = null, float? volume = null);"  FontSize="Small"/>
+        <Label Text="var languages = speak.GetInstalledLanguages();"  FontSize="Small"/>
+      </StackLayout>
+  </ScrollView>
 </ContentPage>
