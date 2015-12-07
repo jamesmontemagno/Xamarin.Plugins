@@ -29,18 +29,14 @@ Download the sample app today:
 * A sample is located in the TestProject folder
 
 # My Current Plugins for Xamarin
-
-Each plugin has a README with more information on what they contain. These are plugins I have created or actively contribute to:
+Each plugin has a README with more information on what they contain. These are plugins I have created and maintain:
 * **[Battery Status](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Battery)**: Get battery level, how it is getting charge, and events.
-* **[Compass](https://github.com/JarleySoft/Xamarin.Plugins/tree/master/Compass)**: Easily access compass heading
 * **[Connectivity](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Connectivity)**: See if device is connected to the internet and through what connection type.
 * **[Contacts](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Contacts)**: Currently in Alpha to gather and query contacts
 * **[Device Information](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/DeviceInfo)**: Base information about each device such as OS and version.
 * **[Extended Maps](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/ExternalMaps)**: Launch navigation directions in default map app on each OS
 * **[Geolocator](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Geolocator)**: Easy way of querying GPS location
-* **[Local Notifications](https://github.com/edsnider/Xamarin.Plugins/tree/master/Notifier)**: Easily show and schedule local notifications.
 * **[Media](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Media)**: Take or pick photos/videos
-* **[Messaging](https://github.com/cjlotz/Xamarin.Plugins/tree/master/Messaging)**: Send emails, sms, and place phone calls
 * **[Permissions](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Permissions)**: Check and request runtime permissions.
 * **[Settings](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Settings)**: Fully cross platform settings for your application.
 * **[Share](https://github.com/jguertl/SharePlugin)**: Easily share text or open a browser
@@ -49,6 +45,12 @@ Each plugin has a README with more information on what they contain. These are p
 
 Controls:
 * **[Circle Image](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/ImageCircle)** for Xamarin.Forms
+
+
+# Awesome Plugins I Contribute To:
+* **[Compass](https://github.com/JarleySoft/Xamarin.Plugins/tree/master/Compass)**: Easily access compass heading
+* **[Local Notifications](https://github.com/edsnider/Xamarin.Plugins/tree/master/Notifier)**: Easily show and schedule local notifications.
+* **[Messaging](https://github.com/cjlotz/Xamarin.Plugins/tree/master/Messaging)**: Send emails, sms, and place phone calls
 
 Other:
 * **Messages_Sample**: This is a simple test PCL NuGet to show anyone how easy it is to get a NuGet up and running. It uses an example of a stubbed out class and also a linked file class with #if's throughout it.
