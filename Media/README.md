@@ -164,6 +164,7 @@ This feature was made possible by Daniel Meixner and his great open source proje
 Made possible under Ms-PL license:  https://diycameracaptureui.codeplex.com/license
 
 #### License
+This is a derivative to [Xamarin.Mobile's Media](http://github.com/xamarin/xamarin.mobile) with a cross platform API and other enhancements.
 ﻿//
 //  Copyright 2011-2013, Xamarin Inc.
 //
