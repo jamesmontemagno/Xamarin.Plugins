@@ -3,41 +3,41 @@ using System;
 
 namespace Plugin.Geolocator
 {
-  /// <summary>
-  /// Cross platform Geolocator implemenations
-  /// </summary>
-  public class CrossGeolocator
-  {
-    static Lazy<IGeolocator> Implementation = new Lazy<IGeolocator>(() => CreateGeolocator(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
-
     /// <summary>
-    /// Current settings to use
+    /// Cross platform Geolocator implemenations
     /// </summary>
-    public static IGeolocator Current
+    public class CrossGeolocator
     {
-      get
-      {
-        var ret = Implementation.Value;
-        if (ret == null)
-        {
-          throw NotImplementedInReferenceAssembly();
-        }
-        return ret;
-      }
-    }
+        static Lazy<IGeolocator> Implementation = new Lazy<IGeolocator>(() => CreateGeolocator(), System.Threading.LazyThreadSafetyMode.PublicationOnly);
 
-    static IGeolocator CreateGeolocator()
-    {
+        /// <summary>
+        /// Current settings to use
+        /// </summary>
+        public static IGeolocator Current
+        {
+            get
+            {
+                var ret = Implementation.Value;
+                if (ret == null)
+                {
+                    throw NotImplementedInReferenceAssembly();
+                }
+                return ret;
+            }
+        }
+
+        static IGeolocator CreateGeolocator()
+        {
 #if PORTABLE
         return null;
 #else
-        return new GeolocatorImplementation();
+            return new GeolocatorImplementation();
 #endif
-    }
+        }
 
-    internal static Exception NotImplementedInReferenceAssembly()
-    {
-      return new NotImplementedException("This functionality is not implemented in the portable version of this assembly.  You should reference the NuGet package from your main application project in order to reference the platform-specific implementation.");
+        internal static Exception NotImplementedInReferenceAssembly()
+        {
+            return new NotImplementedException("This functionality is not implemented in the portable version of this assembly.  You should reference the NuGet package from your main application project in order to reference the platform-specific implementation.");
+        }
     }
-  }
 }

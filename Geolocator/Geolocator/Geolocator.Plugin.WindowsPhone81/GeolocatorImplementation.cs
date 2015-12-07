@@ -143,7 +143,7 @@ namespace Plugin.Geolocator
             return tcs.Task;
         }
         /// <inheritdoc/>
-        public void StartListening(int minTime, double minDistance, bool includeHeading = false)
+        public Task<bool> StartListening(int minTime, double minDistance, bool includeHeading = false)
         {
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");
@@ -159,15 +159,19 @@ namespace Plugin.Geolocator
             loc.MovementThreshold = minDistance;
             loc.PositionChanged += OnLocatorPositionChanged;
             loc.StatusChanged += OnLocatorStatusChanged;
+
+            return Task.FromResult(true);
         }
         /// <inheritdoc/>
-        public void StopListening()
+        public Task<bool> StopListening()
         {
             if (!isListening)
-                return;
+                return Task.FromResult(true);
 
             locator.PositionChanged -= OnLocatorPositionChanged;
             isListening = false;
+
+            return Task.FromResult(true);
         }
 
         private bool isListening;

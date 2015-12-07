@@ -109,7 +109,7 @@ namespace Plugin.Geolocator
             get { return providers.Any(manager.IsProviderEnabled); }
         }
 
-        
+
         /// <inheritdoc/>
         public async Task<Position> GetPositionAsync(int timeoutMilliseconds = Timeout.Infinite, CancellationToken? cancelToken = null, bool includeHeading = false)
         {
@@ -120,11 +120,16 @@ namespace Plugin.Geolocator
 
                 var request = await CrossPermissions.Current.RequestPermissionsAsync(Permissions.Abstractions.Permission.Location);
 
-                if(request[Permissions.Abstractions.Permission.Location] != Permissions.Abstractions.PermissionStatus.Granted)
+                if (request[Permissions.Abstractions.Permission.Location] != Permissions.Abstractions.PermissionStatus.Granted)
                 {
                     Console.WriteLine("Location permission denied, can not get positions async.");
                     return null;
                 }
+                providers = manager.GetProviders(enabledOnly: false).Where(s => s != LocationManager.PassiveProvider).ToArray();
+            }
+
+            if (providers.Length == 0)
+            {
                 providers = manager.GetProviders(enabledOnly: false).Where(s => s != LocationManager.PassiveProvider).ToArray();
             }
 
@@ -219,8 +224,28 @@ namespace Plugin.Geolocator
         }
 
         /// <inheritdoc/>
-        public void StartListening(int minTime, double minDistance, bool includeHeading = false)
+        public async Task<bool> StartListening(int minTime, double minDistance, bool includeHeading = false)
         {
+            var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permissions.Abstractions.Permission.Location).ConfigureAwait(false);
+            if (status != Permissions.Abstractions.PermissionStatus.Granted)
+            {
+                Console.WriteLine("Currently does not have Location permissions, requesting permissions");
+
+                var request = await CrossPermissions.Current.RequestPermissionsAsync(Permissions.Abstractions.Permission.Location);
+
+                if (request[Permissions.Abstractions.Permission.Location] != Permissions.Abstractions.PermissionStatus.Granted)
+                {
+                    Console.WriteLine("Location permission denied, can not get positions async.");
+                    return false;
+                }
+                providers = manager.GetProviders(enabledOnly: false).Where(s => s != LocationManager.PassiveProvider).ToArray();
+            }
+
+            if (providers.Length == 0)
+            {
+                providers = manager.GetProviders(enabledOnly: false).Where(s => s != LocationManager.PassiveProvider).ToArray();
+            }
+
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");
             if (minDistance < 0)
@@ -235,12 +260,14 @@ namespace Plugin.Geolocator
             Looper looper = Looper.MyLooper() ?? Looper.MainLooper;
             for (int i = 0; i < providers.Length; ++i)
                 manager.RequestLocationUpdates(providers[i], minTime, (float)minDistance, listener, looper);
+
+            return true;
         }
         /// <inheritdoc/>
-        public void StopListening()
+        public Task<bool> StopListening()
         {
             if (listener == null)
-                return;
+                return Task.FromResult(true);
 
             listener.PositionChanged -= OnListenerPositionChanged;
             listener.PositionError -= OnListenerPositionError;
@@ -249,6 +276,7 @@ namespace Plugin.Geolocator
                 manager.RemoveUpdates(listener);
 
             listener = null;
+            return Task.FromResult(true);
         }
 
         private string[] providers;

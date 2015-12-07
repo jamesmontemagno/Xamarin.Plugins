@@ -1,4 +1,4 @@
-  
+
 //
 //  Copyright 2011-2013, Xamarin Inc.
 //
@@ -33,61 +33,61 @@ using Plugin.Geolocator.Abstractions;
 
 namespace Plugin.Geolocator
 {
-  /// <summary>
-  /// Implementation for Geolocator
-  /// </summary>
-  public class GeolocatorImplementation : IGeolocator
-  {
-    public GeolocatorImplementation()
-	{
-            DesiredAccuracy = 100;
-			this.manager = GetManager();
-			this.manager.AuthorizationChanged += OnAuthorizationChanged;
-			this.manager.Failed += OnFailed;
-
-			if (UIDevice.CurrentDevice.CheckSystemVersion (6, 0))
-				this.manager.LocationsUpdated += OnLocationsUpdated;
-			else
-				this.manager.UpdatedLocation += OnUpdatedLocation;
-
-			this.manager.UpdatedHeading += OnUpdatedHeading;
-            RequestAuthorization();
-    }
-
-    private void RequestAuthorization()
+    /// <summary>
+    /// Implementation for Geolocator
+    /// </summary>
+    public class GeolocatorImplementation : IGeolocator
     {
-      var info = NSBundle.MainBundle.InfoDictionary;
+        public GeolocatorImplementation()
+        {
+            DesiredAccuracy = 100;
+            this.manager = GetManager();
+            this.manager.AuthorizationChanged += OnAuthorizationChanged;
+            this.manager.Failed += OnFailed;
 
-      if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
-      {
-        if (info.ContainsKey(new NSString("NSLocationWhenInUseUsageDescription")))
-          this.manager.RequestWhenInUseAuthorization();
-        else if (info.ContainsKey(new NSString("NSLocationAlwaysUsageDescription")))
-          this.manager.RequestAlwaysAuthorization();
-        else
-          throw new UnauthorizedAccessException("On iOS 8.0 and higher you must set either NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription in your Info.plist file to enable Authorization Requests for Location updates!");
-      }
-    }
-    /// <inheritdoc/>
-		public event EventHandler<PositionErrorEventArgs> PositionError;
-    /// <inheritdoc/>
-		public event EventHandler<PositionEventArgs> PositionChanged;
-    /// <inheritdoc/>
-		public double DesiredAccuracy
-		{
-			get;
-			set;
-		}
-    /// <inheritdoc/>
-		public bool IsListening
-		{
-			get { return this.isListening; }
-		}
-    /// <inheritdoc/>
-		public bool SupportsHeading
-		{
-			get { return CLLocationManager.HeadingAvailable; }
-		}
+            if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
+                this.manager.LocationsUpdated += OnLocationsUpdated;
+            else
+                this.manager.UpdatedLocation += OnUpdatedLocation;
+
+            this.manager.UpdatedHeading += OnUpdatedHeading;
+            RequestAuthorization();
+        }
+
+        private void RequestAuthorization()
+        {
+            var info = NSBundle.MainBundle.InfoDictionary;
+
+            if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
+            {
+                if (info.ContainsKey(new NSString("NSLocationWhenInUseUsageDescription")))
+                    this.manager.RequestWhenInUseAuthorization();
+                else if (info.ContainsKey(new NSString("NSLocationAlwaysUsageDescription")))
+                    this.manager.RequestAlwaysAuthorization();
+                else
+                    throw new UnauthorizedAccessException("On iOS 8.0 and higher you must set either NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription in your Info.plist file to enable Authorization Requests for Location updates!");
+            }
+        }
+        /// <inheritdoc/>
+        public event EventHandler<PositionErrorEventArgs> PositionError;
+        /// <inheritdoc/>
+        public event EventHandler<PositionEventArgs> PositionChanged;
+        /// <inheritdoc/>
+        public double DesiredAccuracy
+        {
+            get;
+            set;
+        }
+        /// <inheritdoc/>
+        public bool IsListening
+        {
+            get { return this.isListening; }
+        }
+        /// <inheritdoc/>
+        public bool SupportsHeading
+        {
+            get { return CLLocationManager.HeadingAvailable; }
+        }
 
         bool pausesLocationUpdatesAutomatically;
         /// <inheritdoc/>
@@ -108,235 +108,242 @@ namespace Plugin.Geolocator
             }
         }
 
-      bool allowsBackgroundUpdates;
+        bool allowsBackgroundUpdates;
 
         /// <inheritdoc/>
         public bool AllowsBackgroundUpdates
         {
             get
             {
-              return allowsBackgroundUpdates;
+                return allowsBackgroundUpdates;
             }
             set
             {
                 allowsBackgroundUpdates = value;
-                if (UIDevice.CurrentDevice.CheckSystemVersion (9, 0))
+                if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
                 {
-                    if(this.manager != null)
+                    if (this.manager != null)
                         this.manager.AllowsBackgroundLocationUpdates = value;
                 }
             }
         }
 
-    /// <inheritdoc/>
-		public bool IsGeolocationAvailable
-		{
-			get { return true; } // all iOS devices support at least wifi geolocation
-		}
-    /// <inheritdoc/>
-		public bool IsGeolocationEnabled
-		{
-			get { 
-  			var status = CLLocationManager.Status;
+        /// <inheritdoc/>
+        public bool IsGeolocationAvailable
+        {
+            get { return true; } // all iOS devices support at least wifi geolocation
+        }
+        /// <inheritdoc/>
+        public bool IsGeolocationEnabled
+        {
+            get
+            {
+                var status = CLLocationManager.Status;
 
-				if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0)) {
-					return status == CLAuthorizationStatus.AuthorizedAlways
-					|| status == CLAuthorizationStatus.AuthorizedWhenInUse;
-				} else {
-					return status == CLAuthorizationStatus.Authorized;
-				}
-			}
-		}
+                if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
+                {
+                    return status == CLAuthorizationStatus.AuthorizedAlways
+                    || status == CLAuthorizationStatus.AuthorizedWhenInUse;
+                }
+                else {
+                    return status == CLAuthorizationStatus.Authorized;
+                }
+            }
+        }
 
 
-    /// <inheritdoc/>
+        /// <inheritdoc/>
         public Task<Position> GetPositionAsync(int timeoutMilliseconds = Timeout.Infinite, CancellationToken? cancelToken = null, bool includeHeading = false)
-		{
+        {
             if (timeoutMilliseconds <= 0 && timeoutMilliseconds != Timeout.Infinite)
                 throw new ArgumentOutOfRangeException("timeoutMilliseconds", "Timeout must be positive or Timeout.Infinite");
 
-      if (!cancelToken.HasValue)
-        cancelToken = CancellationToken.None;
+            if (!cancelToken.HasValue)
+                cancelToken = CancellationToken.None;
 
-			TaskCompletionSource<Position> tcs;
-			if (!IsListening)
-			{
-				var m = GetManager();
+            TaskCompletionSource<Position> tcs;
+            if (!IsListening)
+            {
+                var m = GetManager();
 
-                if (UIDevice.CurrentDevice.CheckSystemVersion (9, 0))
+                if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
                 {
                     m.AllowsBackgroundLocationUpdates = AllowsBackgroundUpdates;
                 }
 
                 if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
                 {
-                    m.PausesLocationUpdatesAutomatically = PausesLocationUpdatesAutomatically;   
+                    m.PausesLocationUpdatesAutomatically = PausesLocationUpdatesAutomatically;
                 }
 
-				tcs = new TaskCompletionSource<Position> (m);
+                tcs = new TaskCompletionSource<Position>(m);
                 var singleListener = new GeolocationSingleUpdateDelegate(m, DesiredAccuracy, includeHeading, timeoutMilliseconds, cancelToken.Value);
-				m.Delegate = singleListener;
+                m.Delegate = singleListener;
 
-				m.StartUpdatingLocation ();
-				if (includeHeading && SupportsHeading)
-					m.StartUpdatingHeading ();
+                m.StartUpdatingLocation();
+                if (includeHeading && SupportsHeading)
+                    m.StartUpdatingHeading();
 
-				return singleListener.Task;
-			}
-			else
-			{
-				tcs = new TaskCompletionSource<Position>();
-				if (this.position == null)
-				{
-					EventHandler<PositionErrorEventArgs> gotError = null;
-					gotError = (s,e) =>
-					{
-						tcs.TrySetException (new GeolocationException (e.Error));
-						PositionError -= gotError;
-					};
-					
-					PositionError += gotError;
-					
-					EventHandler<PositionEventArgs> gotPosition = null;
-					gotPosition = (s, e) =>
-					{
-						tcs.TrySetResult (e.Position);
-						PositionChanged -= gotPosition;
-					};
+                return singleListener.Task;
+            }
+            else
+            {
+                tcs = new TaskCompletionSource<Position>();
+                if (this.position == null)
+                {
+                    EventHandler<PositionErrorEventArgs> gotError = null;
+                    gotError = (s, e) =>
+                    {
+                        tcs.TrySetException(new GeolocationException(e.Error));
+                        PositionError -= gotError;
+                    };
 
-					PositionChanged += gotPosition;
-				}
-				else
-					tcs.SetResult (this.position);
-			}
+                    PositionError += gotError;
 
-			return tcs.Task;
-		}
-    /// <inheritdoc/>
-		public void StartListening (int minTime, double minDistance, bool includeHeading = false)
-		{
-			if (minTime < 0)
-				throw new ArgumentOutOfRangeException ("minTime");
-			if (minDistance < 0)
-				throw new ArgumentOutOfRangeException ("minDistance");
-			if (this.isListening)
-				throw new InvalidOperationException ("Already listening");
+                    EventHandler<PositionEventArgs> gotPosition = null;
+                    gotPosition = (s, e) =>
+                    {
+                        tcs.TrySetResult(e.Position);
+                        PositionChanged -= gotPosition;
+                    };
 
-			this.isListening = true;
-			this.manager.DesiredAccuracy = DesiredAccuracy;
-			this.manager.DistanceFilter = minDistance;
-			this.manager.StartUpdatingLocation ();
+                    PositionChanged += gotPosition;
+                }
+                else
+                    tcs.SetResult(this.position);
+            }
 
-			if (includeHeading && CLLocationManager.HeadingAvailable)
-				this.manager.StartUpdatingHeading ();
-		}
-    /// <inheritdoc/>
-		public void StopListening ()
-		{
-			if (!this.isListening)
-				return;
+            return tcs.Task;
+        }
+        /// <inheritdoc/>
+        public Task<bool> StartListening(int minTime, double minDistance, bool includeHeading = false)
+        {
+            if (minTime < 0)
+                throw new ArgumentOutOfRangeException("minTime");
+            if (minDistance < 0)
+                throw new ArgumentOutOfRangeException("minDistance");
+            if (this.isListening)
+                throw new InvalidOperationException("Already listening");
 
-			this.isListening = false;
-			if (CLLocationManager.HeadingAvailable)
-				this.manager.StopUpdatingHeading ();
+            this.isListening = true;
+            this.manager.DesiredAccuracy = DesiredAccuracy;
+            this.manager.DistanceFilter = minDistance;
+            this.manager.StartUpdatingLocation();
 
-			this.manager.StopUpdatingLocation ();
-			this.position = null;
-		}
+            if (includeHeading && CLLocationManager.HeadingAvailable)
+                this.manager.StartUpdatingHeading();
 
-		private readonly CLLocationManager manager;
-		private bool isListening;
-		private Position position;
+            return Task.FromResult(true);
+        }
+        /// <inheritdoc/>
+        public Task<bool> StopListening()
+        {
+            if (!this.isListening)
+                return Task.FromResult(true);
 
-		private CLLocationManager GetManager()
-		{
-			CLLocationManager m = null;
-			new NSObject().InvokeOnMainThread (() => m = new CLLocationManager());
-			return m;
-		}
-		
-		private void OnUpdatedHeading (object sender, CLHeadingUpdatedEventArgs e)
-		{
-			if (e.NewHeading.TrueHeading == -1)
-				return;
+            this.isListening = false;
+            if (CLLocationManager.HeadingAvailable)
+                this.manager.StopUpdatingHeading();
 
-			Position p = (this.position == null) ? new Position () : new Position (this.position);
+            this.manager.StopUpdatingLocation();
+            this.position = null;
 
-			p.Heading = e.NewHeading.TrueHeading;
+            return Task.FromResult(true);
+        }
 
-			this.position = p;
-			
-			OnPositionChanged (new PositionEventArgs (p));
-		}
+        private readonly CLLocationManager manager;
+        private bool isListening;
+        private Position position;
 
-		private void OnLocationsUpdated (object sender, CLLocationsUpdatedEventArgs e)
-		{
-			foreach (CLLocation location in e.Locations)
-				UpdatePosition (location);
-		}
+        private CLLocationManager GetManager()
+        {
+            CLLocationManager m = null;
+            new NSObject().InvokeOnMainThread(() => m = new CLLocationManager());
+            return m;
+        }
 
-		private void OnUpdatedLocation (object sender, CLLocationUpdatedEventArgs e)
-		{
-			UpdatePosition (e.NewLocation);
-		}
+        private void OnUpdatedHeading(object sender, CLHeadingUpdatedEventArgs e)
+        {
+            if (e.NewHeading.TrueHeading == -1)
+                return;
 
-		private void UpdatePosition (CLLocation location)
-		{
-			Position p = (this.position == null) ? new Position () : new Position (this.position);
-			
-			if (location.HorizontalAccuracy > -1)
-			{
-				p.Accuracy = location.HorizontalAccuracy;
-				p.Latitude = location.Coordinate.Latitude;
-				p.Longitude = location.Coordinate.Longitude;
-			}
-			
-			if (location.VerticalAccuracy > -1)
-			{
-				p.Altitude = location.Altitude;
-				p.AltitudeAccuracy = location.VerticalAccuracy;
-			}
-			
-			if (location.Speed > -1)
-				p.Speed = location.Speed;
+            Position p = (this.position == null) ? new Position() : new Position(this.position);
+
+            p.Heading = e.NewHeading.TrueHeading;
+
+            this.position = p;
+
+            OnPositionChanged(new PositionEventArgs(p));
+        }
+
+        private void OnLocationsUpdated(object sender, CLLocationsUpdatedEventArgs e)
+        {
+            foreach (CLLocation location in e.Locations)
+                UpdatePosition(location);
+        }
+
+        private void OnUpdatedLocation(object sender, CLLocationUpdatedEventArgs e)
+        {
+            UpdatePosition(e.NewLocation);
+        }
+
+        private void UpdatePosition(CLLocation location)
+        {
+            Position p = (this.position == null) ? new Position() : new Position(this.position);
+
+            if (location.HorizontalAccuracy > -1)
+            {
+                p.Accuracy = location.HorizontalAccuracy;
+                p.Latitude = location.Coordinate.Latitude;
+                p.Longitude = location.Coordinate.Longitude;
+            }
+
+            if (location.VerticalAccuracy > -1)
+            {
+                p.Altitude = location.Altitude;
+                p.AltitudeAccuracy = location.VerticalAccuracy;
+            }
+
+            if (location.Speed > -1)
+                p.Speed = location.Speed;
 
             var dateTime = location.Timestamp.ToDateTime().ToUniversalTime();
-            p.Timestamp = new DateTimeOffset (dateTime);
-			
-			this.position = p;
-			
-			OnPositionChanged (new PositionEventArgs (p));
+            p.Timestamp = new DateTimeOffset(dateTime);
 
-			location.Dispose();
-		}
-		
+            this.position = p;
 
-		private void OnFailed (object sender, NSErrorEventArgs e)
-		{
-			if ((CLError)(int)e.Error.Code == CLError.Network)
-				OnPositionError (new PositionErrorEventArgs (GeolocationError.PositionUnavailable));
-		}
+            OnPositionChanged(new PositionEventArgs(p));
 
-		private void OnAuthorizationChanged (object sender, CLAuthorizationChangedEventArgs e)
-		{
-			if (e.Status == CLAuthorizationStatus.Denied || e.Status == CLAuthorizationStatus.Restricted)
-				OnPositionError (new PositionErrorEventArgs (GeolocationError.Unauthorized));
-		}
-		
-		private void OnPositionChanged (PositionEventArgs e)
-		{
-			var changed = PositionChanged;
-			if (changed != null)
-				changed (this, e);
-		}
-		
-		private void OnPositionError (PositionErrorEventArgs e)
-		{
-			StopListening();
-			
-			var error = PositionError;
-			if (error != null)
-				error (this, e);
-		}
-  }
+            location.Dispose();
+        }
+
+
+        private void OnFailed(object sender, NSErrorEventArgs e)
+        {
+            if ((CLError)(int)e.Error.Code == CLError.Network)
+                OnPositionError(new PositionErrorEventArgs(GeolocationError.PositionUnavailable));
+        }
+
+        private void OnAuthorizationChanged(object sender, CLAuthorizationChangedEventArgs e)
+        {
+            if (e.Status == CLAuthorizationStatus.Denied || e.Status == CLAuthorizationStatus.Restricted)
+                OnPositionError(new PositionErrorEventArgs(GeolocationError.Unauthorized));
+        }
+
+        private void OnPositionChanged(PositionEventArgs e)
+        {
+            var changed = PositionChanged;
+            if (changed != null)
+                changed(this, e);
+        }
+
+        private void OnPositionError(PositionErrorEventArgs e)
+        {
+            StopListening();
+
+            var error = PositionError;
+            if (error != null)
+                error(this, e);
+        }
+    }
 }
