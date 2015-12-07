@@ -1,6 +1,6 @@
 ## ![](http://www.refractored.com/images/plugin_icon_geolocator.png) Geolocator Plugin for Xamarin and Windows
 
-Simple cross platform plugin to get GPS location including heading, speed, and more.
+Simple cross platform plugin to get GPS location including heading, speed, and more. Additionally, you can track geolocation changes :)
 
 Ported from [Xamarin.Mobile](http://www.github.com/xamarin/xamarin.mobile) to a cross platform API.
 
@@ -31,6 +31,99 @@ var position = await locator.GetPositionAsync (timeout: 10000);
 Console.WriteLine ("Position Status: {0}", position.Timestamp);
 Console.WriteLine ("Position Latitude: {0}", position.Latitude);
 Console.WriteLine ("Position Longitude: {0}", position.Longitude);
+```
+
+### API 
+
+```
+/// <summary>
+/// Position error event handler
+/// </summary>
+event EventHandler<PositionErrorEventArgs> PositionError;
+```
+
+```
+/// <summary>
+/// Position changed event handler
+/// </summary>
+event EventHandler<PositionEventArgs> PositionChanged;
+```
+
+```
+/// <summary>
+/// Desired accuracy in meteres
+/// </summary>
+double DesiredAccuracy { get; set; }
+```
+
+```
+/// <summary>
+/// Gets if you are listening for location changes
+/// </summary>
+bool IsListening { get; }
+```
+
+```
+/// <summary>
+/// Gets if device supports heading
+/// </summary>
+bool SupportsHeading { get; }
+```
+
+```
+/// <summary>
+/// Gets or sets if background updates should be allowed on the geolocator.
+/// </summary>
+bool AllowsBackgroundUpdates { get; set; }
+```
+
+```
+/// <summary>
+/// Gets or sets if the location updates should be paused automatically (iOS)
+/// </summary>
+bool PausesLocationUpdatesAutomatically { get; set; }
+```
+
+```
+/// <summary>
+/// Gets if geolocation is available on device
+/// </summary>
+bool IsGeolocationAvailable { get; }
+```
+
+```
+/// <summary>
+/// Gets if geolocation is enabled on device
+/// </summary>
+bool IsGeolocationEnabled { get; }
+```
+
+```
+/// <summary>
+/// Gets position async with specified parameters
+/// </summary>
+/// <param name="timeoutMilliseconds">Timeout in milliseconds to wait, Default Infinite</param>
+/// <param name="token">Cancelation token</param>
+/// <param name="includeHeading">If you would like to include heading</param>
+/// <returns>Position</returns>
+Task<Position> GetPositionAsync(int timeoutMilliseconds = Timeout.Infinite, CancellationToken? token = null, bool includeHeading = false);
+```
+
+```
+/// <summary>
+/// Start lisenting for changes
+/// </summary>
+/// <param name="minTime">Time</param>
+/// <param name="minDistance">Distance</param>
+/// <param name="includeHeading">Include heading or not</param>
+Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false);
+```
+
+```
+/// <summary>
+/// Stop linstening
+/// </summary>
+Task<bool> StopListeningAsync();
 ```
 
 ### **IMPORTANT**
@@ -76,6 +169,7 @@ You must set the ID_CAP_LOCATION permission.
 Thanks!
 
 #### License
+This is a derivative to [Xamarin.Mobile's Geolocator](http://github.com/xamarin/xamarin.mobile) with a cross platform API and other enhancements.
 ﻿//
 //  Copyright 2011-2013, Xamarin Inc.
 //
