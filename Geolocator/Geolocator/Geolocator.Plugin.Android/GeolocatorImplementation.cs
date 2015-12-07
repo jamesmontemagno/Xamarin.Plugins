@@ -224,7 +224,7 @@ namespace Plugin.Geolocator
         }
 
         /// <inheritdoc/>
-        public async Task<bool> StartListening(int minTime, double minDistance, bool includeHeading = false)
+        public async Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false)
         {
             var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permissions.Abstractions.Permission.Location).ConfigureAwait(false);
             if (status != Permissions.Abstractions.PermissionStatus.Granted)
@@ -264,7 +264,7 @@ namespace Plugin.Geolocator
             return true;
         }
         /// <inheritdoc/>
-        public Task<bool> StopListening()
+        public Task<bool> StopListeningAsync()
         {
             if (listener == null)
                 return Task.FromResult(true);
@@ -303,9 +303,9 @@ namespace Plugin.Geolocator
             }
         }
         /// <inheritdoc/>
-        private void OnListenerPositionError(object sender, PositionErrorEventArgs e)
+        private async void OnListenerPositionError(object sender, PositionErrorEventArgs e)
         {
-            StopListening();
+            await StopListeningAsync();
 
             var error = PositionError;
             if (error != null)

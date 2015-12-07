@@ -93,7 +93,7 @@ namespace Plugin.Geolocator
             return new SinglePositionListener(DesiredAccuracy, timeoutMilliseconds, cancelToken.Value).Task;
         }
         /// <inheritdoc/>
-        public Task<bool> StartListening(int minTime, double minDistance, bool includeHeading = false)
+        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false)
         {
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");
@@ -111,7 +111,7 @@ namespace Plugin.Geolocator
             return Task.FromResult(true);
         }
         /// <inheritdoc/>
-        public Task<bool> StopListening()
+        public Task<bool> StopListeningAsync()
         {
             if (this.watcher == null)
                 return Task.FromResult(true);
@@ -149,7 +149,7 @@ namespace Plugin.Geolocator
             }
         }
 
-        private void WatcherOnStatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
+        private async void WatcherOnStatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
         {
             this.isEnabled = (this.watcher.Permission == GeoPositionPermission.Granted && this.watcher.Status != GeoPositionStatus.Disabled);
 
@@ -168,7 +168,7 @@ namespace Plugin.Geolocator
                     return;
             }
 
-            StopListening();
+            await StopListeningAsync();
 
             var perror = PositionError;
             if (perror != null)

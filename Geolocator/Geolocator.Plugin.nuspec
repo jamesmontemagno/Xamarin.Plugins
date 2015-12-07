@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Geolocator</id>
-       <version>3.0.0</version>
+       <version>3.0.1</version>
        <title>Geolocator Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -28,7 +28,7 @@
        <summary>Easly access geolocation across Xamarin.iOS, Xamarin.Android and Windows. View full project page for README
        </summary>
      <releaseNotes>
-         [3.0.0]
+         [3.0.1]
          -Breaking Changes:
          ---Changed StartListening and StopListening to Task that return a bool of success or failure
          ---New Namespace: Plugin.Geolocator

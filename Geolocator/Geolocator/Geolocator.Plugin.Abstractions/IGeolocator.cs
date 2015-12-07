@@ -67,12 +67,12 @@ namespace Plugin.Geolocator.Abstractions
         /// <param name="minTime">Time</param>
         /// <param name="minDistance">Distance</param>
         /// <param name="includeHeading">Include heading or not</param>
-        Task<bool> StartListening(int minTime, double minDistance, bool includeHeading = false);
+        Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false);
 
         /// <summary>
         /// Stop linstening
         /// </summary>
-        Task<bool> StopListening();
+        Task<bool> StopListeningAsync();
 
     }
 }

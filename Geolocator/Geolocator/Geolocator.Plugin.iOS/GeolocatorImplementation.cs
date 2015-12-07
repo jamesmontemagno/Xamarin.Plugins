@@ -216,7 +216,7 @@ namespace Plugin.Geolocator
             return tcs.Task;
         }
         /// <inheritdoc/>
-        public Task<bool> StartListening(int minTime, double minDistance, bool includeHeading = false)
+        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false)
         {
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");
@@ -236,7 +236,7 @@ namespace Plugin.Geolocator
             return Task.FromResult(true);
         }
         /// <inheritdoc/>
-        public Task<bool> StopListening()
+        public Task<bool> StopListeningAsync()
         {
             if (!this.isListening)
                 return Task.FromResult(true);
@@ -337,9 +337,9 @@ namespace Plugin.Geolocator
                 changed(this, e);
         }
 
-        private void OnPositionError(PositionErrorEventArgs e)
+        private async void OnPositionError(PositionErrorEventArgs e)
         {
-            StopListening();
+            await StopListeningAsync();
 
             var error = PositionError;
             if (error != null)
