@@ -117,7 +117,7 @@ takePhoto.Clicked += async (sender, args) =>
 ```
 
 ### Saving Photo/Video to Camera Roll/Gallery
-As of Version 2.1.0 you can now save a photo or video to the camera roll/gallery. When creating the ```StoreCameraMediaOptions``` or ```StoreVideoMediaOptions``` simply set ```SaveToAlbum``` to true. When your user takes a photo it will still store temporary data, but also if needed make a copy to the public gallery (based on platform). In the MediaFile you will now see a AlbumPath that you can query as well.
+As of Version 2.1.0 ([currently in beta](https://www.nuget.org/packages/Xam.Plugin.Media/2.1.0-beta1)) you can now save a photo or video to the camera roll/gallery. When creating the ```StoreCameraMediaOptions``` or ```StoreVideoMediaOptions``` simply set ```SaveToAlbum``` to true. When your user takes a photo it will still store temporary data, but also if needed make a copy to the public gallery (based on platform). In the MediaFile you will now see a AlbumPath that you can query as well.
 
 Android: When you set SaveToAlbum this will make it so your photos are public in the Pictures/YourDirectory or Movies/YourDirectory. This is the only way Android can detect the photos.
 
