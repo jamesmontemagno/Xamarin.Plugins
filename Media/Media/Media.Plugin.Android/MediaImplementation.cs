@@ -201,8 +201,7 @@ namespace Plugin.Media
 
             var media = await TakeMediaAsync("image/*", MediaStore.ActionImageCapture, options);
             
-            if(options.AutoFixOrientation)
-                await FixOrientationAsync(media.Path);
+            await FixOrientationAsync(media.Path);
             
             return media;
         }
