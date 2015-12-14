@@ -199,7 +199,12 @@ namespace Plugin.Media
 
             VerifyOptions(options);
 
-            return await TakeMediaAsync("image/*", MediaStore.ActionImageCapture, options);
+            var media = await TakeMediaAsync("image/*", MediaStore.ActionImageCapture, options);
+            
+            if(options.AutoFixOrientation)
+                await FixOrientationAsync(media.Path);
+            
+            return media;
         }
 
         /// <summary>
@@ -322,5 +327,81 @@ namespace Plugin.Media
 
             return ntcs.Task;
         }
+    }
+    
+    /// <summary>
+    ///  Rotate an image if required and saves it back to disk.
+    /// </summary>
+    /// <param name="file">The file image</param>
+    /// <returns>True if rotation occured, else fal</returns>
+    async public Task<bool> FixOrientationAsync(string filePath)
+    {
+        if (string.IsNullOrWhiteSpace(filePath))
+            return false;
+        try
+        {
+            var orientation = GetRotation(filePath);
+
+            if (!orientation.HasValue)
+                return false;
+
+            Bitmap bmp = RotateImage(filePath, orientation.Value);
+            var quality = 90;
+
+            using (var stream = File.Open(filePath, FileMode.OpenOrCreate))
+                await bmp.CompressAsync(Bitmap.CompressFormat.Png, quality, stream);
+
+            bmp.Recycle();
+
+            return true;
+        }
+        catch (Exception ex)
+        {                   
+            #if DEBUG
+            throw ex;
+            #elif
+            return false;
+            #endif
+        }
+    }
+
+    static int? GetRotation(string filePath)
+    {
+        try
+        {
+            ExifInterface ei = new ExifInterface(filePath);
+            var orientation = (MediaOrientation)ei.GetAttributeInt(ExifInterface.TagOrientation, (int)MediaOrientation.Normal);
+            switch (orientation)
+            {
+                case MediaOrientation.Rotate90:
+                    return 90;
+                case MediaOrientation.Rotate180:
+                    return 180;
+                case MediaOrientation.Rotate270:
+                    return 270;
+                default:
+                    return null;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            #if DEBUG
+            throw ex;
+            #elif
+            return null;
+            #endif
+        }
+    }
+
+    private static Bitmap RotateImage(string filePath, int rotation)
+    {
+        Bitmap originalImage = BitmapFactory.DecodeFile(filePath);
+
+        Matrix matrix = new Matrix();
+        matrix.PostRotate(rotation);
+        var rotatedImage = Bitmap.CreateBitmap(originalImage, 0, 0, originalImage.Width, originalImage.Height, matrix, true);
+        originalImage.Recycle();
+        return rotatedImage;
     }
 }
