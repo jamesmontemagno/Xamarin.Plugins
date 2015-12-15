@@ -124,14 +124,11 @@ Android: When you set SaveToAlbum this will make it so your photos are public in
 
 ### **IMPORTANT**
 **Android:**
+The `WRITE_EXTERNAL_STORAGE`, `READ_EXTERNAL_STORAGE` & `CAMERA` permissions are required, but the library will automatically add this for you. Additionally, if your users are running Marshmallow the Plugin will automatically prompt them for runtime permissions.
 
-You must request `WRITE_EXTERNAL_STORAGE`, `READ_EXTERNAL_STORAGE` & `CAMERA` permissions (these will be done automatically by the Permissions Plugin)
+**iOS** 
 
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-<uses-permission android:name="android.permission.CAMERA" />
+The library will automatically ask for permission when taking photos/videos or access the libraries.
 
 **Windows Phone 8/8.1 Silverlight:**
 
