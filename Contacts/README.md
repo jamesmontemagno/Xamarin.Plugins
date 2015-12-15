@@ -45,7 +45,10 @@ if(await CrossContacts.Current.RequestPermission())
 ### Important
 
 **Android**
-You must add android.permissions.READ_CONTACTS
+Tha android.permissions.READ_CONTACTS permission is required, but the library will automatically add this for you. Additionally, if your users are running Marshmallow the Plugin will automatically prompt them for runtime permissions when RequestPermissions() is called.
+
+**iOS**
+Permissions will automatically be requrested when RequestPermissions() is called.
 
 **Windows Phone**
 You must add ID_CAP_CONTACTS permission
