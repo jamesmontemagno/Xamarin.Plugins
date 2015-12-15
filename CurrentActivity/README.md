@@ -6,7 +6,7 @@ Want to read about the creation, checkout my [in-depth blog post](http://motzcod
 
 
 ### Setup
-* Available on NuGet: http://www.nuget.org/packages/Plugin.CurrentActivity
+* Available on NuGet: http://www.nuget.org/packages/Plugin.CurrentActivity[![NuGet](https://img.shields.io/nuget/v/Plugin.CurrentActivity.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.CurrentActivity/)
 * Install into your Xamarin.Android Client project.
 
 **Supports**
