@@ -5,7 +5,7 @@ Simple cross platform plugin to check connection status of mobile device, gather
 Want to read about the creation, checkout my [in-depth blog post](http://motzcod.es/post/133939517717/simplified-ios-android-runtime-permissions-with).
 
 ### Setup
-* Available on NuGet: http://www.nuget.org/packages/Plugin.Permissions
+* Available on NuGet: http://www.nuget.org/packages/Plugin.Permissions [![NuGet](https://img.shields.io/nuget/v/Plugin.Permissions.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.Permissions/)
 * Install into your PCL project and Client projects.
 *
 
