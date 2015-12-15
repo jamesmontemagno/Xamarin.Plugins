@@ -1,9 +1,9 @@
-## ![](Common/device_info_icon.png) Device Info Plugin for Xamarin
+## ![](Common/DeviceInfoPlugin/component/DeviceInfoPlugin_128x128.png) Device Info Plugin for Xamarin
 
 Simple way of getting common device information.
 
 ### Setup
-* Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.DeviceInfo
+* Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.DeviceInfo [![NuGet](https://img.shields.io/nuget/v/Xam.Plugin.DeviceInfo.svg?label=NuGet)](https://www.nuget.org/packages/Xam.Plugin.DeviceInfo/)
 * Install into your PCL project and Client projects.
 
 **Supports**
