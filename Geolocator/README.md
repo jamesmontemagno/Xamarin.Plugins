@@ -128,14 +128,8 @@ Task<bool> StopListeningAsync();
 
 ### **IMPORTANT**
 #### Android:
+The ACCESS_COARSE_LOCATION & ACCESS_FINE_LOCATION permissions are required, but the library will automatically add this for you. Additionally, if your users are running Marshmallow the Plugin will automatically prompt them for runtime permissions.
 
-You must request ACCESS_COARSE_LOCATION & ACCESS_FINE_LOCATION permission
-
-**Android 6.0 Marshmallow**
-You will have to ask for Fine&Course Location permissions via the new runtime permissions.
-https://blog.xamarin.com/requesting-runtime-permissions-in-android-marshmallow/
-
-See this example: https://github.com/jamesmontemagno/MarshmallowSamples/blob/master/RuntimePermissions/MarshmallowPermission/MainActivity.cs
 
 
 #### iOS:
