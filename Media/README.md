@@ -5,7 +5,7 @@ Simple cross platform plugin to take photos and video or pick them from a galler
 Ported from [Xamarin.Mobile](http://www.github.com/xamarin/xamarin.mobile) to a cross platform API.
 
 ### Setup
-* Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.Media
+* Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.Media [![NuGet](https://img.shields.io/nuget/v/Xam.Plugin.Media.svg?label=NuGet)](https://www.nuget.org/packages/Xam.Plugin.Media/)
 * Install into your PCL project and Client projects.
 
 **Supports**
