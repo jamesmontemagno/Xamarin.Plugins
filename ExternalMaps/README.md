@@ -4,7 +4,7 @@
        
 
 #### Setup
-* Available on NuGet: https://www.nuget.org/packages/Xam.Plugin.ExternalMaps
+* Available on NuGet: https://www.nuget.org/packages/Xam.Plugin.ExternalMaps [![NuGet](https://img.shields.io/nuget/v/Xam.Plugin.ExternalMaps.svg?label=NuGet)](https://www.nuget.org/packages/Xam.Plugin.ExternalMaps/)
 * Install into your PCL project and Client projects.
 
 **Supports**
