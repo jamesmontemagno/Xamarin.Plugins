@@ -3,7 +3,8 @@ Find the most up to date information at: https://github.com/jamesmontemagno/Xama
 
 **IMPORTANT**
 Android:
-You must request ACCESS_COARSE_LOCATION & ACCESS_FINE_LOCATION permission, now added automotically.
+The ACCESS_COARSE_LOCATION & ACCESS_FINE_LOCATION permissions are required, but the library will automatically add this for you. 
+Additionally, if your users are running Marshmallow the Plugin will automatically prompt them for runtime permissions.
 
 iOS:
 In iOS 8 you now have to call either RequestWhenInUseAuthorization or RequestAlwaysAuthorization on the location manager. Additionally you need to add either the concisely named NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription to your Info.plist. 
@@ -17,7 +18,7 @@ New in iOS 9 allowsBackgroundLocationUpdates must be set. I have exposed this on
 var locator = CrossGeolocator.Current;
 locator.AllowsBackgroundUpdates = true;
 
-The presence of the UIBackgroundModes key with the location value is required for background updates; you use this property to enable and disable the behavior based on your app’s behavior.
+The presence of the UIBackgroundModes key with the location value is required for background updates; you use this property to enable and disable the behavior based on your appâ€™s behavior.
 
 Windows Phone:
 You must set the ID_CAP_LOCATION permission.
