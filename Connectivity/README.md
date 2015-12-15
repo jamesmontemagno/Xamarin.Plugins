@@ -3,7 +3,7 @@
 Simple cross platform plugin to check connection status of mobile device, gather connection type, bandwidths, and more.
 
 ### Setup
-* Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.Connectivity
+* Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.Connectivity [![NuGet](https://img.shields.io/nuget/v/Xam.Plugin.Connectivity.svg?label=NuGet)](https://www.nuget.org/packages/Xam.Plugin.Connectivity/)
 * Install into your PCL project and Client projects.
 
 **Supports**
