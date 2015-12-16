@@ -13,7 +13,7 @@ Want to read about the creation, checkout my [in-depth blog post](http://motzcod
 ```csharp
 public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
 {
-    PermissionsImplementation.Current.OnRequestPermissionsAsyncResult(requestCode, permissions, grantResults);
+    PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 }
 ```
 
@@ -40,7 +40,7 @@ Call **CrossPermissions.Current** from any project or PCL to gain access to APIs
 /// </summary>
 /// <returns>True or false to show rationale</returns>
 /// <param name="permission">Permission to check.</param>
-Task<bool> ShouldShowRequestPermissionRationale(Permission permission);
+Task<bool> ShouldShowRequestPermissionRationaleAsync(Permission permission);
 ```
 
 **CheckPermissiontStatus**
@@ -50,7 +50,7 @@ Task<bool> ShouldShowRequestPermissionRationale(Permission permission);
 /// </summary>
 /// <returns><c>true</c> if this instance has permission the specified permission; otherwise, <c>false</c>.</returns>
 /// <param name="permission">Permission to check.</param>
-Task<PermissionStatus> CheckPermissionStatus(Permission permission);
+Task<PermissionStatus> CheckPermissionStatusAsync(Permission permission);
 ```
 
 **RequestPermissions**
@@ -60,7 +60,7 @@ Task<PermissionStatus> CheckPermissionStatus(Permission permission);
 /// </summary>
 /// <returns>The permissions and their status.</returns>
 /// <param name="permissions">Permissions to request.</param>
-Task<Dictionary<Permission, PermissionStatus>> RequestPermissions(params Permission[] permissions);
+Task<Dictionary<Permission, PermissionStatus>> RequestPermissionsAsync(params Permission[] permissions);
 ```
 
 ### In Action
