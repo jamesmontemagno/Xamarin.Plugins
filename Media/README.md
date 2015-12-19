@@ -5,7 +5,7 @@ Simple cross platform plugin to take photos and video or pick them from a galler
 Ported from [Xamarin.Mobile](http://www.github.com/xamarin/xamarin.mobile) to a cross platform API.
 
 ### Setup
-* Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.Media
+* Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.Media [![NuGet](https://img.shields.io/nuget/v/Xam.Plugin.Media.svg?label=NuGet)](https://www.nuget.org/packages/Xam.Plugin.Media/)
 * Install into your PCL project and Client projects.
 
 **Supports**
@@ -117,21 +117,18 @@ takePhoto.Clicked += async (sender, args) =>
 ```
 
 ### Saving Photo/Video to Camera Roll/Gallery
-As of Version 2.1.0 you can now save a photo or video to the camera roll/gallery. When creating the ```StoreCameraMediaOptions``` or ```StoreVideoMediaOptions``` simply set ```SaveToAlbum``` to true. When your user takes a photo it will still store temporary data, but also if needed make a copy to the public gallery (based on platform). In the MediaFile you will now see a AlbumPath that you can query as well.
+As of Version 2.1.0 ([currently in beta](https://www.nuget.org/packages/Xam.Plugin.Media/2.1.0-beta1)) you can now save a photo or video to the camera roll/gallery. When creating the ```StoreCameraMediaOptions``` or ```StoreVideoMediaOptions``` simply set ```SaveToAlbum``` to true. When your user takes a photo it will still store temporary data, but also if needed make a copy to the public gallery (based on platform). In the MediaFile you will now see a AlbumPath that you can query as well.
 
 Android: When you set SaveToAlbum this will make it so your photos are public in the Pictures/YourDirectory or Movies/YourDirectory. This is the only way Android can detect the photos.
 
 
 ### **IMPORTANT**
 **Android:**
+The `WRITE_EXTERNAL_STORAGE`, `READ_EXTERNAL_STORAGE` & `CAMERA` permissions are required, but the library will automatically add this for you. Additionally, if your users are running Marshmallow the Plugin will automatically prompt them for runtime permissions.
 
-You must request `WRITE_EXTERNAL_STORAGE`, `READ_EXTERNAL_STORAGE` & `CAMERA` permissions (these will be done automatically by the Permissions Plugin)
+**iOS** 
 
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-<uses-permission android:name="android.permission.CAMERA" />
+The library will automatically ask for permission when taking photos/videos or access the libraries.
 
 **Windows Phone 8/8.1 Silverlight:**
 

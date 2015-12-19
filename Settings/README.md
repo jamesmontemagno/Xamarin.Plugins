@@ -9,7 +9,7 @@ Create and access settings from shared code across all of your mobile apps!
 * Windows RT / UWP: ApplicationDataContainer
 
 ### Setup & Usage
-* Available on NuGet: https://www.nuget.org/packages/Xam.Plugins.Settings/
+* Available on NuGet: https://www.nuget.org/packages/Xam.Plugins.Settings/ [![NuGet](https://img.shields.io/nuget/v/Xam.Plugins.Settings.svg?label=NuGet)](https://www.nuget.org/packages/Xam.Plugins.Settings/)
 * Install into your PCL project and Client projects.
 * Open up Helpers/Settings.cs in your PCL for directions on how to use.
 * If you are not using a PCL you will find an _SettingsStarted.txt file under properties to get started. Else you can follow this guide:

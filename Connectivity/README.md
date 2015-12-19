@@ -3,7 +3,7 @@
 Simple cross platform plugin to check connection status of mobile device, gather connection type, bandwidths, and more.
 
 ### Setup
-* Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.Connectivity
+* Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.Connectivity [![NuGet](https://img.shields.io/nuget/v/Xam.Plugin.Connectivity.svg?label=NuGet)](https://www.nuget.org/packages/Xam.Plugin.Connectivity/)
 * Install into your PCL project and Client projects.
 
 **Supports**
@@ -101,11 +101,10 @@ CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
 
 ### **IMPORTANT**
 Android:
-You must request ACCESS_NETWORK_STATE permission to get the network state
-You must request ACCESS_WIFI_STATE to get speeds
+The ACCESS_NETWORK_STATE and ACCESS_WIFI_STATE permissions are required and will be automatically added to your Android Manifest.
 
 iOS:
-Bandwidths is not supported and will always return an empty list.
+Bandwidths are not supported and will always return an empty list.
 
 Windows 8.1 & Windows Phone 8.1 RT:
 RT apps can not perform loopback, so you can not use IsReachable to query the states of a local IP.

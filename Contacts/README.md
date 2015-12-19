@@ -6,7 +6,7 @@ Ported from [Xamarin.Mobile](http://www.github.com/xamarin/xamarin.mobile) to a 
 
 ### Setup
 * Currently in Alpha (turn on pre-release packages)
-* Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.Contacts
+* Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.Contacts [![NuGet](https://img.shields.io/nuget/v/Xam.Plugin.Contacts.svg?label=NuGet)](https://www.nuget.org/packages/Xam.Plugin.Contacts/)
 * Install into your PCL project and Client projects.
 
 **Supports**
@@ -45,7 +45,10 @@ if(await CrossContacts.Current.RequestPermission())
 ### Important
 
 **Android**
-You must add android.permissions.READ_CONTACTS
+Tha android.permissions.READ_CONTACTS permission is required, but the library will automatically add this for you. Additionally, if your users are running Marshmallow the Plugin will automatically prompt them for runtime permissions when RequestPermissions() is called.
+
+**iOS**
+Permissions will automatically be requrested when RequestPermissions() is called.
 
 **Windows Phone**
 You must add ID_CAP_CONTACTS permission

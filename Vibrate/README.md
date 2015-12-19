@@ -8,7 +8,7 @@ This NuGet can be used for all tradition Xamarin and Windows development with or
 
 
 #### Setup
-* Available on NuGet: https://www.nuget.org/packages/Xam.Plugins.Vibrate
+* Available on NuGet: https://www.nuget.org/packages/Xam.Plugins.Vibrate [![NuGet](https://img.shields.io/nuget/v/Xam.Plugins.Vibrate.svg?label=NuGet)](https://www.nuget.org/packages/Xam.Plugins.Vibrate/)
 * Install into your PCL project and Client projects.
 
 **Supports**
