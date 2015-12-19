@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.Permissions", "Plugin.Permissions\Plugin.Permissions.csproj", "{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}"
 EndProject
@@ -20,7 +20,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6ADEFD4F-ED2E-42A3-A4E5-D34A29AF1F1F}"
 	ProjectSection(SolutionItems) = preProject
 		Permissions.Plugin.nuspec = Permissions.Plugin.nuspec
-		PermissionsReadme.txt.pp = PermissionsReadme.txt.pp
+		readme.txt = readme.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{83AC2F38-5B07-4FD8-9DD1-62C9F7403DC6}"

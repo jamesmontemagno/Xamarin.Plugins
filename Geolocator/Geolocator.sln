@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geolocator.Plugin", "Geolocator\Geolocator.Plugin\Geolocator.Plugin.csproj", "{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}"
 EndProject
@@ -20,7 +20,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{33498B6F-E3B8-4C37-9BB6-600D0E089742}"
 	ProjectSection(SolutionItems) = preProject
 		Geolocator.Plugin.nuspec = Geolocator.Plugin.nuspec
-		GeolocatorReadme.txt.pp = GeolocatorReadme.txt.pp
+		readme.txt = readme.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestApps", "TestApps", "{F47FDCB8-7128-4322-9972-2FA6570BE15D}"
@@ -34,6 +34,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geolocator.Plugin.UWP", "Geolocator\Geolocator.Plugin.UWP\Geolocator.Plugin.UWP.csproj", "{14318CB2-06EC-4B31-BE72-C4702D8AEB5F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geolocator.Plugin.iOS", "Geolocator\Geolocator.Plugin.iOS\Geolocator.Plugin.iOS.csproj", "{D7F3AA16-8EF1-4924-9E0A-DAD4AB46B2EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geolocator.Plugin.Net45", "Geolocator\Geolocator.Plugin.Net45\Geolocator.Plugin.Net45.csproj", "{674D29BB-9528-46E6-9353-D45E8A1D4C76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -309,6 +311,30 @@ Global
 		{D7F3AA16-8EF1-4924-9E0A-DAD4AB46B2EB}.Release|x64.Build.0 = Release|Any CPU
 		{D7F3AA16-8EF1-4924-9E0A-DAD4AB46B2EB}.Release|x86.ActiveCfg = Release|Any CPU
 		{D7F3AA16-8EF1-4924-9E0A-DAD4AB46B2EB}.Release|x86.Build.0 = Release|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Debug|ARM.Build.0 = Debug|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Debug|x64.Build.0 = Debug|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Debug|x86.Build.0 = Debug|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Release|ARM.ActiveCfg = Release|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Release|ARM.Build.0 = Release|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Release|iPhone.Build.0 = Release|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Release|x64.ActiveCfg = Release|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Release|x64.Build.0 = Release|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Release|x86.ActiveCfg = Release|Any CPU
+		{674D29BB-9528-46E6-9353-D45E8A1D4C76}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,12 +1,29 @@
 Connectivity Readme
-Find the most up to date information at: https://github.com/jamesmontemagno/Xamarin.Plugins
+
+Change Log:
+[2.0.1]
+-Remove help file, add readme file
+-Add blank .NET 4.5 implementation for unit testing
+-Remove dependency that wasn't needed
+
+[2.0.0]
+-BREAKING CHANGE: New Namespace: Plugin.Connectivity
+-Automatically add permissions for Android!
+-Add UWP Support
+
+Learn More:
+http://www.github.com/jamesmontemagno/Xamarn.Plugins
+http://www.xamarin.com/plugins
+
+Created by James Montemagno:
+http://twitter.com/jamesmontemagno
+http://www.motzcod.es
 
 **IMPORTANT**
 Android:
+The following persmissions are not automatically added for you:
 You must request ACCESS_NETWORK_STATE permission to get the network state
 You must request ACCESS_WIFI_STATE to get speeds
-
-(Added automatically now for you)
 
 iOS:
 Bandwidths are not supported and will always return an empty list.

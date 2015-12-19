@@ -30,3 +30,4 @@ public override void OnTerminate()
     base.OnTerminate();
     UnregisterActivityLifecycleCallbacks(this);
 }
+

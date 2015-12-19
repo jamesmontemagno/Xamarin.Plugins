@@ -1,5 +1,20 @@
 Permissions Readme
-Find the most up to date information at: https://github.com/jamesmontemagno/Xamarin.Plugins
+
+Changelog:
+[1.1.2]
+  -Remove help file, but add readme.txt
+[1.1.1]
+  -Fix odd edgecase in Android for nothing in Manifest.
+  -Use Context instead of Activity when checking permisson if we can.
+  -Change to params of permissions when requesting permissions.
+
+Learn More:
+http://www.github.com/jamesmontemagno/Xamarn.Plugins
+http://www.xamarin.com/plugins
+
+Created by James Montemagno:
+http://twitter.com/jamesmontemagno
+http://www.motzcod.es
 
 **IMPORTANT**
 Android:

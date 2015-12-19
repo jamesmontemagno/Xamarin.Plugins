@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4900279E-8A47-4E5D-B8F0-A6DD8773F351}"
 	ProjectSection(SolutionItems) = preProject
@@ -40,12 +40,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Settings.NU
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3E1F951A-5B27-4BB7-8D11-0150C9B427A4}"
 	ProjectSection(SolutionItems) = preProject
+		Common\core\readme.txt = Common\core\readme.txt
 		Common\core\Settings.cs.pp = Common\core\Settings.cs.pp
-		Common\core\SettingsReadme.txt.pp = Common\core\SettingsReadme.txt.pp
+		Common\core\SettingsPlatform.cs.pp = Common\core\SettingsPlatform.cs.pp
 		Common\Xam.Plugins.Settings.nuspec = Common\Xam.Plugins.Settings.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Settings.UWP", "Refractored.Xam.Settings.UWP\Refractored.Xam.Settings.UWP.csproj", "{C1B59CE7-B44B-4F31-B671-02E685ED036F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refractored.Xam.Settings.Net45", "Refractored.Xam.Settings.Net45\Refractored.Xam.Settings.Net45.csproj", "{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -662,6 +665,62 @@ Global
 		{C1B59CE7-B44B-4F31-B671-02E685ED036F}.Release|x64.Build.0 = Release|x64
 		{C1B59CE7-B44B-4F31-B671-02E685ED036F}.Release|x86.ActiveCfg = Release|x86
 		{C1B59CE7-B44B-4F31-B671-02E685ED036F}.Release|x86.Build.0 = Release|x86
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Ad-Hoc|ARM.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Ad-Hoc|ARM.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Ad-Hoc|iPhoneSimulator.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Ad-Hoc|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Ad-Hoc|Mixed Platforms.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Ad-Hoc|x64.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Ad-Hoc|x64.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Ad-Hoc|x86.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Ad-Hoc|x86.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.AppStore|Any CPU.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.AppStore|ARM.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.AppStore|ARM.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.AppStore|iPhone.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.AppStore|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.AppStore|iPhoneSimulator.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.AppStore|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.AppStore|Mixed Platforms.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.AppStore|x64.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.AppStore|x64.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.AppStore|x86.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.AppStore|x86.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Debug|ARM.Build.0 = Debug|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Debug|x64.Build.0 = Debug|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Debug|x86.Build.0 = Debug|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Release|ARM.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Release|ARM.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Release|iPhone.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Release|x64.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Release|x64.Build.0 = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Release|x86.ActiveCfg = Release|Any CPU
+		{52E1406B-0FEA-4EA8-BE48-888BCC0884C7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

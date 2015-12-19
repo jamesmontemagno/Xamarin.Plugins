@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Connectivity</id>
-       <version>2.0.0</version>
+       <version>2.0.1</version>
        <title>Connectivity Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -14,6 +14,11 @@
          Get network connectivity information such as network type, speeds, and if connection is available. Additional functionality includes the ability to ping a specific host and port number. Ensure you have proper permissions set by reading the README.
        </description>
      <releaseNotes>
+       [2.0.1]
+       -Remove help file, add readme file
+       -Add blank .NET 4.5 implementation for unit testing
+       -Remove dependency that wasn't needed
+       
        [2.0.0]
        -BREAKING CHANGE: New Namespace: Plugin.Connectivity
        -Automatically add permissions for Android!
@@ -22,12 +27,11 @@
        <summary>Get network connectivity information such as network type, speeds, and if connection is available.</summary>
        <tags>xamarin, pcl, xam.pcl, connectivity, plugin for xamarin, plugins, wifi, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
        <dependencies>
-           <group targetFramework="MonoAndroid10">
-               <dependency id="Plugin.Permissions" version="1.0.0"/>
-           </group>
        </dependencies>
    </metadata>
-   <files>
+   <files> 
+       <file src="readme.txt" target="readme.txt" />
+     
 <!--Core-->
      <file src="Connectivity\Connectivity.Plugin\bin\Release\Plugin.Connectivity.dll" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.dll" />
      <file src="Connectivity\Connectivity.Plugin\bin\Release\Plugin.Connectivity.xml" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.xml" />
@@ -35,7 +39,6 @@
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.Abstractions.dll" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.Abstractions.xml" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.pdb" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.Abstractions.pdb" />
-     <file src="ConnectivityReadme.txt.pp" target="content\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\PluginsHelp\ConnectivityReadme.txt.pp" />
      
      <!--Win Phone Silverlight-->
      <file src="Connectivity\Connectivity.Plugin.WindowsPhone8\bin\Release\Plugin.Connectivity.dll" target="lib\wp80\Plugin.Connectivity.dll" />
@@ -44,8 +47,7 @@
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\wp80\Plugin.Connectivity.Abstractions.dll" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\wp80\Plugin.Connectivity.Abstractions.xml" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.pdb" target="lib\wp80\Plugin.Connectivity.Abstractions.pdb" />
-     <file src="ConnectivityReadme.txt.pp" target="content\wp80\PluginsHelp\ConnectivityReadme.txt.pp" />
-
+    
         <!--Win Phone Silverlight 81-->
      <file src="Connectivity\Connectivity.Plugin.WindowsPhone81SL\bin\Release\Plugin.Connectivity.dll" target="lib\wp81\Plugin.Connectivity.dll" />
      <file src="Connectivity\Connectivity.Plugin.WindowsPhone81SL\bin\Release\Plugin.Connectivity.xml" target="lib\wp81\Plugin.Connectivity.xml" />
@@ -53,8 +55,7 @@
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\wp81\Plugin.Connectivity.Abstractions.dll" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\wp81\Plugin.Connectivity.Abstractions.xml" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.pdb" target="lib\wp81\Plugin.Connectivity.Abstractions.pdb" />
-     <file src="ConnectivityReadme.txt.pp" target="content\wp81\PluginsHelp\ConnectivityReadme.txt.pp" />
-
+     
          
      <!--Win Phone 81 RT-->
      <file src="Connectivity\Connectivity.Plugin.WindowsPhone81\bin\Release\Plugin.Connectivity.dll" target="lib\wpa81\Plugin.Connectivity.dll" />
@@ -63,8 +64,7 @@
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\wpa81\Plugin.Connectivity.Abstractions.dll" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\wpa81\Plugin.Connectivity.Abstractions.xml" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.pdb" target="lib\wpa81\Plugin.Connectivity.Abstractions.pdb" />
-     <file src="ConnectivityReadme.txt.pp" target="content\wpa81\PluginsHelp\ConnectivityReadme.txt.pp" />
-
+     
 
      <!--WinStore-->
      <file src="Connectivity\Connectivity.Plugin.WindowsStore\bin\Release\Plugin.Connectivity.dll" target="lib\win8\Plugin.Connectivity.dll" />
@@ -73,8 +73,7 @@
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\win8\Plugin.Connectivity.Abstractions.dll" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\win8\Plugin.Connectivity.Abstractions.xml" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.pdb" target="lib\win8\Plugin.Connectivity.Abstractions.pdb" />
-     <file src="ConnectivityReadme.txt.pp" target="content\win8\PluginsHelp\ConnectivityReadme.txt.pp" />
-
+    
 
      <!--Xamarin.Android-->
      <file src="Connectivity\Connectivity.Plugin.Android\bin\Release\Plugin.Connectivity.dll" target="lib\MonoAndroid10\Plugin.Connectivity.dll" />
@@ -83,22 +82,19 @@
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\MonoAndroid10\Plugin.Connectivity.Abstractions.dll" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\MonoAndroid10\Plugin.Connectivity.Abstractions.xml" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.pdb" target="lib\MonoAndroid10\Plugin.Connectivity.Abstractions.pdb" />
-     <file src="ConnectivityReadme.txt.pp" target="content\MonoAndroid10\PluginsHelp\ConnectivityReadme.txt.pp" />
-
+     
      <!--Xamarin.iOS-->
      <file src="Connectivity\Connectivity.Plugin.iOS\bin\iPhone\Release\Plugin.Connectivity.dll" target="lib\MonoTouch10\Plugin.Connectivity.dll" />
      <file src="Connectivity\Connectivity.Plugin.iOS\bin\iPhone\Release\Plugin.Connectivity.xml" target="lib\MonoTouch10\Plugin.Connectivity.xml" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\MonoTouch10\Plugin.Connectivity.Abstractions.dll" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\MonoTouch10\Plugin.Connectivity.Abstractions.xml" />
-     <file src="ConnectivityReadme.txt.pp" target="content\MonoTouch10\PluginsHelp\ConnectivityReadme.txt.pp" />
-
+     
      <!--Xamarin.iOS Unified-->
      <file src="Connectivity\Connectivity.Plugin.iOSUnified\bin\iPhone\Release\Plugin.Connectivity.dll" target="lib\Xamarin.iOS10\Plugin.Connectivity.dll" />
      <file src="Connectivity\Connectivity.Plugin.iOSUnified\bin\iPhone\Release\Plugin.Connectivity.xml" target="lib\Xamarin.iOS10\Plugin.Connectivity.xml" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.xml" />
-     <file src="ConnectivityReadme.txt.pp" target="content\Xamarin.iOS10\PluginsHelp\ConnectivityReadme.txt.pp" />
-
+     
 
        <!--UWP-->
        <file src="Connectivity\Connectivity.Plugin.UWP\bin\Release\Plugin.Connectivity.dll" target="lib\UAP10\Plugin.Connectivity.dll" />
@@ -107,8 +103,15 @@
        <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\UAP10\Plugin.Connectivity.Abstractions.dll" />
        <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\UAP10\Plugin.Connectivity.Abstractions.xml" />
        <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.pdb" target="lib\UAP10\Plugin.Connectivity.Abstractions.pdb" />
-       <file src="ConnectivityReadme.txt.pp" target="content\UAP10\PluginsHelp\ConnectivityReadme.txt.pp" />
-
+      
+       <!--Net 4.5-->
+     <file src="Connectivity\Connectivity.Plugin.Net45\bin\Release\Plugin.Connectivity.dll" target="lib\net45\Plugin.Connectivity.dll" />
+     <file src="Connectivity\Connectivity.Plugin.Net45\bin\Release\Plugin.Connectivity.xml" target="lib\net45\Plugin.Connectivity.xml" />
+     <file src="Connectivity\Connectivity.Plugin.Net45\bin\Release\Plugin.Connectivity.pdb" target="lib\net45\Plugin.Connectivity.pdb" />
+     <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\net45\Plugin.Connectivity.Abstractions.dll" />
+     <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\net45\Plugin.Connectivity.Abstractions.xml" />
+     <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.pdb" target="lib\net45\Plugin.Connectivity.Abstractions.pdb" />
+    
 
    </files>
 </package>

@@ -1,3 +1,25 @@
+Settings Plugin Readme
+
+Changelog:
+[2.1.0]
+-Remove help file and add in readme.txt
+-.NET 4.5 Implementation for unit testing
+[2.0.0]
+-Breaking changes:
+--New namespace - Plugin.Settings
+--Remove Obsolete Methods
+-Add UWP Support
+-Enhanced DateTime (now saved to UTC)
+
+Learn More:
+http://www.github.com/jamesmontemagno/Xamarn.Plugins
+http://www.xamarin.com/plugins
+
+Created by James Montemagno:
+http://twitter.com/jamesmontemagno
+http://www.motzcod.es
+
+
 Ensure that you install NuGet into PCL and see Helpers/Settings.cs
 
 If you are installing this in a normal project and not using a pcl create a new file called Settings.cs or whatever you want and copy this code in:

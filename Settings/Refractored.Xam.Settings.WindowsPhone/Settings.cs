@@ -7,7 +7,7 @@ namespace Plugin.Settings
     /// <summary>
     /// Main settings implementation
     /// </summary>
-    public class Settings : ISettings
+    public class SettingsImplementation : ISettings
     {
         static IsolatedStorageSettings IsoSettings { get { return IsolatedStorageSettings.ApplicationSettings; } }
         private readonly object locker = new object();

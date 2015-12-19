@@ -9,7 +9,7 @@ namespace Plugin.Settings
     /// <summary>
     /// Main ISettings Implementation
     /// </summary>
-    public class Settings : ISettings
+    public class SettingsImplementation : ISettings
     {
         private static ApplicationDataContainer AppSettings
         {

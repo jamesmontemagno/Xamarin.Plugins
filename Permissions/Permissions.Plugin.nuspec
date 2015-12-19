@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Plugin.Permissions</id>
-       <version>1.1.1</version>
+       <version>1.1.2</version>
        <title>Permissions Plugin for Xamarin</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -19,10 +19,12 @@
        <dependencies>
          <group targetFramework="MonoAndroid10">
            <dependency id="Xamarin.Android.Support.v4" version="23.0.1.3"/>
-           <dependency id="Plugin.CurrentActivity" version="1.0.0"/>
+           <dependency id="Plugin.CurrentActivity" version="1.0.1"/>
          </group>
        </dependencies>
     <releaseNotes>
+       [1.1.2]
+       -Remove help file, but add readme.txt
        [1.1.1]
        -Fix odd edgecase in Android for nothing in Manifest.
        -Use Context instead of Activity when checking permisson if we can.
@@ -30,15 +32,16 @@
      </releaseNotes>
    </metadata>
    <files>
-  <!--Core-->
+       <file src="readme.txt" target="readme.txt" />
+
+       <!--Core-->
      <file src="Plugin.Permissions\bin\Release\Plugin.Permissions.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Permissions.dll" />
      <file src="Plugin.Permissions\bin\Release\Plugin.Permissions.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Permissions.xml" />
      <file src="Plugin.Permissions\bin\Release\Plugin.Permissions.pdb" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Permissions.pdb" />
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Permissions.Abstractions.dll" />
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Permissions.Abstractions.xml" />
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.pdb" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Permissions.Abstractions.pdb" />
-     <file src="PermissionsReadme.txt.pp" target="content\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\PluginsHelp\PermissionsReadme.txt.pp" />
-
+     
      <!--Win Phone Silverlight-->
      <file src="Plugin.Permissions.WindowsPhone8\bin\Release\Plugin.Permissions.dll" target="lib\wp8\Plugin.Permissions.dll" />
      <file src="Plugin.Permissions.WindowsPhone8\bin\Release\Plugin.Permissions.xml" target="lib\wp8\Plugin.Permissions.xml" />
@@ -46,7 +49,7 @@
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.dll" target="lib\wp8\Plugin.Permissions.Abstractions.dll" />
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.xml" target="lib\wp8\Plugin.Permissions.Abstractions.xml" />
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.pdb" target="lib\wp8\Plugin.Permissions.Abstractions.pdb" />
-     <file src="PermissionsReadme.txt.pp" target="content\wp8\PluginsHelp\PermissionsReadme.txt.pp" />
+
 
      <!--Win Phone 81-->
      <file src="Plugin.Permissions.WindowsPhone81\bin\Release\Plugin.Permissions.dll" target="lib\wpa81\Plugin.Permissions.dll" />
@@ -55,8 +58,7 @@
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.dll" target="lib\wpa81\Plugin.Permissions.Abstractions.dll" />
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.xml" target="lib\wpa81\Plugin.Permissions.Abstractions.xml" />
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.pdb" target="lib\wpa81\Plugin.Permissions.Abstractions.pdb" />
-     <file src="PermissionsReadme.txt.pp" target="content\wpa81\PluginsHelp\PermissionsReadme.txt.pp" />
-
+    
      <!--WinStore-->
      <file src="Plugin.Permissions.WindowsStore\bin\Release\Plugin.Permissions.dll" target="lib\win8\Plugin.Permissions.dll" />
      <file src="Plugin.Permissions.WindowsStore\bin\Release\Plugin.Permissions.xml" target="lib\win8\Plugin.Permissions.xml" />
@@ -64,8 +66,7 @@
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.dll" target="lib\win8\Plugin.Permissions.Abstractions.dll" />
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.xml" target="lib\win8\Plugin.Permissions.Abstractions.xml" />
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.pdb" target="lib\win8\Plugin.Permissions.Abstractions.pdb" />
-     <file src="PermissionsReadme.txt.pp" target="content\win8\PluginsHelp\PermissionsReadme.txt.pp" />
-
+     
      <!--Xamarin.Android-->
      <file src="Plugin.Permissions.Android\bin\Release\Plugin.Permissions.dll" target="lib\MonoAndroid10\Plugin.Permissions.dll" />
      <file src="Plugin.Permissions.Android\bin\Release\Plugin.Permissions.xml" target="lib\MonoAndroid10\Plugin.Permissions.xml" />
@@ -73,15 +74,13 @@
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.dll" target="lib\MonoAndroid10\Plugin.Permissions.Abstractions.dll" />
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.xml" target="lib\MonoAndroid10\Plugin.Permissions.Abstractions.xml" />
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.pdb" target="lib\MonoAndroid10\Plugin.Permissions.Abstractions.pdb" />
-     <file src="PermissionsReadme.txt.pp" target="content\MonoAndroid10\PluginsHelp\PermissionsReadme.txt.pp" />
-
+    
      <!--Xamarin.iOS Unified-->
      <file src="Plugin.Permissions.iOSUnified\bin\iPhone\Release\Plugin.Permissions.dll" target="lib\Xamarin.iOS10\Plugin.Permissions.dll" />
      <file src="Plugin.Permissions.iOSUnified\bin\iPhone\Release\Plugin.Permissions.xml" target="lib\Xamarin.iOS10\Plugin.Permissions.xml" />
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.dll" target="lib\Xamarin.iOS10\Plugin.Permissions.Abstractions.dll" />
      <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.xml" target="lib\Xamarin.iOS10\Plugin.Permissions.Abstractions.xml" />
-     <file src="PermissionsReadme.txt.pp" target="content\Xamarin.iOS10\PluginsHelp\PermissionsReadme.txt.pp" />
-
+    
        <!--UWP-->
        <file src="Plugin.Permissions.UWP\bin\Release\Plugin.Permissions.dll" target="lib\UAP10\Plugin.Permissions.dll" />
        <file src="Plugin.Permissions.UWP\bin\Release\Plugin.Permissions.xml" target="lib\UAP10\Plugin.Permissions.xml" />
@@ -89,8 +88,7 @@
        <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.dll" target="lib\UAP10\Plugin.Permissions.Abstractions.dll" />
        <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.xml" target="lib\UAP10\Plugin.Permissions.Abstractions.xml" />
        <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.pdb" target="lib\UAP10\Plugin.Permissions.Abstractions.pdb" />
-       <file src="PermissionsReadme.txt.pp" target="content\UAP10\PluginsHelp\PermissionsReadme.txt.pp" />
-
+     
        <!--.NET 4.5-->
        <file src="Plugin.Permissions.Net45\bin\Release\Plugin.Permissions.dll" target="lib\net45\Plugin.Permissions.dll" />
        <file src="Plugin.Permissions.Net45\bin\Release\Plugin.Permissions.xml" target="lib\net45\Plugin.Permissions.xml" />
@@ -98,8 +96,7 @@
        <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.dll" target="lib\net45\Plugin.Permissions.Abstractions.dll" />
        <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.xml" target="lib\net45\Plugin.Permissions.Abstractions.xml" />
        <file src="Plugin.Permissions.Abstractions\bin\Release\Plugin.Permissions.Abstractions.pdb" target="lib\net45\Plugin.Permissions.Abstractions.pdb" />
-       <file src="PermissionsReadme.txt.pp" target="content\net45\PluginsHelp\PermissionsReadme.txt.pp" />
-
+      
 
    </files>
 </package>

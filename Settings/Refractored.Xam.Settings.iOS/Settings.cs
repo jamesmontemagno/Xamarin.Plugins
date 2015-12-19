@@ -12,7 +12,7 @@ namespace Plugin.Settings
     /// <summary>
     /// Main implementation for ISettings
     /// </summary>
-    public class Settings : ISettings
+    public class SettingsImplementation : ISettings
     {
 
         private readonly object locker = new object();

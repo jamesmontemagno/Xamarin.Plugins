@@ -3,7 +3,6 @@
  Simple cross platform plugin to take photos and video or pick them from a gallery from shared code.
 
 
-
 ### Photos
 ```csharp
 /// <summary>
@@ -69,3 +68,5 @@ Via a Xamarin.Forms project with a Button and Image to take a photo:
           }); 
         };
 ```
+
+Learn more about Plugins for Xamarin at [http://xamarin.com/plugins](http://xamarin.com/plugins)
