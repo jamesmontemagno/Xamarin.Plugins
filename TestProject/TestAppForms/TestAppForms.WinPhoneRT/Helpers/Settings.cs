@@ -1,9 +1,5 @@
-Ensure that you install NuGet into PCL and see Helpers/Settings.cs
-
-If you are installing this in a normal project and not using a pcl create a new file called Settings.cs or whatever you want and copy this code in:
-
-
-// Helpers/Settings.cs
+/*
+// Helpers/Settings.cs This file was automatically added when you installed the Settings Plugin. If you are not using a PCL then comment this file back in to use it.
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 
@@ -45,4 +41,4 @@ namespace TestAppForms.WinPhoneRT.Helpers
     }
 
   }
-}
+}*/

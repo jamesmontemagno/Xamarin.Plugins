@@ -7,7 +7,7 @@ using Android.OS;
 using Android.Runtime;
 using Plugin.CurrentActivity;
 
-namespace Plugin.Permissions
+namespace Plugin.Media
 {
 	//You can specify additional application information in this attribute
     [Application]

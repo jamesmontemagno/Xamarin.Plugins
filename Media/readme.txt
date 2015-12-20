@@ -2,10 +2,12 @@ Media Plugin for Xamarin & Windows
 
 Changelog:
 
--2.1.0
+-2.1.2
 --Add new "SaveToAlbum" bool to save the photo to public gallery
 --Added new "AlbumPath", which is set when you use the "SaveToAlbum" settings
 --->Supports iOS, Android, WinRT, and UWP
+--Add readme.txt
+--Update to latest permissions plugin
 
 -2.0.1
 --Breaking changes: New namespace - Plugin.Media

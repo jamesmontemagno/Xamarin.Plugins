@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Geolocator</id>
-       <version>3.0.2</version>
+       <version>3.0.3</version>
        <title>Geolocator Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -28,13 +28,14 @@
        <summary>Easly access geolocation across Xamarin.iOS, Xamarin.Android and Windows. View full project page for README
        </summary>
      <releaseNotes>
-         [3.0.2]
+         [3.0.3]
          -Breaking Changes:
          ---Changed StartListening and StopListening to Task that return a bool of success or failure
          ---New Namespace: Plugin.Geolocator
          ---Android API 14+ only
          ---Requires Compile Against Android API 23 (6.0)
          -Automatically Prompt on Android for Permissions
+         -Add readme.txt
          
          -Enhancements:
          ---Automatically add needed android permissions
@@ -44,7 +45,7 @@
        <tags>xamarin, geolocator, geolocation, gps, pcl, xam.pcl, plugin, plugin for xamarin, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
        <dependencies>
            <group targetFramework="MonoAndroid10">
-               <dependency id="Plugin.Permissions" version="1.1.2"/>
+               <dependency id="Plugin.Permissions" version="1.1.3"/>
            </group>
        </dependencies>
    </metadata>

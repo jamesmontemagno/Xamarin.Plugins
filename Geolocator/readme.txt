@@ -1,7 +1,7 @@
 ﻿Geolocator Readme
 
 Changelog:
-[3.0.2]
+[3.0.3]
 -Breaking Changes:
 ---Changed StartListening and StopListening to Task that return a bool of success or failure
 ---New Namespace: Plugin.Geolocator

@@ -1,22 +1,22 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
-    "Plugin.Permissions": "1.1.1",
+    "Plugin.Permissions": "1.1.3",
     "Plugin.Share": "3.0.1",
     "Xam.Plugin.Battery": "2.0.0",
-    "Xam.Plugin.Connectivity": "2.0.0",
+    "Xam.Plugin.Connectivity": "2.0.1",
     "Xam.Plugin.Contacts": "2.0.0-beta1",
     "Xam.Plugin.DeviceInfo": "2.0.0",
     "Xam.Plugin.ExternalMaps": "2.0.0",
-    "Xam.Plugin.Geolocator": "3.0.1",
-    "Xam.Plugin.Media": "2.1.0-beta1",
+    "Xam.Plugin.Geolocator": "3.0.3",
+    "Xam.Plugin.Media": "2.1.2",
     "Xam.Plugins.Forms.ImageCircle": "1.3.0",
     "Xam.Plugins.Notifier": "2.0.2",
-    "Xam.Plugins.Settings": "2.0.0",
+    "Xam.Plugins.Settings": "2.1.0",
     "Xam.Plugins.TextToSpeech": "2.0.0",
     "Xam.Plugins.Vibrate": "2.0.0",
     "Xamarin.Forms": "2.0.1.6492-pre1",
-    "Xamarin.Insights": "1.11.2"
+    "Xamarin.Insights": "1.11.3"
   },
   "frameworks": {
     "uap10.0": {}

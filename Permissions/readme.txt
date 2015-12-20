@@ -1,7 +1,7 @@
 Permissions Readme
 
 Changelog:
-[1.1.2]
+[1.1.3]
   -Remove help file, but add readme.txt
 [1.1.1]
   -Fix odd edgecase in Android for nothing in Manifest.

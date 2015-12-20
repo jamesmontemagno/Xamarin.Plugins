@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
-using Lotz.Xam.Messaging;
+using Plugin.Messaging;
 
 namespace TestAppForms.Pages
 {

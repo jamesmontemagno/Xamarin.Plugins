@@ -201,7 +201,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Plugin.Permissions/1.1.1": {
+      "Plugin.Permissions/1.1.3": {
         "compile": {
           "lib/UAP10/Plugin.Permissions.Abstractions.dll": {},
           "lib/UAP10/Plugin.Permissions.dll": {}
@@ -1566,7 +1566,7 @@
           "lib/UAP10/Plugin.Battery.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/2.0.0": {
+      "Xam.Plugin.Connectivity/2.0.1": {
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
           "lib/UAP10/Plugin.Connectivity.dll": {}
@@ -1606,7 +1606,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/3.0.1": {
+      "Xam.Plugin.Geolocator/3.0.3": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -1616,7 +1616,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.1.0-beta1": {
+      "Xam.Plugin.Media/2.1.2": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -1649,7 +1649,7 @@
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
         }
       },
-      "Xam.Plugins.Settings/2.0.0": {
+      "Xam.Plugins.Settings/2.1.0": {
         "compile": {
           "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
           "lib/UAP10/Plugin.Settings.dll": {}
@@ -1693,7 +1693,7 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "Xamarin.Insights/1.11.2": {
+      "Xamarin.Insights/1.11.3": {
         "compile": {
           "lib/windows8/Xamarin.Insights.dll": {}
         },
@@ -1944,7 +1944,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Plugin.Permissions/1.1.1": {
+      "Plugin.Permissions/1.1.3": {
         "compile": {
           "lib/UAP10/Plugin.Permissions.Abstractions.dll": {},
           "lib/UAP10/Plugin.Permissions.dll": {}
@@ -3356,7 +3356,7 @@
           "lib/UAP10/Plugin.Battery.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/2.0.0": {
+      "Xam.Plugin.Connectivity/2.0.1": {
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
           "lib/UAP10/Plugin.Connectivity.dll": {}
@@ -3396,7 +3396,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/3.0.1": {
+      "Xam.Plugin.Geolocator/3.0.3": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -3406,7 +3406,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.1.0-beta1": {
+      "Xam.Plugin.Media/2.1.2": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -3439,7 +3439,7 @@
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
         }
       },
-      "Xam.Plugins.Settings/2.0.0": {
+      "Xam.Plugins.Settings/2.1.0": {
         "compile": {
           "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
           "lib/UAP10/Plugin.Settings.dll": {}
@@ -3483,7 +3483,7 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "Xamarin.Insights/1.11.2": {
+      "Xamarin.Insights/1.11.3": {
         "compile": {
           "lib/windows8/Xamarin.Insights.dll": {}
         },
@@ -3720,7 +3720,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Plugin.Permissions/1.1.1": {
+      "Plugin.Permissions/1.1.3": {
         "compile": {
           "lib/UAP10/Plugin.Permissions.Abstractions.dll": {},
           "lib/UAP10/Plugin.Permissions.dll": {}
@@ -5118,7 +5118,7 @@
           "lib/UAP10/Plugin.Battery.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/2.0.0": {
+      "Xam.Plugin.Connectivity/2.0.1": {
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
           "lib/UAP10/Plugin.Connectivity.dll": {}
@@ -5158,7 +5158,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/3.0.1": {
+      "Xam.Plugin.Geolocator/3.0.3": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -5168,7 +5168,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.1.0-beta1": {
+      "Xam.Plugin.Media/2.1.2": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -5201,7 +5201,7 @@
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
         }
       },
-      "Xam.Plugins.Settings/2.0.0": {
+      "Xam.Plugins.Settings/2.1.0": {
         "compile": {
           "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
           "lib/UAP10/Plugin.Settings.dll": {}
@@ -5245,7 +5245,7 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "Xamarin.Insights/1.11.2": {
+      "Xamarin.Insights/1.11.3": {
         "compile": {
           "lib/windows8/Xamarin.Insights.dll": {}
         },
@@ -5501,7 +5501,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Plugin.Permissions/1.1.1": {
+      "Plugin.Permissions/1.1.3": {
         "compile": {
           "lib/UAP10/Plugin.Permissions.Abstractions.dll": {},
           "lib/UAP10/Plugin.Permissions.dll": {}
@@ -6913,7 +6913,7 @@
           "lib/UAP10/Plugin.Battery.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/2.0.0": {
+      "Xam.Plugin.Connectivity/2.0.1": {
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
           "lib/UAP10/Plugin.Connectivity.dll": {}
@@ -6953,7 +6953,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/3.0.1": {
+      "Xam.Plugin.Geolocator/3.0.3": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -6963,7 +6963,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.1.0-beta1": {
+      "Xam.Plugin.Media/2.1.2": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -6996,7 +6996,7 @@
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
         }
       },
-      "Xam.Plugins.Settings/2.0.0": {
+      "Xam.Plugins.Settings/2.1.0": {
         "compile": {
           "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
           "lib/UAP10/Plugin.Settings.dll": {}
@@ -7040,7 +7040,7 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "Xamarin.Insights/1.11.2": {
+      "Xamarin.Insights/1.11.3": {
         "compile": {
           "lib/windows8/Xamarin.Insights.dll": {}
         },
@@ -7277,7 +7277,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Plugin.Permissions/1.1.1": {
+      "Plugin.Permissions/1.1.3": {
         "compile": {
           "lib/UAP10/Plugin.Permissions.Abstractions.dll": {},
           "lib/UAP10/Plugin.Permissions.dll": {}
@@ -8675,7 +8675,7 @@
           "lib/UAP10/Plugin.Battery.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/2.0.0": {
+      "Xam.Plugin.Connectivity/2.0.1": {
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
           "lib/UAP10/Plugin.Connectivity.dll": {}
@@ -8715,7 +8715,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/3.0.1": {
+      "Xam.Plugin.Geolocator/3.0.3": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -8725,7 +8725,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.1.0-beta1": {
+      "Xam.Plugin.Media/2.1.2": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -8758,7 +8758,7 @@
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
         }
       },
-      "Xam.Plugins.Settings/2.0.0": {
+      "Xam.Plugins.Settings/2.1.0": {
         "compile": {
           "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
           "lib/UAP10/Plugin.Settings.dll": {}
@@ -8802,7 +8802,7 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "Xamarin.Insights/1.11.2": {
+      "Xamarin.Insights/1.11.3": {
         "compile": {
           "lib/windows8/Xamarin.Insights.dll": {}
         },
@@ -9058,7 +9058,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Plugin.Permissions/1.1.1": {
+      "Plugin.Permissions/1.1.3": {
         "compile": {
           "lib/UAP10/Plugin.Permissions.Abstractions.dll": {},
           "lib/UAP10/Plugin.Permissions.dll": {}
@@ -10470,7 +10470,7 @@
           "lib/UAP10/Plugin.Battery.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/2.0.0": {
+      "Xam.Plugin.Connectivity/2.0.1": {
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
           "lib/UAP10/Plugin.Connectivity.dll": {}
@@ -10510,7 +10510,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/3.0.1": {
+      "Xam.Plugin.Geolocator/3.0.3": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -10520,7 +10520,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.1.0-beta1": {
+      "Xam.Plugin.Media/2.1.2": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -10553,7 +10553,7 @@
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
         }
       },
-      "Xam.Plugins.Settings/2.0.0": {
+      "Xam.Plugins.Settings/2.1.0": {
         "compile": {
           "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
           "lib/UAP10/Plugin.Settings.dll": {}
@@ -10597,7 +10597,7 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "Xamarin.Insights/1.11.2": {
+      "Xamarin.Insights/1.11.3": {
         "compile": {
           "lib/windows8/Xamarin.Insights.dll": {}
         },
@@ -10834,7 +10834,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Plugin.Permissions/1.1.1": {
+      "Plugin.Permissions/1.1.3": {
         "compile": {
           "lib/UAP10/Plugin.Permissions.Abstractions.dll": {},
           "lib/UAP10/Plugin.Permissions.dll": {}
@@ -12232,7 +12232,7 @@
           "lib/UAP10/Plugin.Battery.dll": {}
         }
       },
-      "Xam.Plugin.Connectivity/2.0.0": {
+      "Xam.Plugin.Connectivity/2.0.1": {
         "compile": {
           "lib/UAP10/Plugin.Connectivity.Abstractions.dll": {},
           "lib/UAP10/Plugin.Connectivity.dll": {}
@@ -12272,7 +12272,7 @@
           "lib/UAP10/Plugin.ExternalMaps.dll": {}
         }
       },
-      "Xam.Plugin.Geolocator/3.0.1": {
+      "Xam.Plugin.Geolocator/3.0.3": {
         "compile": {
           "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
           "lib/UAP10/Plugin.Geolocator.dll": {}
@@ -12282,7 +12282,7 @@
           "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
-      "Xam.Plugin.Media/2.1.0-beta1": {
+      "Xam.Plugin.Media/2.1.2": {
         "compile": {
           "lib/win8/Plugin.Media.Abstractions.dll": {},
           "lib/win8/Plugin.Media.dll": {}
@@ -12315,7 +12315,7 @@
           "lib/UAP10/Plugin.LocalNotifications.dll": {}
         }
       },
-      "Xam.Plugins.Settings/2.0.0": {
+      "Xam.Plugins.Settings/2.1.0": {
         "compile": {
           "lib/UAP10/Plugin.Settings.Abstractions.dll": {},
           "lib/UAP10/Plugin.Settings.dll": {}
@@ -12359,7 +12359,7 @@
           "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
         }
       },
-      "Xamarin.Insights/1.11.2": {
+      "Xamarin.Insights/1.11.3": {
         "compile": {
           "lib/windows8/Xamarin.Insights.dll": {}
         },
@@ -13023,20 +13023,12 @@
         "ref/xamarinmac20/_._"
       ]
     },
-    "Plugin.Permissions/1.1.1": {
-      "sha512": "2sGQ8qC1my0nti5k0engcHZMBJ3KqUJqcUxilv3Vf5TkbXksigxaV4Ck4Ofu3yLspaVhRrN6IOBgcXjGWhQA3Q==",
+    "Plugin.Permissions/1.1.3": {
+      "sha512": "q009GlSTJTaRbh6HxZIXnqQf6S+Ek1rF9ddl2sGraGCXgmqQrVYwu9cGGSa37C9mbpa3+DPLc34GucEL/81Ddw==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
         "_rels/.rels",
-        "content/MonoAndroid10/PluginsHelp/PermissionsReadme.txt.pp",
-        "content/net45/PluginsHelp/PermissionsReadme.txt.pp",
-        "content/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/PluginsHelp/PermissionsReadme.txt.pp",
-        "content/UAP10/PluginsHelp/PermissionsReadme.txt.pp",
-        "content/win8/PluginsHelp/PermissionsReadme.txt.pp",
-        "content/wp8/PluginsHelp/PermissionsReadme.txt.pp",
-        "content/wpa81/PluginsHelp/PermissionsReadme.txt.pp",
-        "content/Xamarin.iOS10/PluginsHelp/PermissionsReadme.txt.pp",
         "lib/MonoAndroid10/Plugin.Permissions.Abstractions.dll",
         "lib/MonoAndroid10/Plugin.Permissions.Abstractions.pdb",
         "lib/MonoAndroid10/Plugin.Permissions.Abstractions.xml",
@@ -13083,8 +13075,9 @@
         "lib/Xamarin.iOS10/Plugin.Permissions.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Permissions.dll",
         "lib/Xamarin.iOS10/Plugin.Permissions.xml",
-        "package/services/metadata/core-properties/27587bc1c174479b9ee74e32b35cb0d1.psmdcp",
-        "Plugin.Permissions.nuspec"
+        "package/services/metadata/core-properties/cced76e2f0464e9baa36c27e3c04f919.psmdcp",
+        "Plugin.Permissions.nuspec",
+        "readme.txt"
       ]
     },
     "Plugin.Share/3.0.1": {
@@ -15886,21 +15879,12 @@
         "Xam.Plugin.Battery.nuspec"
       ]
     },
-    "Xam.Plugin.Connectivity/2.0.0": {
-      "sha512": "DIYq+66kZVnHH02L3bEf3/WO3/SrnQWWDN77hCTsTKCKofnoUzZ6ecGmHy4nuSTKAsx8tuiotln+2h/nn9Cg7w==",
+    "Xam.Plugin.Connectivity/2.0.1": {
+      "sha512": "OnrhnV9K9IW0tcSYdulFmsIeRVa29ZE7BtbWC+xKKrsyawelQquXEL5IR1ZBkx/0cQ7eMqjHeD2s+TlBFzBPWg==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
         "_rels/.rels",
-        "content/MonoAndroid10/PluginsHelp/ConnectivityReadme.txt.pp",
-        "content/MonoTouch10/PluginsHelp/ConnectivityReadme.txt.pp",
-        "content/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/PluginsHelp/ConnectivityReadme.txt.pp",
-        "content/UAP10/PluginsHelp/ConnectivityReadme.txt.pp",
-        "content/win8/PluginsHelp/ConnectivityReadme.txt.pp",
-        "content/wp80/PluginsHelp/ConnectivityReadme.txt.pp",
-        "content/wp81/PluginsHelp/ConnectivityReadme.txt.pp",
-        "content/wpa81/PluginsHelp/ConnectivityReadme.txt.pp",
-        "content/Xamarin.iOS10/PluginsHelp/ConnectivityReadme.txt.pp",
         "lib/MonoAndroid10/Plugin.Connectivity.Abstractions.dll",
         "lib/MonoAndroid10/Plugin.Connectivity.Abstractions.pdb",
         "lib/MonoAndroid10/Plugin.Connectivity.Abstractions.xml",
@@ -15911,6 +15895,12 @@
         "lib/MonoTouch10/Plugin.Connectivity.Abstractions.xml",
         "lib/MonoTouch10/Plugin.Connectivity.dll",
         "lib/MonoTouch10/Plugin.Connectivity.xml",
+        "lib/net45/Plugin.Connectivity.Abstractions.dll",
+        "lib/net45/Plugin.Connectivity.Abstractions.pdb",
+        "lib/net45/Plugin.Connectivity.Abstractions.xml",
+        "lib/net45/Plugin.Connectivity.dll",
+        "lib/net45/Plugin.Connectivity.pdb",
+        "lib/net45/Plugin.Connectivity.xml",
         "lib/portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.Abstractions.dll",
         "lib/portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.Abstractions.pdb",
         "lib/portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Connectivity.Abstractions.xml",
@@ -15951,7 +15941,8 @@
         "lib/Xamarin.iOS10/Plugin.Connectivity.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Connectivity.dll",
         "lib/Xamarin.iOS10/Plugin.Connectivity.xml",
-        "package/services/metadata/core-properties/fde2c0294083456ba31c0ef0f68df680.psmdcp",
+        "package/services/metadata/core-properties/55e64e3f571142d5a96ef56e827ef4ab.psmdcp",
+        "readme.txt",
         "Xam.Plugin.Connectivity.nuspec"
       ]
     },
@@ -16125,20 +16116,12 @@
         "Xam.Plugin.ExternalMaps.nuspec"
       ]
     },
-    "Xam.Plugin.Geolocator/3.0.1": {
-      "sha512": "HX6E0BkSy8emwiA/8L2SLRCXXpDD8aExI2bfSklE47SQMHfPeSI2CpzMu9GCcyMp7ZdjiUqwLr6soID2EoK5Zg==",
+    "Xam.Plugin.Geolocator/3.0.3": {
+      "sha512": "4LTi6masj6xYuT+/rNSATvD4dcJlLdOy8jCLWLIOrsQYK5sgXM4WufA5YNjp/sd0speHEFJGVjiNB1SNN/Kkfg==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
         "_rels/.rels",
-        "content/MonoAndroid10/PluginsHelp/GeolocatorReadme.txt.pp",
-        "content/MonoTouch10/PluginsHelp/GeolocatorReadme.txt.pp",
-        "content/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/PluginsHelp/GeolocatorReadme.txt.pp",
-        "content/UAP10/PluginsHelp/GeolocatorReadme.txt.pp",
-        "content/win8/PluginsHelp/GeolocatorReadme.txt.pp",
-        "content/wp8/PluginsHelp/GeolocatorReadme.txt.pp",
-        "content/wpa81/PluginsHelp/GeolocatorReadme.txt.pp",
-        "content/Xamarin.iOS10/PluginsHelp/GeolocatorReadme.txt.pp",
         "lib/MonoAndroid10/Plugin.Geolocator.Abstractions.dll",
         "lib/MonoAndroid10/Plugin.Geolocator.Abstractions.pdb",
         "lib/MonoAndroid10/Plugin.Geolocator.Abstractions.xml",
@@ -16149,6 +16132,12 @@
         "lib/MonoTouch10/Plugin.Geolocator.Abstractions.xml",
         "lib/MonoTouch10/Plugin.Geolocator.dll",
         "lib/MonoTouch10/Plugin.Geolocator.xml",
+        "lib/net45/Plugin.Geolocator.Abstractions.dll",
+        "lib/net45/Plugin.Geolocator.Abstractions.pdb",
+        "lib/net45/Plugin.Geolocator.Abstractions.xml",
+        "lib/net45/Plugin.Geolocator.dll",
+        "lib/net45/Plugin.Geolocator.pdb",
+        "lib/net45/Plugin.Geolocator.xml",
         "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Geolocator.Abstractions.dll",
         "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Geolocator.Abstractions.pdb",
         "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Geolocator.Abstractions.xml",
@@ -16183,12 +16172,13 @@
         "lib/Xamarin.iOS10/Plugin.Geolocator.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Geolocator.dll",
         "lib/Xamarin.iOS10/Plugin.Geolocator.xml",
-        "package/services/metadata/core-properties/16b9ce3c2a534ad8baef83faae679fb0.psmdcp",
+        "package/services/metadata/core-properties/b97a6eef9fce48cf97edb3788c71e6e1.psmdcp",
+        "readme.txt",
         "Xam.Plugin.Geolocator.nuspec"
       ]
     },
-    "Xam.Plugin.Media/2.1.0-beta1": {
-      "sha512": "6KxB38snHnYHXDBDzdHRbZaICH86I5/TTmh3KSBKMqZRvbBanSHi2A/Q7YlfL4xDkPvis4mdjF06pff6SHz6IQ==",
+    "Xam.Plugin.Media/2.1.2": {
+      "sha512": "MSb9wIs7SCMXlDLPZ7eyhzCqjAn8TuyiMvOyAPkgo8z6PhTZvqeSX2txwc4RUBCSm9ABYY/E05c1f3Zp5QhAXQ==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16203,6 +16193,10 @@
         "lib/MonoTouch10/Plugin.Media.Abstractions.xml",
         "lib/MonoTouch10/Plugin.Media.dll",
         "lib/MonoTouch10/Plugin.Media.xml",
+        "lib/net45/Plugin.Media.Abstractions.dll",
+        "lib/net45/Plugin.Media.Abstractions.xml",
+        "lib/net45/Plugin.Media.dll",
+        "lib/net45/Plugin.Media.xml",
         "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Plugin.Media.Abstractions.dll",
         "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Plugin.Media.Abstractions.pdb",
         "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Plugin.Media.Abstractions.xml",
@@ -16231,7 +16225,8 @@
         "lib/Xamarin.iOS10/Plugin.Media.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Media.dll",
         "lib/Xamarin.iOS10/Plugin.Media.xml",
-        "package/services/metadata/core-properties/00cbd45354e34639a7c89c56d83adcd9.psmdcp",
+        "package/services/metadata/core-properties/7bc699e4cf2e4ba699b0e16bdbd5b506.psmdcp",
+        "readme.txt",
         "Xam.Plugin.Media.nuspec"
       ]
     },
@@ -16340,20 +16335,21 @@
         "Xam.Plugins.Notifier.nuspec"
       ]
     },
-    "Xam.Plugins.Settings/2.0.0": {
-      "sha512": "N8e3zZg0t0iXiGqpccpo5/EGZf/9Q+0Za+9wwRrRUy/mVvZ4UlghwBDiZwj25IP8J59M/OkuMOy/58LO7dclQQ==",
+    "Xam.Plugins.Settings/2.1.0": {
+      "sha512": "quBuIfhmcYN6V1hZTV7a3ODiNqdT0Zv+U/zQdOSQnLQhVd+U+HojacD4TYm+CzUz9+FxUEDpH8aTXHDRyzdZTg==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
         "_rels/.rels",
-        "content/MonoAndroid10/PluginsHelp/SettingsReadme.txt.pp",
-        "content/MonoTouch10/PluginsHelp/SettingsReadme.txt.pp",
+        "content/MonoAndroid10/Helpers/Settings.cs.pp",
+        "content/MonoTouch10/Helpers/Settings.cs.pp",
+        "content/net45/Helpers/Settings.cs.pp",
         "content/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Helpers/Settings.cs.pp",
-        "content/UAP10/PluginsHelp/SettingsReadme.txt.pp",
-        "content/win8/PluginsHelp/SettingsReadme.txt.pp",
-        "content/wp8/PluginsHelp/SettingsReadme.txt.pp",
-        "content/wpa81/PluginsHelp/SettingsReadme.txt.pp",
-        "content/Xamarin.iOS10/PluginsHelp/SettingsReadme.txt.pp",
+        "content/UAP10/Helpers/Settings.cs.pp",
+        "content/win8/Helpers/Settings.cs.pp",
+        "content/wp8/Helpers/Settings.cs.pp",
+        "content/wpa81/Helpers/Settings.cs.pp",
+        "content/Xamarin.iOS10/Helpers/Settings.cs.pp",
         "lib/MonoAndroid10/Plugin.Settings.Abstractions.dll",
         "lib/MonoAndroid10/Plugin.Settings.Abstractions.xml",
         "lib/MonoAndroid10/Plugin.Settings.dll",
@@ -16362,6 +16358,10 @@
         "lib/MonoTouch10/Plugin.Settings.Abstractions.xml",
         "lib/MonoTouch10/Plugin.Settings.dll",
         "lib/MonoTouch10/Plugin.Settings.xml",
+        "lib/net45/Plugin.Settings.Abstractions.dll",
+        "lib/net45/Plugin.Settings.Abstractions.xml",
+        "lib/net45/Plugin.Settings.dll",
+        "lib/net45/Plugin.Settings.xml",
         "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Settings.Abstractions.dll",
         "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Settings.Abstractions.xml",
         "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.Settings.dll",
@@ -16386,7 +16386,8 @@
         "lib/Xamarin.iOS10/Plugin.Settings.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Settings.dll",
         "lib/Xamarin.iOS10/Plugin.Settings.xml",
-        "package/services/metadata/core-properties/c2e6dacaad5c43d8b18ca45832679d78.psmdcp",
+        "package/services/metadata/core-properties/3c2cb09296c149ffbdff68835acf8f53.psmdcp",
+        "readme.txt",
         "Xam.Plugins.Settings.nuspec"
       ]
     },
@@ -16602,8 +16603,8 @@
         "Xamarin.Forms.nuspec"
       ]
     },
-    "Xamarin.Insights/1.11.2": {
-      "sha512": "MDTL76Fp4CqUbaQddR/1SAmNkqz4FBF3nDL1+0S+o6Etzjn+J2NHW85OpgNXUEGJ1qJJVBgIaa64hmdHmncpMQ==",
+    "Xamarin.Insights/1.11.3": {
+      "sha512": "ewZ3dXcGONrMmPI22grN91ndL/UtuuQnKllMTFlgz+9WRK2q4i7ELegzV/qJtQ2cESKPgZ7qOE5CfRSlF9rtog==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -16646,7 +16647,7 @@
         "lib/Xamarin.iOS10/Xamarin.Insights.XML",
         "lib/Xamarin.Mac20/Xamarin.Insights.dll",
         "lib/Xamarin.Mac20/Xamarin.Insights.XML",
-        "package/services/metadata/core-properties/b74b4f249b884c7392f09e429b65ae46.psmdcp",
+        "package/services/metadata/core-properties/227e4d45b85c4456ab9e04ca94981ecd.psmdcp",
         "Xamarin.Insights.nuspec"
       ]
     }
@@ -16654,22 +16655,22 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
-      "Plugin.Permissions >= 1.1.1",
+      "Plugin.Permissions >= 1.1.3",
       "Plugin.Share >= 3.0.1",
       "Xam.Plugin.Battery >= 2.0.0",
-      "Xam.Plugin.Connectivity >= 2.0.0",
+      "Xam.Plugin.Connectivity >= 2.0.1",
       "Xam.Plugin.Contacts >= 2.0.0-beta1",
       "Xam.Plugin.DeviceInfo >= 2.0.0",
       "Xam.Plugin.ExternalMaps >= 2.0.0",
-      "Xam.Plugin.Geolocator >= 3.0.1",
-      "Xam.Plugin.Media >= 2.1.0-beta1",
+      "Xam.Plugin.Geolocator >= 3.0.3",
+      "Xam.Plugin.Media >= 2.1.2",
       "Xam.Plugins.Forms.ImageCircle >= 1.3.0",
       "Xam.Plugins.Notifier >= 2.0.2",
-      "Xam.Plugins.Settings >= 2.0.0",
+      "Xam.Plugins.Settings >= 2.1.0",
       "Xam.Plugins.TextToSpeech >= 2.0.0",
       "Xam.Plugins.Vibrate >= 2.0.0",
       "Xamarin.Forms >= 2.0.1.6492-pre1",
-      "Xamarin.Insights >= 1.11.2"
+      "Xamarin.Insights >= 1.11.3"
     ],
     "UAP,Version=v10.0": []
   }
