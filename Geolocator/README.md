@@ -26,7 +26,7 @@ Call **CrossGeolocator.Current** from any project or PCL to gain access to APIs.
 var locator = CrossGeolocator.Current;
 locator.DesiredAccuracy = 50;
 
-var position = await locator.GetPositionAsync (timeout: 10000);
+var position = await locator.GetPositionAsync (timeoutMilliseconds: 10000);
 
 Console.WriteLine ("Position Status: {0}", position.Timestamp);
 Console.WriteLine ("Position Latitude: {0}", position.Latitude);
@@ -35,70 +35,70 @@ Console.WriteLine ("Position Longitude: {0}", position.Longitude);
 
 ### API 
 
-```
+```csharp
 /// <summary>
 /// Position error event handler
 /// </summary>
 event EventHandler<PositionErrorEventArgs> PositionError;
 ```
 
-```
+```csharp
 /// <summary>
 /// Position changed event handler
 /// </summary>
 event EventHandler<PositionEventArgs> PositionChanged;
 ```
 
-```
+```csharp
 /// <summary>
 /// Desired accuracy in meteres
 /// </summary>
 double DesiredAccuracy { get; set; }
 ```
 
-```
+```csharp
 /// <summary>
 /// Gets if you are listening for location changes
 /// </summary>
 bool IsListening { get; }
 ```
 
-```
+```csharp
 /// <summary>
 /// Gets if device supports heading
 /// </summary>
 bool SupportsHeading { get; }
 ```
 
-```
+```csharp
 /// <summary>
 /// Gets or sets if background updates should be allowed on the geolocator.
 /// </summary>
 bool AllowsBackgroundUpdates { get; set; }
 ```
 
-```
+```csharp
 /// <summary>
 /// Gets or sets if the location updates should be paused automatically (iOS)
 /// </summary>
 bool PausesLocationUpdatesAutomatically { get; set; }
 ```
 
-```
+```csharp
 /// <summary>
 /// Gets if geolocation is available on device
 /// </summary>
 bool IsGeolocationAvailable { get; }
 ```
 
-```
+```csharp
 /// <summary>
 /// Gets if geolocation is enabled on device
 /// </summary>
 bool IsGeolocationEnabled { get; }
 ```
 
-```
+```csharp
 /// <summary>
 /// Gets position async with specified parameters
 /// </summary>
@@ -109,7 +109,7 @@ bool IsGeolocationEnabled { get; }
 Task<Position> GetPositionAsync(int timeoutMilliseconds = Timeout.Infinite, CancellationToken? token = null, bool includeHeading = false);
 ```
 
-```
+```csharp
 /// <summary>
 /// Start lisenting for changes
 /// </summary>
@@ -119,7 +119,7 @@ Task<Position> GetPositionAsync(int timeoutMilliseconds = Timeout.Infinite, Canc
 Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false);
 ```
 
-```
+```csharp
 /// <summary>
 /// Stop linstening
 /// </summary>
@@ -148,8 +148,10 @@ Getting location via the simulator doesn't seem to be supported, you will need t
 
 New in iOS 9 allowsBackgroundLocationUpdates must be set if you are running a background agent to track location. I have exposed this on the Geolocator via:
 
+```csharp
 var locator = CrossGeolocator.Current;
 locator.AllowsBackgroundUpdates = true;
+```
 
 The presence of the UIBackgroundModes key with the location value is required for background updates; you use this property to enable and disable the behavior based on your app’s behavior.
 
