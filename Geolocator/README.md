@@ -151,7 +151,7 @@ New in iOS 9 allowsBackgroundLocationUpdates must be set if you are running a ba
 ```csharp
 var locator = CrossGeolocator.Current;
 locator.AllowsBackgroundUpdates = true;
-'''
+```
 
 The presence of the UIBackgroundModes key with the location value is required for background updates; you use this property to enable and disable the behavior based on your app’s behavior.
 
