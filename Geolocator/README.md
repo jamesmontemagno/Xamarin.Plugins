@@ -148,8 +148,10 @@ Getting location via the simulator doesn't seem to be supported, you will need t
 
 New in iOS 9 allowsBackgroundLocationUpdates must be set if you are running a background agent to track location. I have exposed this on the Geolocator via:
 
+```csharp
 var locator = CrossGeolocator.Current;
 locator.AllowsBackgroundUpdates = true;
+'''
 
 The presence of the UIBackgroundModes key with the location value is required for background updates; you use this property to enable and disable the behavior based on your app’s behavior.
 
