@@ -1,6 +1,9 @@
 Connectivity Readme
 
 Change Log:
+[2.0.2]
+-Fix when running a WP8SL app on an actual 8.0 device.
+
 [2.0.1]
 -Remove help file, add readme file
 -Add blank .NET 4.5 implementation for unit testing

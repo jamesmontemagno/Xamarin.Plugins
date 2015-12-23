@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Connectivity</id>
-       <version>2.0.1</version>
+       <version>2.0.2</version>
        <title>Connectivity Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -14,6 +14,9 @@
          Get network connectivity information such as network type, speeds, and if connection is available. Additional functionality includes the ability to ping a specific host and port number. Ensure you have proper permissions set by reading the README.
        </description>
      <releaseNotes>
+       [2.0.2]
+       -Fix when running a WP8SL app on an actual 8.0 device.
+
        [2.0.1]
        -Remove help file, add readme file
        -Add blank .NET 4.5 implementation for unit testing

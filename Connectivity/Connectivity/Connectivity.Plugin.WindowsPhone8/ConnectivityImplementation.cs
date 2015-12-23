@@ -56,11 +56,29 @@ namespace Plugin.Connectivity
         
         }
 
+        Version WinPhone81 = new Version(8, 1, 0, 0);// I know technically it was 8.10.x.x, but this is fine
         /// <summary>
         /// Gets if there is an active internet connection
         /// </summary>
-        public override bool IsConnected =>
-               (isConnected = NetworkInformation.GetInternetConnectionProfile()?.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess);
+        public override bool IsConnected
+        { 
+            get
+            {
+                //if this is a 8.0 device you must use old school is network available
+                if (Environment.OSVersion.Version < WinPhone81)
+                    return (isConnected = DeviceNetworkInformation.IsNetworkAvailable);
+
+                try
+                {
+                    //else if running newer then you are alright to use connection profile.
+                    return (isConnected = NetworkInformation.GetInternetConnectionProfile()?.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess);
+                }
+                catch(NotImplementedException ex)
+                {
+                    return (isConnected = DeviceNetworkInformation.IsNetworkAvailable);
+                }
+            }
+        }
 
         /// <summary>
         /// Tests if a host name is pingable
