@@ -188,13 +188,14 @@ namespace Plugin.Permissions
         Task<PermissionStatus> RequestContactsPermission()
         {
 
-            if (ContactsPermissionStatus == PermissionStatus.Granted)
-                return Task.FromResult(PermissionStatus.Granted);
+            if (ContactsPermissionStatus != PermissionStatus.Unknown)
+                return Task.FromResult(ContactsPermissionStatus);
 
             if (addressBook == null)
                 addressBook = new ABAddressBook();
 
             var tcs = new TaskCompletionSource<PermissionStatus>();
+
 
             addressBook.RequestAccess((success, error) => 
                 {
@@ -243,8 +244,8 @@ namespace Plugin.Permissions
         Task<PermissionStatus> RequestLocationPermission()
         {
 
-            if (LocationPermissionStatus == PermissionStatus.Granted)
-                return Task.FromResult(PermissionStatus.Granted);
+            if (LocationPermissionStatus != PermissionStatus.Unknown)
+                return Task.FromResult(LocationPermissionStatus);
 
             if (!UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
             {
@@ -371,8 +372,8 @@ namespace Plugin.Permissions
         Task<PermissionStatus> RequestPhotosPermission()
         {
 
-            if (PhotosPermissionStatus == PermissionStatus.Granted)
-                return Task.FromResult(PermissionStatus.Granted);
+            if (PhotosPermissionStatus != PermissionStatus.Unknown)
+                return Task.FromResult(PhotosPermissionStatus);
 
             var tcs = new TaskCompletionSource<PermissionStatus>();
 
