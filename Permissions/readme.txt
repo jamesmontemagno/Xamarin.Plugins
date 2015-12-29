@@ -1,7 +1,9 @@
 Permissions Readme
 
 Changelog:
-[1.1.3]
+[1.1.4]
+  -Fix for #169, odd freeze for certain iOS permissions when requesting a second time in a denied state.
+[1.1.4]
   -Remove help file, but add readme.txt
 [1.1.1]
   -Fix odd edgecase in Android for nothing in Manifest.
