@@ -45,18 +45,16 @@ Then add the xaml:
 ```xml
 <controls:CircleImage Source="{Binding Image}">
   <controls:CircleImage.WidthRequest>
-    <OnPlatform x:TypeArguments="x:Double">
-      <OnPlatform.iOS>55</OnPlatform.iOS>
-      <OnPlatform.Android>55 </OnPlatform.Android>
-      <OnPlatform.WinPhone>75</OnPlatform.WinPhone>
-    </OnPlatform>
+    <OnPlatform x:TypeArguments="x:Double"
+      iOS="55"
+      Android="55"
+      WinPhone="75"/>
    </controls:CircleImage.WidthRequest>
 <controls:CircleImage.HeightRequest>
     <OnPlatform x:TypeArguments="x:Double">
-      <OnPlatform.iOS>55</OnPlatform.iOS>
-      <OnPlatform.Android>55</OnPlatform.Android>
-      <OnPlatform.WinPhone>75</OnPlatform.WinPhone>
-    </OnPlatform>
+      iOS="55"
+      Android="55"
+      WinPhone="75"/>
    </controls:CircleImage.HeightRequest>
 </controls:CircleImage>
 ```
@@ -66,7 +64,7 @@ Then add the xaml:
 
 You are able to set the ```BorderColor``` to a Forms.Color to display a border around your image and also ```BorderThickness``` for how thick you want it. 
 
-You can also set ```FillColor``` to the Forms.Color to fill the circle. DO NOT set ```BackgroundColor``` as that will be the sqaure the entire image takes up.
+You can also set ```FillColor``` to the Forms.Color to fill the circle. DO NOT set ```BackgroundColor``` as that will be the square the entire image takes up.
 
 These are supported in iOS, Android, WinRT, and UWP (not on Windows Phone 8 Silverlight).
 
