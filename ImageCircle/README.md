@@ -43,7 +43,7 @@ xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=Ima
 Then add the xaml:
 
 ```xml
-<controls:CircleImage Source="{Binding Image}">
+<controls:CircleImage Source="{Binding Image}" Aspect="AspectFill">
   <controls:CircleImage.WidthRequest>
     <OnPlatform x:TypeArguments="x:Double"
       iOS="55"
