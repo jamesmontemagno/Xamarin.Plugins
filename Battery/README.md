@@ -9,8 +9,8 @@ Simple cross platform plugin to check batterystatus of mobile device, get remain
 
 **Supports**
 
-|Platform|Suported|Version|
-| ------------------- | ----------- |-------------------- |
+|Platform|Supported|Version|
+| ------------------- | :-----------: |-------------------- |
 |Xamarin.iOS|x|iOS 6+|
 |Xamarin.iOS Unified|x|iOS 6+|
 |Xamarin.Android|x|API 10+|
