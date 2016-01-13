@@ -36,12 +36,12 @@
        <file src="readme.txt" target="readme.txt" />
      
 <!--Core-->
-     <file src="Connectivity\Connectivity.Plugin\bin\Release\Plugin.Connectivity.dll" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.dll" />
-     <file src="Connectivity\Connectivity.Plugin\bin\Release\Plugin.Connectivity.xml" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.xml" />
-     <file src="Connectivity\Connectivity.Plugin\bin\Release\Plugin.Connectivity.pdb" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.pdb" />
-     <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.Abstractions.dll" />
-     <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.Abstractions.xml" />
-     <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.pdb" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.Abstractions.pdb" />
+     <file src="Connectivity\Connectivity.Plugin\bin\Release\Plugin.Connectivity.dll" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+Xamarin.Mac20+UAP10\Plugin.Connectivity.dll" />
+     <file src="Connectivity\Connectivity.Plugin\bin\Release\Plugin.Connectivity.xml" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+Xamarin.Mac20+UAP10\Plugin.Connectivity.xml" />
+     <file src="Connectivity\Connectivity.Plugin\bin\Release\Plugin.Connectivity.pdb" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+Xamarin.Mac20+UAP10\Plugin.Connectivity.pdb" />
+     <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+Xamarin.Mac20+UAP10\Plugin.Connectivity.Abstractions.dll" />
+     <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+Xamarin.Mac20+UAP10\Plugin.Connectivity.Abstractions.xml" />
+     <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.pdb" target="lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+Xamarin.Mac20+UAP10\Plugin.Connectivity.Abstractions.pdb" />
      
      <!--Win Phone Silverlight-->
      <file src="Connectivity\Connectivity.Plugin.WindowsPhone8\bin\Release\Plugin.Connectivity.dll" target="lib\wp80\Plugin.Connectivity.dll" />
@@ -97,6 +97,12 @@
      <file src="Connectivity\Connectivity.Plugin.iOSUnified\bin\iPhone\Release\Plugin.Connectivity.xml" target="lib\Xamarin.iOS10\Plugin.Connectivity.xml" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.xml" />
+
+     <!--Xamarin.Mac-->
+     <file src="Connectivity\Connectivity.Plugin.Mac\bin\Release\Plugin.Connectivity.dll" target="lib\Xamarin.Mac20\Plugin.Connectivity.dll" />
+     <file src="Connectivity\Connectivity.Plugin.Mac\bin\Release\Plugin.Connectivity.xml" target="lib\Xamarin.Mac20\Plugin.Connectivity.xml" />
+     <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\Xamarin.Mac20\Plugin.Connectivity.Abstractions.dll" />
+     <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\Xamarin.Mac20\Plugin.Connectivity.Abstractions.xml" />
      
 
        <!--UWP-->
