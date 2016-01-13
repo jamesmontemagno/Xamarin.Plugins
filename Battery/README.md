@@ -14,11 +14,11 @@ Simple cross platform plugin to check batterystatus of mobile device, get remain
 |Xamarin.iOS|x|iOS 6+|
 |Xamarin.iOS Unified|x|iOS 6+|
 |Xamarin.Android|x|API 10+|
-|Xamarin.Mac|||
 |Windows Phone Silverlight|x|8.0+|
 |Windows Phone RT|x|8.1+|
 |Windows Store|x|8.1+|
 |Windows 10 UWP|x|10+|
+|Xamarin.Mac|||
 
 
 **Windows Store has a blank DLL that always returns 100, Ac, and Full as there is no API for checking battery**
