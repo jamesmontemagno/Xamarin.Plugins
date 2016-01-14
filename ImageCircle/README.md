@@ -16,6 +16,19 @@ ImageCircleRenderer.Init();
 
 You must do this AFTER you call Xamarin.Forms.Init();
 
+**Platform Support**
+
+|Platform|Supported|Version|
+| ------------------- | :-----------: | :------------------: |
+|Xamarin.iOS|Yes|iOS 7+|
+|Xamarin.iOS Unified|Yes|iOS 7+|
+|Xamarin.Android|Yes|API 14+|
+|Windows Phone Silverlight|Yes|8.0+|
+|Windows Phone RT|Yes|8.1+|
+|Windows Store RT|Yes|8.1+|
+|Windows 10 UWP|Yes|10+|
+|Xamarin.Mac|---||
+
 #### Usage
 Instead of using an Image simply use a CircleImage instead!
 
@@ -78,15 +91,6 @@ ImageCircle.Forms.Plugin.Abstractions;ImageCircle.Forms.Plugin.Android;
 iOS:
 
 --linkskip=ImageCircle.Forms.Plugin.iOS --linkskip=ImageCircle.Forms.Plugin.Abstractions
-
-**Supports**
-* Xamarin.iOS
-* Xamarin.iOS (x64 Unified)
-* Xamarin.Android
-* Windows Phone 8 (Silverlight)
-* Windows Phone 8.1 RT
-* Windows Store 8.1
-* Windows 10 UWP
 
 
 #### Contributors
