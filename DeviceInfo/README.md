@@ -10,8 +10,8 @@ Simple way of getting common device information.
 
 |Platform|Supported|Version|
 | ------------------- | :-----------: | :------------------: |
-|Xamarin.iOS|Yes|iOS 6+|
-|Xamarin.iOS Unified|Yes|iOS 6+|
+|Xamarin.iOS|Yes|iOS 7+|
+|Xamarin.iOS Unified|Yes|iOS 7+|
 |Xamarin.Android|Yes|API 10+|
 |Windows Phone Silverlight|Yes|8.0+|
 |Windows Phone RT|Yes|8.1+|
