@@ -9,6 +9,19 @@ Ported from [Xamarin.Mobile](http://www.github.com/xamarin/xamarin.mobile) to a 
 * Available on NuGet: http://www.nuget.org/packages/Xam.Plugin.Contacts [![NuGet](https://img.shields.io/nuget/v/Xam.Plugin.Contacts.svg?label=NuGet)](https://www.nuget.org/packages/Xam.Plugin.Contacts/)
 * Install into your PCL project and Client projects.
 
+**Platform Support**
+
+|Platform|Supported|Version|
+| ------------------- | :-----------: | :------------------: |
+|Xamarin.iOS|Yes|iOS 6+|
+|Xamarin.iOS Unified|Yes|iOS 6+|
+|Xamarin.Android|Yes|API 14+|
+|Windows Phone Silverlight|Yes|8.0+|
+|Windows Phone RT|---|8.1+|
+|Windows Store RT|---|8.1+|
+|Windows 10 UWP|---|10+|
+|Xamarin.Mac|No||
+
 **Supports**
 * Xamarin.iOS
 * Xamarin.iOS (x64 Unified)
