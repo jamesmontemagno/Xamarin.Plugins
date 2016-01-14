@@ -18,7 +18,7 @@ Want to read about the creation, checkout my [in-depth blog post](http://motzcod
 |Xamarin.Android|Yes|API 14+|
 |Windows Phone Silverlight|---|8.0+|
 |Windows Phone RT|---|8.1+|
-|Windows Store RT|Yes|8.1+|
+|Windows Store RT|---|8.1+|
 |Windows 10 UWP|---|10+|
 |Xamarin.Mac|---||
 
