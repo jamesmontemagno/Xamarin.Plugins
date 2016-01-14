@@ -17,15 +17,18 @@ public override void OnRequestPermissionsResult(int requestCode, string[] permis
 }
 ```
 
-**Supports**
-* Xamarin.iOS (x64 Unified) (iOS 7+)
-* Xamarin.Android (API 14+)
+**Platform Support**
 
-**Blank Implementations for**
-* Windows Phone 8 (Silverlight)
-* Windows Ptone 8.1 RT
-* Windows Store 8.1
-* Windows 10 UWP
+|Platform|Supported|Version|
+| ------------------- | :-----------: | :------------------: |
+|Xamarin.iOS|No||
+|Xamarin.iOS Unified|Yes|iOS 7+|
+|Xamarin.Android|Yes|API 14+|
+|Windows Phone Silverlight|---|8.0+|
+|Windows Phone RT|---|8.1+|
+|Windows Store RT|---|8.1+|
+|Windows 10 UWP|---|10+|
+|Xamarin.Mac|No||
 
 
 ### API Usage
