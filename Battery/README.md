@@ -7,7 +7,7 @@ Simple cross platform plugin to check batterystatus of mobile device, get remain
 * Install into your PCL project and Client projects.
 
 
-**Supports**
+**Platform Support**
 
 |Platform|Supported|Version|
 | ------------------- | :-----------: | :------------------: |
@@ -16,7 +16,7 @@ Simple cross platform plugin to check batterystatus of mobile device, get remain
 |Xamarin.Android|Yes|API 10+|
 |Windows Phone Silverlight|Yes|8.0+|
 |Windows Phone RT|Yes|8.1+|
-|Windows Store|Yes|8.1+|
+|Windows Store RT|Yes|8.1+|
 |Windows 10 UWP|Yes|10+|
 |Xamarin.Mac|No||
 
