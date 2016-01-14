@@ -9,8 +9,18 @@ Want to read about the creation, checkout my [in-depth blog post](http://motzcod
 * Available on NuGet: http://www.nuget.org/packages/Plugin.CurrentActivity [![NuGet](https://img.shields.io/nuget/v/Plugin.CurrentActivity.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.CurrentActivity/)
 * Install into your Xamarin.Android Client project.
 
-**Supports**
-* Xamarin.Android
+**Platform Support**
+
+|Platform|Supported|Version|
+| ------------------- | :-----------: | :------------------: |
+|Xamarin.iOS|---|iOS 6+|
+|Xamarin.iOS Unified|---|iOS 6+|
+|Xamarin.Android|Yes|API 14+|
+|Windows Phone Silverlight|---|8.0+|
+|Windows Phone RT|---|8.1+|
+|Windows Store RT|Yes|8.1+|
+|Windows 10 UWP|---|10+|
+|Xamarin.Mac|---||
 
 
 ### API Usage
