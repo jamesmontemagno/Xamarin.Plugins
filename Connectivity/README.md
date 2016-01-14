@@ -15,7 +15,7 @@ Simple cross platform plugin to check connection status of mobile device, gather
 |Xamarin.Android|Yes|API 10+|
 |Windows Phone Silverlight|Yes|8.0+|
 |Windows Phone RT|Yes|8.1+|
-|Windows Store|Yes|8.1+|
+|Windows Store RT|Yes|8.1+|
 |Windows 10 UWP|Yes|10+|
 |Xamarin.Mac|No||
 
