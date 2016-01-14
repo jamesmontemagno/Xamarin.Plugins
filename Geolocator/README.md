@@ -2,6 +2,8 @@
 
 Simple cross platform plugin to get GPS location including heading, speed, and more. Additionally, you can track geolocation changes :)
 
+Blog Post Walkthrough: https://blog.xamarin.com/geolocation-for-ios-android-and-windows-made-easy/
+
 Ported from [Xamarin.Mobile](http://www.github.com/xamarin/xamarin.mobile) to a cross platform API.
 
 ### Setup
