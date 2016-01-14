@@ -18,14 +18,18 @@ Preview: http://screencast.com/t/voW1P48Ka
 * Available on NuGet: https://www.nuget.org/packages/Xam.Plugins.TextToSpeech/ [![NuGet](https://img.shields.io/nuget/v/Xam.Plugins.TextToSpeech.svg?label=NuGet)](https://www.nuget.org/packages/Xam.Plugins.TextToSpeech/)
 * Install into your PCL project and Client projects.
 
-**Supports**
-* Xamarin.iOS
-* Xamarin.iOS (x64 Unified)
-* Xamarin.Android
-* Windows Phone 8 (Silverlight)
-* Windows Phone 8.1 RT
-* Windows Store 8.1
-* Windows 10 UWP
+**Platform Support**
+
+|Platform|Supported|Version|
+| ------------------- | :-----------: | :------------------: |
+|Xamarin.iOS|Yes|iOS 7+|
+|Xamarin.iOS Unified|Yes|iOS 7+|
+|Xamarin.Android|Yes|API 10+|
+|Windows Phone Silverlight|Yes|8.0+|
+|Windows Phone RT|Yes|8.1+|
+|Windows Store RT|Yes|8.1+|
+|Windows 10 UWP|Yes|10+|
+|Xamarin.Mac|No||
 
 
 ### Usage
