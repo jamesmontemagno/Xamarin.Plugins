@@ -1,6 +1,6 @@
 ## ![](plugin_permissions.png) Permissions Plugin for Xamarin
 
-Simple cross platform plugin to check connection status of mobile device, gather connection type, bandwidths, and more.
+Simple cross platform plugin to request and check permissions.
 
 Want to read about the creation, checkout my [in-depth blog post](http://motzcod.es/post/133939517717/simplified-ios-android-runtime-permissions-with).
 
