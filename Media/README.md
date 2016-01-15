@@ -154,8 +154,11 @@ Plugin.Media.MediaImplementation.OnFilesPicked(args);
 
 Set `Webcam` permission.
 
-#### Contributors
-* [jamesmontemagno](https://github.com/jamesmontemagno)
+## Future Enhancements
+* Auto Rotate on Android
+* Image Metadata
+* Update Andorid Implentation with new Activity
+* Return original album path of picked media
 
 Thanks!
 
