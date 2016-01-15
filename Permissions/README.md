@@ -72,15 +72,15 @@ Here is how you may use it with the Geolocator Plugin:
 ```csharp
 try
 {
-    var status = await CrossPermissions.Current.CheckPermissionStatus(Permission.Location);
+    var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
     if (status != PermissionStatus.Granted)
     {
-        if(await CrossPermissions.Current.ShouldShowRequestPermissionRationale(Permission.Location))
+        if(await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Location))
         {
             await DisplayAlert("Need location", "Gunna need that location", "OK");
         }
 
-        var results = await CrossPermissions.Current.RequestPermissions(new[] {Permission.Location});
+        var results = await CrossPermissions.Current.RequestPermissionsAsync(new[] {Permission.Location});
         status = results[Permission.Location];
     }
 
