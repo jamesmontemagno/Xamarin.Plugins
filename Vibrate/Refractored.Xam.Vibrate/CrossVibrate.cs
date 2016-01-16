@@ -37,7 +37,7 @@ namespace Plugin.Vibrate
 
       internal static Exception NotImplementedInReferenceAssembly()
       {
-        return new NotImplementedException("This functionality is not implemented in the portable version of this assembly.  You should reference the Xam.Plugins.TextToSpeech NuGet package from your main application project in order to reference the platform-specific implementation.");
+        return new NotImplementedException("This functionality is not implemented in the portable version of this assembly.  You should reference the Xam.Plugins.Vibrate NuGet package from your main application project in order to reference the platform-specific implementation.");
       }
     }
 }
