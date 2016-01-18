@@ -75,27 +75,7 @@ namespace Plugin.Geolocator
         {
             get
             {
-                return false;
-                //				if (headingProvider == null || !manager.IsProviderEnabled (headingProvider))
-                //				{
-                //					Criteria c = new Criteria { BearingRequired = true };
-                //					string providerName = manager.GetBestProvider (c, enabledOnly: false);
-                //
-                //					LocationProvider provider = manager.GetProvider (providerName);
-                //
-                //					if (provider.SupportsBearing())
-                //					{
-                //						headingProvider = providerName;
-                //						return true;
-                //					}
-                //					else
-                //					{
-                //						headingProvider = null;
-                //						return false;
-                //					}
-                //				}
-                //				else
-                //					return true;
+                return true; //Kind of, you should use the  Compass plugin for better results
             }
         }
         /// <inheritdoc/>
