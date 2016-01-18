@@ -46,7 +46,7 @@ Call **CrossPermissions.Current** from any project or PCL to gain access to APIs
 Task<bool> ShouldShowRequestPermissionRationaleAsync(Permission permission);
 ```
 
-**CheckPermissiontStatus**
+**CheckPermissionStatus**
 ```csharp
 /// <summary>
 /// Determines whether this instance has permission the specified permission.
