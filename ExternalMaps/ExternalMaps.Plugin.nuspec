@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.ExternalMaps</id>
-       <version>2.0.0</version>
+       <version>3.0.0</version>
        <title>External Maps Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -14,9 +14,13 @@
          Open external maps to navigate to a specific geolocation or address. Option to launch with navigation option on iOS as well.
        </description>
      <releaseNotes>
-       [2.0.0]
-       -Breaking changes: New namespace: Plugin.ExternalMaps
-       -UWP support!
+         [3.0.0]
+         -Breaking changes: 
+         ---New namespace: Plugin.ExternalMaps
+         ---Now NavigateTo is of type Task for proper async/await
+         -Fix for crash on iOS if address was typed wrong
+         -NavigateTo Now returns a bool if success
+         -UWP support!
      </releaseNotes>
        <summary>Open external maps to navigate to a specific geolocation or address.</summary>
        <tags>xamarin, pcl, xam.pcl, maps, navigation, external maps, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
@@ -24,6 +28,7 @@
        </dependencies>
    </metadata>
    <files>
+ <file src="readme.txt" target="readme.txt" />
 <!--Core-->
      <file src="ExternalMaps\ExternalMaps.Plugin\bin\Release\Plugin.ExternalMaps.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.ExternalMaps.dll" />
      <file src="ExternalMaps\ExternalMaps.Plugin\bin\Release\Plugin.ExternalMaps.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.ExternalMaps.xml" />

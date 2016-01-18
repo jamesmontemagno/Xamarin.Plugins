@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Plugin.ExternalMaps.Abstractions
 {
@@ -14,7 +15,7 @@ namespace Plugin.ExternalMaps.Abstractions
     /// <param name="latitude">Lat</param>
     /// <param name="longitude">Long</param>
     /// <param name="navigationType">Type of navigation</param>
-    void NavigateTo(string name, double latitude, double longitude, NavigationType navigationType = NavigationType.Default);
+    Task<bool> NavigateTo(string name, double latitude, double longitude, NavigationType navigationType = NavigationType.Default);
     
     /// <summary>
     /// Navigate to an address
@@ -27,7 +28,7 @@ namespace Plugin.ExternalMaps.Abstractions
     /// <param name="country">Country</param>
     /// <param name="countryCode">Country Code if applicable</param>
     /// <param name="navigationType">Navigation type</param>
-    void NavigateTo(string name, string street, string city, string state, string zip, string country, string countryCode, NavigationType navigationType = NavigationType.Default);
+    Task<bool> NavigateTo(string name, string street, string city, string state, string zip, string country, string countryCode, NavigationType navigationType = NavigationType.Default);
 
   }
 }

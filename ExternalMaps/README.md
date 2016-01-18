@@ -31,7 +31,7 @@ There are two methods that you can call to navigate either with the geolocation 
     /// <param name="latitude">Lat</param>
     /// <param name="longitude">Long</param>
     /// <param name="navigationType">Type of navigation</param>
-    void NavigateTo(string name, double latitude, double longitude, NavigationType navigationType = NavigationType.Default);
+    Task<bool> NavigateTo(string name, double latitude, double longitude, NavigationType navigationType = NavigationType.Default);
     
     /// <summary>
     /// Navigate to an address
@@ -44,14 +44,14 @@ There are two methods that you can call to navigate either with the geolocation 
     /// <param name="country">Country</param>
     /// <param name="countryCode">Country Code if applicable</param>
     /// <param name="navigationType">Navigation type</param>
-    void NavigateTo(string name, string street, string city, string state, string zip, string country, string countryCode, NavigationType navigationType = NavigationType.Default);
+    Task<bool> NavigateTo(string name, string street, string city, string state, string zip, string country, string countryCode, NavigationType navigationType = NavigationType.Default);
 ```
 
 Examples:
 
 ```csharp
-CrossExternalMaps.Current.NavigateTo("Xamarin", "394 pacific ave.", "San Francisco", "CA", "94111", "USA", "USA");
-CrossExternalMaps.Current.NavigateTo("Space Needle", 47.6204, -122.3491);
+var success = await CrossExternalMaps.Current.NavigateTo("Xamarin", "394 pacific ave.", "San Francisco", "CA", "94111", "USA", "USA");
+var success = await CrossExternalMaps.Current.NavigateTo("Space Needle", 47.6204, -122.3491);
 ```     
 
 
