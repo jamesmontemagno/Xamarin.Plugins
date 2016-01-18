@@ -24,6 +24,9 @@ namespace Plugin.Permissions
         Dictionary<Permission, PermissionStatus> results;
         IList<string> requestedPermissions;
 
+        /// <summary>
+        /// Current Permissions Implementation
+        /// </summary>
         public static PermissionsImplementation Current
         {
             get {  return (PermissionsImplementation)CrossPermissions.Current; }
@@ -127,6 +130,14 @@ namespace Plugin.Permissions
             if(activity == null)
             {
                 Debug.WriteLine("Unable to detect current Activity. Please ensure Plugin.CurrentActivity is installed in your Android project and your Application class is registering with Application.IActivityLifecycleCallbacks.");
+                foreach (var permission in permissions)
+                {
+                    if (results.ContainsKey(permission))
+                        continue;
+
+                    results.Add(permission, PermissionStatus.Unknown);
+                }
+
                 return results;
             }
             var permissionsToRequest = new List<string>();
@@ -363,18 +374,36 @@ namespace Plugin.Permissions
                 if(requestedPermissions != null)
                     return requestedPermissions.Any(r => r.Equals(permission, StringComparison.InvariantCultureIgnoreCase));
 
-                var activity = CrossCurrentActivity.Current.Activity;
-                var info = activity.PackageManager.GetPackageInfo(activity.PackageName, Android.Content.PM.PackageInfoFlags.Permissions);
-                requestedPermissions = info.RequestedPermissions;
-                
-                if(requestedPermissions == null)
+                //try to use current activity else application context
+                Context context = CrossCurrentActivity.Current.Activity ?? Application.Context;
+
+                if (context == null)
+                {
+                    Debug.WriteLine("Unable to detect current Activity or App Context. Please ensure Plugin.CurrentActivity is installed in your Android project and your Application class is registering with Application.IActivityLifecycleCallbacks.");
                     return false;
+                }
+
+                var info = context.PackageManager.GetPackageInfo(context.PackageName, Android.Content.PM.PackageInfoFlags.Permissions);
+
+                if(info == null)
+                {
+                    Debug.WriteLine("Unable to get Package info, will not be able to determine permissions to request.");
+                    return false;
+                }
+
+                requestedPermissions = info.RequestedPermissions;
+
+                if (requestedPermissions == null)
+                {
+                    Debug.WriteLine("There are no requested permissions, please check to ensure you have marked permissions you want to request.");
+                    return false;
+                }
 
                 return requestedPermissions.Any(r => r.Equals(permission, StringComparison.InvariantCultureIgnoreCase));
             }
             catch(Exception ex)
             {
-                Console.Write("Unable to check manifest for permission: " + ex.Message);
+                Console.Write("Unable to check manifest for permission: " + ex);
             }
             return false;
         }
