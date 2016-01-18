@@ -94,8 +94,19 @@ namespace Plugin.ExternalMaps
       };
 
       var coder = new CLGeocoder();
-      var placemarks = await coder.GeocodeAddressAsync(placemarkAddress.Dictionary);
+      
+      CLPlacemark[] placemarks = new CLPlacemark[0];
 
+      try
+      {
+        placemarks = await coder.GeocodeAddressAsync(placemarkAddress.Dictionary);
+      }
+      catch (Exception)
+      {
+        Debug.WriteLine("Unable to get geocode address from address");
+        return;
+      }   
+      
       if(placemarks.Length == 0)
       {
         Debug.WriteLine("Unable to get geocode address from address");
