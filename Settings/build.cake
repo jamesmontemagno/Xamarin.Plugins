@@ -15,7 +15,7 @@ Task ("Build").Does (() =>
     if (!IsRunningOnWindows ())
         DotNetBuild (sln, c => c.Configuration = cfg);
     else
-        MSBuild ("./Battery.", c => { 
+        MSBuild (sln, c => { 
             c.Configuration = cfg;
             c.MSBuildPlatform = MSBuildPlatform.x86;
         });
