@@ -25,7 +25,7 @@ Task ("NuGetPack")
 	.IsDependentOn ("Build")
 	.Does (() =>
 {
-	NuGetPack ("./Common/Xam.Plugins.Settings.nuspec", new NuGetPackSettings { 
+	NuGetPack ("./Xam.Plugins.Settings.nuspec", new NuGetPackSettings { 
 		Version = version,
 		Verbosity = NuGetVerbosity.Detailed,
 		OutputDirectory = "./",
