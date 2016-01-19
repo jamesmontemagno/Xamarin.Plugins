@@ -1,18 +1,28 @@
 #addin "Cake.FileHelpers"
 
-var TARGET = Argument ("target", Argument ("t", "Default"));
+var TARGET = Argument ("target", Argument ("t", "Build"));
 
 var version = EnvironmentVariable ("APPVEYOR_BUILD_VERSION") ?? Argument("version", "0.0.9999");
 
-Task ("Default").Does (() =>
+Task ("Build").Does (() =>
 {
-	NuGetRestore ("./Refractored.XamPlugins.Settings.sln");
 
-	DotNetBuild ("./Refractored.XamPlugins.Settings.sln", c => c.Configuration = "Release");
+	const string sln = "./Refractored.XamPlugins.Settings.sln";
+    const string cfg = "Release";
+
+	NuGetRestore (sln);
+
+    if (IsRunningOnWindows ())
+        DotNetBuild (sln, c => c.Configuration = cfg);
+    else
+        MSBuild ("./Battery.", c => { 
+            c.Configuration = cfg;
+            c.MSBuildPlatform = MSBuildPlatform.x86;
+        });
 });
 
 Task ("NuGetPack")
-	.IsDependentOn ("Default")
+	.IsDependentOn ("Build")
 	.Does (() =>
 {
 	NuGetPack ("./Common/Xam.Plugins.Settings.nuspec", new NuGetPackSettings { 
