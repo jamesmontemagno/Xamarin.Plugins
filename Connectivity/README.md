@@ -107,6 +107,12 @@ CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
 Android:
 The ACCESS_NETWORK_STATE and ACCESS_WIFI_STATE permissions are required and will be automatically added to your Android Manifest.
 
+By adding these permissions [Google Play will automatically filter out devices](http://developer.android.com/guide/topics/manifest/uses-feature-element.html#permissions-features) without specific hardward. You can get around this by adding the following to your AssemblyInfo.cs file in your Android project:
+
+```
+[assembly: UsesFeature("android.hardware.wifi", Required = false)]
+```
+
 iOS:
 Bandwidths are not supported and will always return an empty list.
 
