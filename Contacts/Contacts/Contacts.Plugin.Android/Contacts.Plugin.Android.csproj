@@ -39,16 +39,16 @@
   <ItemGroup>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
-    <Reference Include="Plugin.CurrentActivity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Plugin.CurrentActivity.1.0.0\lib\MonoAndroid10\Plugin.CurrentActivity.dll</HintPath>
+    <Reference Include="Plugin.CurrentActivity, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.CurrentActivity.1.0.1\lib\MonoAndroid10\Plugin.CurrentActivity.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Permissions, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Plugin.Permissions.1.1.1\lib\MonoAndroid10\Plugin.Permissions.dll</HintPath>
+    <Reference Include="Plugin.Permissions, Version=1.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.Permissions.1.1.5\lib\MonoAndroid10\Plugin.Permissions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Permissions.Abstractions, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Plugin.Permissions.1.1.1\lib\MonoAndroid10\Plugin.Permissions.Abstractions.dll</HintPath>
+    <Reference Include="Plugin.Permissions.Abstractions, Version=1.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.Permissions.1.1.5\lib\MonoAndroid10\Plugin.Permissions.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -72,6 +72,7 @@
     <Compile Include="ContentResolverColumnMapping.cs" />
     <Compile Include="GenericQueryReader.cs" />
     <Compile Include="ITableFinder.cs" />
+    <Compile Include="MainApplication.cs" />
     <Compile Include="MemberExpressionFinder.cs" />
     <Compile Include="ProjectionReader.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -86,10 +87,6 @@
       <Project>{6edb0588-ffc5-4ef5-8a99-9e241d0f878d}</Project>
       <Name>Contacts.Plugin.Abstractions</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="PluginsHelp\CrossActivityReadme.txt" />
-    <Content Include="PluginsHelp\PermissionsReadme.txt" />
   </ItemGroup>
   <Import Project="..\..\Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems" Label="Shared" Condition="Exists('..\..\Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems')" />
   <Import Project="..\..\Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems" Label="Shared" Condition="Exists('..\..\Contacts.Plugin.Shared\Contacts.Plugin.Shared.projitems')" />
