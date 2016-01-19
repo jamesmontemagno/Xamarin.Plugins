@@ -12,7 +12,7 @@ Task ("Build").Does (() =>
 
 	NuGetRestore (sln);
 
-    if (IsRunningOnWindows ())
+    if (!IsRunningOnWindows ())
         DotNetBuild (sln, c => c.Configuration = cfg);
     else
         MSBuild ("./Battery.", c => { 
