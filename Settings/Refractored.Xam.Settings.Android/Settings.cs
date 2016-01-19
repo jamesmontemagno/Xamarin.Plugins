@@ -54,7 +54,7 @@ namespace Plugin.Settings
                     {
                         savedDecimal = sharedPreferences.GetString(key, string.Empty);
                     }
-                    catch (Java.Lang.ClassCastException cce)
+                    catch (Java.Lang.ClassCastException)
                     {
                         Console.WriteLine("Settings 1.5 change, have to remove key.");
 
@@ -67,7 +67,7 @@ namespace Plugin.Settings
                                     .ToString();
                             Console.WriteLine("Old value has been parsed and will be updated and saved.");
                         }
-                        catch (Java.Lang.ClassCastException cce2)
+                        catch (Java.Lang.ClassCastException)
                         {
                             Console.WriteLine("Could not parse old value, will be lost.");
                         }
@@ -102,7 +102,7 @@ namespace Plugin.Settings
                     {
                         savedDouble = sharedPreferences.GetString(key, string.Empty);
                     }
-                    catch (Java.Lang.ClassCastException cce)
+                    catch (Java.Lang.ClassCastException)
                     {
                         Console.WriteLine("Settings 1.5  change, have to remove key.");
 
@@ -115,7 +115,7 @@ namespace Plugin.Settings
                                     .ToString();
                             Console.WriteLine("Old value has been parsed and will be updated and saved.");
                         }
-                        catch (Java.Lang.ClassCastException cce2)
+                        catch (Java.Lang.ClassCastException)
                         {
                             Console.WriteLine("Could not parse old value, will be lost.");
                         }
