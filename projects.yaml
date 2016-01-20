@@ -1,0 +1,63 @@
+##############################################################
+# Lists all the sub-projects and their build scripts
+##############################################################
+- Name: Battery
+  BuildScript: ./Battery/build.cake
+  TriggerPaths: [ Battery ]
+  BuildTargets: [ NuGetPack ]
+  Version: 2.0.1.{build}
+- Name: Connectivity
+  BuildScript: ./Connectivity/build.cake
+  TriggerPaths: [ Connectivity ]
+  BuildTargets: [ NuGetPack ]
+  Version: 2.0.3.{build}
+- Name: Contacts
+  BuildScript: ./Contacts/build.cake
+  TriggerPaths: [ Contacts ]
+  BuildTargets: [ NuGetPack ]
+  Version: 2.0.0.{build}-beta1
+- Name: DeviceInfo
+  BuildScript: ./DeviceInfo/build.cake
+  TriggerPaths: [ DeviceInfo ]
+  BuildTargets: [ NuGetPack ]
+  Version: 2.0.1.{build}
+- Name: ExternalMaps
+  BuildScript: ./ExternalMaps/build.cake
+  TriggerPaths: [ ExternalMaps ]
+  BuildTargets: [ NuGetPack ]
+  Version: 3.0.1.{build}
+- Name: Geolocator
+  BuildScript: ./Geolocator/build.cake
+  TriggerPaths: [ Geolocator ]
+  BuildTargets: [ NuGetPack ]
+  Version: 3.0.4.{build}
+- Name: ImageCircle
+  BuildScript: ./ImageCircle/build.cake
+  TriggerPaths: [ ImageCircle ]
+  BuildTargets: [ NuGetPack ]
+  Version: 1.3.1.{build}
+- Name: Media
+  BuildScript: ./Media/build.cake
+  TriggerPaths: [ Media ]
+  BuildTargets: [ NuGetPack ]
+  Version: 2.1.3.{build}
+- Name: Permissions
+  BuildScript: ./Permissions/build.cake
+  TriggerPaths: [ Permissions ]
+  BuildTargets: [ NuGetPack ]
+  Version: 1.1.6.{build}
+- Name: Settings
+  BuildScript: ./Settings/build.cake
+  TriggerPaths: [ Settings ]
+  BuildTargets: [ NuGetPack ]
+  Version: 2.1.1.{build}
+- Name: TextToSpeech
+  BuildScript: ./TextToSpeech/build.cake
+  TriggerPaths: [ TextToSpeech ]
+  BuildTargets: [ NuGetPack ]
+  Version: 2.0.1.{build}
+- Name: Vibrate
+  BuildScript: ./Vibrate/build.cake
+  TriggerPaths: [ Vibrate ]
+  BuildTargets: [ NuGetPack ]
+  Version: 2.0.1.{build}

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Plugin.Permissions</id>
-       <version>1.1.5</version>
+       <version>$version$</version>
        <title>Permissions Plugin for Xamarin</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>

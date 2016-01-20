@@ -1,8 +1,8 @@
 #addin "Cake.FileHelpers"
 
-var TARGET = Argument ("target", Argument ("t", "Build"));
+var TARGET = Argument ("target", Argument ("t", "NuGetPack"));
 
-var version = EnvironmentVariable ("APPVEYOR_BUILD_VERSION") ?? Argument("version", "0.0.9999");
+var version = Argument ("pkgversion", EnvironmentVariable ("APPVEYOR_BUILD_VERSION") ?? "0.0.9999");
 
 Task ("Build").Does (() =>
 {

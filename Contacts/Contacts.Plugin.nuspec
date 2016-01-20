@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Xam.Plugin.Contacts</id>
-       <version>2.0.0-beta1</version>
+       <version>$version$-beta1</version>
        <title>Contacts Plugin for Xamarin and Windows</title>
        <authors>James Montemagno</authors>
        <owners>James Montemagno</owners>
@@ -26,7 +26,7 @@
        <tags>xamarin, pcl, xam.pcl, contacts, windows phone, winphone, wp8, android, xamarin.forms, ios, plugins, plugins for xamarin</tags>
        <dependencies>
            <group targetFramework="MonoAndroid10">
-               <dependency id="Plugin.Permissions" version="1.1.2"/>
+               <dependency id="Plugin.Permissions" version="1.1.5"/>
            </group>
        </dependencies>
    </metadata>
