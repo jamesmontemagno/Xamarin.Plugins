@@ -13,7 +13,7 @@ var GIT_PATH = EnvironmentVariable ("GIT_EXE") ?? (IsRunningOnWindows () ? "C:\\
 var PROJECTS = DeserializeYamlFromFile<List<Project>> ("./projects.yaml");
 
 
-FilePath GetCakeToolPath ()
+Func<FilePath> GetCakeToolPath = () =>
 {
 	var possibleExe = GetFiles ("../**/tools/Cake/Cake.exe").FirstOrDefault ();
 
@@ -22,7 +22,7 @@ FilePath GetCakeToolPath ()
 		
 	var p = System.Diagnostics.Process.GetCurrentProcess ();	
 	return new FilePath (p.Modules[0].FileName);
-}
+};
 
 Task ("Default").Does (() =>
 {
