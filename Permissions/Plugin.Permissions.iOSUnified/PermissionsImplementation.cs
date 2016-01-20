@@ -70,6 +70,8 @@ namespace Plugin.Permissions
                 //    break;
                 //case Permission.NotificationsRemote:
                 //    break;
+                case Permission.Photos:
+                    return Task.FromResult(PhotosPermissionStatus);
                 case Permission.Reminders:
                     return Task.FromResult(GetEventPermissionStatus(EKEntityType.Reminder));
                 case Permission.Sensors:
