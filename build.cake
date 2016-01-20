@@ -95,7 +95,7 @@ Task ("Default").Does (() =>
 
 	// Now go through all the projects to build and build them
 	foreach (var project in projectsToBuild) {
-		var buildVersion = project.Version.Replace ("{build}", APPVEYOR_BUILDNUMBER);
+		var buildVersion = project.Version.Replace ("{build}", APPVEYOR_BUILD_NUMBER);
 
 		Information ("\tBuilding: {0} ({1})", project.BuildScript, buildVersion);
 		// Build each target specified in the manifest
