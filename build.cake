@@ -104,7 +104,7 @@ Task ("Default").Does (() =>
 				ToolPath = GetCakeToolPath (),
 				Arguments = new Dictionary<string, string> { 
 					{ "target", target },
-					{ "version", buildVersion },
+					{ "pkgversion", buildVersion },
 				},
 				Verbosity = Verbosity.Diagnostic
 			};
