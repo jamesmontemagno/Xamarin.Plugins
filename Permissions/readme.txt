@@ -1,6 +1,8 @@
 Permissions Readme
 
 Changelog:
+[1.1.6]
+-Fix for checking photos permission on iOS #192
 [1.1.5]
   -Fix odd instance where can't check manifest because current activity is null, now use application context.
   -If Activity is null when requesting then go ahead and return list of unknown permissions

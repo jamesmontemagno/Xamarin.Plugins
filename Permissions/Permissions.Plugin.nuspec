@@ -23,6 +23,8 @@
          </group>
        </dependencies>
     <releaseNotes>
+       [1.1.6]
+       -Fix for checking photos permission on iOS #192
        [1.1.5]
        -Fix odd instance (#181) where can't check manifest because current activity is null, now use application context
        [1.1.4]
