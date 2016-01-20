@@ -8,7 +8,7 @@ var APPVEYOR_ACCOUNTNAME = EnvironmentVariable ("APPVEYOR_ACCOUNTNAME") ?? "Jame
 var APPVEYOR_PROJECTSLUG = EnvironmentVariable ("APPVEYOR_PROJECTSLUG") ?? "xamarin-plugins";
 
 var COMMIT = EnvironmentVariable ("APPVEYOR_REPO_COMMIT") ?? "90f03644a794327edca172673da497398c14bdea";
-var GIT_PATH = EnvironmentVariable ("GIT_EXE") ?? (IsRunningOnWindows () ? "C:\\Program Files (x86)\\Git\\bin\\git.exe" : "git");
+var GIT_PATH = EnvironmentVariable ("GIT_EXE") ?? (IsRunningOnWindows () ? "git.exe" : "git");
 
 var PROJECTS = DeserializeYamlFromFile<List<Project>> ("./projects.yaml");
 
