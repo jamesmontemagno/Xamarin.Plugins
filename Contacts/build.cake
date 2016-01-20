@@ -25,7 +25,7 @@ Task ("NuGetPack")
 	.IsDependentOn ("Build")
 	.Does (() =>
 {
-	NuGetPack ("./Contacs.Plugin.nuspec", new NuGetPackSettings { 
+	NuGetPack ("./Contacts.Plugin.nuspec", new NuGetPackSettings { 
 		Version = version,
 		Verbosity = NuGetVerbosity.Detailed,
 		OutputDirectory = "./",
