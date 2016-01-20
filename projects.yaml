@@ -3,9 +3,9 @@
 ##############################################################
 - Name: Battery
   BuildScript: ./Battery/build.cake
-  TriggerPaths: [ ./Battery ]
+  TriggerPaths: [ Battery ]
   BuildTargets: [ NuGetPack ]
 - Name: Connectivity
   BuildScript: ./Connectivity/build.cake
-  TriggerPaths: [ ./Connectivity ]
+  TriggerPaths: [ Connectivity ]
   BuildTargets: [ NuGetPack ]

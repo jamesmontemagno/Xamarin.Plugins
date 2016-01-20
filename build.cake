@@ -3,11 +3,12 @@
 
 var TARGET = Argument ("target", Argument ("t", "Default"));
 
-var APPVEYOR_APITOKEN = Environment ("APPVEYOR_APITOKEN") ?? "";
-var APPVEYOR_ACCOUNTNAME = Environment ("APPVEYOR_ACCOUNTNAME") ?? "JamesMontemagno";
-var APPVEYOR_PROJECTSLUG = Environment ("APPVEYOR_PROJECTSLUG") ?? "xamarin-plugins";
+var APPVEYOR_APITOKEN = EnvironmentVariable ("APPVEYOR_APITOKEN") ?? "";
+var APPVEYOR_ACCOUNTNAME = EnvironmentVariable ("APPVEYOR_ACCOUNTNAME") ?? "JamesMontemagno";
+var APPVEYOR_PROJECTSLUG = EnvironmentVariable ("APPVEYOR_PROJECTSLUG") ?? "xamarin-plugins";
 
-var COMMIT = Environment ("APPVEYOR_REPO_COMMIT") ?? "";
+var COMMIT = EnvironmentVariable ("APPVEYOR_REPO_COMMIT") ?? "90f03644a794327edca172673da497398c14bdea";
+var GIT_PATH = EnvironmentVariable ("GIT_EXE") ?? (IsRunningOnWindows () ? "C:\\Program Files (x86)\\Git\\bin\\git.exe" : "git");
 
 var PROJECTS = DeserializeYamlFromFile<List<Project>> ("./projects.yaml");
 
@@ -28,21 +29,25 @@ Task ("Default").Does (() =>
 	var lastSuccessfulCommit = AppVeyorProjectLastSuccessfulBuild (
 		new AppVeyorSettings { ApiToken = APPVEYOR_APITOKEN },
 		"JamesMontemagno",
-		"xamarin-plugins").Build.CommitId;
+		"xamarin-plugins",
+		null, null).Build.CommitId;
 
+	Information ("GIT_COMMIT: {0}", COMMIT);
+	Information ("GIT_PREV_COMMIT: {0}", lastSuccessfulCommit);
+	
 	// Get all the changed files in this commit
 	IEnumerable<string> changedFiles = new List<string> ();
 
 	// Get files changed in commit range
 	if (!string.IsNullOrWhiteSpace (lastSuccessfulCommit)) {
 		// We have both commit hashes (previous and current) so do a diff on them
-		StartProcess (gitPath, new ProcessSettings { 
+		StartProcess (GIT_PATH, new ProcessSettings { 
 			Arguments = "--no-pager diff --name-only " + lastSuccessfulCommit + " " + COMMIT,
 			RedirectStandardOutput = true,
 		}, out changedFiles);
 	} else {
 		// We only have the current commit hash, so list files for this commit only
-		StartProcess (gitPath, new ProcessSettings { 
+		StartProcess (GIT_PATH, new ProcessSettings { 
 			Arguments = "--no-pager show --pretty=\"format:\" --name-only " + COMMIT,
 			RedirectStandardOutput = true,
 		}, out changedFiles);
@@ -68,6 +73,7 @@ Task ("Default").Does (() =>
 
 	// Now go through all the projects to build and build them
 	foreach (var project in projectsToBuild) {
+		Information ("\tBuilding: {0}", project.BuildScript);
 		// Build each target specified in the manifest
 		foreach (var target in project.BuildTargets) {
 			var cakeSettings = new CakeSettings { 
