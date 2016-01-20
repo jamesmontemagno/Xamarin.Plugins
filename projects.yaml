@@ -1,0 +1,11 @@
+##############################################################
+# Lists all the sub-projects and their build scripts
+##############################################################
+- Name: Battery
+  BuildScript: ./Battery/build.cake
+  TriggerPaths: [ ./Battery ]
+  BuildTargets: [ NuGetPack ]
+- Name: Connectivity
+  BuildScript: ./Connectivity/build.cake
+  TriggerPaths: [ ./Connectivity ]
+  BuildTargets: [ NuGetPack ]
