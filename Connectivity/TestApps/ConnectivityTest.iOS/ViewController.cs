@@ -1,7 +1,7 @@
 ﻿using System;
 
 using UIKit;
-using Connectivity.Plugin;
+using Plugin.Connectivity;
 
 namespace ConnectivityTest.iOS
 {
@@ -39,7 +39,7 @@ namespace ConnectivityTest.iOS
             reg = !reg;
         }
 
-        void CrossConnectivity_Current_ConnectivityChanged (object sender, Connectivity.Plugin.Abstractions.ConnectivityChangedEventArgs e)
+        void CrossConnectivity_Current_ConnectivityChanged (object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs e)
         {
             InvokeOnMainThread(() =>
                 {
