@@ -6,11 +6,10 @@ var version = EnvironmentVariable ("APPVEYOR_BUILD_VERSION") ?? Argument("versio
 
 Task ("Build").Does (() =>
 {
-
-	const string sln = "./Refractored.XamPlugins.Settings.sln";
+    const string sln = "./Battery.sln";
     const string cfg = "Release";
 
-	NuGetRestore (sln);
+    NuGetRestore (sln);
 
     if (!IsRunningOnWindows ())
         DotNetBuild (sln, c => c.Configuration = cfg);
@@ -22,15 +21,15 @@ Task ("Build").Does (() =>
 });
 
 Task ("NuGetPack")
-	.IsDependentOn ("Build")
-	.Does (() =>
+    .IsDependentOn ("Build")
+    .Does (() =>
 {
-	NuGetPack ("./Xam.Plugins.Settings.nuspec", new NuGetPackSettings { 
-		Version = version,
-		Verbosity = NuGetVerbosity.Detailed,
-		OutputDirectory = "./",
-		BasePath = "./",
-	});	
+    NuGetPack ("./Battery.Plugin.nuspec", new NuGetPackSettings { 
+        Version = version,
+        Verbosity = NuGetVerbosity.Detailed,
+        OutputDirectory = "./",
+        BasePath = "./",
+    });
 });
 
 
