@@ -70,14 +70,24 @@ namespace ImageCircle.Forms.Plugin.Droid
             {
                 
                 var radius = Math.Min(Width, Height) / 2;
-                var strokeWidth = ((CircleImage)Element).BorderThickness;
+
+                var borderThickness = (float)((CircleImage)Element).BorderThickness;
+
+                int strokeWidth = 0;
+
+                if (borderThickness > 0)
+                {
+                    var logicalDensity = Xamarin.Forms.Forms.Context.Resources.DisplayMetrics.Density;
+                    strokeWidth = (int)Math.Ceiling(borderThickness * logicalDensity + .5f);
+                }
+
                 radius -= strokeWidth / 2;
 
 
                
 
                 var path = new Path();
-                path.AddCircle(Width / 2, Height / 2, radius, Path.Direction.Ccw);
+                path.AddCircle(Width / 2.0f, Height / 2.0f, radius, Path.Direction.Ccw);
 
                 
                 canvas.Save();
@@ -101,12 +111,11 @@ namespace ImageCircle.Forms.Plugin.Droid
                 path.AddCircle(Width / 2, Height / 2, radius, Path.Direction.Ccw);
                 
 
-                var thickness = ((CircleImage)Element).BorderThickness;
-                if(thickness > 0.0f)
+                if(strokeWidth > 0.0f)
                 {
                     paint = new Paint();
                     paint.AntiAlias = true;
-                    paint.StrokeWidth = thickness;
+                    paint.StrokeWidth = strokeWidth;
                     paint.SetStyle(Paint.Style.Stroke);
                     paint.Color = ((CircleImage)Element).BorderColor.ToAndroid();
                     canvas.DrawPath(path, paint);
