@@ -6,8 +6,9 @@ var TARGET = Argument ("target", Argument ("t", "Default"));
 var APPVEYOR_APITOKEN = EnvironmentVariable ("APPVEYOR_APITOKEN") ?? "";
 var APPVEYOR_ACCOUNTNAME = EnvironmentVariable ("APPVEYOR_ACCOUNTNAME") ?? "JamesMontemagno";
 var APPVEYOR_PROJECTSLUG = EnvironmentVariable ("APPVEYOR_PROJECTSLUG") ?? "xamarin-plugins";
+var APPVEYOR_BUILD_NUMBER = EnvironmentVariable ("APPVEYOR_BUILD_NUMBER") ?? "9999";
 
-var COMMIT = EnvironmentVariable ("APPVEYOR_REPO_COMMIT") ?? "90f03644a794327edca172673da497398c14bdea";
+var COMMIT = EnvironmentVariable ("APPVEYOR_REPO_COMMIT") ?? "";
 var GIT_PATH = EnvironmentVariable ("GIT_EXE") ?? (IsRunningOnWindows () ? "git.exe" : "git");
 
 var PROJECTS = DeserializeYamlFromFile<List<Project>> ("./projects.yaml");
@@ -37,6 +38,7 @@ public class Project
 	public string BuildScript { get; set; }
 	public List<string> TriggerPaths { get; set; }
 	public List<string> BuildTargets { get; set; }
+	public string Version { get; set; }
 
 	public override string ToString ()
 	{
@@ -93,12 +95,17 @@ Task ("Default").Does (() =>
 
 	// Now go through all the projects to build and build them
 	foreach (var project in projectsToBuild) {
-		Information ("\tBuilding: {0}", project.BuildScript);
+		var buildVersion = project.Version.Replace ("{build}", APPVEYOR_BUILD_NUMBER);
+
+		Information ("\tBuilding: {0} ({1})", project.BuildScript, buildVersion);
 		// Build each target specified in the manifest
 		foreach (var target in project.BuildTargets) {
 			var cakeSettings = new CakeSettings { 
 				ToolPath = GetCakeToolPath (),
-				Arguments = new Dictionary<string, string> { { "target", target } },
+				Arguments = new Dictionary<string, string> { 
+					{ "target", target },
+					{ "pkgversion", buildVersion },
+				},
 				Verbosity = Verbosity.Diagnostic
 			};
 
