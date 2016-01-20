@@ -8,6 +8,9 @@ See a full list of community built plugins at: https://github.com/xamarin/plugin
 * Twitter: [@JamesMontemagno](http://twitter.com/jamesmontemagno)
 * Blog: [MotzCod.es](http://motzcod.es)
 
+
+Build Status: [![Build status](https://ci.appveyor.com/api/projects/status/w752ll1uen9kvl5l?svg=true)](https://ci.appveyor.com/project/JamesMontemagno/xamarin-plugins)
+
 ## What is this?
 This is my main repo for all all Xamarin Plugins that I have or will be publishing. It is also example and documentation on how to create your very own PCL Plugin. These PCL plugins will allow you to add rich cross platform functionality to Xamarin, Xamarin.Forms and Windows Projects that use a PCLs or Shared Project.
 
