@@ -35,7 +35,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.Permissions.UWP", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.Permissions.Net45", "Plugin.Permissions.Net45\Plugin.Permissions.Net45.csproj", "{7DC26A53-767C-47FD-9F56-33475034B022}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Plugin.Permissions.Shared", "Plugin.Permissions.Shared\Plugin.Permissions.Shared.shproj", "{6FA1EA4D-D2FB-46F2-80C6-2BD39DAA151F}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Plugin.Permissions.Shared\Plugin.Permissions.Shared.projitems*{56a56f17-7de1-4ca1-9617-bf32e971ac84}*SharedItemsImports = 4
+		Plugin.Permissions.Shared\Plugin.Permissions.Shared.projitems*{6fa1ea4d-d2fb-46f2-80c6-2bd39daa151f}*SharedItemsImports = 13
+		Plugin.Permissions.Shared\Plugin.Permissions.Shared.projitems*{2882aeeb-d4cd-4eb9-8a6c-6653b33681f0}*SharedItemsImports = 4
+		Plugin.Permissions.Shared\Plugin.Permissions.Shared.projitems*{5876144b-47dd-4c4e-b421-bc03f191b996}*SharedItemsImports = 4
+		Plugin.Permissions.Shared\Plugin.Permissions.Shared.projitems*{cbc648f7-e3ba-47d3-a3ea-9e7847f51755}*SharedItemsImports = 4
+		Plugin.Permissions.Shared\Plugin.Permissions.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
+		Plugin.Permissions.Shared\Plugin.Permissions.Shared.projitems*{6edb0588-ffc5-4ef5-8a99-9e241d0f878d}*SharedItemsImports = 4
+		Plugin.Permissions.Shared\Plugin.Permissions.Shared.projitems*{7dc26a53-767c-47fd-9f56-33475034b022}*SharedItemsImports = 4
+		Plugin.Permissions.Shared\Plugin.Permissions.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
+		Plugin.Permissions.Shared\Plugin.Permissions.Shared.projitems*{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
 		Ad-Hoc|ARM = Ad-Hoc|ARM
