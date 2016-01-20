@@ -5,6 +5,7 @@
   BuildScript: ./Battery/build.cake
   TriggerPaths: [ Battery ]
   BuildTargets: [ NuGetPack ]
+  Version: 2.0.0.{build}
 - Name: Connectivity
   BuildScript: ./Connectivity/build.cake
   TriggerPaths: [ Connectivity ]
