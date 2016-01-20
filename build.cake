@@ -12,7 +12,6 @@ var GIT_PATH = EnvironmentVariable ("GIT_EXE") ?? (IsRunningOnWindows () ? "C:\\
 
 var PROJECTS = DeserializeYamlFromFile<List<Project>> ("./projects.yaml");
 
-
 Func<FilePath> GetCakeToolPath = () =>
 {
 	var possibleExe = GetFiles ("../**/tools/Cake/Cake.exe").FirstOrDefault ();
@@ -23,6 +22,27 @@ Func<FilePath> GetCakeToolPath = () =>
 	var p = System.Diagnostics.Process.GetCurrentProcess ();	
 	return new FilePath (p.Modules[0].FileName);
 };
+
+public class Project 
+{
+	public Project () 
+	{
+		Name = string.Empty;
+		BuildScript = string.Empty;
+		TriggerPaths = new List<string> ();
+		BuildTargets = new List<string> ();
+	}
+
+	public string Name { get; set; }
+	public string BuildScript { get; set; }
+	public List<string> TriggerPaths { get; set; }
+	public List<string> BuildTargets { get; set; }
+
+	public override string ToString ()
+	{
+		return Name;
+	}
+}
 
 Task ("Default").Does (() =>
 {
@@ -87,26 +107,5 @@ Task ("Default").Does (() =>
 		}
 	}
 });
-
-public class Project 
-{
-	public Project () 
-	{
-		Name = string.Empty;
-		BuildScript = string.Empty;
-		TriggerPaths = new List<string> ();
-		BuildTargets = new List<string> ();
-	}
-
-	public string Name { get; set; }
-	public string BuildScript { get; set; }
-	public List<string> TriggerPaths { get; set; }
-	public List<string> BuildTargets { get; set; }
-
-	public override string ToString ()
-	{
-		return Name;
-	}
-}
 
 RunTarget (TARGET);
