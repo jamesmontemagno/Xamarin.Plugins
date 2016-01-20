@@ -9,3 +9,43 @@
   BuildScript: ./Connectivity/build.cake
   TriggerPaths: [ Connectivity ]
   BuildTargets: [ NuGetPack ]
+- Name: Contacts
+  BuildScript: ./Contacts/build.cake
+  TriggerPaths: [ Contacts ]
+  BuildTargets: [ NuGetPack ]
+- Name: DeviceInfo
+  BuildScript: ./DeviceInfo/build.cake
+  TriggerPaths: [ DeviceInfo ]
+  BuildTargets: [ NuGetPack ]
+- Name: ExternalMaps
+  BuildScript: ./ExternalMaps/build.cake
+  TriggerPaths: [ ExternalMaps ]
+  BuildTargets: [ NuGetPack ]
+- Name: Geolocator
+  BuildScript: ./Geolocator/build.cake
+  TriggerPaths: [ Geolocator ]
+  BuildTargets: [ NuGetPack ]
+- Name: ImageCircle
+  BuildScript: ./ImageCircle/build.cake
+  TriggerPaths: [ ImageCircle ]
+  BuildTargets: [ NuGetPack ]
+- Name: Media
+  BuildScript: ./Media/build.cake
+  TriggerPaths: [ Media ]
+  BuildTargets: [ NuGetPack ]
+- Name: Permissions
+  BuildScript: ./Permissions/build.cake
+  TriggerPaths: [ Permissions ]
+  BuildTargets: [ NuGetPack ]
+- Name: Settings
+  BuildScript: ./Settings/build.cake
+  TriggerPaths: [ Settings ]
+  BuildTargets: [ NuGetPack ]
+- Name: TextToSpeech
+  BuildScript: ./TextToSpeech/build.cake
+  TriggerPaths: [ TextToSpeech ]
+  BuildTargets: [ NuGetPack ]
+- Name: Vibrate
+  BuildScript: ./Vibrate/build.cake
+  TriggerPaths: [ Vibrate ]
+  BuildTargets: [ NuGetPack ]
