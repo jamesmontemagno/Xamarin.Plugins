@@ -14,4 +14,3 @@ using System.Resources;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("5876144b-47dd-4c4e-b421-bc03f191b996")]
-[assembly: NeutralResourcesLanguageAttribute("en-US")]
