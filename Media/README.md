@@ -109,7 +109,7 @@ takePhoto.Clicked += async (sender, args) =>
     if (file == null)
         return;
 
-    DisplayAlert("File Location", file.Path, "OK");
+    await DisplayAlert("File Location", file.Path, "OK");
 
     image.Source = ImageSource.FromStream(() =>
     {
