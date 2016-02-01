@@ -93,6 +93,15 @@
      <file src="Media\Media.Plugin.Abstractions\bin\Release\Plugin.Media.Abstractions.dll" target="lib\Xamarin.iOS10\Plugin.Media.Abstractions.dll" />
      <file src="Media\Media.Plugin.Abstractions\bin\Release\Plugin.Media.Abstractions.xml" target="lib\Xamarin.iOS10\Plugin.Media.Abstractions.xml" />
 
+
+     <!--UWP-->
+     <file src="Media\Media.Plugin.UWP\bin\Release\Plugin.Media.dll" target="lib\UAP10\Plugin.Media.dll" />
+     <file src="Media\Media.Plugin.UWP\bin\Release\Plugin.Media.xml" target="lib\UAP10\Plugin.Media.xml" />
+     <file src="Media\Media.Plugin.UWP\bin\Release\Plugin.Media.pdb" target="lib\UAP10\Plugin.Media.pdb" />
+     <file src="Media\Media.Plugin.Abstractions\bin\Release\Plugin.Media.Abstractions.dll" target="lib\UAP10\Plugin.Media.Abstractions.dll" />
+     <file src="Media\Media.Plugin.Abstractions\bin\Release\Plugin.Media.Abstractions.xml" target="lib\UAP10\Plugin.Media.Abstractions.xml" />
+     <file src="Media\Media.Plugin.Abstractions\bin\Release\Plugin.Media.Abstractions.pdb" target="lib\UAP10\Plugin.Media.Abstractions.pdb" />
+
  
      <!--net 4.5-->
      <file src="Media\Media.Plugin.Net45\bin\Release\Plugin.Media.dll" target="lib\net45\Plugin.Media.dll" />
