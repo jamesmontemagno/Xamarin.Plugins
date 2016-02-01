@@ -37,7 +37,22 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaTest.iOS", "MediaTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Media.Plugin.Net45", "Media\Media.Plugin.Net45\Media.Plugin.Net45.csproj", "{E4E244CF-A8DD-4DB1-9C88-80A4745A7051}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Media.Plugin.Shared", "Media\Media.Plugin.Shared\Media.Plugin.Shared.shproj", "{6847B0B7-91C1-4DF3-86BA-F2DD1EE2622F}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Media\Media.Plugin.Shared\Media.Plugin.Shared.projitems*{d7f3aa16-8ef1-4924-9e0a-dad4ab46b2eb}*SharedItemsImports = 4
+		Media\Media.Plugin.Shared\Media.Plugin.Shared.projitems*{56a56f17-7de1-4ca1-9617-bf32e971ac84}*SharedItemsImports = 4
+		Media\Media.Plugin.Shared\Media.Plugin.Shared.projitems*{2882aeeb-d4cd-4eb9-8a6c-6653b33681f0}*SharedItemsImports = 4
+		Media\Media.Plugin.Shared\Media.Plugin.Shared.projitems*{5876144b-47dd-4c4e-b421-bc03f191b996}*SharedItemsImports = 4
+		Media\Media.Plugin.Shared\Media.Plugin.Shared.projitems*{e4e244cf-a8dd-4db1-9c88-80a4745a7051}*SharedItemsImports = 4
+		Media\Media.Plugin.Shared\Media.Plugin.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
+		Media\Media.Plugin.Shared\Media.Plugin.Shared.projitems*{6847b0b7-91c1-4df3-86ba-f2dd1ee2622f}*SharedItemsImports = 13
+		Media\Media.Plugin.Shared\Media.Plugin.Shared.projitems*{6edb0588-ffc5-4ef5-8a99-9e241d0f878d}*SharedItemsImports = 4
+		Media\Media.Plugin.Shared\Media.Plugin.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
+		Media\Media.Plugin.Shared\Media.Plugin.Shared.projitems*{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}*SharedItemsImports = 4
+		Media\Media.Plugin.Shared\Media.Plugin.Shared.projitems*{04125cd7-f3b6-4960-b1ba-9f584384ebdf}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
 		Ad-Hoc|ARM = Ad-Hoc|ARM

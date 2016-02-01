@@ -124,6 +124,7 @@
       <Name>Media.Plugin.Abstractions</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\Media.Plugin.Shared\Media.Plugin.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -1,6 +1,10 @@
 Media Plugin for Xamarin & Windows
 
 Changelog:
+[2.2.0]
+-Android: No longer require camera permission
+-Android: Use latest permission plugin for External Storage Permissions
+-Android: Try to show front facing camera when parameter is set
 
 -2.1.2
 --Add new "SaveToAlbum" bool to save the photo to public gallery
@@ -126,11 +130,18 @@ When your user takes a photo it will still store temporary data, but also if nee
 Android: When you set SaveToAlbum this will make it so your photos are public in the Pictures/YourDirectory or Movies/YourDirectory.
 This is the only way Android can detect the photos.
 
+Windows Phone 8 Silverlight: Photos are automatically saved to camera roll no mater what, this is a limitation of the API.
+
 
 ### Additional Setup
 Permissions Requirements:
 **Android:**
-The `WRITE_EXTERNAL_STORAGE`, `READ_EXTERNAL_STORAGE` & `CAMERA` permissions are required, but the library will automatically add this for you. Additionally, if your users are running Marshmallow the Plugin will automatically prompt them for runtime permissions.
+The `WRITE_EXTERNAL_STORAGE`, `READ_EXTERNAL_STORAGE` permissions are required, but the library will automatically add this for you. Additionally, if your users are running Marshmallow the Plugin will automatically prompt them for runtime permissions.
+
+Additionally, the following has been added for you:
+[assembly: UsesFeature("android.hardware.camera", Required = false)]
+[assembly: UsesFeature("android.hardware.camera.autofocus", Required = false)]
+
 
 **iOS** 
 

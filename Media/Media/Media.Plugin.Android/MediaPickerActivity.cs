@@ -46,10 +46,12 @@ namespace Plugin.Media
         internal const string ExtraAction = "action";
         internal const string ExtraTasked = "tasked";
         internal const string ExtraSaveToAlbum = "album_save";
+        internal const string ExtraFront = "android.intent.extras.CAMERA_FACING";
 
         internal static event EventHandler<MediaPickedEventArgs> MediaPicked;
 
         private int id;
+        private int front;
         private string title;
         private string description;
         private string type;
@@ -82,6 +84,7 @@ namespace Plugin.Media
             outState.PutInt(MediaStore.ExtraVideoQuality, (int)this.quality);
             outState.PutBoolean(ExtraSaveToAlbum, saveToAlbum);
             outState.PutBoolean(ExtraTasked, this.tasked);
+            outState.PutInt(ExtraFront, this.front);
 
             if (this.path != null)
                 outState.PutString(ExtraPath, this.path.Path);
@@ -107,6 +110,7 @@ namespace Plugin.Media
             this.tasked = b.GetBoolean(ExtraTasked);
             this.id = b.GetInt(ExtraId, 0);
             this.type = b.GetString(ExtraType);
+            this.front = b.GetInt(ExtraFront);
             if (this.type == "image/*")
                 this.isPhoto = true;
 
@@ -131,6 +135,9 @@ namespace Plugin.Media
 
                     this.quality = (VideoQuality)b.GetInt(MediaStore.ExtraVideoQuality, (int)VideoQuality.High);
                     pickIntent.PutExtra(MediaStore.ExtraVideoQuality, GetVideoQuality(this.quality));
+
+                    if (front != 0)
+                        pickIntent.PutExtra(ExtraFront, (int)Android.Hardware.CameraFacing.Front);
 
                     if (!ran)
                     {

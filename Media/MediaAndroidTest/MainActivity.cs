@@ -9,6 +9,15 @@ namespace MediaAndroidTest
     [Activity(Label = "MediaAndroidTest", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            StartActivity(typeof(MainActivity2));
+        }
+    }
+    [Activity(Label = "MediaAndroidTest", Icon = "@drawable/icon")]
+    public class MainActivity2 : Activity
+    {
         int count = 1;
 
         protected override void OnCreate(Bundle bundle)
@@ -29,7 +38,8 @@ namespace MediaAndroidTest
                 {
                     Directory = "Sample",
                     Name = "test.jpg",
-                    SaveToAlbum = true
+                    SaveToAlbum = true,
+                    DefaultCamera = Plugin.Media.Abstractions.CameraDevice.Front
                 });
                 if (file == null)
                     return;

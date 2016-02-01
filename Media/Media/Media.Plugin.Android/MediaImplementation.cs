@@ -79,8 +79,6 @@ namespace Plugin.Media
             get { return true; }
         }
 
-        public Task CrossPermission { get; private set; }
-
         /// <summary>
         /// 
         /// </summary>
@@ -142,35 +140,15 @@ namespace Plugin.Media
             return await TakeMediaAsync("image/*", Intent.ActionPick, null);
         }
 
-
-        async Task<bool> RequestCameraPermission()
-        {
-            var status1 = await CrossPermissions.Current.CheckPermissionStatusAsync(Permissions.Abstractions.Permission.Storage);
-            var status2 = await CrossPermissions.Current.CheckPermissionStatusAsync(Permissions.Abstractions.Permission.Camera);
-            if (status1 != Permissions.Abstractions.PermissionStatus.Granted ||
-                status2 != Permissions.Abstractions.PermissionStatus.Granted)
-            {
-                Console.WriteLine("Does not have storage or camera permissions granted, requesting.");
-                var results = await CrossPermissions.Current.RequestPermissionsAsync(Permissions.Abstractions.Permission.Camera, Permissions.Abstractions.Permission.Storage);
-                if (results[Permissions.Abstractions.Permission.Storage] != Permissions.Abstractions.PermissionStatus.Granted ||
-                    results[Permissions.Abstractions.Permission.Camera] != Permissions.Abstractions.PermissionStatus.Granted)
-                {
-                    Console.WriteLine("Storage or Camera permission Denied.");
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
         async Task<bool> RequestStoragePermission()
         {
             var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permissions.Abstractions.Permission.Storage);
             if (status != Permissions.Abstractions.PermissionStatus.Granted)
             {
-                Console.WriteLine("Does not have storage permissions granted, requesting.");
+                Console.WriteLine("Does not have storage permission granted, requesting.");
                 var results = await CrossPermissions.Current.RequestPermissionsAsync(Permissions.Abstractions.Permission.Storage);
-                if (results[Permissions.Abstractions.Permission.Storage] != Permissions.Abstractions.PermissionStatus.Granted)
+                if (results.ContainsKey(Permissions.Abstractions.Permission.Storage) && 
+                    results[Permissions.Abstractions.Permission.Storage] != Permissions.Abstractions.PermissionStatus.Granted)
                 {
                     Console.WriteLine("Storage permission Denied.");
                     return false;
@@ -191,7 +169,7 @@ namespace Plugin.Media
             if (!IsCameraAvailable)
                 throw new NotSupportedException();
 
-            if (!(await RequestCameraPermission().ConfigureAwait(false)))
+            if (!(await RequestStoragePermission().ConfigureAwait(false)))
             {
                 return null;
             }
@@ -227,7 +205,7 @@ namespace Plugin.Media
             if (!IsCameraAvailable)
                 throw new NotSupportedException();
 
-            if (!(await RequestCameraPermission().ConfigureAwait(false)))
+            if (!(await RequestStoragePermission().ConfigureAwait(false)))
             {
                 return null;
             }
@@ -262,14 +240,25 @@ namespace Plugin.Media
                 pickerIntent.PutExtra(MediaPickerActivity.ExtraPath, options.Directory);
                 pickerIntent.PutExtra(MediaStore.Images.ImageColumns.Title, options.Name);
 
+                
+
 
                 var cameraOptions = (options as StoreCameraMediaOptions);
                 if (cameraOptions != null)
+                {
+                    if (cameraOptions.DefaultCamera == CameraDevice.Front)
+                    {
+                        pickerIntent.PutExtra("android.intent.extras.CAMERA_FACING", 1);
+                    }
                     pickerIntent.PutExtra(MediaPickerActivity.ExtraSaveToAlbum, cameraOptions.SaveToAlbum);
-
+                }
                 var vidOptions = (options as StoreVideoOptions);
                 if (vidOptions != null)
                 {
+                    if (vidOptions.DefaultCamera == CameraDevice.Front)
+                    {
+                        pickerIntent.PutExtra("android.intent.extras.CAMERA_FACING", 1);
+                    }
                     pickerIntent.PutExtra(MediaStore.ExtraDurationLimit, (int)vidOptions.DesiredLength.TotalSeconds);
                     pickerIntent.PutExtra(MediaStore.ExtraVideoQuality, (int)vidOptions.Quality);
                 }
@@ -320,7 +309,7 @@ namespace Plugin.Media
 
             MediaPickerActivity.MediaPicked += handler;
 
-            return ntcs.Task;
+            return completionSource.Task;
         }
     }
 }
