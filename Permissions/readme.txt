@@ -1,6 +1,8 @@
 Permissions Readme
 
 Changelog:
+[1.1.7]
+-Fix issue for Windows Config
 [1.1.6]
 -Fix for checking photos permission on iOS #192
 [1.1.5]

@@ -10,7 +10,7 @@
   BuildScript: ./Connectivity/build.cake
   TriggerPaths: [ Connectivity ]
   BuildTargets: [ NuGetPack ]
-  Version: 2.0.3
+  Version: 2.1.0
 - Name: Contacts
   BuildScript: ./Contacts/build.cake
   TriggerPaths: [ Contacts ]
@@ -35,17 +35,17 @@
   BuildScript: ./ImageCircle/build.cake
   TriggerPaths: [ ImageCircle ]
   BuildTargets: [ NuGetPack ]
-  Version: 1.4.0
+  Version: 1.4.1
 - Name: Media
   BuildScript: ./Media/build.cake
   TriggerPaths: [ Media ]
   BuildTargets: [ NuGetPack ]
-  Version: 2.1.3
+  Version: 2.2.0
 - Name: Permissions
   BuildScript: ./Permissions/build.cake
   TriggerPaths: [ Permissions ]
   BuildTargets: [ NuGetPack ]
-  Version: 1.1.6
+  Version: 1.1.7
 - Name: Settings
   BuildScript: ./Settings/build.cake
   TriggerPaths: [ Settings ]
@@ -55,7 +55,7 @@
   BuildScript: ./TextToSpeech/build.cake
   TriggerPaths: [ TextToSpeech ]
   BuildTargets: [ NuGetPack ]
-  Version: 2.0.1
+  Version: 2.0.2
 - Name: Vibrate
   BuildScript: ./Vibrate/build.cake
   TriggerPaths: [ Vibrate ]
