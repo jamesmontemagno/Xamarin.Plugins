@@ -17,6 +17,8 @@
          Gather and query contacts across Xamarin.iOS, Xamarin.Android, and Windows Phone
        </summary>
      <releaseNotes>
+       [2.0.1-beta1]
+       -Latest Permissions Plugin
        [2.0.0-beta2]
        -Update dependencies
        -Add blank .Net 4.5
@@ -26,7 +28,7 @@
        <tags>xamarin, pcl, xam.pcl, contacts, windows phone, winphone, wp8, android, xamarin.forms, ios, plugins, plugins for xamarin</tags>
        <dependencies>
            <group targetFramework="MonoAndroid10">
-               <dependency id="Plugin.Permissions" version="1.1.5"/>
+               <dependency id="Plugin.Permissions" version="1.1.7"/>
            </group>
        </dependencies>
    </metadata>

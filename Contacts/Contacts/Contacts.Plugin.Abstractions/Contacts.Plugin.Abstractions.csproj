@@ -38,6 +38,9 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\Contacts.Plugin.Shared\GlobalAssemblyInfo.cs">
+      <Link>GlobalAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Account.cs" />
     <Compile Include="Address.cs" />
     <Compile Include="Contact.cs" />
