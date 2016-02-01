@@ -15,7 +15,7 @@ Change Log:
 -Add UWP Support
 
 Learn More:
-http://www.github.com/jamesmontemagno/Xamarn.Plugins
+http://www.github.com/jamesmontemagno/Xamarin.Plugins
 http://www.xamarin.com/plugins
 
 Created by James Montemagno:
