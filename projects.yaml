@@ -45,7 +45,7 @@
   BuildScript: ./Permissions/build.cake
   TriggerPaths: [ Permissions ]
   BuildTargets: [ NuGetPack ]
-  Version: 1.1.7
+  Version: 1.1.8
 - Name: Settings
   BuildScript: ./Settings/build.cake
   TriggerPaths: [ Settings ]

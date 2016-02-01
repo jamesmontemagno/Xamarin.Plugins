@@ -23,6 +23,8 @@
          </group>
        </dependencies>
     <releaseNotes>
+       [1.1.7]
+       -Fix for odd windows config, buid against AnyCPU
        [1.1.6]
        -Fix for checking photos permission on iOS #192
        [1.1.5]
