@@ -136,7 +136,31 @@ namespace Plugin.Connectivity
             {
                 try
                 {
-                    var sockaddr = new InetSocketAddress(host, port);
+                    var tcs = new TaskCompletionSource<InetSocketAddress>();
+                    new System.Threading.Thread(async () =>
+                    {
+                        /* this line can take minutes when on wifi with poor or none internet connectivity
+                        and Task.Delay solves it only if this is running on new thread (Task.Run does not help) */
+                        InetSocketAddress result = new InetSocketAddress(host, port);
+
+                        if (!tcs.Task.IsCompleted)
+                            tcs.TrySetResult(result);
+
+                    }).Start();
+
+                    Task.Run(async () =>
+                    {
+                        await Task.Delay(msTimeout);
+
+                        if (!tcs.Task.IsCompleted)
+                            tcs.TrySetResult(null);
+                    });
+
+                    var sockaddr = await tcs.Task;
+
+                    if (sockaddr == null)
+                        return false;
+
                     using (var sock = new Socket())
                     {
 
