@@ -37,7 +37,22 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geolocator.Plugin.iOS", "Ge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geolocator.Plugin.Net45", "Geolocator\Geolocator.Plugin.Net45\Geolocator.Plugin.Net45.csproj", "{674D29BB-9528-46E6-9353-D45E8A1D4C76}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Geolocator.Shared", "Geolocator.Shared\Geolocator.Shared.shproj", "{F447D32E-5A83-4905-9B55-D224CFDB44C0}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Geolocator.Shared\Geolocator.Shared.projitems*{d7f3aa16-8ef1-4924-9e0a-dad4ab46b2eb}*SharedItemsImports = 4
+		Geolocator.Shared\Geolocator.Shared.projitems*{56a56f17-7de1-4ca1-9617-bf32e971ac84}*SharedItemsImports = 4
+		Geolocator.Shared\Geolocator.Shared.projitems*{2882aeeb-d4cd-4eb9-8a6c-6653b33681f0}*SharedItemsImports = 4
+		Geolocator.Shared\Geolocator.Shared.projitems*{5876144b-47dd-4c4e-b421-bc03f191b996}*SharedItemsImports = 4
+		Geolocator.Shared\Geolocator.Shared.projitems*{14318cb2-06ec-4b31-be72-c4702d8aeb5f}*SharedItemsImports = 4
+		Geolocator.Shared\Geolocator.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
+		Geolocator.Shared\Geolocator.Shared.projitems*{6edb0588-ffc5-4ef5-8a99-9e241d0f878d}*SharedItemsImports = 4
+		Geolocator.Shared\Geolocator.Shared.projitems*{674d29bb-9528-46e6-9353-d45e8a1d4c76}*SharedItemsImports = 4
+		Geolocator.Shared\Geolocator.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
+		Geolocator.Shared\Geolocator.Shared.projitems*{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}*SharedItemsImports = 4
+		Geolocator.Shared\Geolocator.Shared.projitems*{f447d32e-5a83-4905-9b55-d224cfdb44c0}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM

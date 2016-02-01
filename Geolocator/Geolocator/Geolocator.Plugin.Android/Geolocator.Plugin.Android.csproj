@@ -41,12 +41,12 @@
       <HintPath>..\..\packages\Plugin.CurrentActivity.1.0.1\lib\MonoAndroid10\Plugin.CurrentActivity.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Permissions, Version=1.1.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Plugin.Permissions.1.1.5\lib\MonoAndroid10\Plugin.Permissions.dll</HintPath>
+    <Reference Include="Plugin.Permissions, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.Permissions.1.1.7\lib\MonoAndroid10\Plugin.Permissions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Permissions.Abstractions, Version=1.1.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Plugin.Permissions.1.1.5\lib\MonoAndroid10\Plugin.Permissions.Abstractions.dll</HintPath>
+    <Reference Include="Plugin.Permissions.Abstractions, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.Permissions.1.1.7\lib\MonoAndroid10\Plugin.Permissions.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -79,6 +79,7 @@
       <Name>Geolocator.Plugin.Abstractions</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\..\Geolocator.Shared\Geolocator.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

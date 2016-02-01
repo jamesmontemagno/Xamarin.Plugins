@@ -28,7 +28,9 @@
        <summary>Easly access geolocation across Xamarin.iOS, Xamarin.Android and Windows. View full project page for README
        </summary>
      <releaseNotes>
-         [3.0.3]
+         [3.0.4] 
+         -Use latest permissions plugin
+         [3.0.4]
          -Breaking Changes:
          ---Changed StartListening and StopListening to Task that return a bool of success or failure
          ---New Namespace: Plugin.Geolocator
@@ -45,7 +47,7 @@
        <tags>xamarin, geolocator, geolocation, gps, pcl, xam.pcl, plugin, plugin for xamarin, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
        <dependencies>
            <group targetFramework="MonoAndroid10">
-               <dependency id="Plugin.Permissions" version="1.1.5"/>
+               <dependency id="Plugin.Permissions" version="1.1.7"/>
            </group>
        </dependencies>
    </metadata>
