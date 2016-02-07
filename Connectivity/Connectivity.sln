@@ -36,6 +36,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectivityTest.iOS", "Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connectivity.Plugin.Net45", "Connectivity\Connectivity.Plugin.Net45\Connectivity.Plugin.Net45.csproj", "{D45DEDF0-357D-455C-8189-E3DE0039CB4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connectivity.Plugin.Mac", "Connectivity\Connectivity.Plugin.Mac\Connectivity.Plugin.Mac.csproj", "{9AE7DCA3-296B-4338-930B-8FFEF78433F2}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectivityTest.WP8SL", "TestApps\ConnectivityTest.WP8SL\ConnectivityTest.WP8SL.csproj", "{F4D43E2E-270F-45F2-99BE-1D6EB0D5379C}"
 EndProject
 Global
