@@ -98,13 +98,12 @@
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.xml" />
 
-     <!--Xamarin.Mac-->
+     <!--Xamarin.Mac
      <file src="Connectivity\Connectivity.Plugin.Mac\bin\Release\Plugin.Connectivity.dll" target="lib\Xamarin.Mac20\Plugin.Connectivity.dll" />
      <file src="Connectivity\Connectivity.Plugin.Mac\bin\Release\Plugin.Connectivity.xml" target="lib\Xamarin.Mac20\Plugin.Connectivity.xml" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.dll" target="lib\Xamarin.Mac20\Plugin.Connectivity.Abstractions.dll" />
      <file src="Connectivity\Connectivity.Plugin.Abstractions\bin\Release\Plugin.Connectivity.Abstractions.xml" target="lib\Xamarin.Mac20\Plugin.Connectivity.Abstractions.xml" />
-     
-
+-->
        <!--UWP-->
        <file src="Connectivity\Connectivity.Plugin.UWP\bin\Release\Plugin.Connectivity.dll" target="lib\UAP10\Plugin.Connectivity.dll" />
        <file src="Connectivity\Connectivity.Plugin.UWP\bin\Release\Plugin.Connectivity.xml" target="lib\UAP10\Plugin.Connectivity.xml" />
