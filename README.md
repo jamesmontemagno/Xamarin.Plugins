@@ -4,6 +4,8 @@
 
 See a full list of community built plugins at: https://github.com/xamarin/plugins
 
+Built with C# 6 features, you must be running VS 2015 or Xamarin Studio to compile. **NuGets of course work everywhere!**
+
 ## Follow Me
 * Twitter: [@JamesMontemagno](http://twitter.com/jamesmontemagno)
 * Blog: [MotzCod.es](http://motzcod.es)
