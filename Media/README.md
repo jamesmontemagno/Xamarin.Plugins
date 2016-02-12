@@ -93,7 +93,8 @@ Via a Xamarin.Forms project with a Button and Image to take a photo:
 ```csharp
 takePhoto.Clicked += async (sender, args) =>
 {
-
+    await CrossMedia.Current.Initialize();
+    
     if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
     {
         DisplayAlert("No Camera", ":( No camera available.", "OK");
