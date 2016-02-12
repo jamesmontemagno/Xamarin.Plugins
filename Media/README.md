@@ -29,6 +29,13 @@ Call **CrossMedia.Current** from any project or PCL to gain access to APIs.
 Before taking photos or videos you should check to see if a camera exists and if photos and videos are supported on the device. There are five properties that you can check:
 
 ```csharp
+
+/// <summary>
+/// Initialize all camera components, must be called before checking properties below
+/// </summary>
+/// <returns>If success</returns>
+Task<bool> Initialize();
+
 /// <summary>
 /// Gets if a camera is available on the device
 /// </summary>
@@ -178,7 +185,7 @@ Made possible under Ms-PL license:  https://diycameracaptureui.codeplex.com/lice
 
 #### License
 This is a derivative to [Xamarin.Mobile's Media](http://github.com/xamarin/xamarin.mobile) with a cross platform API and other enhancements.
-﻿//
+//
 //  Copyright 2011-2013, Xamarin Inc.
 //
 //    Licensed under the Apache License, Version 2.0 (the "License");
