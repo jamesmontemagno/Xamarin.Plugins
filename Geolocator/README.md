@@ -29,14 +29,22 @@ Ported from [Xamarin.Mobile](http://www.github.com/xamarin/xamarin.mobile) to a 
 Call **CrossGeolocator.Current** from any project or PCL to gain access to APIs.
 
 ```csharp
-var locator = CrossGeolocator.Current;
-locator.DesiredAccuracy = 50;
 
-var position = await locator.GetPositionAsync (timeoutMilliseconds: 10000);
-
-Console.WriteLine ("Position Status: {0}", position.Timestamp);
-Console.WriteLine ("Position Latitude: {0}", position.Latitude);
-Console.WriteLine ("Position Longitude: {0}", position.Longitude);
+try
+{
+  var locator = CrossGeolocator.Current;
+  locator.DesiredAccuracy = 50;
+  
+  var position = await locator.GetPositionAsync (timeoutMilliseconds: 10000);
+  
+  Console.WriteLine ("Position Status: {0}", position.Timestamp);
+  Console.WriteLine ("Position Latitude: {0}", position.Latitude);
+  Console.WriteLine ("Position Longitude: {0}", position.Longitude);
+}
+catch(Exception ex)
+{
+  Debug.WriteLine("Unable to get location, may need to increase timeout: " + ex);
+}
 ```
 
 ### API 
