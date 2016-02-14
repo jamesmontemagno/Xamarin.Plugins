@@ -72,7 +72,8 @@ namespace Plugin.Media
 
         public override async void FinishedPickingMedia(UIImagePickerController picker, NSDictionary info)
         {
-
+            RemoveOrientationChangeObserverAndNotifications();
+            
             MediaFile mediaFile;
             switch ((NSString)info[UIImagePickerController.MediaType])
             {
@@ -103,6 +104,8 @@ namespace Plugin.Media
 
         public override void Canceled(UIImagePickerController picker)
         {
+            RemoveOrientationChangeObserverAndNotifications();
+            
             if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone)
             {
                 UIApplication.SharedApplication.SetStatusBarStyle(MediaImplementation.StatusBarStyle, false);
@@ -175,11 +178,6 @@ namespace Plugin.Media
             }
             else
             {
-                NSNotificationCenter.DefaultCenter.RemoveObserver(observer);
-                UIDevice.CurrentDevice.EndGeneratingDeviceOrientationNotifications();
-
-                observer.Dispose();
-
                 if (Popover != null)
                 {
                     Popover.Dismiss(animated: true);
@@ -194,6 +192,13 @@ namespace Plugin.Media
                     picker.Dispose();
                 }
             }
+        }
+        
+        private void RemoveOrientationChangeObserverAndNotifications()
+        {
+            UIDevice.CurrentDevice.EndGeneratingDeviceOrientationNotifications();
+            NSNotificationCenter.DefaultCenter.RemoveObserver(observer);
+            observer.Dispose();
         }
 
         private void DidRotate(NSNotification notice)
