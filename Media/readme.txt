@@ -1,6 +1,14 @@
 Media Plugin for Xamarin & Windows
 
 Changelog:
+[2.4.0-beta1]
+-All: Ensure you call await CrossMedia.Current.Initialize(); before accessing any APIs
+-Android: Fix images that get rotated in the wrong direction
+-iOS: Fix for rotating device.
+
+[2.3.0]
+-Add UWP support
+
 [2.2.0]
 -Android: No longer require camera permission
 -Android: Use latest permission plugin for External Storage Permissions
@@ -94,6 +102,7 @@ Via a Xamarin.Forms project with a Button and Image to take a photo:
 
 takePhoto.Clicked += async (sender, args) =>
 {
+    await CrossMedia.Current.Initialize();
 
     if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
     {

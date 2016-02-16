@@ -24,6 +24,7 @@ using Android.OS;
 using Android.Provider;
 using Plugin.Media.Abstractions;
 using Plugin.Permissions;
+using Android.Media;
 
 namespace Plugin.Media
 {
@@ -147,7 +148,7 @@ namespace Plugin.Media
             {
                 Console.WriteLine("Does not have storage permission granted, requesting.");
                 var results = await CrossPermissions.Current.RequestPermissionsAsync(Permissions.Abstractions.Permission.Storage);
-                if (results.ContainsKey(Permissions.Abstractions.Permission.Storage) && 
+                if (results.ContainsKey(Permissions.Abstractions.Permission.Storage) &&
                     results[Permissions.Abstractions.Permission.Storage] != Permissions.Abstractions.PermissionStatus.Granted)
                 {
                     Console.WriteLine("Storage permission Denied.");
@@ -178,9 +179,11 @@ namespace Plugin.Media
             VerifyOptions(options);
 
             var media = await TakeMediaAsync("image/*", MediaStore.ActionImageCapture, options);
-            
-            await FixOrientationAsync(media.Path);
-            
+
+            //check to see if we need to rotate if success
+            if (!string.IsNullOrWhiteSpace(media?.Path))
+                await FixOrientationAsync(media.Path);
+
             return media;
         }
 
@@ -244,7 +247,7 @@ namespace Plugin.Media
                 pickerIntent.PutExtra(MediaPickerActivity.ExtraPath, options.Directory);
                 pickerIntent.PutExtra(MediaStore.Images.ImageColumns.Title, options.Name);
 
-                
+
 
 
                 var cameraOptions = (options as StoreCameraMediaOptions);
@@ -315,81 +318,83 @@ namespace Plugin.Media
 
             return completionSource.Task;
         }
-    }
-    
-    /// <summary>
-    ///  Rotate an image if required and saves it back to disk.
-    /// </summary>
-    /// <param name="file">The file image</param>
-    /// <returns>True if rotation occured, else fal</returns>
-    async public Task<bool> FixOrientationAsync(string filePath)
-    {
-        if (string.IsNullOrWhiteSpace(filePath))
-            return false;
-        try
-        {
-            var orientation = GetRotation(filePath);
 
-            if (!orientation.HasValue)
+        /// <summary>
+        ///  Rotate an image if required and saves it back to disk.
+        /// </summary>
+        /// <param name="file">The file image</param>
+        /// <returns>True if rotation occured, else fal</returns>
+        public async Task<bool> FixOrientationAsync(string filePath)
+        {
+            if (string.IsNullOrWhiteSpace(filePath))
                 return false;
-
-            Bitmap bmp = RotateImage(filePath, orientation.Value);
-            var quality = 90;
-
-            using (var stream = File.Open(filePath, FileMode.OpenOrCreate))
-                await bmp.CompressAsync(Bitmap.CompressFormat.Png, quality, stream);
-
-            bmp.Recycle();
-
-            return true;
-        }
-        catch (Exception ex)
-        {                   
-            #if DEBUG
-            throw ex;
-            #elif
-            return false;
-            #endif
-        }
-    }
-
-    static int? GetRotation(string filePath)
-    {
-        try
-        {
-            ExifInterface ei = new ExifInterface(filePath);
-            var orientation = (MediaOrientation)ei.GetAttributeInt(ExifInterface.TagOrientation, (int)MediaOrientation.Normal);
-            switch (orientation)
+            try
             {
-                case MediaOrientation.Rotate90:
-                    return 90;
-                case MediaOrientation.Rotate180:
-                    return 180;
-                case MediaOrientation.Rotate270:
-                    return 270;
-                default:
-                    return null;
+                var orientation = GetRotation(filePath);
+
+                if (!orientation.HasValue)
+                    return false;
+
+                var bmp = RotateImage(filePath, orientation.Value);
+                var quality = 90;
+
+                using (var stream = File.Open(filePath, FileMode.OpenOrCreate))
+                    await bmp.CompressAsync(Android.Graphics.Bitmap.CompressFormat.Png, quality, stream);
+
+                bmp.Recycle();
+
+                return true;
             }
-
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw ex;
+#else
+                return false;
+#endif
+            }
         }
-        catch (Exception ex)
+
+        static int? GetRotation(string filePath)
         {
-            #if DEBUG
-            throw ex;
-            #elif
+            try
+            {
+                var ei = new ExifInterface(filePath);
+                var orientation = (Orientation)ei.GetAttributeInt(ExifInterface.TagOrientation, (int)Orientation.Normal);
+                switch (orientation)
+                {
+                    case Orientation.Rotate90:
+                        return 90;
+                    case Orientation.Rotate180:
+                        return 180;
+                    case Orientation.Rotate270:
+                        return 270;
+                    default:
+                        return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw ex;
+#else
             return null;
-            #endif
+#endif
+            }
+        }
+
+        private static Android.Graphics.Bitmap RotateImage(string filePath, int rotation)
+        {
+            var originalImage = Android.Graphics.BitmapFactory.DecodeFile(filePath);
+
+            var matrix = new Android.Graphics.Matrix();
+            matrix.PostRotate(rotation);
+            var rotatedImage = Android.Graphics.Bitmap.CreateBitmap(originalImage, 0, 0, originalImage.Width, originalImage.Height, matrix, true);
+            originalImage.Recycle();
+            return rotatedImage;
         }
     }
 
-    private static Bitmap RotateImage(string filePath, int rotation)
-    {
-        Bitmap originalImage = BitmapFactory.DecodeFile(filePath);
 
-        Matrix matrix = new Matrix();
-        matrix.PostRotate(rotation);
-        var rotatedImage = Bitmap.CreateBitmap(originalImage, 0, 0, originalImage.Width, originalImage.Height, matrix, true);
-        originalImage.Recycle();
-        return rotatedImage;
-    }
 }

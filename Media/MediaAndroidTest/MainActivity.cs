@@ -6,7 +6,7 @@ using Android.Content.PM;
 
 namespace MediaAndroidTest
 {
-    [Activity(Label = "MediaAndroidTest", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "MediaAndroidTest", MainLauncher = true, Icon = "@drawable/icon", ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize, ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -15,7 +15,7 @@ namespace MediaAndroidTest
             StartActivity(typeof(MainActivity2));
         }
     }
-    [Activity(Label = "MediaAndroidTest", Icon = "@drawable/icon")]
+    [Activity(Label = "MediaAndroidTest", Icon = "@drawable/icon", ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class MainActivity2 : Activity
     {
         int count = 1;

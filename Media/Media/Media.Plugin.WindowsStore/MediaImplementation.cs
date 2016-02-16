@@ -34,6 +34,9 @@ namespace Plugin.Media
         bool initialized = false;
         public async Task<bool> Initialize()
         {
+            if (initialized)
+                return true;
+
             try
             {
                 var info = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture).AsTask().ConfigureAwait(false);
@@ -63,7 +66,7 @@ namespace Plugin.Media
             get
             {
                 if (!initialized)
-                    Initialize().Wait();
+                    throw new InvalidOperationException("You must call Initialize() before calling any properties.");
 
                 return isCameraAvailable;
             }
