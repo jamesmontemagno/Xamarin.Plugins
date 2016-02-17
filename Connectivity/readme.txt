@@ -1,6 +1,9 @@
 Connectivity Readme
 
 Change Log:
+[2.1.1]
+-Fix Windows, occurances on Simulator or Device that network returns Local even though are online, now will return true for IsConnected.
+
 [2.0.2]
 -Fix when running a WP8SL app on an actual 8.0 device.
 

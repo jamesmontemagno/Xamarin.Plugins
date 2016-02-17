@@ -71,7 +71,7 @@ namespace Plugin.Connectivity
                 try
                 {
                     //else if running newer then you are alright to use connection profile.
-                    return (isConnected = NetworkInformation.GetInternetConnectionProfile()?.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess);
+                    return (isConnected = NetworkInformation.GetInternetConnectionProfile()?.GetNetworkConnectivityLevel() != NetworkConnectivityLevel.None);
                 }
                 catch(NotImplementedException ex)
                 {

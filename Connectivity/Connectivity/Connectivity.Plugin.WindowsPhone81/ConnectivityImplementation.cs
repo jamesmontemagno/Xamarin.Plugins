@@ -52,8 +52,14 @@ namespace Plugin.Connectivity
         /// <summary>
         /// Gets if there is an active internet connection
         /// </summary>
-        public override bool IsConnected =>
-                (isConnected = NetworkInformation.GetInternetConnectionProfile()?.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess);
+        public override bool IsConnected
+        {
+            get
+            {
+                isConnected = NetworkInformation.GetInternetConnectionProfile()?.GetNetworkConnectivityLevel() != NetworkConnectivityLevel.None;
+                return isConnected;
+            }
+        }
                
 
         /// <summary>

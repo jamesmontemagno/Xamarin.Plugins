@@ -14,18 +14,21 @@
          Get network connectivity information such as network type, speeds, and if connection is available. Additional functionality includes the ability to ping a specific host and port number. Ensure you have proper permissions set by reading the README.
        </description>
      <releaseNotes>
-       [2.0.2]
-       -Fix when running a WP8SL app on an actual 8.0 device.
+         [2.1.1]
+         --Fix Windows, occurances on Simulator or Device that network returns Local even though are online, now will return true for IsConnected.
 
-       [2.0.1]
-       -Remove help file, add readme file
-       -Add blank .NET 4.5 implementation for unit testing
-       -Remove dependency that wasn't needed
-       
-       [2.0.0]
-       -BREAKING CHANGE: New Namespace: Plugin.Connectivity
-       -Automatically add permissions for Android!
-       -Add UWP Support
+         [2.0.2]
+         -Fix when running a WP8SL app on an actual 8.0 device.
+
+         [2.0.1]
+         -Remove help file, add readme file
+         -Add blank .NET 4.5 implementation for unit testing
+         -Remove dependency that wasn't needed
+
+         [2.0.0]
+         -BREAKING CHANGE: New Namespace: Plugin.Connectivity
+         -Automatically add permissions for Android!
+         -Add UWP Support
      </releaseNotes>
        <summary>Get network connectivity information such as network type, speeds, and if connection is available.</summary>
        <tags>xamarin, pcl, xam.pcl, connectivity, plugin for xamarin, plugins, wifi, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
