@@ -93,7 +93,7 @@ namespace Plugin.Geolocator
             return new SinglePositionListener(DesiredAccuracy, timeoutMilliseconds, cancelToken.Value).Task;
         }
         /// <inheritdoc/>
-        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, EnergySetings energySettings = null)
+        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, EnergySettings energySettings = null)
         {
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");
