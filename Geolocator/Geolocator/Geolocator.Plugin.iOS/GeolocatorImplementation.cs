@@ -259,7 +259,7 @@ namespace Plugin.Geolocator
 
 			// When using update deferral, the distanceFilter property of the location manager must be set to kCLDistanceFilterNone.
 			// If it is set to any other value, the location manager reports a kCLErrorDeferredDistanceFiltered error.
-			if (defersLocationUpdates)
+			if (this.defersLocationUpdates)
 				minDistance = CLLocationDistance.FilterNone;
 
             this.isListening = true;
@@ -318,22 +318,15 @@ namespace Plugin.Geolocator
             foreach (CLLocation location in e.Locations)
                 UpdatePosition(location);
 
-			if (defersLocationUpdates && UIDevice.CurrentDevice.CheckSystemVersion (6, 0)) 
+			if (this.manager != null && this.defersLocationUpdates && UIDevice.CurrentDevice.CheckSystemVersion(6, 0)) 
 			{
-				if (this.manager != null)
-					this.manager.AllowDeferredLocationUpdatesUntil (deferralDistanceMeters, deferralTimeSeconds);
+				this.manager.AllowDeferredLocationUpdatesUntil(deferralDistanceMeters, deferralTimeSeconds);
 			}
         }
 
         private void OnUpdatedLocation(object sender, CLLocationUpdatedEventArgs e)
         {
             UpdatePosition(e.NewLocation);
-
-			if (defersLocationUpdates && UIDevice.CurrentDevice.CheckSystemVersion (6, 0)) 
-			{
-				if (this.manager != null)
-					this.manager.AllowDeferredLocationUpdatesUntil (deferralDistanceMeters, deferralTimeSeconds);
-			}
         }
 
         private void UpdatePosition(CLLocation location)
