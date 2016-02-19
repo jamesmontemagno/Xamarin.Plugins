@@ -108,6 +108,26 @@ namespace Plugin.Geolocator
             }
         }
 
+		bool defersLocationUpdates;
+		double deferralDistanceMeters;
+		double deferralTimeSeconds;
+		
+		/// <inheritdoc/>
+		public bool DefersLocationUpdates 
+		{
+			get 
+			{
+				return defersLocationUpdates;
+			}
+			set 
+			{
+				defersLocationUpdates = value;
+
+				if (this.manager != null && this.isListening && defersLocationUpdates && UIDevice.CurrentDevice.CheckSystemVersion (6, 0))
+					this.manager.DisallowDeferredLocationUpdates();
+			}
+		}
+
         bool allowsBackgroundUpdates;
 
         /// <inheritdoc/>
@@ -216,14 +236,31 @@ namespace Plugin.Geolocator
             return tcs.Task;
         }
         /// <inheritdoc/>
-        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false)
+		public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, bool defersLocationUpdates = false, double deferralDistanceMeters = -1, double deferralTimeSeconds = -1)
         {
+			this.defersLocationUpdates = defersLocationUpdates;
+
+			if (deferralDistanceMeters < 0)
+				deferralDistanceMeters = CLLocationDistance.MaxDistance;
+
+			this.deferralDistanceMeters = deferralDistanceMeters;
+
+			if (deferralTimeSeconds < 0)
+				deferralTimeSeconds = CLLocationManager.MaxTimeInterval;
+
+			this.deferralTimeSeconds = deferralTimeSeconds;
+			
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");
             if (minDistance < 0)
                 throw new ArgumentOutOfRangeException("minDistance");
             if (this.isListening)
                 throw new InvalidOperationException("Already listening");
+
+			// When using update deferral, the distanceFilter property of the location manager must be set to kCLDistanceFilterNone.
+			// If it is set to any other value, the location manager reports a kCLErrorDeferredDistanceFiltered error.
+			if (defersLocationUpdates)
+				minDistance = CLLocationDistance.FilterNone;
 
             this.isListening = true;
             this.manager.DesiredAccuracy = DesiredAccuracy;
@@ -280,11 +317,23 @@ namespace Plugin.Geolocator
         {
             foreach (CLLocation location in e.Locations)
                 UpdatePosition(location);
+
+			if (defersLocationUpdates && UIDevice.CurrentDevice.CheckSystemVersion (6, 0)) 
+			{
+				if (this.manager != null)
+					this.manager.AllowDeferredLocationUpdatesUntil (deferralDistanceMeters, deferralTimeSeconds);
+			}
         }
 
         private void OnUpdatedLocation(object sender, CLLocationUpdatedEventArgs e)
         {
             UpdatePosition(e.NewLocation);
+
+			if (defersLocationUpdates && UIDevice.CurrentDevice.CheckSystemVersion (6, 0)) 
+			{
+				if (this.manager != null)
+					this.manager.AllowDeferredLocationUpdatesUntil (deferralDistanceMeters, deferralTimeSeconds);
+			}
         }
 
         private void UpdatePosition(CLLocation location)

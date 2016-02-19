@@ -42,6 +42,13 @@ namespace Plugin.Geolocator.Abstractions
         /// </summary>
         bool PausesLocationUpdatesAutomatically { get; set; }
 
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="Plugin.Geolocator.Abstractions.IGeolocator"/> defers
+		/// location updates (iOS).
+		/// </summary>
+		/// <value><c>true</c> if defer location updates; otherwise, <c>false</c>.</value>
+		bool DefersLocationUpdates { get; set; }
+
         /// <summary>
         /// Gets if geolocation is available on device
         /// </summary>
@@ -67,7 +74,10 @@ namespace Plugin.Geolocator.Abstractions
         /// <param name="minTime">Time</param>
         /// <param name="minDistance">Distance</param>
         /// <param name="includeHeading">Include heading or not</param>
-        Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false);
+		/// <param name="defersLocationUpdates">(Only on iOS) Whether or not location updates are deferred.</param>
+		/// <param name="deferralDistanceMeters">(Only on iOS) The distance (in meters) from the current location that must be travelled before event delivery resumes. To specify an unlimited distance, pass -1.</param>
+		/// <param name="deferralTimeSeconds">(Only on iOS) The amount of time (in seconds) from the current time that must pass before event delivery resumes. To specify an unlimited amount of time, pass -1.</param>
+		Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, bool defersLocationUpdates = false, double deferralDistanceMeters = -1, double deferralTimeSeconds = -1);
 
         /// <summary>
         /// Stop linstening
