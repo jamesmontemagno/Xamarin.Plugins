@@ -38,6 +38,8 @@ namespace Plugin.Geolocator
     /// </summary>
     public class GeolocatorImplementation : IGeolocator
     {
+		bool deferringUpdates = false;
+
         public GeolocatorImplementation()
         {
             DesiredAccuracy = 100;
@@ -51,6 +53,12 @@ namespace Plugin.Geolocator
                 this.manager.UpdatedLocation += OnUpdatedLocation;
 
             this.manager.UpdatedHeading += OnUpdatedHeading;
+
+			this.manager.DeferredUpdatesFinished += (o, e) => 
+			{
+				this.deferringUpdates = false;
+			};
+
             RequestAuthorization();
         }
 
@@ -107,6 +115,8 @@ namespace Plugin.Geolocator
                 }
             }
         }
+
+		EnergySettings energySettings;
 
         bool allowsBackgroundUpdates;
 
@@ -216,8 +226,10 @@ namespace Plugin.Geolocator
             return tcs.Task;
         }
         /// <inheritdoc/>
-        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false)
+		public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, EnergySettings energySettings = null)
         {
+			this.energySettings = energySettings;
+			
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");
             if (minDistance < 0)
@@ -225,10 +237,24 @@ namespace Plugin.Geolocator
             if (this.isListening)
                 throw new InvalidOperationException("Already listening");
 
+			double desiredAccuracy = DesiredAccuracy;
+
+			// to use deferral, CLLocationManager.DistanceFilter must be set to CLLocationDistance.None, and CLLocationManager.DesiredAccuracy must be 
+			// either CLLocation.AccuracyBest or CLLocation.AccuracyBestForNavigation. deferral only available on iOS 6.0 and above.
+			if (this.energySettings != null && this.energySettings.DeferLocationUpdates && UIDevice.CurrentDevice.CheckSystemVersion (6, 0)) 
+			{
+				minDistance = CLLocationDistance.FilterNone;
+				desiredAccuracy = CLLocation.AccuracyBest;
+			}
+
             this.isListening = true;
-            this.manager.DesiredAccuracy = DesiredAccuracy;
+			this.manager.DesiredAccuracy = desiredAccuracy;
             this.manager.DistanceFilter = minDistance;
-            this.manager.StartUpdatingLocation();
+
+			if (this.energySettings != null && this.energySettings.ListenForSignificantChanges)
+				this.manager.StartMonitoringSignificantLocationChanges();
+			else
+				this.manager.StartUpdatingLocation();
 
             if (includeHeading && CLLocationManager.HeadingAvailable)
                 this.manager.StartUpdatingHeading();
@@ -245,7 +271,16 @@ namespace Plugin.Geolocator
             if (CLLocationManager.HeadingAvailable)
                 this.manager.StopUpdatingHeading();
 
-            this.manager.StopUpdatingLocation();
+			// it looks like deferred location updates can apply to the standard service or significant change service. disallow deferral in either case.
+			if (this.energySettings != null && this.energySettings.DeferLocationUpdates && UIDevice.CurrentDevice.CheckSystemVersion (6, 0))
+				this.manager.DisallowDeferredLocationUpdates ();
+			
+			if (this.energySettings != null && this.energySettings.ListenForSignificantChanges)
+				this.manager.StopMonitoringSignificantLocationChanges();
+			else
+				this.manager.StopUpdatingLocation();
+
+			this.energySettings = null;
             this.position = null;
 
             return Task.FromResult(true);
@@ -280,6 +315,14 @@ namespace Plugin.Geolocator
         {
             foreach (CLLocation location in e.Locations)
                 UpdatePosition(location);
+
+			// defer future location updates if requested
+			if (this.energySettings != null && this.energySettings.DeferLocationUpdates && !this.deferringUpdates && UIDevice.CurrentDevice.CheckSystemVersion (6, 0)) 
+			{
+				this.manager.AllowDeferredLocationUpdatesUntil (this.energySettings.DeferralDistanceMeters == null ? CLLocationDistance.MaxDistance : this.energySettings.DeferralDistanceMeters.GetValueOrDefault (), 
+					                                            this.energySettings.DeferralTime == null ? CLLocationManager.MaxTimeInterval : this.energySettings.DeferralTime.GetValueOrDefault ().TotalSeconds);
+				this.deferringUpdates = true;
+			}			
         }
 
         private void OnUpdatedLocation(object sender, CLLocationUpdatedEventArgs e)
