@@ -143,7 +143,7 @@ namespace Plugin.Geolocator
             return tcs.Task;
         }
         /// <inheritdoc/>
-        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false)
+        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, EnergySettings energySettings = null)
         {
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");
