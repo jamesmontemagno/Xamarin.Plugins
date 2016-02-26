@@ -19,10 +19,12 @@ using System;
 
 using System.Threading.Tasks;
 using System.Threading;
+
 #if __UNIFIED__
 using CoreLocation;
 using Foundation;
 using UIKit;
+
 #else
 using MonoTouch.CoreLocation;
 using MonoTouch.Foundation;
@@ -38,59 +40,65 @@ namespace Plugin.Geolocator
     /// </summary>
     public class GeolocatorImplementation : IGeolocator
     {
-		bool deferringUpdates = false;
+        bool deferringUpdates;
 
         public GeolocatorImplementation()
         {
             DesiredAccuracy = 100;
-            this.manager = GetManager();
-            this.manager.AuthorizationChanged += OnAuthorizationChanged;
-            this.manager.Failed += OnFailed;
+            manager = GetManager();
+            manager.AuthorizationChanged += OnAuthorizationChanged;
+            manager.Failed += OnFailed;
 
             if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
-                this.manager.LocationsUpdated += OnLocationsUpdated;
+                manager.LocationsUpdated += OnLocationsUpdated;
             else
-                this.manager.UpdatedLocation += OnUpdatedLocation;
+                manager.UpdatedLocation += OnUpdatedLocation;
 
-            this.manager.UpdatedHeading += OnUpdatedHeading;
+            manager.UpdatedHeading += OnUpdatedHeading;
 
-			this.manager.DeferredUpdatesFinished += (o, e) => 
-			{
-				this.deferringUpdates = false;
-			};
+            manager.DeferredUpdatesFinished += OnDeferredUpdatedFinished;
 
             RequestAuthorization();
         }
 
-        private void RequestAuthorization()
+        void OnDeferredUpdatedFinished (object sender, NSErrorEventArgs e)
+        {
+            deferringUpdates = false;
+        }
+
+        void RequestAuthorization()
         {
             var info = NSBundle.MainBundle.InfoDictionary;
 
             if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
             {
                 if (info.ContainsKey(new NSString("NSLocationWhenInUseUsageDescription")))
-                    this.manager.RequestWhenInUseAuthorization();
+                    manager.RequestWhenInUseAuthorization();
                 else if (info.ContainsKey(new NSString("NSLocationAlwaysUsageDescription")))
-                    this.manager.RequestAlwaysAuthorization();
+                    manager.RequestAlwaysAuthorization();
                 else
                     throw new UnauthorizedAccessException("On iOS 8.0 and higher you must set either NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription in your Info.plist file to enable Authorization Requests for Location updates!");
             }
         }
+
         /// <inheritdoc/>
         public event EventHandler<PositionErrorEventArgs> PositionError;
         /// <inheritdoc/>
         public event EventHandler<PositionEventArgs> PositionChanged;
+
         /// <inheritdoc/>
         public double DesiredAccuracy
         {
             get;
             set;
         }
+
         /// <inheritdoc/>
         public bool IsListening
         {
-            get { return this.isListening; }
+            get { return isListening; }
         }
+
         /// <inheritdoc/>
         public bool SupportsHeading
         {
@@ -98,6 +106,7 @@ namespace Plugin.Geolocator
         }
 
         bool pausesLocationUpdatesAutomatically;
+
         /// <inheritdoc/>
         public bool PausesLocationUpdatesAutomatically
         {
@@ -110,13 +119,13 @@ namespace Plugin.Geolocator
                 pausesLocationUpdatesAutomatically = value;
                 if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
                 {
-                    if (this.manager != null)
-                        this.manager.PausesLocationUpdatesAutomatically = value;
+                    if (manager != null)
+                        manager.PausesLocationUpdatesAutomatically = value;
                 }
             }
         }
 
-		EnergySettings energySettings;
+        EnergySettings energySettings;
 
         bool allowsBackgroundUpdates;
 
@@ -132,8 +141,8 @@ namespace Plugin.Geolocator
                 allowsBackgroundUpdates = value;
                 if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
                 {
-                    if (this.manager != null)
-                        this.manager.AllowsBackgroundLocationUpdates = value;
+                    if (manager != null)
+                        manager.AllowsBackgroundLocationUpdates = value;
                 }
             }
         }
@@ -143,6 +152,7 @@ namespace Plugin.Geolocator
         {
             get { return true; } // all iOS devices support at least wifi geolocation
         }
+
         /// <inheritdoc/>
         public bool IsGeolocationEnabled
         {
@@ -155,9 +165,8 @@ namespace Plugin.Geolocator
                     return status == CLAuthorizationStatus.AuthorizedAlways
                     || status == CLAuthorizationStatus.AuthorizedWhenInUse;
                 }
-                else {
-                    return status == CLAuthorizationStatus.Authorized;
-                }
+               
+                return status == CLAuthorizationStatus.Authorized;
             }
         }
 
@@ -196,113 +205,117 @@ namespace Plugin.Geolocator
 
                 return singleListener.Task;
             }
-            else
+
+
+            tcs = new TaskCompletionSource<Position>();
+            if (position == null)
             {
-                tcs = new TaskCompletionSource<Position>();
-                if (this.position == null)
+                EventHandler<PositionErrorEventArgs> gotError = null;
+                gotError = (s, e) =>
                 {
-                    EventHandler<PositionErrorEventArgs> gotError = null;
-                    gotError = (s, e) =>
-                    {
-                        tcs.TrySetException(new GeolocationException(e.Error));
-                        PositionError -= gotError;
-                    };
+                    tcs.TrySetException(new GeolocationException(e.Error));
+                    PositionError -= gotError;
+                };
 
-                    PositionError += gotError;
+                PositionError += gotError;
 
-                    EventHandler<PositionEventArgs> gotPosition = null;
-                    gotPosition = (s, e) =>
-                    {
-                        tcs.TrySetResult(e.Position);
-                        PositionChanged -= gotPosition;
-                    };
+                EventHandler<PositionEventArgs> gotPosition = null;
+                gotPosition = (s, e) =>
+                {
+                    tcs.TrySetResult(e.Position);
+                    PositionChanged -= gotPosition;
+                };
 
-                    PositionChanged += gotPosition;
-                }
-                else
-                    tcs.SetResult(this.position);
+                PositionChanged += gotPosition;
             }
+            else
+                tcs.SetResult(position);
+            
 
             return tcs.Task;
         }
+
+        bool CanDeferLocationUpdate { get { return UIDevice.CurrentDevice.CheckSystemVersion(6, 0); } }
+
         /// <inheritdoc/>
-		public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, EnergySettings energySettings = null)
+        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, EnergySettings energySettings = null)
         {
-			this.energySettings = energySettings;
+            this.energySettings = energySettings;
 			
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");
             if (minDistance < 0)
                 throw new ArgumentOutOfRangeException("minDistance");
-            if (this.isListening)
+            if (isListening)
                 throw new InvalidOperationException("Already listening");
 
-			double desiredAccuracy = DesiredAccuracy;
+            double desiredAccuracy = DesiredAccuracy;
 
-			// to use deferral, CLLocationManager.DistanceFilter must be set to CLLocationDistance.None, and CLLocationManager.DesiredAccuracy must be 
-			// either CLLocation.AccuracyBest or CLLocation.AccuracyBestForNavigation. deferral only available on iOS 6.0 and above.
-			if (this.energySettings != null && this.energySettings.DeferLocationUpdates && UIDevice.CurrentDevice.CheckSystemVersion (6, 0)) 
-			{
-				minDistance = CLLocationDistance.FilterNone;
-				desiredAccuracy = CLLocation.AccuracyBest;
-			}
+            // to use deferral, CLLocationManager.DistanceFilter must be set to CLLocationDistance.None, and CLLocationManager.DesiredAccuracy must be 
+            // either CLLocation.AccuracyBest or CLLocation.AccuracyBestForNavigation. deferral only available on iOS 6.0 and above.
+            if ((this.energySettings?.DeferLocationUpdates ?? false) && CanDeferLocationUpdate)
+            {
+                minDistance = CLLocationDistance.FilterNone;
+                desiredAccuracy = CLLocation.AccuracyBest;
+            }
 
-            this.isListening = true;
-			this.manager.DesiredAccuracy = desiredAccuracy;
-            this.manager.DistanceFilter = minDistance;
+            isListening = true;
+            manager.DesiredAccuracy = desiredAccuracy;
+            manager.DistanceFilter = minDistance;
 
-			if (this.energySettings != null && this.energySettings.ListenForSignificantChanges)
-				this.manager.StartMonitoringSignificantLocationChanges();
-			else
-				this.manager.StartUpdatingLocation();
+            if (this.energySettings?.ListenForSignificantChanges ?? false)
+                manager.StartMonitoringSignificantLocationChanges();
+            else
+                manager.StartUpdatingLocation();
 
             if (includeHeading && CLLocationManager.HeadingAvailable)
-                this.manager.StartUpdatingHeading();
+                manager.StartUpdatingHeading();
 
             return Task.FromResult(true);
         }
+
         /// <inheritdoc/>
         public Task<bool> StopListeningAsync()
         {
-            if (!this.isListening)
+            if (!isListening)
                 return Task.FromResult(true);
 
-            this.isListening = false;
+            isListening = false;
             if (CLLocationManager.HeadingAvailable)
-                this.manager.StopUpdatingHeading();
+                manager.StopUpdatingHeading();
 
-			// it looks like deferred location updates can apply to the standard service or significant change service. disallow deferral in either case.
-			if (this.energySettings != null && this.energySettings.DeferLocationUpdates && UIDevice.CurrentDevice.CheckSystemVersion (6, 0))
-				this.manager.DisallowDeferredLocationUpdates ();
+            // it looks like deferred location updates can apply to the standard service or significant change service. disallow deferral in either case.
+            if ((energySettings?.DeferLocationUpdates ?? false) && CanDeferLocationUpdate)
+                manager.DisallowDeferredLocationUpdates();
 			
-			if (this.energySettings != null && this.energySettings.ListenForSignificantChanges)
-				this.manager.StopMonitoringSignificantLocationChanges();
-			else
-				this.manager.StopUpdatingLocation();
+            if (energySettings?.ListenForSignificantChanges ?? false)
+                manager.StopMonitoringSignificantLocationChanges();
+            else
+                manager.StopUpdatingLocation();
 
-			this.energySettings = null;
-            this.position = null;
+            energySettings = null;
+            position = null;
 
             return Task.FromResult(true);
         }
 
-        private readonly CLLocationManager manager;
-        private bool isListening;
-        private Position position;
+        readonly CLLocationManager manager;
+        bool isListening;
+        Position position;
 
-        private CLLocationManager GetManager()
+        CLLocationManager GetManager()
         {
             CLLocationManager m = null;
             new NSObject().InvokeOnMainThread(() => m = new CLLocationManager());
             return m;
         }
 
-        private void OnUpdatedHeading(object sender, CLHeadingUpdatedEventArgs e)
+        void OnUpdatedHeading(object sender, CLHeadingUpdatedEventArgs e)
         {
             if (e.NewHeading.TrueHeading == -1)
                 return;
 
-            Position p = (this.position == null) ? new Position() : new Position(this.position);
+            var p = (position == null) ? new Position() : new Position(this.position);
 
             p.Heading = e.NewHeading.TrueHeading;
 
@@ -311,28 +324,28 @@ namespace Plugin.Geolocator
             OnPositionChanged(new PositionEventArgs(p));
         }
 
-        private void OnLocationsUpdated(object sender, CLLocationsUpdatedEventArgs e)
+        void OnLocationsUpdated(object sender, CLLocationsUpdatedEventArgs e)
         {
             foreach (CLLocation location in e.Locations)
                 UpdatePosition(location);
 
-			// defer future location updates if requested
-			if (this.energySettings != null && this.energySettings.DeferLocationUpdates && !this.deferringUpdates && UIDevice.CurrentDevice.CheckSystemVersion (6, 0)) 
-			{
-				this.manager.AllowDeferredLocationUpdatesUntil (this.energySettings.DeferralDistanceMeters == null ? CLLocationDistance.MaxDistance : this.energySettings.DeferralDistanceMeters.GetValueOrDefault (), 
-					                                            this.energySettings.DeferralTime == null ? CLLocationManager.MaxTimeInterval : this.energySettings.DeferralTime.GetValueOrDefault ().TotalSeconds);
-				this.deferringUpdates = true;
-			}			
+            // defer future location updates if requested
+            if ((energySettings?.DeferLocationUpdates ?? false) && !deferringUpdates && CanDeferLocationUpdate)
+            {
+                manager.AllowDeferredLocationUpdatesUntil(energySettings.DeferralDistanceMeters == null ? CLLocationDistance.MaxDistance : energySettings.DeferralDistanceMeters.GetValueOrDefault(), 
+                    energySettings.DeferralTime == null ? CLLocationManager.MaxTimeInterval : energySettings.DeferralTime.GetValueOrDefault().TotalSeconds);
+                deferringUpdates = true;
+            }			
         }
 
-        private void OnUpdatedLocation(object sender, CLLocationUpdatedEventArgs e)
+        void OnUpdatedLocation(object sender, CLLocationUpdatedEventArgs e)
         {
             UpdatePosition(e.NewLocation);
         }
 
-        private void UpdatePosition(CLLocation location)
+        void UpdatePosition(CLLocation location)
         {
-            Position p = (this.position == null) ? new Position() : new Position(this.position);
+            var p = (position == null) ? new Position() : new Position(this.position);
 
             if (location.HorizontalAccuracy > -1)
             {
@@ -353,7 +366,7 @@ namespace Plugin.Geolocator
             var dateTime = location.Timestamp.ToDateTime().ToUniversalTime();
             p.Timestamp = new DateTimeOffset(dateTime);
 
-            this.position = p;
+            position = p;
 
             OnPositionChanged(new PositionEventArgs(p));
 
@@ -361,32 +374,25 @@ namespace Plugin.Geolocator
         }
 
 
-        private void OnFailed(object sender, NSErrorEventArgs e)
+        void OnFailed(object sender, NSErrorEventArgs e)
         {
             if ((CLError)(int)e.Error.Code == CLError.Network)
                 OnPositionError(new PositionErrorEventArgs(GeolocationError.PositionUnavailable));
         }
 
-        private void OnAuthorizationChanged(object sender, CLAuthorizationChangedEventArgs e)
+        void OnAuthorizationChanged(object sender, CLAuthorizationChangedEventArgs e)
         {
             if (e.Status == CLAuthorizationStatus.Denied || e.Status == CLAuthorizationStatus.Restricted)
                 OnPositionError(new PositionErrorEventArgs(GeolocationError.Unauthorized));
         }
 
-        private void OnPositionChanged(PositionEventArgs e)
-        {
-            var changed = PositionChanged;
-            if (changed != null)
-                changed(this, e);
-        }
+        void OnPositionChanged(PositionEventArgs e) => PositionChanged?.Invoke(this, e);
 
-        private async void OnPositionError(PositionErrorEventArgs e)
+
+        async void OnPositionError(PositionErrorEventArgs e)
         {
             await StopListeningAsync();
-
-            var error = PositionError;
-            if (error != null)
-                error(this, e);
+            PositionError?.Invoke(this, e);
         }
     }
 }

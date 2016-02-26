@@ -30,7 +30,7 @@
   BuildScript: ./Geolocator/build.cake
   TriggerPaths: [ Geolocator ]
   BuildTargets: [ NuGetPack ]
-  Version: 3.0.4
+  Version: 3.1.0-beta1
 - Name: ImageCircle
   BuildScript: ./ImageCircle/build.cake
   TriggerPaths: [ ImageCircle ]
