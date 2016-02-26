@@ -204,7 +204,7 @@ namespace Plugin.Geolocator
         }
 
         /// <inheritdoc/>
-        public async Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false)
+		public async Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, EnergySettings energySettings = null)
         {
             var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permissions.Abstractions.Permission.Location).ConfigureAwait(false);
             if (status != Permissions.Abstractions.PermissionStatus.Granted)
