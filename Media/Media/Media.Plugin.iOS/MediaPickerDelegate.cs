@@ -20,18 +20,21 @@ using System.Threading.Tasks;
 
 using Plugin.Media.Abstractions;
 using System.Collections.Generic;
+using System.Drawing;
 
 #if __UNIFIED__
 using CoreGraphics;
 using AssetsLibrary;
 using Foundation;
 using UIKit;
+using CoreGraphics;
 using NSAction = global::System.Action;
 #else
 using MonoTouch.AssetsLibrary;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
+using MonoTouch.CoreGraphics;
 using CGRect = global::System.Drawing.RectangleF;
 using nfloat = global::System.Single;
 #endif
@@ -299,12 +302,42 @@ namespace Plugin.Media
                 options.Directory ?? ((IsCaptured) ? String.Empty : "temp"),
                 options.Name);
 
-            using (FileStream fs = File.OpenWrite(path))
-            using (Stream s = new NSDataStream(image.AsJPEG()))
+            var cgImage = image.CGImage;
+
+            if (options.PhotoSize != PhotoSize.Full)
             {
-                s.CopyTo(fs);
-                fs.Flush();
+                try
+                {
+                    var percent = 1.0f;
+                    switch (options.PhotoSize)
+                    {
+                        case PhotoSize.Large:
+                            percent = .75f;
+                            break;
+                        case PhotoSize.Medium:
+                            percent = .5f;
+                            break;
+                        case PhotoSize.Small:
+                            percent = .25f;
+                            break;
+                    }
+
+                    var width = (image.CGImage.Width * percent);
+                    var height = (image.CGImage.Height * percent);
+                    image = image.Scale(new SizeF(width, height));
+                   
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine($"Unable to compress image: {ex}");
+                }
             }
+
+            image.AsJPEG().Save(path, true);
+
+           
+
+
 
             Action<bool> dispose = null;
             string aPath = null;
@@ -317,7 +350,7 @@ namespace Plugin.Media
                     try
                     {
                         var library = new ALAssetsLibrary();
-                        var albumSave = await library.WriteImageToSavedPhotosAlbumAsync(image.CGImage, meta);
+                        var albumSave = await library.WriteImageToSavedPhotosAlbumAsync(cgImage, meta);
                         aPath = albumSave.AbsoluteString;
                     }
                     catch (Exception ex)
@@ -325,6 +358,7 @@ namespace Plugin.Media
                         Console.WriteLine("unable to save to album:" + ex);
                     }
                 }
+
             }
 
             return new MediaFile(path, () => File.OpenRead(path), dispose: dispose, albumPath: aPath);

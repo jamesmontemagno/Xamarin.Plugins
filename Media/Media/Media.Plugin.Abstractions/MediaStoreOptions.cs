@@ -85,6 +85,35 @@ namespace Plugin.Media.Abstractions
         {
             get; set;
         }
+
+        /// <summary>
+        /// Gets or sets the size of the photo.
+        /// </summary>
+        /// <value>The size of the photo.</value>
+        public PhotoSize PhotoSize { get; set; } = PhotoSize.Full;
+    }
+
+    /// <summary>
+    /// Photo size enum.
+    /// </summary>
+    public enum PhotoSize
+    {
+        /// <summary>
+        /// 25% of original
+        /// </summary>
+        Small,
+        /// <summary>
+        /// 50% of the original
+        /// </summary>
+        Medium,
+        /// <summary>
+        /// 75% of the original
+        /// </summary>
+        Large,
+        /// <summary>
+        /// Untouched
+        /// </summary>
+        Full
     }
 
     /// <summary>
