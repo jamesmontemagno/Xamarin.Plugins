@@ -40,7 +40,7 @@
   BuildScript: ./Media/build.cake
   TriggerPaths: [ Media ]
   BuildTargets: [ NuGetPack ]
-  Version: 2.4.0-beta1
+  Version: 2.4.0-beta2
 - Name: Permissions
   BuildScript: ./Permissions/build.cake
   TriggerPaths: [ Permissions ]
