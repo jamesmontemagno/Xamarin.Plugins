@@ -201,7 +201,7 @@ namespace Plugin.Media
                     {
                         var bmp = ResizeImage(media.Path, options.PhotoSize);
                         using (var stream = File.Open(media.Path, FileMode.OpenOrCreate))
-                            await bmp.CompressAsync(Bitmap.CompressFormat.Png, 100, stream);
+                            await bmp.CompressAsync(Bitmap.CompressFormat.Png, 92, stream);
 
                         bmp.Recycle();
                     }
@@ -386,7 +386,7 @@ namespace Plugin.Media
                 var bmp = RotateImage(filePath, orientation.Value);
 
                 using (var stream = File.Open(filePath, FileMode.OpenOrCreate))
-                    await bmp.CompressAsync(Bitmap.CompressFormat.Png, 100, stream);
+                    await bmp.CompressAsync(Bitmap.CompressFormat.Png, 92, stream);
 
                 bmp.Recycle();
 

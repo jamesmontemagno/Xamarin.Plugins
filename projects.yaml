@@ -20,7 +20,7 @@
   BuildScript: ./DeviceInfo/build.cake
   TriggerPaths: [ DeviceInfo ]
   BuildTargets: [ NuGetPack ]
-  Version: 2.0.1
+  Version: 2.0.2
 - Name: ExternalMaps
   BuildScript: ./ExternalMaps/build.cake
   TriggerPaths: [ ExternalMaps ]
@@ -40,7 +40,7 @@
   BuildScript: ./Media/build.cake
   TriggerPaths: [ Media ]
   BuildTargets: [ NuGetPack ]
-  Version: 2.4.0-beta2
+  Version: 2.4.0-beta3
 - Name: Permissions
   BuildScript: ./Permissions/build.cake
   TriggerPaths: [ Permissions ]
