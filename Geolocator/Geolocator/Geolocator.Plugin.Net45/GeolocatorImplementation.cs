@@ -43,6 +43,13 @@ namespace Plugin.Geolocator
         /// </summary>
         public bool PausesLocationUpdatesAutomatically { get; set; }
 
+		/// <inheritdoc/>
+		public ActivityType ActivityType
+		{
+			get;
+			set;
+		}
+
         /// <summary>
         /// Supports heading
         /// </summary>
@@ -74,7 +81,7 @@ namespace Plugin.Geolocator
         /// <param name="minDistance"></param>
         /// <param name="includeHeading"></param>
         /// <returns></returns>
-		public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, EnergySettings energySettings = null)
+		public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerEnergySettings energySettings = null)
             => Task.FromResult(false);
 
         /// <summary>

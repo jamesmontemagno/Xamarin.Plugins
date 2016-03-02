@@ -105,7 +105,7 @@ namespace Plugin.Geolocator
             get { return CLLocationManager.HeadingAvailable; }
         }
 
-        bool pausesLocationUpdatesAutomatically;
+		bool pausesLocationUpdatesAutomatically;
 
         /// <inheritdoc/>
         public bool PausesLocationUpdatesAutomatically
@@ -125,7 +125,36 @@ namespace Plugin.Geolocator
             }
         }
 
-        EnergySettings energySettings;
+		ActivityType activityType = ActivityType.Other;
+
+		/// <inheritdoc/>
+		public ActivityType ActivityType
+		{
+			get 
+			{
+				return activityType;
+			}
+			set 
+			{
+				activityType = value;
+				if (UIDevice.CurrentDevice.CheckSystemVersion (6, 0)) 
+				{
+					if (manager != null) 
+					{
+						if (value == ActivityType.AutomotiveNavigation)
+							manager.ActivityType = CLActivityType.AutomotiveNavigation;
+						else if (value == ActivityType.Fitness)
+							manager.ActivityType = CLActivityType.Fitness;
+						else if (value == ActivityType.Other)
+							manager.ActivityType = CLActivityType.Other;
+						else if (value == ActivityType.OtherNavigation)
+							manager.ActivityType = CLActivityType.OtherNavigation;
+					}
+				}
+			}
+		}
+
+        ListenerEnergySettings energySettings;
 
         bool allowsBackgroundUpdates;
 
@@ -238,7 +267,7 @@ namespace Plugin.Geolocator
         bool CanDeferLocationUpdate { get { return UIDevice.CurrentDevice.CheckSystemVersion(6, 0); } }
 
         /// <inheritdoc/>
-        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, EnergySettings energySettings = null)
+        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerEnergySettings energySettings = null)
         {
             this.energySettings = energySettings;
 			

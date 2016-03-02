@@ -5,7 +5,7 @@ namespace Plugin.Geolocator.Abstractions
     /// <summary>
     /// Energy settings for location listening (only applies to iOS).
     /// </summary>
-    public class EnergySettings
+    public class ListenerEnergySettings
     {
         /// <summary>
         /// Gets or sets a value indicating whether the location manager should only listen for significant changes in location, rather than continuous listening.

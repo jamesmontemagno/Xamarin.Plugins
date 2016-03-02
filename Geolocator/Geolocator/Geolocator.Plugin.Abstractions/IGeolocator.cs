@@ -38,9 +38,15 @@ namespace Plugin.Geolocator.Abstractions
         bool AllowsBackgroundUpdates { get; set; }
 
         /// <summary>
-        /// Gets or sets if the location updates should be paused automatically (iOS)
+        /// Gets or sets if the location updates should be paused automatically (iOS). Default:  false
         /// </summary>
         bool PausesLocationUpdatesAutomatically { get; set; }
+
+		/// <summary>
+		/// Gets or sets the activity type that should be used to determine when to automatically pause location updates (iOS). Default:  ActivityType.Other
+		/// </summary>
+		/// <value>Activity type.</value>
+		ActivityType ActivityType { get; set; }
 
         /// <summary>
         /// Gets if geolocation is available on device
@@ -68,7 +74,7 @@ namespace Plugin.Geolocator.Abstractions
         /// <param name="minDistance">Distance</param>
         /// <param name="includeHeading">Include heading or not</param>
 		/// <param name="energySettings">Optional energy settings (iOS only)</param>
-		Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, EnergySettings energySettings = null);
+		Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerEnergySettings energySettings = null);
 
         /// <summary>
         /// Stop linstening
