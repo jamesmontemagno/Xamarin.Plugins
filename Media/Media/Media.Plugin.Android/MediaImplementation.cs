@@ -25,6 +25,7 @@ using Android.Provider;
 using Plugin.Media.Abstractions;
 using Plugin.Permissions;
 using Android.Media;
+using Android.Graphics;
 
 namespace Plugin.Media
 {
@@ -138,7 +139,9 @@ namespace Plugin.Media
             {
                 return null;
             }
-            return await TakeMediaAsync("image/*", Intent.ActionPick, null);
+            var media = await TakeMediaAsync("image/*", Intent.ActionPick, null);
+
+            return media;
         }
 
         async Task<bool> RequestStoragePermission()
@@ -182,11 +185,56 @@ namespace Plugin.Media
 
             //check to see if we need to rotate if success
             if (!string.IsNullOrWhiteSpace(media?.Path))
-                await FixOrientationAsync(media.Path);
+            {
+                try
+                {
+                    await FixOrientationAsync(media.Path);
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("Unable to check orientation: " + ex);
+                }
+
+                if (options.PhotoSize != PhotoSize.Full)
+                {
+                    try
+                    {
+                        var bmp = ResizeImage(media.Path, options.PhotoSize);
+                        using (var stream = File.Open(media.Path, FileMode.OpenOrCreate))
+                            await bmp.CompressAsync(Bitmap.CompressFormat.Png, 92, stream);
+
+                        bmp.Recycle();
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine("Unable to shrink image: {ex}");
+                    }
+                }
+            }
 
             return media;
         }
+        public static Bitmap ResizeImage (string filePath, PhotoSize photoSize)
+        {
+            var percent = 1.0f;
+            switch (photoSize)
+            {
+                case PhotoSize.Large:
+                    percent = .75f;
+                    break;
+                case PhotoSize.Medium:
+                    percent = .5f;
+                    break;
+                case PhotoSize.Small:
+                    percent = .25f;
+                    break;
+            }
+            var originalImage = BitmapFactory.DecodeFile(filePath);
+            var rotatedImage = Bitmap.CreateScaledBitmap(originalImage, (int)(originalImage.Width * percent), (int)(originalImage.Height * percent), false);
+            originalImage.Recycle();
+            return rotatedImage;
 
+        }
         /// <summary>
         /// Picks a video from the default gallery
         /// </summary>
@@ -230,7 +278,7 @@ namespace Plugin.Media
         {
             if (options == null)
                 throw new ArgumentNullException("options");
-            if (Path.IsPathRooted(options.Directory))
+            if (System.IO.Path.IsPathRooted(options.Directory))
                 throw new ArgumentException("options.Directory must be a relative path", "options");
         }
 
@@ -336,10 +384,9 @@ namespace Plugin.Media
                     return false;
 
                 var bmp = RotateImage(filePath, orientation.Value);
-                var quality = 90;
 
                 using (var stream = File.Open(filePath, FileMode.OpenOrCreate))
-                    await bmp.CompressAsync(Android.Graphics.Bitmap.CompressFormat.Png, quality, stream);
+                    await bmp.CompressAsync(Bitmap.CompressFormat.Png, 92, stream);
 
                 bmp.Recycle();
 
@@ -384,13 +431,13 @@ namespace Plugin.Media
             }
         }
 
-        private static Android.Graphics.Bitmap RotateImage(string filePath, int rotation)
+        private static Bitmap RotateImage(string filePath, int rotation)
         {
-            var originalImage = Android.Graphics.BitmapFactory.DecodeFile(filePath);
+            var originalImage = BitmapFactory.DecodeFile(filePath);
 
-            var matrix = new Android.Graphics.Matrix();
+            var matrix = new Matrix();
             matrix.PostRotate(rotation);
-            var rotatedImage = Android.Graphics.Bitmap.CreateBitmap(originalImage, 0, 0, originalImage.Width, originalImage.Height, matrix, true);
+            var rotatedImage = Bitmap.CreateBitmap(originalImage, 0, 0, originalImage.Width, originalImage.Height, matrix, true);
             originalImage.Recycle();
             return rotatedImage;
         }
