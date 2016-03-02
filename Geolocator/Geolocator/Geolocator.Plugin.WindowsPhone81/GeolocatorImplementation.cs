@@ -54,6 +54,10 @@ namespace Plugin.Geolocator
         { get; set; }
 
         /// <inheritdoc/>
+        public ActivityType ActivityType
+        { get; set; }
+
+        /// <inheritdoc/>
         public bool IsGeolocationAvailable
         {
             get
@@ -143,7 +147,7 @@ namespace Plugin.Geolocator
             return tcs.Task;
         }
         /// <inheritdoc/>
-        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, EnergySettings energySettings = null)
+        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerEnergySettings energySettings = null)
         {
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");
