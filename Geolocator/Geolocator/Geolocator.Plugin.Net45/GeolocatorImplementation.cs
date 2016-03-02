@@ -81,7 +81,7 @@ namespace Plugin.Geolocator
         /// <param name="minDistance"></param>
         /// <param name="includeHeading"></param>
         /// <returns></returns>
-		public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerEnergySettings energySettings = null)
+        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerEnergySettings energySettings = null)
             => Task.FromResult(false);
 
         /// <summary>

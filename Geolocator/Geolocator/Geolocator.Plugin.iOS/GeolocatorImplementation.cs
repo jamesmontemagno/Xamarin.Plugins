@@ -105,7 +105,7 @@ namespace Plugin.Geolocator
             get { return CLLocationManager.HeadingAvailable; }
         }
 
-		bool pausesLocationUpdatesAutomatically;
+        bool pausesLocationUpdatesAutomatically;
 
         /// <inheritdoc/>
         public bool PausesLocationUpdatesAutomatically
@@ -125,34 +125,34 @@ namespace Plugin.Geolocator
             }
         }
 
-		ActivityType activityType = ActivityType.Other;
+        ActivityType activityType = ActivityType.Other;
 
-		/// <inheritdoc/>
-		public ActivityType ActivityType
-		{
-			get 
-			{
-				return activityType;
-			}
-			set 
-			{
-				activityType = value;
-				if (UIDevice.CurrentDevice.CheckSystemVersion (6, 0)) 
-				{
-					if (manager != null) 
-					{
-						if (value == ActivityType.AutomotiveNavigation)
-							manager.ActivityType = CLActivityType.AutomotiveNavigation;
-						else if (value == ActivityType.Fitness)
-							manager.ActivityType = CLActivityType.Fitness;
-						else if (value == ActivityType.Other)
-							manager.ActivityType = CLActivityType.Other;
-						else if (value == ActivityType.OtherNavigation)
-							manager.ActivityType = CLActivityType.OtherNavigation;
-					}
-				}
-			}
-		}
+        /// <inheritdoc/>
+        public ActivityType ActivityType
+        {
+            get
+            {
+                return activityType;
+            }
+            set
+            {
+                activityType = value;
+                if (UIDevice.CurrentDevice.CheckSystemVersion (6, 0))
+                {
+                    if (manager != null)
+                    {
+                        if (value == ActivityType.AutomotiveNavigation)
+                            manager.ActivityType = CLActivityType.AutomotiveNavigation;
+                        else if (value == ActivityType.Fitness)
+                            manager.ActivityType = CLActivityType.Fitness;
+                        else if (value == ActivityType.Other)
+                            manager.ActivityType = CLActivityType.Other;
+                        else if (value == ActivityType.OtherNavigation)
+                            manager.ActivityType = CLActivityType.OtherNavigation;
+                    }
+                }
+            }
+        }
 
         ListenerEnergySettings energySettings;
 
