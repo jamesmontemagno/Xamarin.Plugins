@@ -2,6 +2,8 @@
 using System;
 #if __UNIFIED__
 using Foundation;
+#elif __MAC__
+using MonoMac.Foundation;
 #else
 using MonoTouch.Foundation;
 #endif
