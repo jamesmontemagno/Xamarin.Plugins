@@ -32,23 +32,9 @@ namespace Plugin.Geolocator
         {
             DesiredAccuracy = 100;
         }
+
         public event EventHandler<PositionErrorEventArgs> PositionError;
         public event EventHandler<PositionEventArgs> PositionChanged;
-
-        /// <inheritdoc/>
-        public bool AllowsBackgroundUpdates
-        {
-            get;
-            set;
-        }
-
-        /// <inheritdoc/>
-        public bool PausesLocationUpdatesAutomatically
-        { get; set; }
-
-        /// <inheritdoc/>
-        public ActivityType ActivityType
-        { get; set; }
 
         /// <inheritdoc/>
         public bool IsGeolocationAvailable
@@ -97,7 +83,7 @@ namespace Plugin.Geolocator
             return new SinglePositionListener(DesiredAccuracy, timeoutMilliseconds, cancelToken.Value).Task;
         }
         /// <inheritdoc/>
-        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerEnergySettings energySettings = null)
+        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerSettings settings = null)
         {
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");

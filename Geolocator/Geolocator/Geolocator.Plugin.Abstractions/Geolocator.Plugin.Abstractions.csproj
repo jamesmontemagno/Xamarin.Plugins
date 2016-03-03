@@ -42,7 +42,7 @@
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ActivityType.cs" />
-    <Compile Include="ListenerEnergySettings.cs" />
+    <Compile Include="ListenerSettings.cs" />
   </ItemGroup>
   <Import Project="..\..\Geolocator.Shared\Geolocator.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

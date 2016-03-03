@@ -32,30 +32,18 @@ namespace Plugin.Geolocator
         {
             DesiredAccuracy = 100;
         }
+
         /// <inheritdoc/>
         public event EventHandler<PositionEventArgs> PositionChanged;
+
         /// <inheritdoc/>
         public event EventHandler<PositionErrorEventArgs> PositionError;
+
         /// <inheritdoc/>
         public bool SupportsHeading
         {
             get { return false; }
         }
-
-        /// <inheritdoc/>
-        public bool AllowsBackgroundUpdates
-        {
-            get;
-            set;
-        }
-
-        /// <inheritdoc/>
-        public bool PausesLocationUpdatesAutomatically
-        { get; set; }
-
-        /// <inheritdoc/>
-        public ActivityType ActivityType
-        { get; set; }
 
         /// <inheritdoc/>
         public bool IsGeolocationAvailable
@@ -147,7 +135,7 @@ namespace Plugin.Geolocator
             return tcs.Task;
         }
         /// <inheritdoc/>
-        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerEnergySettings energySettings = null)
+        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerSettings settings = null)
         {
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");

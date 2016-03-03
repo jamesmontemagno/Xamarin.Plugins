@@ -58,26 +58,6 @@ namespace Plugin.Geolocator
         }
 
         /// <inheritdoc/>
-        public bool AllowsBackgroundUpdates
-        {
-            get;
-            set;
-        }
-        /// <inheritdoc/>
-        public bool PausesLocationUpdatesAutomatically
-        {
-            get;
-            set;
-        }
-
-        /// <inheritdoc/>
-        public ActivityType ActivityType
-        {
-            get;
-            set;
-        }
-
-        /// <inheritdoc/>
         public bool SupportsHeading
         {
             get
@@ -211,7 +191,7 @@ namespace Plugin.Geolocator
         }
 
         /// <inheritdoc/>
-        public async Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerEnergySettings energySettings = null)
+        public async Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerSettings settings = null)
         {
             var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permissions.Abstractions.Permission.Location).ConfigureAwait(false);
             if (status != Permissions.Abstractions.PermissionStatus.Granted)

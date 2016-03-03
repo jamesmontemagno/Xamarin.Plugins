@@ -14,11 +14,6 @@ namespace Plugin.Geolocator
     public class GeolocatorImplementation : IGeolocator
     {
         /// <summary>
-        /// Allows background updates
-        /// </summary>
-        public bool AllowsBackgroundUpdates { get; set; } = false;
-
-        /// <summary>
         /// Accuracy
         /// </summary>
         public double DesiredAccuracy { get; set; } = 100;
@@ -37,18 +32,6 @@ namespace Plugin.Geolocator
         /// Is Listening
         /// </summary>
         public bool IsListening => false;
-
-        /// <summary>
-        /// Pauses
-        /// </summary>
-        public bool PausesLocationUpdatesAutomatically { get; set; }
-
-		/// <inheritdoc/>
-		public ActivityType ActivityType
-		{
-			get;
-			set;
-		}
 
         /// <summary>
         /// Supports heading
@@ -81,7 +64,7 @@ namespace Plugin.Geolocator
         /// <param name="minDistance"></param>
         /// <param name="includeHeading"></param>
         /// <returns></returns>
-        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerEnergySettings energySettings = null)
+        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerSettings settings = null)
             => Task.FromResult(false);
 
         /// <summary>
