@@ -3,7 +3,7 @@
 namespace Plugin.Geolocator.Abstractions
 {
     /// <summary>
-    /// Activity type (iOS only). Used to determine when 
+	/// Activity type (iOS only). Used to determine when to automatically pause location updates. 
     /// </summary>
     public enum ActivityType
     {

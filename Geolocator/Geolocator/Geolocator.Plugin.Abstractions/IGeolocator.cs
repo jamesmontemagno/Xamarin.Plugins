@@ -59,7 +59,7 @@ namespace Plugin.Geolocator.Abstractions
         /// <param name="minTime">Time</param>
         /// <param name="minDistance">Distance</param>
         /// <param name="includeHeading">Include heading or not</param>
-		/// <param name="settings">Optional settings (iOS only)</param>
+        /// <param name="settings">Optional settings (iOS only)</param>
         Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerSettings settings = null);
 
         /// <summary>

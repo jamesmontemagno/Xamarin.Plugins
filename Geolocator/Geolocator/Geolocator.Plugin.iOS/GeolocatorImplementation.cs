@@ -105,7 +105,7 @@ namespace Plugin.Geolocator
             get { return CLLocationManager.HeadingAvailable; }
         }
 
-		ListenerSettings listenerSettings;
+        ListenerSettings listenerSettings;
 
         /// <inheritdoc/>
         public bool IsGeolocationAvailable
@@ -209,14 +209,14 @@ namespace Plugin.Geolocator
 
             double desiredAccuracy = DesiredAccuracy;
 
-			// if we have listener settings, apply them on the locator.
+			// if we have listener settings, apply them to the locator.
 			if (settings != null)
 			{
 				// set background flag
 				if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
 					manager.AllowsBackgroundLocationUpdates = settings.AllowBackgroundUpdates;
 
-				// set up location update pausing
+				// configure location update pausing
 				if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
 				{
 					manager.PausesLocationUpdatesAutomatically = settings.PauseLocationUpdatesAutomatically;
