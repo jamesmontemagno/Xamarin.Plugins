@@ -145,13 +145,13 @@ namespace Plugin.Geolocator
             {
                 var m = GetManager();
 
-				// always permit background updates since we're only listening for a single update.
+                // always permit background updates since we're only listening for a single update.
                 if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
                     m.AllowsBackgroundLocationUpdates = true;
-
-				// always prevent location update pausing since we're only listening for a single update.
+					
+                // always prevent location update pausing since we're only listening for a single update.
 				if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
-					m.PausesLocationUpdatesAutomatically = false;
+                    m.PausesLocationUpdatesAutomatically = false;
 
                 tcs = new TaskCompletionSource<Position>(m);
                 var singleListener = new GeolocationSingleUpdateDelegate(m, DesiredAccuracy, includeHeading, timeoutMilliseconds, cancelToken.Value);
