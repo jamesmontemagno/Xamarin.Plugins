@@ -173,9 +173,13 @@ Read more about android permissions: http://developer.android.com/guide/topics/s
 
 
 ### **IMPORTANT**
-Android:
+**Android:**
+
 You still need to request the permissions in your AndroidManifest.xml. Also ensure your MainApplication.cs was setup correctly from the CurrentActivity Plugin.
 
+**All Windows Platforms**
+
+These contain blank implementation and just return Granted status.
 
 #### Contributors
 * [jamesmontemagno](https://github.com/jamesmontemagno)
