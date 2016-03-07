@@ -56,7 +56,12 @@ namespace Plugin.Connectivity
         {
             get
             {
-                isConnected = NetworkInformation.GetInternetConnectionProfile()?.GetNetworkConnectivityLevel() != NetworkConnectivityLevel.None;
+                var profile = NetworkInformation.GetInternetConnectionProfile();
+                if (profile == null)
+                    isConnected = false;
+                else
+                    isConnected = profile.GetNetworkConnectivityLevel() != NetworkConnectivityLevel.None;
+
                 return isConnected;
             }
         }

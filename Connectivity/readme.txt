@@ -1,6 +1,9 @@
 Connectivity Readme
 
 Change Log:
+[2.1.2]
+-Fix disconnected state in windows #228 and #244
+
 [2.1.1]
 -Fix Windows, occurances on Simulator or Device that network returns Local even though are online, now will return true for IsConnected.
 
