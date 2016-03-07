@@ -30,9 +30,8 @@ http://www.motzcod.es
 
 **IMPORTANT**
 Android:
-The following persmissions are not automatically added for you:
-You must request ACCESS_NETWORK_STATE permission to get the network state
-You must request ACCESS_WIFI_STATE to get speeds
+The following persmissions are automatically added for you:
+ACCESS_NETWORK_STATE & ACCESS_WIFI_STATE
 
 iOS:
 Bandwidths are not supported and will always return an empty list.
