@@ -344,6 +344,7 @@ namespace Plugin.Geolocator
             if (location.Speed > -1)
                 p.Speed = location.Speed;
 
+
 			if (location.Course > -1) {
 				p.Heading = location.Course;
 			}
