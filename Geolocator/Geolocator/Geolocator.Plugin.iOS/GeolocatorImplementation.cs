@@ -344,6 +344,10 @@ namespace Plugin.Geolocator
             if (location.Speed > -1)
                 p.Speed = location.Speed;
 
+			if (location.Course > -1) {
+				p.Heading = location.Course;
+			}
+
             var dateTime = location.Timestamp.ToDateTime().ToUniversalTime();
             p.Timestamp = new DateTimeOffset(dateTime);
 
