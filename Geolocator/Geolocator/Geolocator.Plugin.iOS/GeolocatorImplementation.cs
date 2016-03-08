@@ -105,47 +105,7 @@ namespace Plugin.Geolocator
             get { return CLLocationManager.HeadingAvailable; }
         }
 
-        bool pausesLocationUpdatesAutomatically;
-
-        /// <inheritdoc/>
-        public bool PausesLocationUpdatesAutomatically
-        {
-            get
-            {
-                return pausesLocationUpdatesAutomatically;
-            }
-            set
-            {
-                pausesLocationUpdatesAutomatically = value;
-                if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
-                {
-                    if (manager != null)
-                        manager.PausesLocationUpdatesAutomatically = value;
-                }
-            }
-        }
-
-        EnergySettings energySettings;
-
-        bool allowsBackgroundUpdates;
-
-        /// <inheritdoc/>
-        public bool AllowsBackgroundUpdates
-        {
-            get
-            {
-                return allowsBackgroundUpdates;
-            }
-            set
-            {
-                allowsBackgroundUpdates = value;
-                if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
-                {
-                    if (manager != null)
-                        manager.AllowsBackgroundLocationUpdates = value;
-                }
-            }
-        }
+        ListenerSettings listenerSettings;
 
         /// <inheritdoc/>
         public bool IsGeolocationAvailable
@@ -185,15 +145,13 @@ namespace Plugin.Geolocator
             {
                 var m = GetManager();
 
+                // always permit background updates since we're only listening for a single update.
                 if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
-                {
-                    m.AllowsBackgroundLocationUpdates = AllowsBackgroundUpdates;
-                }
-
-                if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
-                {
-                    m.PausesLocationUpdatesAutomatically = PausesLocationUpdatesAutomatically;
-                }
+                    m.AllowsBackgroundLocationUpdates = true;
+					
+                // always prevent location update pausing since we're only listening for a single update.
+				if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
+                    m.PausesLocationUpdatesAutomatically = false;
 
                 tcs = new TaskCompletionSource<Position>(m);
                 var singleListener = new GeolocationSingleUpdateDelegate(m, DesiredAccuracy, includeHeading, timeoutMilliseconds, cancelToken.Value);
@@ -238,9 +196,9 @@ namespace Plugin.Geolocator
         bool CanDeferLocationUpdate { get { return UIDevice.CurrentDevice.CheckSystemVersion(6, 0); } }
 
         /// <inheritdoc/>
-        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, EnergySettings energySettings = null)
+        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerSettings settings = null)
         {
-            this.energySettings = energySettings;
+            listenerSettings = settings;
 			
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");
@@ -251,19 +209,42 @@ namespace Plugin.Geolocator
 
             double desiredAccuracy = DesiredAccuracy;
 
-            // to use deferral, CLLocationManager.DistanceFilter must be set to CLLocationDistance.None, and CLLocationManager.DesiredAccuracy must be 
-            // either CLLocation.AccuracyBest or CLLocation.AccuracyBestForNavigation. deferral only available on iOS 6.0 and above.
-            if ((this.energySettings?.DeferLocationUpdates ?? false) && CanDeferLocationUpdate)
-            {
-                minDistance = CLLocationDistance.FilterNone;
-                desiredAccuracy = CLLocation.AccuracyBest;
-            }
+			// if we have listener settings, apply them to the locator.
+			if (settings != null)
+			{
+				// set background flag
+				if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
+					manager.AllowsBackgroundLocationUpdates = settings.AllowBackgroundUpdates;
+
+				// configure location update pausing
+				if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
+				{
+					manager.PausesLocationUpdatesAutomatically = settings.PauseLocationUpdatesAutomatically;
+
+					if (settings.ActivityType == ActivityType.AutomotiveNavigation)
+						manager.ActivityType = CLActivityType.AutomotiveNavigation;
+					else if (settings.ActivityType == ActivityType.Fitness)
+						manager.ActivityType = CLActivityType.Fitness;
+					else if (settings.ActivityType == ActivityType.Other)
+						manager.ActivityType = CLActivityType.Other;
+					else if (settings.ActivityType == ActivityType.OtherNavigation)
+						manager.ActivityType = CLActivityType.OtherNavigation;
+				}
+
+				// to use deferral, CLLocationManager.DistanceFilter must be set to CLLocationDistance.None, and CLLocationManager.DesiredAccuracy must be 
+				// either CLLocation.AccuracyBest or CLLocation.AccuracyBestForNavigation. deferral only available on iOS 6.0 and above.
+				if (CanDeferLocationUpdate && settings.DeferLocationUpdates)
+				{
+					minDistance = CLLocationDistance.FilterNone;
+					desiredAccuracy = CLLocation.AccuracyBest;
+				}
+			}
 
             isListening = true;
             manager.DesiredAccuracy = desiredAccuracy;
             manager.DistanceFilter = minDistance;
 
-            if (this.energySettings?.ListenForSignificantChanges ?? false)
+            if (settings?.ListenForSignificantChanges ?? false)
                 manager.StartMonitoringSignificantLocationChanges();
             else
                 manager.StartUpdatingLocation();
@@ -285,15 +266,15 @@ namespace Plugin.Geolocator
                 manager.StopUpdatingHeading();
 
             // it looks like deferred location updates can apply to the standard service or significant change service. disallow deferral in either case.
-            if ((energySettings?.DeferLocationUpdates ?? false) && CanDeferLocationUpdate)
+            if ((listenerSettings?.DeferLocationUpdates ?? false) && CanDeferLocationUpdate)
                 manager.DisallowDeferredLocationUpdates();
 			
-            if (energySettings?.ListenForSignificantChanges ?? false)
+            if (listenerSettings?.ListenForSignificantChanges ?? false)
                 manager.StopMonitoringSignificantLocationChanges();
             else
                 manager.StopUpdatingLocation();
 
-            energySettings = null;
+            listenerSettings = null;
             position = null;
 
             return Task.FromResult(true);
@@ -330,10 +311,10 @@ namespace Plugin.Geolocator
                 UpdatePosition(location);
 
             // defer future location updates if requested
-            if ((energySettings?.DeferLocationUpdates ?? false) && !deferringUpdates && CanDeferLocationUpdate)
+            if ((listenerSettings?.DeferLocationUpdates ?? false) && !deferringUpdates && CanDeferLocationUpdate)
             {
-                manager.AllowDeferredLocationUpdatesUntil(energySettings.DeferralDistanceMeters == null ? CLLocationDistance.MaxDistance : energySettings.DeferralDistanceMeters.GetValueOrDefault(), 
-                    energySettings.DeferralTime == null ? CLLocationManager.MaxTimeInterval : energySettings.DeferralTime.GetValueOrDefault().TotalSeconds);
+                manager.AllowDeferredLocationUpdatesUntil(listenerSettings.DeferralDistanceMeters == null ? CLLocationDistance.MaxDistance : listenerSettings.DeferralDistanceMeters.GetValueOrDefault(), 
+                    listenerSettings.DeferralTime == null ? CLLocationManager.MaxTimeInterval : listenerSettings.DeferralTime.GetValueOrDefault().TotalSeconds);
                 deferringUpdates = true;
             }			
         }

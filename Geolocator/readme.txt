@@ -1,6 +1,13 @@
 ﻿Geolocator Readme
 
 Changelog:
+[4.0.0-beta]
+-Breaking Changes:
+---Moved AllowsBackgroundLocationUpdates from IGeolocator to ListenerSettings, which is passed to StartListeningAsync.
+---Moved PausesLocationUpdatesAutomatically from IGeolocator to ListenerSettings, which is passed to StartListeningAysnc.
+-Other Changes:
+---Added iOS support for significant change listening and update delivery deferral.
+
 [3.0.4]
 -Breaking Changes:
 ---Changed StartListening and StopListening to Task that return a bool of success or failure
@@ -49,13 +56,9 @@ See:  http://motzcod.es/post/97662738237/scanning-for-ibeacons-in-ios-8
 You will need to add a new string entry called NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription.
 
 iOS Background updates:
-New in iOS 9 allowsBackgroundLocationUpdates must be set if using in a background agent.
-I have exposed this on the Geolocator via:
-
-var locator = CrossGeolocator.Current;
-locator.AllowsBackgroundUpdates = true;
-
-The presence of the UIBackgroundModes key with the location value is required for background updates; you use this property to enable and disable the behavior based on your app’s behavior.
+New in iOS 9 allowsBackgroundLocationUpdates must be set if using in a background agent. This is exposed via the ListenerSettings
+that are passed to StartListeningAysnc. The presence of the UIBackgroundModes key with the location value is required for background 
+updates; you use this property to enable and disable the behavior based on your app’s behavior.
 
 Windows Phone:
 You must set the ID_CAP_LOCATION permission.
