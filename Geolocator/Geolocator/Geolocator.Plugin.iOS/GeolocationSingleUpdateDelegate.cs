@@ -110,9 +110,7 @@ namespace Plugin.Geolocator
             this.position.Longitude = newLocation.Coordinate.Longitude;
             this.position.Speed = newLocation.Speed;
             this.position.Timestamp = new DateTimeOffset(newLocation.Timestamp.ToDateTime().ToUniversalTime());
-
 			this.position.Heading = newLocation.Course;
-
             this.haveLocation = true;
 
             if ((!this.includeHeading || this.haveHeading) && this.position.Accuracy <= this.desiredAccuracy)
