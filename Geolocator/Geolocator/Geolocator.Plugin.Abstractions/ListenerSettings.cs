@@ -15,7 +15,7 @@ namespace Plugin.Geolocator.Abstractions
 		/// <summary>
 		/// Gets or sets whether location updates should be paused automatically when the location is unlikely to change (>= iOS 6). Default:  true
 		/// </summary>
-		public bool PauseLocationUpdatesAutomatically { get; set; } = false;
+		public bool PauseLocationUpdatesAutomatically { get; set; } = true;
 
 		/// <summary>
 		/// Gets or sets the activity type that should be used to determine when to automatically pause location updates (>= iOS 6). Default:  ActivityType.Other
