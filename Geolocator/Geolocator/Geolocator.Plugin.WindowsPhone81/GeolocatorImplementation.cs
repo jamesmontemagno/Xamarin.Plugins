@@ -161,6 +161,7 @@ namespace Plugin.Geolocator
                 return Task.FromResult(true);
 
             locator.PositionChanged -= OnLocatorPositionChanged;
+            locator.StatusChanged -= OnLocatorStatusChanged;
             isListening = false;
 
             return Task.FromResult(true);
