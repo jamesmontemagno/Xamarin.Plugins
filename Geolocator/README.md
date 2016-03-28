@@ -179,10 +179,6 @@ The presence of the UIBackgroundModes key with the location value is required fo
 
 You must set the ID_CAP_LOCATION permission.
 
-#### Contributors
-* [jamesmontemagno](https://github.com/jamesmontemagno)
-
-Thanks!
 
 #### License
 This is a derivative to [Xamarin.Mobile's Geolocator](http://github.com/xamarin/xamarin.mobile) with a cross platform API and other enhancements.
