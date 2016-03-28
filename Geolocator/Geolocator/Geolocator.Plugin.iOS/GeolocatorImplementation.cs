@@ -132,7 +132,7 @@ namespace Plugin.Geolocator
 
 
         /// <inheritdoc/>
-        public Task<Position> GetPositionAsync(int timeoutMilliseconds = Timeout.Infinite, CancellationToken? cancelToken = null, bool includeHeading = false)
+		public Task<Position> GetPositionAsync(int timeoutMilliseconds = Timeout.Infinite, CancellationToken? cancelToken = null, bool includeHeading = false)
         {
             if (timeoutMilliseconds <= 0 && timeoutMilliseconds != Timeout.Infinite)
                 throw new ArgumentOutOfRangeException("timeoutMilliseconds", "Timeout must be positive or Timeout.Infinite");
@@ -145,9 +145,12 @@ namespace Plugin.Geolocator
             {
                 var m = GetManager();
 
-                // always permit background updates since we're only listening for a single update.
-                if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
-                    m.AllowsBackgroundLocationUpdates = true;
+                // permit background updates if background location mode is enabled
+				if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
+				{
+					NSArray backgroundModes = NSBundle.MainBundle.InfoDictionary[(NSString)"UIBackgroundModes"] as NSArray;
+					m.AllowsBackgroundLocationUpdates = backgroundModes.Contains((NSString)"Location") || backgroundModes.Contains((NSString)"location");
+				}
 					
                 // always prevent location update pausing since we're only listening for a single update.
 				if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
@@ -196,10 +199,8 @@ namespace Plugin.Geolocator
         bool CanDeferLocationUpdate { get { return UIDevice.CurrentDevice.CheckSystemVersion(6, 0); } }
 
         /// <inheritdoc/>
-        public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerSettings settings = null)
+		public Task<bool> StartListeningAsync(int minTime, double minDistance, bool includeHeading = false, ListenerSettings settings = null)
         {
-            listenerSettings = settings;
-			
             if (minTime < 0)
                 throw new ArgumentOutOfRangeException("minTime");
             if (minDistance < 0)
@@ -207,38 +208,45 @@ namespace Plugin.Geolocator
             if (isListening)
                 throw new InvalidOperationException("Already listening");
 
+			// if no settings were passed in, instantiate the default settings. need to check this and create default settings since
+			// previous calls to StartListeningAsync might have already configured the location manager in a non-default way that the
+			// caller of this method might not be expecting. the caller should expect the defaults if they pass no settings.
+			if (settings == null)
+				settings = new ListenerSettings();
+
+			// keep reference to settings so that we can stop the listener appropriately later
+			listenerSettings = settings;
+
             double desiredAccuracy = DesiredAccuracy;
 
-			// if we have listener settings, apply them to the locator.
-			if (settings != null)
+			#region apply settings to location manager
+			// set background flag
+			if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
+				manager.AllowsBackgroundLocationUpdates = settings.AllowBackgroundUpdates;
+
+			// configure location update pausing
+			if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0)) 
 			{
-				// set background flag
-				if (UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
-					manager.AllowsBackgroundLocationUpdates = settings.AllowBackgroundUpdates;
+				manager.PausesLocationUpdatesAutomatically = settings.PauseLocationUpdatesAutomatically;
 
-				// configure location update pausing
-				if (UIDevice.CurrentDevice.CheckSystemVersion(6, 0))
-				{
-					manager.PausesLocationUpdatesAutomatically = settings.PauseLocationUpdatesAutomatically;
-
-					if (settings.ActivityType == ActivityType.AutomotiveNavigation)
-						manager.ActivityType = CLActivityType.AutomotiveNavigation;
-					else if (settings.ActivityType == ActivityType.Fitness)
-						manager.ActivityType = CLActivityType.Fitness;
-					else if (settings.ActivityType == ActivityType.Other)
-						manager.ActivityType = CLActivityType.Other;
-					else if (settings.ActivityType == ActivityType.OtherNavigation)
-						manager.ActivityType = CLActivityType.OtherNavigation;
-				}
-
-				// to use deferral, CLLocationManager.DistanceFilter must be set to CLLocationDistance.None, and CLLocationManager.DesiredAccuracy must be 
-				// either CLLocation.AccuracyBest or CLLocation.AccuracyBestForNavigation. deferral only available on iOS 6.0 and above.
-				if (CanDeferLocationUpdate && settings.DeferLocationUpdates)
-				{
-					minDistance = CLLocationDistance.FilterNone;
-					desiredAccuracy = CLLocation.AccuracyBest;
-				}
+				if (settings.ActivityType == ActivityType.AutomotiveNavigation)
+					manager.ActivityType = CLActivityType.AutomotiveNavigation;
+				else if (settings.ActivityType == ActivityType.Fitness)
+					manager.ActivityType = CLActivityType.Fitness;
+				else if (settings.ActivityType == ActivityType.Other)
+					manager.ActivityType = CLActivityType.Other;
+				else if (settings.ActivityType == ActivityType.OtherNavigation)
+					manager.ActivityType = CLActivityType.OtherNavigation;
 			}
+
+			// to use deferral, CLLocationManager.DistanceFilter must be set to CLLocationDistance.None, and CLLocationManager.DesiredAccuracy must be 
+			// either CLLocation.AccuracyBest or CLLocation.AccuracyBestForNavigation. deferral only available on iOS 6.0 and above.
+			if (CanDeferLocationUpdate && settings.DeferLocationUpdates)
+			{
+				minDistance = CLLocationDistance.FilterNone;
+				desiredAccuracy = CLLocation.AccuracyBest;
+			}
+			#endregion
 
             isListening = true;
             manager.DesiredAccuracy = desiredAccuracy;
@@ -315,6 +323,7 @@ namespace Plugin.Geolocator
             {
                 manager.AllowDeferredLocationUpdatesUntil(listenerSettings.DeferralDistanceMeters == null ? CLLocationDistance.MaxDistance : listenerSettings.DeferralDistanceMeters.GetValueOrDefault(), 
                     listenerSettings.DeferralTime == null ? CLLocationManager.MaxTimeInterval : listenerSettings.DeferralTime.GetValueOrDefault().TotalSeconds);
+				
                 deferringUpdates = true;
             }			
         }
