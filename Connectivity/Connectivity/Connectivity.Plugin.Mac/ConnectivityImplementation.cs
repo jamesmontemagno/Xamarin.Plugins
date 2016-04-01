@@ -75,7 +75,7 @@ namespace Plugin.Connectivity
 		/// <summary>
 		/// Tests if a remote host name is reachable 
 		/// </summary>
-		/// <param name="host">Host name can be a remote IP or URL of website (no http:// or www.</param>
+		/// <param name="host">Host name can be a remote IP or URL of website</param>
 		/// <param name="port">Port to attempt to check is reachable.</param>
 		/// <param name="msTimeout">Timeout in milliseconds.</param>
 		/// <returns></returns>
@@ -88,9 +88,10 @@ namespace Plugin.Connectivity
 				return false;
 
 			host = host.Replace ("http://www.", string.Empty).
-              Replace ("http://", string.Empty).
-              Replace ("https://www.", string.Empty).
-              Replace ("https://", string.Empty);
+              		Replace ("http://", string.Empty).
+              		Replace ("https://www.", string.Empty).
+              		Replace ("https://", string.Empty).
+              		TrimEnd("/");
 
 			return await Task.Run (() => {
 				try {
