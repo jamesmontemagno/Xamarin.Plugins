@@ -7,6 +7,7 @@ Changelog:
 ---Moved PausesLocationUpdatesAutomatically from IGeolocator to ListenerSettings, which is passed to StartListeningAysnc.
 -Other Changes:
 ---Added iOS support for significant change listening and update delivery deferral.
+---Additional fixes for getting location on ios 9
 
 [3.0.4]
 -Breaking Changes:
