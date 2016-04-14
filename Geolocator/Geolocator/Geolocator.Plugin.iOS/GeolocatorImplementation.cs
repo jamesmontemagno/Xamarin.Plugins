@@ -353,7 +353,7 @@ namespace Plugin.Geolocator
             if (location.Speed > -1)
                 p.Speed = location.Speed;
 
-            var dateTime = location.Timestamp.ToDateTime().ToUniversalTime();
+            var dateTime = (DateTime) location.Timestamp;
             p.Timestamp = new DateTimeOffset(dateTime);
 
             position = p;

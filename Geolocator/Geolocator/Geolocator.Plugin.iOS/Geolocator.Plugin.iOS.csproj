@@ -36,7 +36,6 @@
     <Compile Include="..\Geolocator.Plugin\CrossGeolocator.cs">
       <Link>CrossGeolocator.cs</Link>
     </Compile>
-    <Compile Include="DateHelpers.cs" />
     <Compile Include="GeolocationSingleUpdateDelegate.cs" />
     <Compile Include="GeolocatorImplementation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

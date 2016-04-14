@@ -33,9 +33,6 @@
     <DocumentationFile>bin\iPhone\Release\Plugin.Geolocator.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\Geolocator.Plugin.iOS\DateHelpers.cs">
-      <Link>DateHelpers.cs</Link>
-    </Compile>
     <Compile Include="..\Geolocator.Plugin.iOS\GeolocationSingleUpdateDelegate.cs">
       <Link>GeolocationSingleUpdateDelegate.cs</Link>
     </Compile>
