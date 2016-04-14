@@ -1,7 +1,7 @@
 ﻿Geolocator Readme
 
 Changelog:
-[4.0.0-beta]
+[4.0.0-beta4]
 -Breaking Changes:
 ---Moved AllowsBackgroundLocationUpdates from IGeolocator to ListenerSettings, which is passed to StartListeningAsync.
 ---Moved PausesLocationUpdatesAutomatically from IGeolocator to ListenerSettings, which is passed to StartListeningAysnc.
