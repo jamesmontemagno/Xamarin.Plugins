@@ -64,7 +64,7 @@ Then add the xaml:
       WinPhone="75"/>
    </controls:CircleImage.WidthRequest>
 <controls:CircleImage.HeightRequest>
-    <OnPlatform x:TypeArguments="x:Double">
+    <OnPlatform x:TypeArguments="x:Double"
       iOS="55"
       Android="55"
       WinPhone="75"/>
