@@ -93,7 +93,7 @@ namespace Plugin.Connectivity
               Replace("http://", string.Empty).
               Replace("https://www.", string.Empty).
               Replace("https://", string.Empty).
-              TrimEnd("/");
+              TrimEnd('/');
 
             return await Task.Run(() =>
             {
