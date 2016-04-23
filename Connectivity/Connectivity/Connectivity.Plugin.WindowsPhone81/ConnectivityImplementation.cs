@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Plugin.Connectivity.Abstractions;
-using Windows.Networking.Connectivity;
-using System.Threading.Tasks;
-using Windows.Networking.Sockets;
-using Windows.Networking;
 using System.Diagnostics;
+using System.Linq;
+using System.Net.NetworkInformation;
+using System.Threading.Tasks;
+using Plugin.Connectivity.Abstractions;
 using Windows.ApplicationModel.Core;
+using Windows.Networking;
+using Windows.Networking.Connectivity;
+using Windows.Networking.Sockets;
 
 namespace Plugin.Connectivity
 {
@@ -56,11 +57,7 @@ namespace Plugin.Connectivity
         {
             get
             {
-                var profile = NetworkInformation.GetInternetConnectionProfile();
-                if (profile == null)
-                    isConnected = false;
-                else
-                    isConnected = profile.GetNetworkConnectivityLevel() != NetworkConnectivityLevel.None;
+                isConnected = NetworkInterface.GetIsNetworkAvailable();
 
                 return isConnected;
             }
