@@ -39,6 +39,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IPermissions.cs" />
+    <Compile Include="PermissionsBase.cs" />
+    <Compile Include="PermissionsResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PermissionEnums.cs" />
   </ItemGroup>

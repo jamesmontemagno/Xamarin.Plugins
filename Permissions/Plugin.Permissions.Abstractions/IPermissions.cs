@@ -29,5 +29,12 @@ namespace Plugin.Permissions.Abstractions
         /// <returns>The permissions and their status.</returns>
         /// <param name="permissions">Permissions to request.</param>
         Task<Dictionary<Permission, PermissionStatus>> RequestPermissionsAsync(params Permission[] permissions);
+
+        /// <summary>
+        /// Checks statusses of given <paramref name="requests"/> permissions and requests them if not granted.
+        /// </summary>
+        /// <param name="requests">A composite result which is <c>true</c> if all are granted and <c>false</c> otherwise.</param>
+        /// <returns>A composite results object with some convenience methods.</returns>
+        Task<PermissionsResult> HasPermissionAsync(params Permission[] requests);
     }
 }

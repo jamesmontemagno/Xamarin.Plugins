@@ -10,7 +10,7 @@ namespace Plugin.Permissions
     /// <summary>
     /// Implementation for Permissions
     /// </summary>
-    public class PermissionsImplementation : IPermissions
+    public class PermissionsImplementation : PermissionsBase
     {
         /// <summary>
         /// Request to see if you should show a rationale for requesting permission
@@ -18,7 +18,7 @@ namespace Plugin.Permissions
         /// </summary>
         /// <returns>True or false to show rationale</returns>
         /// <param name="permission">Permission to check.</param>
-        public Task<bool> ShouldShowRequestPermissionRationaleAsync(Permission permission)
+        public override Task<bool> ShouldShowRequestPermissionRationaleAsync(Permission permission)
         {
             return Task.FromResult(false);
         }
@@ -28,7 +28,7 @@ namespace Plugin.Permissions
         /// </summary>
         /// <returns><c>true</c> if this instance has permission the specified permission; otherwise, <c>false</c>.</returns>
         /// <param name="permission">Permission to check.</param>
-        public Task<PermissionStatus> CheckPermissionStatusAsync(Permission permission)
+        public override Task<PermissionStatus> CheckPermissionStatusAsync(Permission permission)
         {
             return Task.FromResult(PermissionStatus.Granted);
         }
@@ -38,7 +38,7 @@ namespace Plugin.Permissions
         /// </summary>
         /// <returns>The permissions and their status.</returns>
         /// <param name="permissions">Permissions to request.</param>
-        public Task<Dictionary<Permission, PermissionStatus>> RequestPermissionsAsync(params Permission[] permissions)
+        public override Task<Dictionary<Permission, PermissionStatus>> RequestPermissionsAsync(params Permission[] permissions)
         {
             var results = permissions.ToDictionary(permission => permission, permission => PermissionStatus.Granted);
             return Task.FromResult(results);
