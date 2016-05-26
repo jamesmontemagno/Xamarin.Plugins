@@ -35,10 +35,9 @@ namespace Plugin.Connectivity
         {
             get
             {
-                connectivityManager = connectivityManager ??
-                                       (ConnectivityManager)
-                                       (Application.Context
-                                           .GetSystemService(Context.ConnectivityService));
+                if (connectivityManager == null || connectivityManager.Handle == IntPtr.Zero)
+                    connectivityManager = (ConnectivityManager)(Application.Context.GetSystemService(Context.ConnectivityService));
+
                 return connectivityManager;
             }
         }
