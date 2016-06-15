@@ -155,8 +155,8 @@ namespace Plugin.Connectivity
         {
             if (adHocWiFiNetworkReachability == null)
             {
-                var ip = new IPAddress(new byte[] { 169, 254, 0, 0 }).MapToIPv6();
-                adHocWiFiNetworkReachability = new NetworkReachability(ip);
+                var ip = new IPAddress(new byte[] { 169, 254, 0, 0 });
+                adHocWiFiNetworkReachability = new NetworkReachability(ip.MapToIPv6());
                 adHocWiFiNetworkReachability.SetNotification(OnChange);
                 adHocWiFiNetworkReachability.Schedule(CFRunLoop.Main, CFRunLoop.ModeDefault);
             }
@@ -173,8 +173,8 @@ namespace Plugin.Connectivity
 
             if (defaultRouteReachability == null)
             {
-                var ip = new IPAddress(0).MapToIPv6();
-                defaultRouteReachability = new NetworkReachability(ip);
+                var ip = new IPAddress(0);
+                defaultRouteReachability = new NetworkReachability(ip.MapToIPv6());
                 defaultRouteReachability.SetNotification(OnChange);
                 defaultRouteReachability.Schedule(CFRunLoop.Main, CFRunLoop.ModeDefault);
             }
