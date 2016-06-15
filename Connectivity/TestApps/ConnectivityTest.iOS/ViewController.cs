@@ -47,8 +47,11 @@ namespace ConnectivityTest.iOS
                 });
         }
 
-        partial void ButtonStatus_TouchUpInside(UIButton sender)
+        async partial void ButtonStatus_TouchUpInside(UIButton sender)
         {
+
+            var test1 = await CrossConnectivity.Current.IsReachable("montemagno.com");
+            var test2 = await CrossConnectivity.Current.IsRemoteReachable("montemagno.com");
             LabelStatus.Text = "connected: " + CrossConnectivity.Current.IsConnected;
         }
     }

@@ -10,7 +10,7 @@
   BuildScript: ./Connectivity/build.cake
   TriggerPaths: [ Connectivity ]
   BuildTargets: [ NuGetPack ]
-  Version: 2.1.2
+  Version: 2.2.0-beta1
 - Name: Contacts
   BuildScript: ./Contacts/build.cake
   TriggerPaths: [ Contacts ]

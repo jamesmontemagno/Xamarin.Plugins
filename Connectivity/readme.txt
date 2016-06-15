@@ -1,6 +1,9 @@
 Connectivity Readme
 
 Change Log:
+[2.2.0-beta1]
+-Test fix for IPv6 on iOS
+
 [2.1.2]
 -Fix disconnected state in windows #228 and #244
 

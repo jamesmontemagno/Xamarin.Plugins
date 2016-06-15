@@ -66,7 +66,7 @@ namespace Plugin.Connectivity
         public override async Task<bool> IsReachable(string host, int msTimeout = 5000)
         {
             if (string.IsNullOrEmpty(host))
-                throw new ArgumentNullException("host");
+                throw new ArgumentNullException(nameof(host));
 
             if (!IsConnected)
                 return false;
@@ -84,7 +84,7 @@ namespace Plugin.Connectivity
         public override async Task<bool> IsRemoteReachable(string host, int port = 80, int msTimeout = 5000)
         {
             if (string.IsNullOrEmpty(host))
-                throw new ArgumentNullException("host");
+                throw new ArgumentNullException(nameof(host));
 
             if (!IsConnected)
                 return false;
@@ -102,7 +102,7 @@ namespace Plugin.Connectivity
                     var clientDone = new ManualResetEvent(false);
                     var reachable = false;
                     var hostEntry = new DnsEndPoint(host, port);
-                    using (var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
+                    using (var socket = new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp))
                     {
                         var socketEventArg = new SocketAsyncEventArgs { RemoteEndPoint = hostEntry };
                         socketEventArg.Completed += (s, e) =>
