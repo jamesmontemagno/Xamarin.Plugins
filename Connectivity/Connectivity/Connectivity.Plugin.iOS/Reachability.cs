@@ -10,6 +10,7 @@
 
 using System;
 using System.Net;
+using System.Net.Sockets;
 #if __UNIFIED__
 using SystemConfiguration;
 using CoreFoundation;
@@ -155,7 +156,7 @@ namespace Plugin.Connectivity
         {
             if (adHocWiFiNetworkReachability == null)
             {
-                var ip = new IPAddress(new byte[] { 169, 254, 0, 0 }).MapToIPv6();
+                var ip = IPAddress.Parse("::ffff:169.254.0.0");
                 adHocWiFiNetworkReachability = new NetworkReachability(ip);
                 adHocWiFiNetworkReachability.SetNotification(OnChange);
                 adHocWiFiNetworkReachability.Schedule(CFRunLoop.Main, CFRunLoop.ModeDefault);
@@ -167,13 +168,15 @@ namespace Plugin.Connectivity
             return IsReachableWithoutRequiringConnection(flags);
         }
 
+       
+
         static NetworkReachability defaultRouteReachability;
         static bool IsNetworkAvailable(out NetworkReachabilityFlags flags)
         {
 
             if (defaultRouteReachability == null)
             {
-                var ip = new IPAddress(0).MapToIPv6();
+                var ip = IPAddress.Parse("::ffff:0:0");
                 defaultRouteReachability = new NetworkReachability(ip);
                 defaultRouteReachability.SetNotification(OnChange);
                 defaultRouteReachability.Schedule(CFRunLoop.Main, CFRunLoop.ModeDefault);
