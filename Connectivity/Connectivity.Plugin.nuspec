@@ -14,8 +14,8 @@
          Get network connectivity information such as network type, speeds, and if connection is available. Additional functionality includes the ability to ping a specific host and port number. Ensure you have proper permissions set by reading the README.
        </description>
      <releaseNotes>
-     [2.2.0-beta1]
-     -Test fix for IPv6 on iOS
+     [2.2.0]
+     -iOS IPv6 ready
      </releaseNotes>
        <summary>Get network connectivity information such as network type, speeds, and if connection is available.</summary>
        <tags>xamarin, pcl, xam.pcl, connectivity, plugin for xamarin, plugins, wifi, windows phone, winphone, wp8, winrt, android, xamarin.forms, ios</tags>
