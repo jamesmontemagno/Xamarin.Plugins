@@ -92,7 +92,6 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="PluginsHelp\ConnectivityReadme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -104,13 +103,17 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\Connectivity\Connectivity.Plugin.iOSUnified\Connectivity.Plugin.iOSUnified.csproj">
+      <Project>{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}</Project>
+      <Name>Connectivity.Plugin.iOSUnified</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Connectivity\Connectivity.Plugin.Abstractions\Connectivity.Plugin.Abstractions.csproj">
       <Project>{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}</Project>
       <Name>Connectivity.Plugin.Abstractions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Connectivity\Connectivity.Plugin.iOSUnified\Connectivity.Plugin.iOSUnified.csproj">
-      <Project>{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}</Project>
-      <Name>Connectivity.Plugin.iOSUnified</Name>
+    <ProjectReference Include="..\..\Connectivity\Connectivity.Plugin\Connectivity.Plugin.csproj">
+      <Project>{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}</Project>
+      <Name>Connectivity.Plugin</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

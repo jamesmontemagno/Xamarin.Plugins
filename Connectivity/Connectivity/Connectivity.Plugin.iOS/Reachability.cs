@@ -10,6 +10,7 @@
 
 using System;
 using System.Net;
+using System.Net.Sockets;
 #if __UNIFIED__
 using SystemConfiguration;
 using CoreFoundation;
@@ -155,7 +156,10 @@ namespace Plugin.Connectivity
         {
             if (adHocWiFiNetworkReachability == null)
             {
-                adHocWiFiNetworkReachability = new NetworkReachability(new IPAddress(new byte[] { 169, 254, 0, 0 }));
+                //var ip = IPAddress.Parse("::ffff:169.254.0.0");
+                var data = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 169, 254, 0, 0 };
+                var ip = new IPAddress(data, 0);
+                adHocWiFiNetworkReachability = new NetworkReachability(ip);
                 adHocWiFiNetworkReachability.SetNotification(OnChange);
                 adHocWiFiNetworkReachability.Schedule(CFRunLoop.Main, CFRunLoop.ModeDefault);
             }
@@ -166,13 +170,17 @@ namespace Plugin.Connectivity
             return IsReachableWithoutRequiringConnection(flags);
         }
 
+       
+
         static NetworkReachability defaultRouteReachability;
         static bool IsNetworkAvailable(out NetworkReachabilityFlags flags)
         {
 
             if (defaultRouteReachability == null)
             {
-                defaultRouteReachability = new NetworkReachability(new IPAddress(0));
+                var data = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0 };
+                var ip = new IPAddress(data, 0);
+                defaultRouteReachability = new NetworkReachability(ip);
                 defaultRouteReachability.SetNotification(OnChange);
                 defaultRouteReachability.Schedule(CFRunLoop.Main, CFRunLoop.ModeDefault);
             }
@@ -252,6 +260,12 @@ namespace Plugin.Connectivity
 
         /// <summary>
         /// Check local wifi status
+        /// Removal of reachabilityForLocalWiFi
+        /// ============
+        ///Older versions of this sample included the method reachabilityForLocalWiFi.As originally designed, this method allowed apps using Bonjour to check the status of "local only" Wi-Fi(Wi-Fi without a connection to the larger internet) to determine whether or not they should advertise or browse.
+        ///However, the additional peer-to-peer APIs that have since been added to iOS and OS X have rendered it largely obsolete.Because of the narrow use case for this API and the large potential for misuse, reachabilityForLocalWiFi has been removed from Reachability.
+        ///Apps that have a specific requirement can use reachabilityWithAddress to monitor IN_LINKLOCALNETNUM (that is, 169.254.0.0).  
+        ///Note: ONLY apps that have a specific requirement should be monitoring IN_LINKLOCALNETNUM.For the overwhelming majority of apps, monitoring this address is unnecessary and potentially harmful.
         /// </summary>
         /// <returns></returns>
         public static NetworkStatus LocalWifiConnectionStatus()
