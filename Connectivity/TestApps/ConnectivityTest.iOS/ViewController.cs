@@ -51,7 +51,10 @@ namespace ConnectivityTest.iOS
         {
 
             var test1 = await CrossConnectivity.Current.IsReachable("montemagno.com");
-            var test2 = await CrossConnectivity.Current.IsRemoteReachable("montemagno.com");
+            var test2 = await CrossConnectivity.Current.IsRemoteReachable("google.com");
+            var test3 = await CrossConnectivity.Current.IsRemoteReachable("montemagno.com");
+            var test4 = await CrossConnectivity.Current.IsRemoteReachable("xamarinevolve.azurewebsites.net");
+            var test5 = await CrossConnectivity.Current.IsRemoteReachable("xamarin2222.com");
             LabelStatus.Text = "connected: " + CrossConnectivity.Current.IsConnected;
         }
     }
