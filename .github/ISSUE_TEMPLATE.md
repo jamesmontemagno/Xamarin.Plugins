@@ -4,6 +4,7 @@ If you are opening an issue for the following please go to their specific repo a
 - ExternalMaps - http://github.com/jamesmontemagno/LaunchMapsPlugin
 - Text To Speech - http://github.com/jamesmontemagno/TextToSpeechPlugin
 - Vibrate - http://github.com/jamesmontemagno/VibratePlugin
+- Circle Image for Xamarin.Forms: https://github.com/jamesmontemagno/ImageCirclePlugin
 
 
 Which Plugin does this impact: ___ <- fill in here
