@@ -97,22 +97,22 @@ namespace Plugin.Connectivity
               TrimEnd('/');
 
             
-            return await Task.Run(async () =>
+            return await Task.Run(() =>
             {
                 try
                 {
                     var clientDone = new ManualResetEvent(false);
                     var reachable = false;
 
-                    var ip = await Dns.GetHostEntryAsync(host);
+                    //var ip = await Dns.GetHostEntryAsync(host);
 
-                    var hasv6 = ip?.AddressList?.Any(s => s.AddressFamily == AddressFamily.InterNetworkV6) ?? false;
+                    //var hasv6 = ip?.AddressList?.Any(s => s.AddressFamily == AddressFamily.InterNetworkV6) ?? false;
 
-                    var family = hasv6 ? AddressFamily.InterNetworkV6 : AddressFamily.InterNetwork;
+                    //var family = hasv6 ? AddressFamily.InterNetworkV6 : AddressFamily.InterNetwork;
 
-                    var hostEntry = new DnsEndPoint(host, port, family);
+                    var hostEntry = new DnsEndPoint(host, port);
                     
-                    using (var socket = new Socket(family, SocketType.Stream, ProtocolType.Tcp))
+                    using (var socket = new Socket(SocketType.Stream, ProtocolType.Tcp))
                     {
                         var socketEventArg = new SocketAsyncEventArgs { RemoteEndPoint = hostEntry };
                         socketEventArg.Completed += (s, e) =>
