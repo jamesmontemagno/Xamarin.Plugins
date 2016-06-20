@@ -1,24 +1,16 @@
-Please take a moment to fill out the following (change to preview to check or place x in []) and remove all unused areas
+If you are opening an issue for the following please go to their specific repo and create a bug/feature request: 
+- Battery - http://github.com/jamesmontemagno/BatteryPlugin
+- DeviceInfo - http://github.com/jamesmontemagno/DeviceInfoPlugin
+- ExternalMaps - http://github.com/jamesmontemagno/LaunchMapsPlugin
+- Text To Speech - http://github.com/jamesmontemagno/TextToSpeechPlugin
+- Vibrate - http://github.com/jamesmontemagno/VibratePlugin
 
-This is a 
-- [] Bug
-- [] Feature Request
 
-Which plugin does this impact:
-- [] Battery
-- [] Connectivity
-- [] Contacts
-- [] DeviceInfo
-- [] ExternalMaps
-- [] Geolocator
-- [] Media
-- [] Permissions
-- [] Settings
-- [] Text To Speech
-- [] Vibrate
-- Other:
+Which Plugin does this impact: ___ <- fill in here
 
-## Bug
+Please fill out either the bug or feature request section and remove whatever section you are not using.
+
+## Bug 
 
 Version Number of Plugin:
 Device Tested On:
@@ -33,3 +25,4 @@ Simulator Tested On:
 
 ## Feature Request:
 Please fill in what you would like
+
