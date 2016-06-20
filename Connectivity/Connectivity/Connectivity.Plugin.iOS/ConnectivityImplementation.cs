@@ -2,6 +2,7 @@ using Plugin.Connectivity.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
@@ -95,14 +96,22 @@ namespace Plugin.Connectivity
               Replace("https://", string.Empty).
               TrimEnd('/');
 
-            return await Task.Run(() =>
+            
+            return await Task.Run(async () =>
             {
                 try
                 {
                     var clientDone = new ManualResetEvent(false);
                     var reachable = false;
-                    var hostEntry = new DnsEndPoint(host, port);
-                    using (var socket = new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp))
+
+                    var ip = await Dns.GetHostEntryAsync(host);
+
+                    var family = ip?.AddressList?.FirstOrDefault()?.AddressFamily ?? AddressFamily.InterNetwork;
+                    
+
+                    var hostEntry = new DnsEndPoint(host, port, family);
+                    
+                    using (var socket = new Socket(family, SocketType.Stream, ProtocolType.Tcp))
                     {
                         var socketEventArg = new SocketAsyncEventArgs { RemoteEndPoint = hostEntry };
                         socketEventArg.Completed += (s, e) =>
