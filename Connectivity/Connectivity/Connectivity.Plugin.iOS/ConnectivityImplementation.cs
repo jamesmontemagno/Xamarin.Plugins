@@ -106,8 +106,11 @@ namespace Plugin.Connectivity
 
                     var ip = await Dns.GetHostEntryAsync(host);
 
-                    var family = ip?.AddressList?.FirstOrDefault()?.AddressFamily ?? AddressFamily.InterNetwork;
-                    
+                    var hasv6 = ip?.AddressList?.Any(s => s.AddressFamily == AddressFamily.InterNetworkV6) ?? false;
+
+                    var family = hasv6 ? AddressFamily.InterNetworkV6 : AddressFamily.InterNetwork; 
+
+                    Debug.WriteLine(family);
 
                     var hostEntry = new DnsEndPoint(host, port, family);
                     
