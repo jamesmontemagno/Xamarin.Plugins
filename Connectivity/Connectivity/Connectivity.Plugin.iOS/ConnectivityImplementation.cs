@@ -108,9 +108,7 @@ namespace Plugin.Connectivity
 
                     var hasv6 = ip?.AddressList?.Any(s => s.AddressFamily == AddressFamily.InterNetworkV6) ?? false;
 
-                    var family = hasv6 ? AddressFamily.InterNetworkV6 : AddressFamily.InterNetwork; 
-
-                    Debug.WriteLine(family);
+                    var family = hasv6 ? AddressFamily.InterNetworkV6 : AddressFamily.InterNetwork;
 
                     var hostEntry = new DnsEndPoint(host, port, family);
                     
