@@ -16,7 +16,7 @@ namespace Plugin.Permissions
     /// <summary>
     /// Implementation for Feature
     /// </summary>
-    public class PermissionsImplementation : IPermissions
+    public class PermissionsImplementation : PermissionsBase
     {
 
         object locker = new object();
@@ -38,7 +38,7 @@ namespace Plugin.Permissions
         /// </summary>
         /// <returns>True or false to show rationale</returns>
         /// <param name="permission">Permission to check.</param>
-        public Task<bool> ShouldShowRequestPermissionRationaleAsync(Permission permission)
+        public override Task<bool> ShouldShowRequestPermissionRationaleAsync(Permission permission)
         {
             var activity = CrossCurrentActivity.Current.Activity;
             if(activity == null)
@@ -77,7 +77,7 @@ namespace Plugin.Permissions
         /// </summary>
         /// <returns><c>true</c> if this instance has permission the specified permission; otherwise, <c>false</c>.</returns>
         /// <param name="permission">Permission to check.</param>
-        public Task<PermissionStatus> CheckPermissionStatusAsync(Permission permission)
+        public override Task<PermissionStatus> CheckPermissionStatusAsync(Permission permission)
         {
             var names = GetManifestNames(permission);
 
@@ -115,7 +115,7 @@ namespace Plugin.Permissions
         /// </summary>
         /// <returns>The permissions and their status.</returns>
         /// <param name="permissions">Permissions to request.</param>
-        public async Task<Dictionary<Permission, PermissionStatus>> RequestPermissionsAsync(params Permission[] permissions)
+        public override async Task<Dictionary<Permission, PermissionStatus>> RequestPermissionsAsync(params Permission[] permissions)
         {
             if (tcs != null && !tcs.Task.IsCompleted)
             {
