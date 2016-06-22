@@ -5,6 +5,7 @@ Create and access settings from shared code across all of your mobile apps!
 ### Uses the native settings management
 * Android: SharedPreferences
 * iOS: NSUserDefaults
+* OS X: NSUserDefaults
 * Windows Phone: IsolatedStorageSettings
 * Windows RT / UWP: ApplicationDataContainer
 
@@ -26,6 +27,7 @@ Create and access settings from shared code across all of your mobile apps!
 |Windows Phone RT|Yes|8.1+|
 |Windows Store RT|Yes|8.1+|
 |Windows 10 UWP|Yes|10+|
+|MonoMac|Yes||
 |Xamarin.Mac|No||
 
 #### Create a new static class
