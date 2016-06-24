@@ -36,6 +36,10 @@ namespace Plugin.Settings
             }
         }
 
+#if __IOS__
+        public static string DefaultsName { get; set; }
+#endif
+
         static ISettings CreateSettings()
         {
 #if PORTABLE

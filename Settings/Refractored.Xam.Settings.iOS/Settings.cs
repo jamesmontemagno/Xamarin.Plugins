@@ -28,7 +28,7 @@ namespace Plugin.Settings
         {
             lock (locker)
             {
-                var defaults = NSUserDefaults.StandardUserDefaults;
+                var defaults = GetDefaults();
 
                 if (defaults.ValueForKey(new NSString(key)) == null)
                     return defaultValue;
@@ -145,7 +145,7 @@ namespace Plugin.Settings
         {
             lock (locker)
             {
-                var defaults = NSUserDefaults.StandardUserDefaults;
+                var defaults = GetDefaults();
                 switch (typeCode)
                 {
                     case TypeCode.Decimal:
@@ -208,7 +208,7 @@ namespace Plugin.Settings
         {
             lock (locker)
             {
-                var defaults = NSUserDefaults.StandardUserDefaults;
+                var defaults = GetDefaults();
                 try
                 {
                     var nsString = new NSString(key);
@@ -225,6 +225,11 @@ namespace Plugin.Settings
             }
         }
 
+        private NSUserDefaults GetDefaults()
+        {
+            return string.IsNullOrWhiteSpace(CrossSettings.DefaultsName) ? NSUserDefaults.StandardUserDefaults
+                : new NSUserDefaults(CrossSettings.DefaultsName, NSUserDefaultsType.SuiteName);
+        }
     }
 
 }
