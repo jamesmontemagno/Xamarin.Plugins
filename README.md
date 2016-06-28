@@ -34,14 +34,14 @@ Download the sample app today:
 # My Current Plugins for Xamarin
 Each plugin has a README with more information on what they contain. These are plugins I have created and maintain:
 * **[Battery Status](https://github.com/jamesmontemagno/BatteryPlugin)**: Get battery level, how it is getting charge, and events.
-* **[Connectivity](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Connectivity)**: See if device is connected to the internet and through what connection type.
+* **[Connectivity](https://github.com/jamesmontemagno/ConnectivityPlugin)**: See if device is connected to the internet and through what connection type.
 * **[Contacts](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Contacts)**: Currently in Alpha to gather and query contacts
 * **[Device Information](https://github.com/jamesmontemagno/DeviceInfoPlugin)**: Base information about each device such as OS and version.
 * **[Extended Maps](https://github.com/jamesmontemagno/LaunchMapsPlugin)**: Launch navigation directions in default map app on each OS
-* **[Geolocator](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Geolocator)**: Easy way of querying GPS location
-* **[Media](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Media)**: Take or pick photos/videos
-* **[Permissions](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Permissions)**: Check and request runtime permissions.
-* **[Settings](https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Settings)**: Fully cross platform settings for your application.
+* **[Geolocator](https://github.com/jamesmontemagno/GeolocatorPlugin)**: Easy way of querying GPS location
+* **[Media](https://github.com/jamesmontemagno/MediaPlugin)**: Take or pick photos/videos
+* **[Permissions](https://github.com/jamesmontemagno/PermissionsPlugin)**: Check and request runtime permissions.
+* **[Settings](https://github.com/jamesmontemagno/SettingsPlugin)**: Fully cross platform settings for your application.
 * **[Share](https://github.com/jguertl/SharePlugin)**: Easily share text or open a browser
 * **[Text To Speech](https://github.com/jamesmontemagno/TextToSpeechPlugin)**: Turn your text into a vocal symphony on mobile devices.
 * **[Vibrate](https://github.com/jamesmontemagno/VibratePlugin)**: Make that device rumble!
