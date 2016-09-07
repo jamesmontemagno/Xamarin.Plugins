@@ -61,7 +61,7 @@ if(await CrossContacts.Current.RequestPermission())
 Tha android.permissions.READ_CONTACTS permission is required, but the library will automatically add this for you. Additionally, if your users are running Marshmallow the Plugin will automatically prompt them for runtime permissions when RequestPermissions() is called.
 
 **iOS**
-Permissions will automatically be requrested when RequestPermissions() is called.
+Permissions will automatically be requrested when RequestPermissions() is called.  For iOS 10, you must add NSContactsUsageDescription to the Info.plist.  Apple has provided this as a way to show the user why a certain permission is required since iOS 6.  It has become manditory in iOS 10.
 
 **Windows Phone**
 You must add ID_CAP_CONTACTS permission
