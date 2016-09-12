@@ -35,7 +35,7 @@ Ported from [Xamarin.Mobile](http://www.github.com/xamarin/xamarin.mobile) to a 
 ```csharp
 if(await CrossContacts.Current.RequestPermission())
       {
-     
+
         List<Contact> contacts = null;
         CrossContacts.Current.PreferContactAggregation = false;//recommended
 //run in background
@@ -61,6 +61,7 @@ if(await CrossContacts.Current.RequestPermission())
 Tha android.permissions.READ_CONTACTS permission is required, but the library will automatically add this for you. Additionally, if your users are running Marshmallow the Plugin will automatically prompt them for runtime permissions when RequestPermissions() is called.
 
 **iOS**
+When compiling against iOS 10 SDK Your info.plist needs to specify key NSContactsUsageDescription and a value explaining why the application wants to access the contacts.
 Permissions will automatically be requrested when RequestPermissions() is called.
 
 **Windows Phone**
