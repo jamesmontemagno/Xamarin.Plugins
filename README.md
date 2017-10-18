@@ -2,10 +2,14 @@
 
 See a full list of community built plugins at: https://github.com/xamarin/plugins
 
+## Download Sample Apps!
+Try out my plugins on your own device!
+* Android: [Google Play](https://play.google.com/store/apps/details?id=com.refractored.testappforms)
+* Windows 10 UWP: [Windows Store](https://www.microsoft.com/en-us/store/p/plugins-for-xamarin/9nj14nhqq6cf)
 
 ## Follow Me
 * Twitter: [@JamesMontemagno](http://twitter.com/jamesmontemagno)
-* Blog: [MotzCod.es](http://motzcod.es)
+* Blog: [Montemagno.com](https://montemagno.com)
 
 ## What is this?
 This is my main repo for all all Xamarin Plugins that I have or will be publishing. It is also example and documentation on how to create your very own PCL Plugin. These PCL plugins will allow you to add rich cross platform functionality to Xamarin, Xamarin.Forms and Windows Projects that use a PCLs or Shared Project.
