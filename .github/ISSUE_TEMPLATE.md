@@ -1,4 +1,6 @@
-If you are opening an issue for the following please go to their specific repo and create a bug/feature request: 
+DO NOT POST AN ISSUE HERE! THEY WILL BE CLOSED WITH NO RESPONSE!
+
+Open an issue for the specific repo: 
 - Battery - http://github.com/jamesmontemagno/BatteryPlugin
 - Connectivity - http://github.com/jamesmontemagno/ConnectivityPlugin
 - CurrentActivity - http://github.com/jamesmontemagno/CurrentActivityPlugin
@@ -13,24 +15,4 @@ If you are opening an issue for the following please go to their specific repo a
 
 - Circle Image for Xamarin.Forms: https://github.com/jamesmontemagno/ImageCirclePlugin
 
-
-Which Plugin does this impact: ___ <- fill in here
-
-Please fill out either the bug or feature request section and remove whatever section you are not using.
-
-## Bug 
-
-* Version Number of Plugin:
-* Device Tested On:
-* Simulator Tested On:
-
-### Expected Behavior
-
-### Actual Behavior
-
-### Steps to reproduce the Behavior
-
-
-## Feature Request:
-Please fill in what you would like
 
