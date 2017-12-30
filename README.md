@@ -44,7 +44,7 @@ Controls:
 
 
 # Awesome Plugins I Contribute To:
-* **[Compass](https://github.com/JarleySoft/Xamarin.Plugins/tree/master/Compass)**: Easily access compass heading
+* **[Compass](https://github.com/JarleySoft/CompassPlugin)**: Easily access compass heading
 * **[Local Notifications](https://github.com/edsnider/Xamarin.Plugins/tree/master/Notifier)**: Easily show and schedule local notifications.
 * **[Messaging](https://github.com/cjlotz/Xamarin.Plugins/tree/master/Messaging)**: Send emails, sms, and place phone calls
 
