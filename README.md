@@ -1,3 +1,9 @@
+## The Future: Xamarin.Essentials
+
+I have been working on Plugins for Xamarin for a long time now. Through the years I have always wanted to create a single, optimized, and official package from the Xamarin team at Microsoft that could easily be consumed by any application. The time is now with Xamarin.Essentials, which offers over 30 cross-platform native APIs in a single optmized package. I worked on this new library with an amazing team of developers and I highly highly highly recommend you check it out:
+
+https://docs.microsoft.com/en-us/xamarin/essentials/
+
 ## Plugins for Xamarin and Windows Projects
 
 See a full list of community built plugins at: https://github.com/xamarin/plugins
@@ -14,7 +20,7 @@ Try out my plugins on your own device!
 ## What is this?
 This is my main repo for all all Xamarin Plugins that I have or will be publishing. It is also example and documentation on how to create your very own PCL Plugin. These PCL plugins will allow you to add rich cross platform functionality to Xamarin, Xamarin.Forms and Windows Projects that use a PCLs or Shared Project.
 
-Read more on my blog: http://motzcod.es/post/104507063997/what-exactly-is-a-plugin-for-xamarin
+Read more on my blog: https://montemagno.com/what-exactly-is-a-plugin-for-xamarin/
 
 ## Contribute
 My Plugins for Xamarin are completely open source and I encourage and accept pull requests! So please help out in any ways you can:
