@@ -1,4 +1,8 @@
-Ensure that your library is in the correct location and you have filled out the following information:
+Ensure that your library is:
+
+* In the correct location
+* Is in alphabetical order
+* You have filled out the following information:
 
 |Name|Description|[NuGet]()|[GitHub]()|[Creator]()|
 
