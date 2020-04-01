@@ -122,8 +122,10 @@ These are things that your app needs, but aren't UI or normal libraries such as 
 
 |Name|Description|NuGet|Docs & Source|Creator|
 | ------------------- | --------------------------------- | :-----------: | :-----------: |-------------------- |
-|ResizetizerNT|Add & Resize SVGs and PNGs to your shared projects.|[NuGet](https://www.nuget.org/packages/Resizetizer.NT)|[GitHub](https://github.com/Redth/ResizetizerNT)|[Jon Dick](https://twitter.com/redth)|
+|Mobile Tasks for Azure DevOps|Tasks to update version numbers & package information|[VS Marketplace](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.motz-mobile-buildtasks)|[GitHub](https://github.com/jamesmontemagno/vsts-mobile-tasks)|[James Montemagno](https://www.twitter.com/jamesmontemagno)|
 |Mobile.BuildTools|Handle Project Secrets, Process SCSS to Xamarin.Forms CSS, Cross platform image management, White-Labeling and more powered by MSBuild.|[NuGet](https://https://www.nuget.org/packages/Mobile.BuildTools)|[GitHub](https://github.com/dansiegel/Mobile.BuildTools)|[Dan Siegel](https://twitter.com/DanJSiegel)|
+|ResizetizerNT|Add & Resize SVGs and PNGs to your shared projects.|[NuGet](https://www.nuget.org/packages/Resizetizer.NT)|[GitHub](https://github.com/Redth/ResizetizerNT)|[Jon Dick](https://twitter.com/redth)|
+
 
 ## Create a Plugin for Xamarin
 If you are looking to create a plugin be sure to browse through NuGet first and ensure that the plugin doesn't exist. If one does join in on the fun and collaborate. If it doesn't and you want to start building a Plugin here are some tools and guidelines to get you started.
