@@ -104,6 +104,7 @@ Here are some awesome UI controls for your Xamarin.Forms apps!
 |Name|Description|NuGet|Docs & Source|Creator|
 | ------------------- | --------------------------------- | :-----------: | :-----------: |-------------------- |
 |Bottom Sheet|Sliding bottom sheet control.|[NuGet](https://www.nuget.org/packages/DIPS.Xamarin.UI/)|[GitHub](https://github.com/DIPSAS/DIPS.Xamarin.UI)|[DIPS AS Team](https://github.com/DIPSAS)|
+|Breadcrumb|Automatically generated breadcrumb navigation control for Xamarin.Forms.|[NuGet](https://www.nuget.org/packages/Xamarin.Forms.Breadcrumb)|[GitHub](https://github.com/IeuanWalker/Xamarin.Forms.Breadcrumb)|[Ieuan Walker](https://twitter.com/IeuanTWalker)| 
 |Color Picker|An interactive and responsive Color Picker Control for Xamarin.Forms based on SkiaSharp!|[NuGet](https://www.nuget.org/packages/Udara.Plugin.XFColorPickerControl/)|[GitHub](https://github.com/UdaraAlwis/XFColorPickerControl)|[Udara Alwis](https://github.com/UdaraAlwis)|
 |Debug Rainbows|Overlay grids to help manage layouts.|[NuGet](https://www.nuget.org/packages/Xamarin.Forms.DebugRainbows/)|[GitHub](https://github.com/sthewissen/Xamarin.Forms.DebugRainbows)|[Steven Thewissen](https://twitter.com/devnl)|
 |FFImageLoading|Image loading with caching, placeholders, transformations and more|[NuGet](https://www.nuget.org/packages/Xamarin.FFImageLoading.Forms/)|[GitHub](https://github.com/molinch/FFImageLoading)|[@molinch](https://github.com/molinch), [@daniel-luberda](https://github.com/daniel-luberda/)|
@@ -116,7 +117,6 @@ Here are some awesome UI controls for your Xamarin.Forms apps!
 |StateSquid|Turn any layout into an individual state-aware element|[Nuget](https://www.nuget.org/packages/Xamarin.Forms.StateSquid)|[GitHub](https://github.com/sthewissen/Xamarin.Forms.StateSquid)|[Steven Thewissen](https://twitter.com/devnl)|
 |Xamanimation|An awesome animation library for Xamarin.Forms|[NuGet](https://www.nuget.org/packages/Xamanimation/)|[GitHub](https://github.com/jsuarezruiz/Xamanimation)|[Creator]()|
 |Xamlly|Control library featuring progress, switch, toggle button, and more.|[NuGet](https://www.nuget.org/packages/Xamlly/)|[GitHub](https://github.com/mshwf/Xamlly)|[Mohamed Elshawaf](https://github.com/mshwf)|
-|Xamarin.Forms.Breadcrumb|An automatically generated breadcrumb navigation control|[NuGet](https://www.nuget.org/packages/Xamarin.Forms.Breadcrumb)|[GitHub](https://github.com/IeuanWalker/Xamarin.Forms.Breadcrumb)|[Ieuan Walker](https://twitter.com/IeuanTWalker?s=09) 
 
 ## Great Utilities
 These are things that your app needs, but aren't UI or normal libraries such as Visual Studio extensions or other magic build time things.
