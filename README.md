@@ -1,6 +1,6 @@
 # Plugins for .NET, Xamarin, and Windows
 
-Here is my essential list of official and community plugins and libraries for applications. You will find a lot of Xamarin and Xamarin.Forms libraries, but also great libraries for .NET that can help power your apps.
+Here is my essential list of official and community plugins and libraries for applications. You will find a lot of Xamarin and Xamarin.Forms libraries, but also great libraries for .NET that can help power your apps. If you have a favorite library or are the creator of one, please send a PR!
 
 ## [Xamarin.Essentials](https://docs.microsoft.com/xamarin/essentials/index?WT.mc_id=docs-github-jamont): The stuff your app needs
 
