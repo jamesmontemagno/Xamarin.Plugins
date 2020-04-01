@@ -1,26 +1,5 @@
-Please take a moment to fill out the following (change to preview to check or place x in []):
+Ensure that your library is in the correct location and you have filled out the following information:
 
-Fixes # .
+|Name|Description|[NuGet]()|[GitHub]()|[Creator]()|
 
-Changes Proposed in this pull request:
--
--
-- 
-
-This fixes/implements:
-- [] Bug
-- [] Feature Request
-
-Which plugin does this impact:
-- [] Battery
-- [] Connectivity
-- [] Contacts
-- [] DeviceInfo
-- [] ExternalMaps
-- [] Geolocator
-- [] Media
-- [] Permissions
-- [] Settings
-- [] Text To Speech
-- [] Vibrate
-- Other:
+If the functionality of your library is already included in Xamarin.Forms or Xamarin.Essentials then it will not be accepted.

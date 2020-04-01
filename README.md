@@ -8,7 +8,7 @@ Xamarin.Essentials gives developers essential cross-platform APIs for their mobi
 
 The repository for Xamarin.Essentials can be found at https://github.com/xamarin/Essentials. If you have any suggestions or feature requests, or if you find any issues, please open a new issue.
 
-If you have bene using my plugins, I will continue to support the ones that aren't in Xamarin.Essentials, but I recommend you transition using my [guide](https://montemagno.com/upgrading-from-plugins-to-xamarin-essentials/)
+If you have bene using my plugins, I will continue to support the ones that aren't in Xamarin.Essentials, but I recommend you transition using my [guide](https://montemagno.com/upgrading-from-plugins-to-xamarin-essentials/).
 
 ## [Shiny](https://www.github.com/shinyorg/shiny): That complex stuff made easy
 
@@ -60,6 +60,7 @@ Browse through the most popular plugins out there today!
 These are just some awesome libraries that work in any .NET app!
 
 |Name|Description|NuGet|Docs & Source|Creator|
+| ------------------- | --------------------------------- | :-----------: | :-----------: |-------------------- |
 |AnyBind|Easily bind ViewModel to one or more Models.|[NuGet](https://www.nuget.org/packages/AnyBind/)|[GitHub](https://github.com/AlexKven/AnyBind)|[Alexander Kvenvolden](https://github.com/AlexKven)|
 |Expressive|Expression parsing and evaluation framework|[NuGet](https://www.nuget.org/packages/ExpressiveParser/)|[GitHub](https://github.com/bijington/expressive)|[Shawn Lawrence](https://github.com/bijington)|
 |HttpTracer|Simple tracing library to capture HTTP request/responses.|[NuGet](https://www.nuget.org/packages/HttpTracer/)|[GitHub](https://github.com/BSiLabs/HttpTracer)|[BSi Labs](https://github.com/BSiLabs)|
@@ -93,14 +94,14 @@ Looking for controls for your apps? These vendors have absolutely everything tha
 * [Syncfusion](https://www.Syncfusion.com)
 * [Telerik](https://www.Telerik.com)
 
-### Awesome Components Trailer
-<iframe width="560" height="315" src="https://www.youtube.com/embed/aXxKy-KjYfM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Checkout the awesome trailer for these controls on [YouTube](https://www.youtube.com/watch?v=aXxKy-KjYfM).
 
 ## UI Controls - Community
 
 Here are some awesome UI controls for your Xamarin.Forms apps!
 
 |Name|Description|NuGet|Docs & Source|Creator|
+| ------------------- | --------------------------------- | :-----------: | :-----------: |-------------------- |
 |Bottom Sheet|Sliding bottom sheet control.|[NuGet](https://www.nuget.org/packages/DIPS.Xamarin.UI/)|[GitHub](https://github.com/DIPSAS/DIPS.Xamarin.UI)|[DIPS AS Team](https://github.com/DIPSAS)|
 |Color Picker|An interactive and responsive Color Picker Control for Xamarin.Forms based on SkiaSharp!|[NuGet](https://www.nuget.org/packages/Udara.Plugin.XFColorPickerControl/)|[GitHub](https://github.com/UdaraAlwis/XFColorPickerControl)|[Udara Alwis](https://github.com/UdaraAlwis)|
 |Debug Rainbows|Overlay grids to help manage layouts.|[NuGet](https://www.nuget.org/packages/Xamarin.Forms.DebugRainbows/)|[GitHub](https://github.com/sthewissen/Xamarin.Forms.DebugRainbows)|[Steven Thewissen](https://twitter.com/devnl)|
@@ -118,6 +119,7 @@ Here are some awesome UI controls for your Xamarin.Forms apps!
 These are things that your app needs, but aren't UI or normal libraries such as Visual Studio extensions or other magic build time things.
 
 |Name|Description|NuGet|Docs & Source|Creator|
+| ------------------- | --------------------------------- | :-----------: | :-----------: |-------------------- |
 |ResizetizerNT|Add & Resize SVGs and PNGs to your shared projects.|[NuGet](https://www.nuget.org/packages/Resizetizer.NT)|[GitHub](https://github.com/Redth/ResizetizerNT)|[Jon Dick](https://twitter.com/redth)|
 
 ## Create a Plugin for Xamarin
