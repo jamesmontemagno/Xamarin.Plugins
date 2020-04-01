@@ -116,6 +116,7 @@ Here are some awesome UI controls for your Xamarin.Forms apps!
 |StateSquid|Turn any layout into an individual state-aware element|[Nuget](https://www.nuget.org/packages/Xamarin.Forms.StateSquid)|[GitHub](https://github.com/sthewissen/Xamarin.Forms.StateSquid)|[Steven Thewissen](https://twitter.com/devnl)|
 |Xamanimation|An awesome animation library for Xamarin.Forms|[NuGet](https://www.nuget.org/packages/Xamanimation/)|[GitHub](https://github.com/jsuarezruiz/Xamanimation)|[Creator]()|
 |Xamlly|Control library featuring progress, switch, toggle button, and more.|[NuGet](https://www.nuget.org/packages/Xamlly/)|[GitHub](https://github.com/mshwf/Xamlly)|[Mohamed Elshawaf](https://github.com/mshwf)|
+|Xamarin.Forms.Breadcrumb|An automatically generated breadcrumb navigation control|[NuGet](https://www.nuget.org/packages/Xamarin.Forms.Breadcrumb)|[GitHub](https://github.com/IeuanWalker/Xamarin.Forms.Breadcrumb)|[Ieuan Walker](https://twitter.com/IeuanTWalker?s=09) 
 
 ## Great Utilities
 These are things that your app needs, but aren't UI or normal libraries such as Visual Studio extensions or other magic build time things.
