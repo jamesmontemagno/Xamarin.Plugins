@@ -93,7 +93,7 @@ Looking for controls for your apps? These vendors have absolutely everything tha
 * [GrialKit](https://www.GrialKit.com)
 * [Steema](https://www.Steema.com)
 * [Syncfusion](https://www.Syncfusion.com)
-* [Telerik](https://www.Telerik.com)
+* [Telerik](https://www.telerik.com/xamarin-ui)
 
 Checkout the awesome trailer for these controls on [YouTube](https://www.youtube.com/watch?v=aXxKy-KjYfM).
 
