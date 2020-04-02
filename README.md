@@ -86,13 +86,13 @@ Xamarin.Forms and Windows has MVVM built right, but perhaps you want to go farth
 Looking for controls for your apps? These vendors have absolutely everything that you need. Many offer free trials, community editions or a free version.
 
 * [Aurora Controls](https://www.AuroraControls.app)
-* [DevExpress](https://www.DevExpress.com)
+* [DevExpress](https://www.devexpress.com/xamarin/)
 * [eliteKit](https://www.eliteKit.io)
-* [Infragistics](https://www.Infragistics.com)
-* [GrapeCity](https://www.GrapeCity.com)
+* [Infragistics](https://www.infragistics.com/products/xamarin)
+* [GrapeCity](https://www.grapecity.com/componentone/xamarin-ui-controls)
 * [GrialKit](https://www.GrialKit.com)
-* [Steema](https://www.Steema.com)
-* [Syncfusion](https://www.Syncfusion.com)
+* [Steema](https://www.steema.com/product/forms)
+* [Syncfusion](https://www.syncfusion.com/xamarin-ui-controls)
 * [Telerik](https://www.telerik.com/xamarin-ui)
 
 Checkout the awesome trailer for these controls on [YouTube](https://www.youtube.com/watch?v=aXxKy-KjYfM).
