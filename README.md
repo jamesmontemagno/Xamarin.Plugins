@@ -105,6 +105,7 @@ Here are some awesome UI controls for your Xamarin.Forms apps!
 |Name|Description|NuGet|Docs & Source|Creator|
 | ------------------- | --------------------------------- | :-----------: | :-----------: |-------------------- |
 |AutoSuggestBox|Auto-complete/suggestion textbox control|[NuGet](https://www.nuget.org/packages/dotMorten.Xamarin.Forms.AutoSuggestBox)|[GitHub](https://github.com/dotMorten/XamarinFormsControls/tree/master/AutoSuggestBox)|[dotMorten](https://github.com/dotMorten)|
+|Bit controls|Multi calendar date time picker based on noda time and a few other controls.|[NuGet](https://www.nuget.org/packages/Bit.CSharpClient.Controls/)|[GitHub](https://github.com/bitfoundation/bitframework/blob/master/docs/bit-csharp-client/csharp-client-intro.md)|[Bit foundation](https://github.com/bitfoundation)|
 |Bottom Sheet|Sliding bottom sheet control.|[NuGet](https://www.nuget.org/packages/DIPS.Xamarin.UI/)|[GitHub](https://github.com/DIPSAS/DIPS.Xamarin.UI)|[DIPS AS Team](https://github.com/DIPSAS)|
 |Breadcrumb|Automatically generated breadcrumb navigation control for Xamarin.Forms.|[NuGet](https://www.nuget.org/packages/Xamarin.Forms.Breadcrumb)|[GitHub](https://github.com/IeuanWalker/Xamarin.Forms.Breadcrumb)|[Ieuan Walker](https://twitter.com/IeuanTWalker)| 
 |Color Picker|An interactive and responsive Color Picker Control for Xamarin.Forms based on SkiaSharp!|[NuGet](https://www.nuget.org/packages/Udara.Plugin.XFColorPickerControl/)|[GitHub](https://github.com/UdaraAlwis/XFColorPickerControl)|[Udara Alwis](https://github.com/UdaraAlwis)|
