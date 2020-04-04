@@ -129,6 +129,8 @@ These are things that your app needs, but aren't UI or normal libraries such as 
 |Mobile Tasks for Azure DevOps|Tasks to update version numbers & package information|[VS Marketplace](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.motz-mobile-buildtasks)|[GitHub](https://github.com/jamesmontemagno/vsts-mobile-tasks)|[James Montemagno](https://www.twitter.com/jamesmontemagno)|
 |Mobile.BuildTools|Handle Project Secrets, Process SCSS to Xamarin.Forms CSS, Cross platform image management, White-Labeling and more powered by MSBuild.|[NuGet](https://https://www.nuget.org/packages/Mobile.BuildTools)|[GitHub](https://github.com/dansiegel/Mobile.BuildTools)|[Dan Siegel](https://twitter.com/DanJSiegel)|
 |ResizetizerNT|Add & Resize SVGs and PNGs to your shared projects.|[NuGet](https://www.nuget.org/packages/Resizetizer.NT)|[GitHub](https://github.com/Redth/ResizetizerNT)|[Jon Dick](https://twitter.com/redth)|
+|VSMac-CodeCoverage|Gather code coverage results for your unit test projects from Visual Studio for Mac.||[GitHub](https://github.com/ademanuele/VSMac-CodeCoverage)|[Arthur Demanuele](https://twitter.com/arthurdemanuele)|
+|VSMac-CodeDistribution|A Visual Studio for Mac extension that visualises code distribution between projects. Particularly useful for Xamarin projects to understand the amount of code shared between platforms.||[GitHub](https://github.com/ademanuele/VSMac-CodeDistribution)|[Arthur Demanuele](https://twitter.com/arthurdemanuele)|
 
 
 ## Create a Plugin for Xamarin
