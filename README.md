@@ -104,6 +104,7 @@ Here are some awesome UI controls for your Xamarin.Forms apps!
 
 |Name|Description|NuGet|Docs & Source|Creator|
 | ------------------- | --------------------------------- | :-----------: | :-----------: |-------------------- |
+|AutoForms|Auto generated Xamarin.Forms UI from your Domain Models|[NuGet](https://www.nuget.org/packages/Xamarin.Forms.AutoForms)|[GitHub](https://github.com/patrickabadi/AutoForms)|[Patrick Abadi](https://github.com/patrickabadi), [Daniel Packard](https://github.com/daniel-packard)|
 |AutoSuggestBox|Auto-complete/suggestion textbox control|[NuGet](https://www.nuget.org/packages/dotMorten.Xamarin.Forms.AutoSuggestBox)|[GitHub](https://github.com/dotMorten/XamarinFormsControls/tree/main/AutoSuggestBox)|[dotMorten](https://github.com/dotMorten)|
 |Bit controls|Multi calendar date time picker based on noda time and a few other controls.|[NuGet](https://www.nuget.org/packages/Bit.Client.Xamarin.Controls/)|[GitHub](https://github.com/bitfoundation/bitframework/blob/master/docs/bit-csharp-client/csharp-client-intro.md)|[Bit foundation](https://github.com/bitfoundation)|
 |Breadcrumb|Automatically generated breadcrumb navigation control for Xamarin.Forms.|[NuGet](https://www.nuget.org/packages/Xamarin.Forms.Breadcrumb)|[GitHub](https://github.com/IeuanWalker/Xamarin.Forms.Breadcrumb)|[Ieuan Walker](https://twitter.com/IeuanTWalker)| 
