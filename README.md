@@ -4,7 +4,7 @@ Here is my essential list of official and community plugins and libraries for ap
 
 ## [Xamarin.Essentials](https://docs.microsoft.com/xamarin/essentials/index?WT.mc_id=docs-github-jamont): The stuff your app needs
 
-Xamarin.Essentials gives developers essential cross-platform APIs for their mobile applications. Xamarin.Essentials exposes over 60 native APIs in a single cross-platform package for developers to consume in their iOS, Android, UWP, or Xamarin.Forms application. Browse through the [documentation](https://docs.microsoft.com/xamarin/essentials) on how to get started today.
+Xamarin.Essentials gives developers essential cross-platform APIs for their mobile applications. Xamarin.Essentials exposes over 60 native APIs in a single cross-platform package for developers to consume in their iOS, Android, UWP, or Xamarin.Forms application. Browse through the [documentation](https://docs.microsoft.com/xamarin/essentials?WT.mc_id=xamarin.plugins-github-jamont) on how to get started today.
 
 The repository for Xamarin.Essentials can be found at https://github.com/xamarin/Essentials. If you have any suggestions or feature requests, or if you find any issues, please open a new issue.
 
@@ -135,7 +135,7 @@ These are things that your app needs, but aren't UI or normal libraries such as 
 
 |Name|Description|NuGet|Docs & Source|Creator|
 | ------------------- | --------------------------------- | :-----------: | :-----------: |-------------------- |
-|Mobile Tasks for Azure DevOps|Tasks to update version numbers & package information|[VS Marketplace](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.motz-mobile-buildtasks)|[GitHub](https://github.com/jamesmontemagno/vsts-mobile-tasks)|[James Montemagno](https://www.twitter.com/jamesmontemagno)|
+|Mobile Tasks for Azure DevOps|Tasks to update version numbers & package information|[VS Marketplace](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.motz-mobile-buildtasks&WT.mc_id=xamarin.plugins-github-jamont)|[GitHub](https://github.com/jamesmontemagno/vsts-mobile-tasks)|[James Montemagno](https://www.twitter.com/jamesmontemagno)|
 |Mobile.BuildTools|Handle Project Secrets, Process SCSS to Xamarin.Forms CSS, Cross platform image management, White-Labeling and more powered by MSBuild.|[NuGet](https://https://www.nuget.org/packages/Mobile.BuildTools)|[GitHub](https://github.com/dansiegel/Mobile.BuildTools)|[Dan Siegel](https://twitter.com/DanJSiegel)|
 |ResizetizerNT|Add & Resize SVGs and PNGs to your shared projects.|[NuGet](https://www.nuget.org/packages/Resizetizer.NT)|[GitHub](https://github.com/Redth/ResizetizerNT)|[Jon Dick](https://twitter.com/redth)|
 |VSMac-CodeCoverage|Gather code coverage results for your unit test projects from Visual Studio for Mac.|[mpack install](https://github.com/ademanuele/VSMac-CodeCoverage/releases)|[GitHub](https://github.com/ademanuele/VSMac-CodeCoverage)|[Arthur Demanuele](https://twitter.com/arthurdemanuele)|
@@ -146,7 +146,7 @@ These are things that your app needs, but aren't UI or normal libraries such as 
 If you are looking to create a plugin be sure to browse through NuGet first and ensure that the plugin doesn't exist. If one does join in on the fun and collaborate. If it doesn't and you want to start building a Plugin here are some tools and guidelines to get you started.
 
 **Tools to get Started**
-* [Visual Studio Plugin Templates](https://visualstudiogallery.msdn.microsoft.com/afead421-3fbf-489a-a4e8-4a244ecdbb1e): Provides a complete plugin template and easy NuGet specification to publish.
+* [Visual Studio Plugin Templates](https://visualstudiogallery.msdn.microsoft.com/afead421-3fbf-489a-a4e8-4a244ecdbb1e?WT.mc_id=xamarin.plugins-github-jamont): Provides a complete plugin template and easy NuGet specification to publish.
 * [Using & Developing Plugins for Xamarin](https://university.xamarin.com/guestlectures/using-developing-plugins-for-xamarin): Join Developer Evangelist James Montemagno as he walks you through creating a plugin from scratch on Xamarin University
 
 **Requirements of a Plugin**
