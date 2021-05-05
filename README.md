@@ -64,6 +64,7 @@ These are just some awesome libraries that work in any .NET app!
 |Name|Description|NuGet|Docs & Source|Creator|
 | ------------------- | --------------------------------- | :-----------: | :-----------: |-------------------- |
 |AnyBind|Easily bind ViewModel to one or more Models.|[NuGet](https://www.nuget.org/packages/AnyBind/)|[GitHub](https://github.com/AlexKven/AnyBind)|[Alexander Kvenvolden](https://github.com/AlexKven)|
+|Apizr|Refit based web api client, but resilient.|[NuGet](https://www.nuget.org/packages/Apizr/)|[GitHub](https://github.com/Respawnsive/Apizr)|[Respawnsive Team](https://github.com/Respawnsive)|
 |Expressive|Expression parsing and evaluation framework|[NuGet](https://www.nuget.org/packages/ExpressiveParser/)|[GitHub](https://github.com/bijington/expressive)|[Shawn Lawrence](https://github.com/bijington)|
 |HttpTracer|Simple tracing library to capture HTTP request/responses.|[NuGet](https://www.nuget.org/packages/HttpTracer/)|[GitHub](https://github.com/BSiLabs/HttpTracer)|[BSi Labs](https://github.com/BSiLabs)|
 |MvvmHelpers|Collection of small MVVM helpers for app devs.|[NuGet](https://www.nuget.org/packages/Refractored.MvvmHelpers/)|[GitHub](https://github.com/jamesmontemagno/mvvm-helpers)|[Creator](https://twitter.com/jamesmontemagno)|
